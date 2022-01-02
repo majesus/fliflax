@@ -11,7 +11,7 @@ st.markdown(""" <style> .font {
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
 col1, col2, col3 = st.columns([0.2, 5, 0.2])
-col2.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True)
+col2.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
 # st.image("Avatar-con-naming-Fliflax.jpg",width=400)
 #----------------------------------------------------#
 
