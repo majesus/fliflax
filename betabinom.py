@@ -10,9 +10,8 @@ st.markdown(""" <style> .font {
     font-size:50px ; font-family: 'Consolas'; color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-background = Image.open("Avatar-con-naming-Fliflax.jpg")
 col1, col2, col3 = st.columns([0.2, 5, 0.2])
-col2.image(background, use_column_width=True)
+col2.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True)
 # st.image("Avatar-con-naming-Fliflax.jpg",width=400)
 #----------------------------------------------------#
 
