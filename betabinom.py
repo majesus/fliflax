@@ -87,19 +87,20 @@ df = df.head(n=n)
 if df.lt(0).any().any() == True:
     st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar que obtienes valores negativos en la tabla de la distribución de contactos. <b>El valor de A2 es excesivo en comparación con A1</b>, y la distribución no sabe interpretarlo correctamente.</b></p>', unsafe_allow_html=True)
 else:
-    st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;">A continuación, te mostramos los principales resultados.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 
 #----------------------------------------------------#
-st.write("A continuación, dibujamos "
+st.write("Dibujamos "
          "la representación gráfica de la distribución de contactos "
          "mediante el trazado de una curva suave en Matplotlib. "
          "La curva representa el número de personas alcanzadas exclusivamente i veces. "
-         "Por otro lado, debajo de la curva también se muestra la tabla de valores Pi y Ri alcanzados. "
+         "Debajo de la curva también te mostramos la tabla de valores Pi y Ri alcanzados. "
          "Pi es la distribución de contactos, y Ri la distribución de contactos acumulada. "
          "A modo de resumen, señalamos que "
-         "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas."
-         "Es el primer valor de Ri, es decir, las personas alcanzadas al menos 1 vez. "
-         "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", df['Ri'].sum()," impactos.")
+         "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
+         "Es el primer valor de Ri, es decir, las personas alcanzadas al menos una vez. "
+         "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", round(df['Ri'].sum())," impactos. "
+         "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones.")
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
