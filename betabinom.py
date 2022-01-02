@@ -10,11 +10,13 @@ st.markdown(""" <style> .font {
     font-size:50px ; font-family: 'Consolas'; color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-
-st.image(
-    "Avatar-con-naming-Fliflax.jpg",
-    width=400,
-)
+col1, col2, col3 = st.beta_columns([1,6,1])
+with col1:
+st.write("")
+with col2:
+st.image("Avatar-con-naming-Fliflax.jpg",width=400,)
+with col3:
+st.write("")
 #----------------------------------------------------#
 
 st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b>Modelo Beta-binomial</b></p>', unsafe_allow_html=True)
