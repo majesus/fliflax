@@ -109,15 +109,12 @@ rcParams['font.size'] = 8
 #fig = plt.figure(figsize=(4, 4))
 plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
 plt.figure(facecolor='white')
-#plt.ticklabel_format(style="plain")
+plt.ticklabel_format(style="plain")
 
 plt.title("Distribución de contactos")
 plt.xlabel("Exclusivamente i veces")
 plt.ylabel("Personas")
 plt.legend()
-
-#ax = plt.axes()
-#ax.set_facecolor("white")
 
 fig, ax = plt.subplots()
 ax.plot(xs,ys, label="spline")
@@ -125,8 +122,7 @@ ax.set_facecolor("white")
 st.pyplot(fig)
 #----------------------------------------------------#
 st.write("Distribución de contactos (y acumulada):")
-st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))
-             
+st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))      
 #----------------------------------------------------#
 #----------------------------------------------------#
 
