@@ -93,14 +93,8 @@ else:
 st.write("Dibujamos "
          "la representación gráfica de la distribución de contactos "
          "mediante el trazado de una curva suave en Matplotlib. "
-         "La curva representa el número de personas alcanzadas exclusivamente i veces. "
-         "Debajo de la curva también te mostramos la tabla de valores Pi y Ri alcanzados. "
-         "Pi es la distribución de contactos, y Ri la distribución de contactos acumulada. "
-         "A modo de resumen, señalamos que "
-         "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
-         "Es el primer valor de Ri, es decir, las personas alcanzadas al menos una vez. "
-         "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", round(df['Ri'].sum())," impactos. "
-         "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones.")
+         "La curva representa Pi, es decir, el número de personas alcanzadas exclusivamente i veces. "
+         "Debajo de la curva también te mostramos la tabla de valores Pi y Ri alcanzados. ")
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -116,16 +110,23 @@ plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
 plt.figure(facecolor='white')
 plt.ticklabel_format(style="plain")
 
+fig, ax = plt.subplots()
+ax.plot(xs,ys, label="spline")
+ax.set_facecolor("white")
 plt.title("Distribución de contactos")
 plt.xlabel("Exclusivamente i veces")
 plt.ylabel("Personas")
 plt.legend()
-
-fig, ax = plt.subplots()
-ax.plot(xs,ys, label="spline")
-ax.set_facecolor("white")
 st.pyplot(fig)
 #----------------------------------------------------#
+st.write("A continuación, te mostramos la tabla de valores Pi y Ri alcanzados. "
+         "Pi es la distribución de contactos, y Ri la distribución de contactos acumulada. "
+         "A modo de resumen, señalamos que "
+         "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
+         "Es el primer valor de Ri, es decir, las personas alcanzadas al menos una vez. "
+         "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", round(df['Ri'].sum())," impactos. "
+         "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones.")
+
 st.write("Distribución de contactos (y acumulada):")
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))      
 #----------------------------------------------------#
