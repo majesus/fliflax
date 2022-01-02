@@ -98,21 +98,20 @@ st.write("Por un lado, se dibuja "
          "En ella localizas algunos de los valores citados anteriormente.")
 #----------------------------------------------------#
 from scipy.interpolate import make_interp_spline
-model=make_interp_spline(df.exposiciones, df.Pi)
-xs=np.linspace(1, n, 500)
-ys=model(xs)
+#model=make_interp_spline(df.exposiciones, df.Pi)
+#xs=np.linspace(1, n, 500)
+#ys=model(xs)
 
 from matplotlib import rcParams
 rcParams['font.family'] = 'monospace'
 rcParams['font.size'] = 8
-#plt.style.use('seaborn-darkgrid')
 fig = plt.figure(figsize=(4, 4))
 plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
 
 plt.figure(facecolor='white')
 plt.ticklabel_format(style="plain")
-#fig = plt.plot(df.exposiciones,df.Pi, label="original")
-fig = plt.plot(xs,ys, label="spline")
+fig = plt.plot(df.exposiciones,df.Pi, label="original")
+#fig = plt.plot(xs,ys, label="spline")
 
 
 plt.title("Distribución de contactos")
