@@ -4,7 +4,6 @@ st.set_page_config(layout="centered",
                    page_title="Fliflax",
                    page_icon=":smiley",
                    initial_sidebar_state='expanded'
-                   #menu_items={'Get Help': 'https://www.extremelycoolapp.com/help','Report a bug': "https://www.extremelycoolapp.com/bug",'About': "# This is a header. This is an *extremely* cool app!"}
                    )
 #----------------------------------------------------#
 st.markdown(""" <style> .font {
@@ -13,7 +12,6 @@ st.markdown(""" <style> .font {
 #----------------------------------------------------#
 col1, col2, col3 = st.columns([0.2, 5, 0.2])
 col2.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
-# st.image("Avatar-con-naming-Fliflax.jpg",width=400)
 #----------------------------------------------------#
 
 st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b>Modelo Beta-binomial</b></p>', unsafe_allow_html=True)
