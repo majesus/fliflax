@@ -119,6 +119,7 @@ plt.ylabel("Personas")
 plt.legend()
 st.pyplot(fig)
 #----------------------------------------------------#
+st.markdown(<hr style="border:2px solid gray"> </hr>)
 st.write("A continuación, te mostramos la tabla de valores Pi y Ri alcanzados. "
          "Pi es la distribución de contactos, y Ri la distribución de contactos acumulada. "
          "A modo de resumen, señalamos que "
@@ -127,7 +128,7 @@ st.write("A continuación, te mostramos la tabla de valores Pi y Ri alcanzados. 
          "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", round(df['Ri'].sum())," impactos. "
          "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones.")
 
-st.write("Distribución de contactos (y acumulada):")
+# st.write("Distribución de contactos (y acumulada):")
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))      
 #----------------------------------------------------#
 #----------------------------------------------------#
