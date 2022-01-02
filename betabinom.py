@@ -128,5 +128,5 @@ st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).s
              
 #----------------------------------------------------#
 #----------------------------------------------------#
-fig, ax = plt.plot(xs,ys)
+fig = plt.plot(xs,ys)
 st.pyplot(fig)
