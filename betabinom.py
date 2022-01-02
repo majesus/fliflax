@@ -20,7 +20,6 @@ st.image(
 st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b>Modelo Beta-binomial</b></p>', unsafe_allow_html=True)
 
 #----------------------------------------------------#
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 #import scipy.stats as stats
@@ -98,20 +97,19 @@ st.write("Por un lado, se dibuja "
          "Por otro lado, se muestra también la tabla de valores de Pi y Ri alcanzados. "
          "En ella localizas algunos de los valores citados anteriormente.")
 #----------------------------------------------------#
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
 from scipy.interpolate import make_interp_spline
 model=make_interp_spline(df.exposiciones, df.Pi)
 xs=np.linspace(1, n, 500)
 ys=model(xs)
 
-from matplotlib import rcParams
 rcParams['font.family'] = 'monospace'
 rcParams['font.size'] = 8
 #fig = plt.figure(figsize=(4, 4))
 plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
-
 plt.figure(facecolor='white')
 #plt.ticklabel_format(style="plain")
-#fig = plt.plot(df.exposiciones,df.Pi, label="original")
 
 plt.title("Distribución de contactos")
 plt.xlabel("Exclusivamente i veces")
@@ -119,6 +117,7 @@ plt.ylabel("Personas")
 plt.legend()
 
 fig = plt.plot(xs,ys, label="spline")
+#fig = plt.plot(df.exposiciones,df.Pi, label="original")
 ax = plt.axes()
 ax.set_facecolor("white")
 
@@ -129,3 +128,5 @@ st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).s
              
 #----------------------------------------------------#
 #----------------------------------------------------#
+fig, ax = plt.plot(xs,ys)
+st.pyplot(fig)
