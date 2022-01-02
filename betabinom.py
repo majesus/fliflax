@@ -4,9 +4,9 @@ st.set_page_config(layout="centered",
                    page_title="Fliflax",
                    page_icon="🧊",
                    menu_items={
-                       'Get Help': 'https://www.extremelycoolapp.com/help',
-                       'Report a bug': "https://www.extremelycoolapp.com/bug",
-                       'About': "# This is a header. This is an *extremely* cool app!"
+                       'Ayuda': 'https://www.us.es',
+                       '¿Algún error?': "https://www.us.es",
+                       '¿QUuiénes somos?': "# Fliflax"
                        })
 #st.set_page_config(page_title="Fliflax")
 #st.set_page_config(page_icon="🧊")
@@ -20,7 +20,7 @@ st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b
 
 #----------------------------------------------------#
 st.image(
-    "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/artist-palette_1f3a8.png",
+    ".png",
     width=100,
 )
 #----------------------------------------------------#
