@@ -56,7 +56,7 @@ except ZeroDivisionError as e:
     alpha = 0.125
     beta = 0.125
     n = 5
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 20px;"><b>Hay un problema con A2. Debes revisarlo, por favor.</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con A2. Debes revisarlo, por favor.</b></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
@@ -85,17 +85,21 @@ df = pd.DataFrame(data)
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 20px;"><b>Hay un problema con A2. Debes revisarlo, por favor. Puedes comprobar que obtienes valores negativos; es muy probable que se deba a que el valor de A2 es excesivo en comparación con A1</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar que obtienes valores negativos en la tabla de la distribución de contactos. <b>El valor de A2 es excesivo en comparación con A1</b>, y la distribución no sabe interpretarlo correctamente.</b></p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;">A continuación, te mostramos los principales resultados.</p>', unsafe_allow_html=True)
 
 #----------------------------------------------------#
-st.write("Por un lado, se dibuja "
-         "la representación gráfica de la distribución de contactos,"
-         "es decir, el número de personas alcanzadas exclusivamente i veces. En nuestro ejemplo,"
-         "el valor de la cobertura es ", round(df['Ri'].iloc[0]),
-         "Por otro lado, se muestra también la tabla de valores de Pi y Ri alcanzados. "
-         "En ella localizas algunos de los valores citados anteriormente.")
+st.write("A continuación, dibujamos "
+         "la representación gráfica de la distribución de contactos "
+         "mediante el trazado de una curva suave en Matplotlib. "
+         "La curva representa el número de personas alcanzadas exclusivamente i veces. "
+         "Por otro lado, debajo de la curva también se muestra la tabla de valores Pi y Ri alcanzados. "
+         "Pi es la distribución de contactos, y Ri la distribución de contactos acumulada. "
+         "A modo de resumen, señalamos que "
+         "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas."
+         "Es el primer valor de Ri, es decir, las personas alcanzadas al menos 1 vez. "
+         "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", df['Ri'].sum()," impactos.")
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
