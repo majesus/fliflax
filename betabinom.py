@@ -2,7 +2,8 @@ import streamlit as st
 #----------------------------------------------------#
 st.set_page_config(layout="centered",
                    page_title="Fliflax",
-                   page_icon="🧊"
+                   page_icon=":smiley",
+                   initial_sidebar_state='expanded'
                    #menu_items={'Get Help': 'https://www.extremelycoolapp.com/help','Report a bug': "https://www.extremelycoolapp.com/bug",'About': "# This is a header. This is an *extremely* cool app!"}
                    )
 #----------------------------------------------------#
@@ -91,8 +92,7 @@ else:
 st.write("Dibujamos "
          "la representación gráfica de la distribución de contactos "
          "mediante el trazado de una curva suave en Matplotlib. "
-         "La curva representa Pi, es decir, el número de personas alcanzadas exclusivamente i veces. "
-         "Debajo de la curva también te mostramos la tabla de valores Pi y Ri alcanzados. ")
+         "La curva representa Pi, es decir, el número de personas alcanzadas exclusivamente i veces.")
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
