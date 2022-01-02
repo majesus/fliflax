@@ -111,8 +111,8 @@ plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
 
 plt.figure(facecolor='white')
 plt.ticklabel_format(style="plain")
-#fig = plt.plot(df.exposiciones,df.Pi, label="original")
-fig = plt.plot(xs,ys, label="spline")
+fig = plt.plot(df.exposiciones,df.Pi, label="original")
+#fig = plt.plot(xs,ys, label="spline")
 
 
 plt.title("Distribución de contactos")
