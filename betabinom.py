@@ -119,7 +119,6 @@ plt.ylabel("Personas")
 plt.legend()
 st.pyplot(fig)
 #----------------------------------------------------#
-st.markdown('<hr style="background-color:blue;"></hr>')
 st.write("A continuación, te mostramos la tabla de valores Pi y Ri alcanzados. "
          "Pi es la distribución de contactos, y Ri la distribución de contactos acumulada. "
          "A modo de resumen, señalamos que "
