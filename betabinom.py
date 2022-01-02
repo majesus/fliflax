@@ -2,14 +2,9 @@ import streamlit as st
 #----------------------------------------------------#
 st.set_page_config(layout="centered",
                    page_title="Fliflax",
-                   page_icon="🧊",
-                   menu_items={
-                       'Ayuda': 'https://www.us.es',
-                       '¿Algún error?': "https://www.us.es",
-                       '¿Quiénes somos?': "# Fliflax"
-                       })
-#st.set_page_config(page_title="Fliflax")
-#st.set_page_config(page_icon="🧊")
+                   page_icon="🧊"
+                   #menu_items={'Get Help': 'https://www.extremelycoolapp.com/help','Report a bug': "https://www.extremelycoolapp.com/bug",'About': "# This is a header. This is an *extremely* cool app!"}
+                   )
 #----------------------------------------------------#
 st.markdown(""" <style> .font {
     font-size:50px ; font-family: 'Consolas'; color: #000000;} 
