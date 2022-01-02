@@ -12,7 +12,7 @@ st.markdown(""" <style> .font {
 #----------------------------------------------------#
 
 st.image(
-    "Avatar-con-naming-Fliflax.jpg",
+    "Avatar-con-naming-Fliflax.jpg",align="center",
     width=300,
 )
 #----------------------------------------------------#
