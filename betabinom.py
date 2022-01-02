@@ -106,14 +106,12 @@ ys=model(xs)
 from matplotlib import rcParams
 rcParams['font.family'] = 'monospace'
 rcParams['font.size'] = 8
-fig = plt.figure(figsize=(4, 4))
+#fig = plt.figure(figsize=(4, 4))
 plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
 
 plt.figure(facecolor='white')
 #plt.ticklabel_format(style="plain")
 #fig = plt.plot(df.exposiciones,df.Pi, label="original")
-fig = plt.plot(xs,ys, label="spline")
-
 
 plt.title("Distribución de contactos")
 plt.xlabel("Exclusivamente i veces")
@@ -121,6 +119,7 @@ plt.ylabel("Personas")
 plt.legend()
 
 ax = plt.axes()
+fig, ax = plt.plot(xs,ys, label="spline")
 ax.set_facecolor("white")
 
 st.pyplot(plt)
