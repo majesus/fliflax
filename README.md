@@ -1,3 +1,3 @@
 # Bienvenido a Fliflax!
 
-Si tienes alguna duda, no dudes en contcatr con tu profesorado.
+Si tienes alguna duda, no dudes en contactar con tu profesorado.
