@@ -123,7 +123,9 @@ st.write("A continuación, te mostramos la tabla de valores Pi y Ri alcanzados. 
          "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
          "Es el primer valor de Ri, es decir, las personas alcanzadas al menos una vez. "
          "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", round(df['Ri'].sum())," impactos. "
-         "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones.")
+         "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones. "
+         "Y una vez que hemos calculado los impactos, la frecuencia media no es más que el cociente entre "
+         "los impactos y la cobertura, es decir,", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura. ")
 
 # st.write("Distribución de contactos (y acumulada):")
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))      
