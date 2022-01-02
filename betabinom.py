@@ -11,13 +11,14 @@ st.markdown(""" <style> .font {
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
 
-st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b>Modelo Beta-binomial</b></p>', unsafe_allow_html=True)
-
-#----------------------------------------------------#
 st.image(
     "Avatar-con-naming-Fliflax.jpg",
-    width=100,
+    width=300,
 )
+#----------------------------------------------------#
+
+st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b>Modelo Beta-binomial</b></p>', unsafe_allow_html=True)
+
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -98,9 +99,9 @@ st.write("Por un lado, se dibuja "
          "En ella localizas algunos de los valores citados anteriormente.")
 #----------------------------------------------------#
 from scipy.interpolate import make_interp_spline
-#model=make_interp_spline(df.exposiciones, df.Pi)
-#xs=np.linspace(1, n, 500)
-#ys=model(xs)
+model=make_interp_spline(df.exposiciones, df.Pi)
+xs=np.linspace(1, n, 500)
+ys=model(xs)
 
 from matplotlib import rcParams
 rcParams['font.family'] = 'monospace'
@@ -109,9 +110,9 @@ fig = plt.figure(figsize=(4, 4))
 plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
 
 plt.figure(facecolor='white')
-plt.ticklabel_format(style="plain")
-fig = plt.plot(df.exposiciones,df.Pi, label="original")
-#fig = plt.plot(xs,ys, label="spline")
+#plt.ticklabel_format(style="plain")
+#fig = plt.plot(df.exposiciones,df.Pi, label="original")
+fig = plt.plot(xs,ys, label="spline")
 
 
 plt.title("Distribución de contactos")
@@ -122,7 +123,7 @@ plt.legend()
 ax = plt.axes()
 ax.set_facecolor("white")
 
-st.pyplot(plt)
+st.pyplot(fig)
 #----------------------------------------------------#
 st.write("Distribución de contactos (y acumulada):")
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))
