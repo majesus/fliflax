@@ -128,5 +128,7 @@ st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).s
              
 #----------------------------------------------------#
 #----------------------------------------------------#
-fig = plt.plot(xs,ys)
+fig, ax = plt.subplots()
+ax.hist(df.exposiciones, bins=20)
+
 st.pyplot(fig)
