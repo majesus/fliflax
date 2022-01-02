@@ -118,8 +118,8 @@ plt.xlabel("Exclusivamente i veces")
 plt.ylabel("Personas")
 plt.legend()
 
+fig = plt.plot(xs,ys, label="spline")
 ax = plt.axes()
-fig, ax = plt.plot(xs,ys, label="spline")
 ax.set_facecolor("white")
 
 st.pyplot(plt)
