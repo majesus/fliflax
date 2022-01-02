@@ -116,19 +116,17 @@ plt.xlabel("Exclusivamente i veces")
 plt.ylabel("Personas")
 plt.legend()
 
-fig = plt.plot(xs,ys, label="spline")
-#fig = plt.plot(df.exposiciones,df.Pi, label="original")
-ax = plt.axes()
-ax.set_facecolor("white")
+#ax = plt.axes()
+#ax.set_facecolor("white")
 
-st.pyplot(plt)
+fig, ax = plt.subplots()
+ax.plot(xs,ys, label="spline")
+ax.set_facecolor("white")
+st.pyplot(fig)
 #----------------------------------------------------#
 st.write("Distribución de contactos (y acumulada):")
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))
              
 #----------------------------------------------------#
 #----------------------------------------------------#
-fig, ax = plt.subplots()
-ax.plot(xs,ys)
 
-st.pyplot(fig)
