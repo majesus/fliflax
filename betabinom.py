@@ -20,7 +20,7 @@ st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b
 
 #----------------------------------------------------#
 st.image(
-    ".png",
+    "Avatar-con-naming-Fliflax.jpg",
     width=100,
 )
 #----------------------------------------------------#
