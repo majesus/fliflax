@@ -6,7 +6,7 @@ st.set_page_config(layout="centered",
                    menu_items={
                        'Ayuda': 'https://www.us.es',
                        '¿Algún error?': "https://www.us.es",
-                       '¿QUuiénes somos?': "# Fliflax"
+                       '¿Quiénes somos?': "# Fliflax"
                        })
 #st.set_page_config(page_title="Fliflax")
 #st.set_page_config(page_icon="🧊")
@@ -84,8 +84,6 @@ Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
 st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Resultados:</p>', unsafe_allow_html=True)
 
 #----------------------------------------------------#
-# To make all your floats show comma separators by default in pandas versions 0.23 through 0.25 set the following:
-#pd.options.display.float_format = '{:,}'.format
 data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 
 df = pd.DataFrame(data)
