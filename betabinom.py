@@ -123,7 +123,7 @@ plt.legend()
 ax = plt.axes()
 ax.set_facecolor("white")
 
-st.pyplot(fig)
+st.pyplot(plt)
 #----------------------------------------------------#
 st.write("Distribución de contactos (y acumulada):")
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))
