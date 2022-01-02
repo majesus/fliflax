@@ -81,6 +81,7 @@ st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Re
 data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 
 df = pd.DataFrame(data)
+df = df.reset_index(drop=True, inplace=True)
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
