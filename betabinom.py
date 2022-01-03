@@ -111,8 +111,10 @@ else:
 st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
          "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
          "Es decir,", round(df['Ri'].iloc[0]), "personas se exponen al menos 1 vez. " 
-         "La cobertura es pues el primer valor de Ri (distribución de contactos acumulada), i.e., R1. "
-         "A su vez, la suma de los valores de Ri desde 1 hasta n, "
+         "La cobertura es pues el primer valor de Ri (distribución de contactos acumulada). "
+         "Te recordamos que Pi hace referencia a las personas alcanzadas exclusivamente i veces, y "
+         "Ri a las personas alcanzadas al menos i veces.")
+st.write("A su vez, la suma de los valores de Ri desde 1 hasta n, "
          "siendo n el total de inserciones, es igual al total de impactos. "
          "Otro modo de calcular los impactos es mediante el producto de A1 x n, "
          "en este caso,", A1 * n," impactos")
