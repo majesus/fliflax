@@ -48,7 +48,7 @@ with col2:
 
 col1, col2 = st.columns([5,5])
 with col1:
-    P = st.number_input("Población", min_value = A2, value = A2 * 5, step=100, key = "poblacion")
+    P = st.number_input("Población", min_value = 1, value = 1000000, step=100, key = "poblacion")
     # st.write("Valor elegido: {}".format(P))
 with col2:    
     Precio = st.number_input("Precio de una inserción €", min_value = 1, value = 100000, step=100, key = "precio")
