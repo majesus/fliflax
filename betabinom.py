@@ -244,6 +244,8 @@ st.write("Finalmente, para profundizar en estos materiales, te recomendamos cons
 
 st.write("También, te recomendamos visitar el siguiente enlace: https://es.wikipedia.org/wiki/Distribuci%C3%B3n_beta-binomial")
 #----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 st.write("### Anexo")
 #----------------------------------------------------#
 if df.lt(0).any().any() == True:
