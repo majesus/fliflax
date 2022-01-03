@@ -64,6 +64,16 @@ n = inserciones
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P
 #----------------------------------------------------#
+try:
+    alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
+    beta=(alpha*(1-R1))/(R1)
+except ZeroDivisionError as e:
+    # for example
+    alpha = 0.125
+    beta = 0.125
+    n = 5
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con A2. Debes revisarlo, por favor.</b></p>', unsafe_allow_html=True)
+#----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
 betas = beta
@@ -80,16 +90,6 @@ pmf = BetaBinom(alphas, betas, n, x)
 y = pmf*1000000
 # Ri:
 Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
-#----------------------------------------------------#
-try:
-    alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
-    beta=(alpha*(1-R1))/(R1)
-except ZeroDivisionError as e:
-    # for example
-    alpha = 0.125
-    beta = 0.125
-    n = 5
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con A2. Debes revisarlo, por favor.</b></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 # st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Resultados:</p>', unsafe_allow_html=True)
 st.write("### Resultados:")
