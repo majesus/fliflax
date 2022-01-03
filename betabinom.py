@@ -156,6 +156,9 @@ st.write("A continuación, también te dibujamos "
          "mediante el trazado de una curva suave (spline) en Matplotlib. ")
 st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
 #----------------------------------------------------#
+
+st.markdown("""---""")
+
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from scipy.interpolate import make_interp_spline
