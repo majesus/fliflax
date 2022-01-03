@@ -20,7 +20,9 @@ st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de Audiencia neta acumulada "
          "(o modelo de acumulación), es decir, se trabaja con un único soporte."
-         "")
+         "Los datos de inicio son los siguientes: A1, es decir, la audiencia del soporte; "
+         "A2, es decir, la audiencia acumulada tras la segunda inserción, y n, es decir, "
+         "el número de inserciones que contratamos en el único soporte que seleccionamos.")
 #----------------------------------------------------#
 import pandas as pd
 import numpy as np
