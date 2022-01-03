@@ -1,3 +1,5 @@
+#----------------------------------------------------#
+#----------------------------------------------------#
 import streamlit as st
 #----------------------------------------------------#
 st.set_page_config(layout="centered",
@@ -13,18 +15,19 @@ st.markdown(""" <style> .font {
 col1, col2, col3 = st.columns([0.2, 5, 0.2])
 col2.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
 #----------------------------------------------------#
-
 st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b>Modelo Beta-binomial</b></p>', unsafe_allow_html=True)
-
+#----------------------------------------------------#
+st.write("Beta binomial es un método de estimación de la "
+         "distribución de contactos que denominamos de Audiencia neta acumulada "
+         "(o modelo de acumulación), es decir, se trabaja con un único soporte."
+         "")
 #----------------------------------------------------#
 import pandas as pd
 import numpy as np
 #import scipy.stats as stats
 from scipy import special
 #----------------------------------------------------#
-
 st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Selección de datos:</p>', unsafe_allow_html=True)
-
 #----------------------------------------------------#
 #----------------------------------------------------#
 A1_default = 500000; A2_default = 550000
@@ -72,9 +75,7 @@ y = pmf*1000000
 # Ri:
 Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
 #----------------------------------------------------#
-
 st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Resultados:</p>', unsafe_allow_html=True)
-
 #----------------------------------------------------#
 data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 
