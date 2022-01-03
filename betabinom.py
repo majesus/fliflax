@@ -98,7 +98,7 @@ pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Debes revisarlo antes de continuar.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de <b>A2</b> es inferior a A1. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
