@@ -192,6 +192,15 @@ st.pyplot(fig)
  
 #----------------------------------------------------#
 st.write("### Frecuencia efectiva mínima")
+
+if df.lt(0).any().any() == True:
+  st.write("#### Observaciones:")
+  st.warning("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
+            "Es debido probablemente a que el valor de A2 es superior a A1, y eso no es posible. "
+            "Corrígelo antes de seleccionar ningún valor de i.")
+else:
+  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
+
 st.write("A continuación, puedes seleccionar los valores de Pi y Ri cuyo valor desees conocer de modo preciso. "
          "El valor i elegido puede corresponderse, por ejemplo, con la frecuencia efectiva mínima que has prupuesto como objetivo en tu plan de medios y soportes. "
          "Recuerda que la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar "
@@ -219,10 +228,7 @@ if df.lt(0).any().any() == True:
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 
-st.write("Como datos complentarios te mostramos el detalle de la tabla de valores Pi y Ri alcanzados. "
-         "Como hemos señalado arriva, la columna Pi representa la distribución de contactos, "
-         "que se relaciona con la frecuencia efectiva, y Ri es la distribución de contactos acumulada, "
-         "que se relaciona con la frecuencia efectiva mínima. ")
+st.write("Anexo. Distribución de contactos (y acumulada). ")
 # st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))    
