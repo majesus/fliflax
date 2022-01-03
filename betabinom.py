@@ -5,8 +5,8 @@ import streamlit as st
 #----------------------------------------------------#
 st.set_page_config(layout="centered",
                    page_title="Fliflax",
-                   page_icon=":smiley",
-                   initial_sidebar_state='expanded'
+                   page_icon=":smiley"
+                   #initial_sidebar_state='expanded'
                    )
 #----------------------------------------------------#
 st.markdown(""" <style> .font {
@@ -127,7 +127,7 @@ with col2:
     st.slider("Frecuencia media", 1, max_value= n, value = round(df['Ri'].sum() / df['Ri'].iloc[0]), step=None, key = "frecuencia")
 col1, col2 = st.columns([5,5])
 with col1:
-    st.slider("Impactos", 1, max_value= round(df['Ri'].sum()), value = round(df['Ri'].sum()), step=None, key = "impactos")
+    st.slider("Impactos", 1, max_value= A1 * n, value = A1 * n, step=None, key = "impactos")
 with col2:
     st.slider("GRP", 1, max_value= n, value = round(df['Ri'].sum() * 100 / P), step=None, key = "GRP")
 col1, col2 = st.columns([5,5])
