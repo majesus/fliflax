@@ -131,7 +131,7 @@ with col2:
     st.slider("GRP", 1, max_value= n, value = round(df['Ri'].sum() * 100 / P), step=None, key = "GRP")
 col1, col2 = st.columns([5,5])
 with col1:
-    Presupuesto = st.slider("Presupuesto", min_value = 0, max_value= Precio * n, value = Precio * n, step=None, key = "impactos")
+    Presupuesto = st.slider("Presupuesto", min_value = 1, max_value= Precio * n, value = Precio * n, step=None, key = "impactos")
 with col2:
     st.slider("CPP", 1, max_value= n, value = round(Precio * n / (df['Ri'].sum() * 100 / P)), step=None, key = "GRP")
 
