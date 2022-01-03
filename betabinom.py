@@ -108,7 +108,7 @@ else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 
 #----------------------------------------------------#
-st.write("A modo de resumen, y como te mostramos en los sliders de resultados "
+st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
          "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
          "Es el primer valor de Ri, es decir, las personas alcanzadas al menos una vez. "
          "A su vez, la suma de Ri es el total de impactos logrados. "
