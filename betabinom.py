@@ -97,7 +97,7 @@ df = df.astype(int)
 pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
-if A1 < A2:
+if A1 > A2:
     st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>No olvides que el valor de A2 debe ser superior a A1. A2 es el número de personas que se exponen al menos una vez tras dos inserciones, y no es posible que este valor sea inferior a A1.</b></p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
