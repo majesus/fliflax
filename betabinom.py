@@ -90,9 +90,6 @@ y = pmf*1000000
 # Ri:
 Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
 #----------------------------------------------------#
-# st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Resultados:</p>', unsafe_allow_html=True)
-st.write("### Resultados:")
-#----------------------------------------------------#
 data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 
 df = pd.DataFrame(data)
@@ -104,7 +101,9 @@ if df.lt(0).any().any() == True:
     st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar que obtienes valores negativos en la tabla de la distribución de contactos. <b>El valor de A2 es excesivo en comparación con A1</b>, y la distribución no sabe interpretarlo correctamente.</b></p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
-
+#----------------------------------------------------#
+# st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Resultados:</p>', unsafe_allow_html=True)
+st.write("### Resultados:")
 #----------------------------------------------------#
 st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
          "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
