@@ -212,7 +212,7 @@ df = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el/los valor/es i:', df.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = df.loc[selected_indices]
-st.write('###### Filas seleccionadas')
+st.write('###### Tabla 1. Valores de Pi y Ri seleccionados')
 st.table(selected_rows)
 #----------------------------------------------------#
 st.write("### Referencias:")
