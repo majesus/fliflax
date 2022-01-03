@@ -48,6 +48,11 @@ with col2:
     A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = A1+1, max_value = A2_max, value = A2_default, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
 
+if A1 > A2:
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>A1 no puede ser superior a A2. Si has marcado un valor de A2 inferior, revísalo, por favor.</b></p>', unsafe_allow_html=True)
+else:
+    st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
+
 col1, col2 = st.columns([5,5])
 with col1:
     P = st.number_input("Población", min_value = A2, value = 1000000, step=100, key = "poblacion")
