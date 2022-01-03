@@ -10,7 +10,7 @@ st.set_page_config(layout="centered",
                    )
 #----------------------------------------------------#
 st.markdown(""" <style> .font {
-    font-size:50px ; font-family: 'Consolas'; color: #000000;} 
+    font-size:50px ; font-family: 'sans-serif'; color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
 col1, col2, col3 = st.columns([2, 5, 0.2])
