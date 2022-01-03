@@ -49,7 +49,7 @@ with col2:
     A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
 
-if A1 < A2:
+if A1 > A2:
   st.write("#### Observaciones:")
   st.warning("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
 else:
