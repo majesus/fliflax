@@ -37,7 +37,7 @@ from scipy import special
 # st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Selección de datos:</p>', unsafe_allow_html=True)
 st.write("### Selección de datos:")
 #----------------------------------------------------#
-A1_default = 500000; A2_default = 550000
+A1_default = 500000; A2_default = A1_default * 1.1
 A2_max = round(A1_default * 2)
 
 col1, col2 = st.columns([5,5])
@@ -50,7 +50,7 @@ with col2:
 
 col1, col2 = st.columns([5,5])
 with col1:
-    P = st.number_input("Población", min_value = A2, value = 1000000, step=100, key = "poblacion")
+    P = st.number_input("Población", min_value = A2, value = A1_default * 2, step=100, key = "poblacion")
     # st.write("Valor elegido: {}".format(P))
 with col2:    
     Precio = st.number_input("Precio de una inserción", min_value = 1, value = 100000, step=100, key = "precio")
@@ -71,7 +71,7 @@ except ZeroDivisionError as e:
     alpha = 0.125
     beta = 0.125
     n = 5
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisar el valor de A2 propuesto pot ti. Y mientras tanto, abajo te mostramos los resultados con los datos que proponemos por defecto al entrar en la aplicación.</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar.</b></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
@@ -98,7 +98,7 @@ pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar en el Anexo que aparecen valores negativos en la tabla de la distribución de contactos (y acumulada). <b>O bien el valor de A2 es excesivo en comparación con A1, o A2 es inferior a A1</b>, y por ello, los parámetros de forma <i>se vuelven locos</i>. Debes revisarlo. Y mientras tanto, abajo te mostramos los resultados con los datos que proponemos por defecto al entrar en la aplicación. </b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Debes revisarlo antes de continuar.</p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
