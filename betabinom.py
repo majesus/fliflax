@@ -71,7 +71,7 @@ except ZeroDivisionError as e:
     alpha = 0.125
     beta = 0.125
     n = 5
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisar el valor de A2 propuesto pot ti. Abajo te mostramos los resultados con los datos que proponemos por defecto al entrar en la aplicación.</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisar el valor de A2 propuesto pot ti. Y mientras tanto, abajo te mostramos los resultados con los datos que proponemos por defecto al entrar en la aplicación.</b></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
@@ -98,7 +98,7 @@ pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar en el Anexo que aparecen valores negativos en la tabla de la distribución de contactos (y acumulada). Abajo te mostramos los resultados con los datos que proponemos por defecto al entrar en la aplicación. <b>O bien el valor de A2 es excesivo en comparación con A1, o A2 es inferior a A1</b>, y por ello, los parámetros de forma <i>se vuelven locos</i>. Debes revisarlo.</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar en el Anexo que aparecen valores negativos en la tabla de la distribución de contactos (y acumulada). <b>O bien el valor de A2 es excesivo en comparación con A1, o A2 es inferior a A1</b>, y por ello, los parámetros de forma <i>se vuelven locos</i>. Debes revisarlo. Y mientras tanto, abajo te mostramos los resultados con los datos que proponemos por defecto al entrar en la aplicación. </b></p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
@@ -106,7 +106,7 @@ else:
 st.write("### Resultados:")
 #----------------------------------------------------#
 st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
-         "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
+         "con los datos correctos de arriba, el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
          "Es decir,", round(df['Ri'].iloc[0]), "personas se exponen al menos 1 vez. " 
          "La cobertura es pues el primer valor de Ri (distribución de contactos acumulada). "
          "Te recordamos que Pi hace referencia a las personas alcanzadas exclusivamente i veces, y "
