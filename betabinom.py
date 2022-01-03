@@ -11,7 +11,7 @@ st.set_page_config(layout="centered",
 #----------------------------------------------------#
 st.markdown(""" <style> .font {
     font-size:50px ; 
-    #font-family: 'sans-serif'; 
+    #font-family: 'Consolas'; 
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
