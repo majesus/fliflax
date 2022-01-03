@@ -98,7 +98,7 @@ pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar que obtienes valores negativos en la tabla de la distribución de contactos. <b>El valor de A2 es excesivo en comparación con A1</b>, y la distribución no sabe interpretarlo correctamente.</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar en el Anexo que aparecen valores negativos en la tabla de la distribución de contactos (y acumulada). <b>El valor de A2 es excesivo en comparación con A1</b>, y los parámetros de forma <i>se vuelven locos</i>.</b></p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
