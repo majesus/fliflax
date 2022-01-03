@@ -45,10 +45,10 @@ st.write("### Selección de datos:")
 #----------------------------------------------------#
 col1, col2 = st.columns([5,5])
 with col1:
-    A1 = st.number_input("Audiencia acumulada tras 1 inserción", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
+    A1 = st.number_input("Audiencia acumulada tras 1 inserción:", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
     # st.write("Valor elegido: {:.0f}".format(A1))
 with col2:
-    A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
+    A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
 
 if A1 > A2:
@@ -59,10 +59,10 @@ else:
     
 col1, col2 = st.columns([5,5])
 with col1:
-    P = st.number_input("Población", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
+    P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
     # st.write("Valor elegido: {}".format(P))
 with col2:    
-    Precio = st.number_input("Precio de una inserción €", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
+    Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
     # st.write("Valor elegido: {}".format(P))
 
 if P < A2:
@@ -71,7 +71,7 @@ if P < A2:
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)    
 #----------------------------------------------------#
-inserciones = st.slider("inserciones", 2, 100, value = 5, step=1, key = "inserciones")
+inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
 # st.write("Valor elegido: {}".format(inserciones))
 #----------------------------------------------------#
 n = inserciones
@@ -151,12 +151,9 @@ st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos
          "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), es decir, el coste monetario de alcanzar a un 1 % de la población. El valor CPP "
          "es el resultado de divir el presupuesto (el coste asociado al plan propuesto, i.e., Precio de una inserción x n) "
          "y el volumen de GRP a contratar.")
-st.write("También te dibujamos "
-         "la representación gráfica de la distribución de contactos (y acumulada) "
-         "mediante el trazado de una curva suave (spline) en Matplotlib. "
-         "La curva representa los valores de Pi "
-         "y también los valores de Ri."
-         "")
+st.write("A continuación, también te dibujamos "
+         "la representación gráfica de la distribución de contactos Pi (y acumulada Ri) "
+         "mediante el trazado de una curva suave (spline) en Matplotlib. ")
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -203,16 +200,18 @@ if df.lt(0).any().any() == True:
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 
-st.write("A continuación, puedes seleccionar los valores de Pi y Ri cuyo valor desees conocer de modo preciso. "
-         "El valor i elegido puede corresponderse, por ejemplo, con la frecuencia efectiva mínima que has prupuesto como objetivo en tu plan de medios y soportes. "
+st.write("En este apartado puedes seleccionar los valores de Pi y Ri cuyo valor desees conocer de modo preciso. "
+         "El valor i que elijas, puede corresponderse, por ejemplo, con la frecuencia efectiva mínima que "
+         "has prupuesto como objetivo en tu plan de medios y soportes. "
          "Recuerda que la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar "
-         "los objetivos de comunicación por encima de un determinado nivel crítico.")
+         "(por encima de un determinado nivel crítico) "
+         "los objetivos de comunicación.")
 pd.options.display.float_format = '{:,}'.format
 df = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el/los valor/es i:', df.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = df.loc[selected_indices]
-st.write('##### Filas seleccionadas')
+st.write('###### Filas seleccionadas')
 st.table(selected_rows)
 #----------------------------------------------------#
 st.write("### Referencias:")
@@ -230,7 +229,7 @@ if df.lt(0).any().any() == True:
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 
-st.write("Anexo. Distribución de contactos (y acumulada). ")
+st.write('###### Distribución de contactos Pi (y acumulada Ri)')
 # st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))    
