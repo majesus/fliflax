@@ -37,7 +37,6 @@ from scipy import special
 # st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Selección de datos:</p>', unsafe_allow_html=True)
 st.write("### Selección de datos:")
 #----------------------------------------------------#
-#----------------------------------------------------#
 A1_default = 500000; A2_default = 550000
 A2_max = round(A1_default * 2)
 
