@@ -43,7 +43,6 @@ import numpy as np
 #import scipy.stats as stats
 from scipy import special
 #----------------------------------------------------#
-# st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Selección de datos:</p>', unsafe_allow_html=True)
 st.write("### Selección de datos:")
 #----------------------------------------------------#
 col1, col2 = st.columns([5,5])
