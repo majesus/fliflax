@@ -62,14 +62,15 @@ n = inserciones
 R1=A1/P;R2=A2/P
 #----------------------------------------------------#
 try:
-    alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
-    beta=(alpha*(1-R1))/(R1)
+  alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
+  beta=(alpha*(1-R1))/(R1)
 except ZeroDivisionError as e:
-    # for example
-    alpha = 0.125
-    beta = 0.125
-    n = 5
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;">Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar.</p>', unsafe_allow_html=True)
+  st.write("#### Observaciones:")
+  # datos de muestra:
+  alpha = 0.125
+  beta = 0.125
+  n = 5
+  st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;">Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar.</p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
@@ -96,13 +97,13 @@ pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
-  st.write("### Observaciones:")
+  st.write("#### Observaciones:")
   st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de <b>A2</b> es inferior a A1. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
     
 if P < A2:
-  st.write("### Observaciones:")
+  st.write("#### Observaciones:")
   st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de la <b>Población</b> es inferior a A2. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
