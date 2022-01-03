@@ -99,6 +99,11 @@ if df.lt(0).any().any() == True:
     st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de <b>A2</b> es inferior a A1. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
+    
+if P < A2:
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de <b>P</b> es inferior a A2. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
+else:
+    st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 # st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Resultados:</p>', unsafe_allow_html=True)
 st.write("### Resultados:")
