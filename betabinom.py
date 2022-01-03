@@ -70,7 +70,7 @@ except ZeroDivisionError as e:
   alpha = 0.125
   beta = 0.125
   n = 5
-  st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;">Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar.</p>', unsafe_allow_html=True)
+  st.markdown('<p style="font-family:; color:Red; font-size: 14px;">Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar.</p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
