@@ -39,7 +39,7 @@ st.write("### Selección de datos:")
 #----------------------------------------------------#
 #----------------------------------------------------#
 A1_default = 500000; A2_default = 550000
-A2_max = round(A1_default * 1.6)
+A2_max = round(A1_default * 2)
 
 col1, col2 = st.columns([5,5])
 with col1:
