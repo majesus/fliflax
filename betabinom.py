@@ -139,15 +139,16 @@ with col2:
     st.slider("CPP", 1, max_value= n, value = round(Precio * n / (df['Ri'].sum() * 100 / P)), step=None, key = "GRP")
 
 #----------------------------------------------------#
-st.write("Junto a lo anterior, y también en los sliders, te mostramos los valores de GRP (media de impacto por cada 100 personas de la población). "
+st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos el valor GRP "
+         "(número medio de impactos por cada 100 personas de la población). "
          "Y también el valor CPP (coste por punto de rating), es decir, el coste monetario de alcanzar a un 1 % de la población. El valor CPP "
-         "es el resultado de divir el presupuesto (es decir, el coste asociado al plan propuesto, i.e., Precio x n) "
+         "es el resultado de divir el presupuesto (es decir, el coste asociado al plan propuesto, i.e., Precio de una inserción x n) "
          "y el volumen de GRP a contratar.")
 st.write("También te dibujamos "
          "la representación gráfica de la distribución de contactos (y acumulada) "
          "mediante el trazado de una curva suave (spline) en Matplotlib. "
-         "La curva representa los valores de Pi, es decir, el número de personas alcanzadas exclusivamente i veces, "
-         "y también los valores de Ri que representan cada uno de ellos las personas alcanzadas al menos i veces."
+         "La curva representa los valores de Pi "
+         "y también los valores de Ri."
          "")
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
@@ -186,13 +187,13 @@ st.pyplot(fig)
  
 #----------------------------------------------------#
 st.write("### Frecuencia efectiva mínima")
-st.write("A continuación, puedes seleccionar los valores de Pi y Ri que se corresponden con las exposiciones i deseadas. "
-         "El valor de i elegido puede ser, por ejemplo, la frecuencia efectiva mínima que has prupuesto como objetivo. "
+st.write("A continuación, puedes seleccionar los valores de Pi y Ri cuyo valor desees conocer de modo preciso. "
+         "El valor i elegido puede corresponderse, por ejemplo, con la frecuencia efectiva mínima que has prupuesto como objetivo. "
          "Recuerda que la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar "
-         "los objetivos de comunicación propuestos por encima de un determinado nivel crítico.")
+         "los objetivos de comunicación por encima de un determinado nivel crítico.")
 pd.options.display.float_format = '{:,}'.format
 df = df.set_index('exposiciones')
-selected_indices = st.multiselect('Selecciona el valor de i:', df.index)
+selected_indices = st.multiselect('Selecciona el/los valor/es i:', df.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = df.loc[selected_indices]
 st.write('##### Filas seleccionadas')
@@ -205,8 +206,9 @@ st.write("Finalmente, para profundizar en estos materiales, te recomendamos cons
 st.write("También, te recomendamos visitar el siguiente enlace: https://es.wikipedia.org/wiki/Distribuci%C3%B3n_beta-binomial")
 #----------------------------------------------------#
 st.write("### Anexo")
-st.write("Como dato completo, te mostramos el detalle de la tabla de valores Pi y Ri alcanzados. "
-         "La columna Pi representa la distribución de contactos, y Ri es la distribución de contactos acumulada, "
+st.write("Como datos complentarios te mostramos el detalle de la tabla de valores Pi y Ri alcanzados. "
+         "Como hemos señalado arriva, la columna Pi representa la distribución de contactos, "
+         "que se relaciona con la frecuencia efectiva, y Ri es la distribución de contactos acumulada, "
          "que se relaciona con la frecuencia efectiva mínima. ")
 # st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
