@@ -41,7 +41,7 @@ A2_max = round(A1_default * 2)
 
 col1, col2 = st.columns([5,5])
 with col1:
-    A1 = st.number_input("Audiencia acumulada tras 1 inserción", min_value = 1, value = A1_default, step=100, key = "A1")
+    A1 = st.number_input("Audiencia acumulada tras 1 inserción", min_value = 1, value = f"{A1_default:,.0f}", step=100, key = "A1")
     # st.write("Valor elegido: {:.0f}".format(A1))
 with col2:
     A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = A2_max, value = A2_default, step=100, key = "A2")
@@ -113,7 +113,7 @@ st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
 st.write("A su vez, la suma de los valores de Ri (desde 1 hasta n), "
          "siendo n el total de inserciones, es igual al total de impactos. "
          "Otro modo inmediato para calcular los impactos es mediante el producto de A1 x n, "
-         "en este caso,", A1 * n," impactos")
+         "en este caso,", f"{A1 * n:,.0f}"," impactos")
 st.write("Y una vez que hemos calculado los impactos, la frecuencia media no es más que el cociente entre "
          "los impactos y la cobertura, es decir, la frecuencia es igual a", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura.")
 st.write("Los resultados que te mostramos abajo, son los derivados de los datos que nos has facilitado en el bloque: Selección de datos.")
