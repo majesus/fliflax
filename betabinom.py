@@ -211,6 +211,14 @@ st.write("Finalmente, para profundizar en estos materiales, te recomendamos cons
 st.write("También, te recomendamos visitar el siguiente enlace: https://es.wikipedia.org/wiki/Distribuci%C3%B3n_beta-binomial")
 #----------------------------------------------------#
 st.write("### Anexo")
+
+if df.lt(0).any().any() == True:
+  st.write("#### Observaciones:")
+  st.warning("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
+            "Es debido probablemente a que el valor de A2 es superior a A1, y eso no es posible.")
+else:
+  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
+
 st.write("Como datos complentarios te mostramos el detalle de la tabla de valores Pi y Ri alcanzados. "
          "Como hemos señalado arriva, la columna Pi representa la distribución de contactos, "
          "que se relaciona con la frecuencia efectiva, y Ri es la distribución de contactos acumulada, "
@@ -218,10 +226,4 @@ st.write("Como datos complentarios te mostramos el detalle de la tabla de valore
 # st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))    
-
-if df.lt(0).any().any() == True:
-  st.write("#### Observaciones:")
-  st.warning("En este momento el valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
-else:
-  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
