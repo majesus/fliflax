@@ -39,6 +39,8 @@ st.write("Es importante señalar que en nuestra aplicación Fliflax del modelo B
          "y las audiencias, A1 y A2, deben ser inferiores a 1.000.000. No olvides además "
          "que por su naturaleza A1 debe ser inferior a A2.")
 #----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 import pandas as pd
 import numpy as np
 #import scipy.stats as stats
@@ -120,6 +122,8 @@ df = df.astype(int)
 pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 #----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 st.write("### Resultados:")
 #----------------------------------------------------#
 st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
@@ -164,8 +168,8 @@ st.write("A continuación, también te dibujamos "
 
 #----------------------------------------------------#
 st.markdown("""---""")
-st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
 #----------------------------------------------------#
+st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
 
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -202,8 +206,10 @@ plt.legend()
 st.pyplot(fig)
  
 #----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 st.write("### Frecuencia efectiva mínima")
-
+#----------------------------------------------------#
 if df.lt(0).any().any() == True:
   st.write("#### Observaciones:")
   st.warning("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
@@ -226,14 +232,17 @@ selected_rows = df.loc[selected_indices]
 st.write('###### Tabla 1. Valores de Pi y Ri seleccionados')
 st.table(selected_rows)
 #----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 st.write("### Referencias:")
+#----------------------------------------------------#
 st.write("Finalmente, para profundizar en estos materiales, te recomendamos consultar la tesis doctoral de "
          "Joaquín Aldás Manzano de 1998, Catedrático actualmente en la Universidad de Valencia. ")
 
 st.write("También, te recomendamos visitar el siguiente enlace: https://es.wikipedia.org/wiki/Distribuci%C3%B3n_beta-binomial")
 #----------------------------------------------------#
 st.write("### Anexo")
-
+#----------------------------------------------------#
 if df.lt(0).any().any() == True:
   st.write("#### Observaciones:")
   st.warning("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
