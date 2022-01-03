@@ -50,7 +50,7 @@ with col2:
     # st.write("Valor elegido: {:.0f}".format(A2))
 
 if A1 > A2:
-  st.write("#### Observaciones:")
+  st.write("##### Observaciones:")
   st.warning("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)  
@@ -64,7 +64,7 @@ with col2:
     # st.write("Valor elegido: {}".format(P))
 
 if P < A2:
-  st.write("#### Observaciones:")
+  st.write("##### Observaciones:")
   st.warning("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)    
@@ -110,12 +110,6 @@ df = pd.DataFrame(data)
 df = df.astype(int)
 pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
-
-if df.lt(0).any().any() == True:
-  st.write("#### Observaciones:")
-  st.warning("En este momento el valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
-else:
-  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 st.write("### Resultados:")
 #----------------------------------------------------#
@@ -224,4 +218,10 @@ st.write("Como datos complentarios te mostramos el detalle de la tabla de valore
 # st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))    
+
+if df.lt(0).any().any() == True:
+  st.write("#### Observaciones:")
+  st.warning("En este momento el valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
+else:
+  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
