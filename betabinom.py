@@ -43,7 +43,7 @@ with col1:
     A1 = st.number_input("Audiencia acumulada tras 1 inserción", min_value = 1, max_value = pow(10, 10), value = A1_default, step=100, key = "A1")
     # st.write("Valor elegido: {:.0f}".format(A1))
 with col2:
-    A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = pow(10, 10), value = 550000, step=100, key = "A2")
+    A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = pow(10, 10), value = A1, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
 
 col1, col2 = st.columns([5,5])
@@ -70,7 +70,7 @@ except ZeroDivisionError as e:
   alpha = 0.125
   beta = 0.125
   n = 5
-  st.markdown('<p style="font-family:; color:Red; font-size: 14px;">Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar. Los resultados que ves abajo, se corresponden con valores de prueba de los parámetros de forma.</p>', unsafe_allow_html=True)
+  st.markdown('<p style="font-family:; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar. Los resultados que ves abajo, se corresponden con valores de prueba de los parámetros de forma.</b></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
