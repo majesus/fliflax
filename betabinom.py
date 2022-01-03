@@ -27,6 +27,11 @@ st.write("Beta binomial es un método de estimación de la "
 st.write("Los datos de inicio son los siguientes: A1, es decir, la audiencia del soporte; "
          "A2, es decir, la audiencia acumulada tras la segunda inserción, y n, es decir, "
          "el número de inserciones que contratamos en el único soporte que seleccionamos.")
+st.write("En la aplicación Fliflax que simula el modelo Beta-Binomial para la estimación de la distrbución de contactos "
+         "hemos simplificado los valores para evitar bugs del modelo. "
+         "Por ello, la Población debe ser superior o igual a 1.000.000 de personas, y las audiencias, "
+         "A1 y A2 inferiores a 1.000.000. De ese modo, evitamos los bugs relacionados con "
+         "los parámetros de forma alpha y beta.")
 #----------------------------------------------------#
 import pandas as pd
 import numpy as np
@@ -36,19 +41,23 @@ from scipy import special
 # st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 35px;">Selección de datos:</p>', unsafe_allow_html=True)
 st.write("### Selección de datos:")
 #----------------------------------------------------#
-A1_default = 500000
-
 col1, col2 = st.columns([5,5])
 with col1:
-    A1 = st.number_input("Audiencia acumulada tras 1 inserción", min_value = 1, max_value = pow(10, 10), value = A1_default, step=100, key = "A1")
+    A1 = st.number_input("Audiencia acumulada tras 1 inserción", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
     # st.write("Valor elegido: {:.0f}".format(A1))
 with col2:
-    A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = pow(10, 10), value = 550000, step=100, key = "A2")
+    A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
 
+if A1 < A2:
+  st.write("#### Observaciones:")
+  st.warning("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
+else:
+  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)  
+    
 col1, col2 = st.columns([5,5])
 with col1:
-    P = st.number_input("Población", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
+    P = st.number_input("Población", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
     # st.write("Valor elegido: {}".format(P))
 with col2:    
     Precio = st.number_input("Precio de una inserción €", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
@@ -56,7 +65,7 @@ with col2:
 
 if P < A2:
   st.write("#### Observaciones:")
-  st.warning("En este momento el valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
+  st.warning("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)    
 #----------------------------------------------------#
