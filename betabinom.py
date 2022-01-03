@@ -97,6 +97,11 @@ df = df.astype(int)
 pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
+if A1 < A2:
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>No olvides que el valor de A2 debe ser superior a A1. A2 es el número de personas que se exponen al menos una vez tras dos inserciones, y no es posible que este valor sea inferior a A1.</b></p>', unsafe_allow_html=True)
+else:
+    st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
+
 if df.lt(0).any().any() == True:
     st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar en el Anexo que aparecen valores negativos en la tabla de la distribución de contactos (y acumulada). <b>O bien el valor de A2 es excesivo en comparación con A1, o A2 es inferior a A1</b>, y por ello, los parámetros de forma <i>se vuelven locos</i>. Debes revisarlo. Y mientras tanto, abajo te mostramos los resultados con los datos que proponemos por defecto al entrar en la aplicación. </b></p>', unsafe_allow_html=True)
 else:
