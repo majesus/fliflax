@@ -43,7 +43,7 @@ with col1:
     A1 = st.number_input("Audiencia acumulada tras 1 inserción", min_value = 1, value = A1_default, step=100, key = "A1")
     # st.write("Valor elegido: {:.0f}".format(A1))
 with col2:
-    A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = 1000000, value = 550000, step=100, key = "A2")
+    A2 = st.number_input("Audiencia acumulada tras 2 inserciones", min_value = 1, max_value = 10 ^ 1000, value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
 
 col1, col2 = st.columns([5,5])
