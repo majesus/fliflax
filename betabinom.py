@@ -27,11 +27,13 @@ st.write("Beta binomial es un método de estimación de la "
 st.write("Los datos de inicio son los siguientes: A1, es decir, la audiencia del soporte; "
          "A2, es decir, la audiencia acumulada tras la segunda inserción, y n, es decir, "
          "el número de inserciones que contratamos en el único soporte que seleccionamos.")
-st.write("En la aplicación Fliflax que simula el modelo Beta-Binomial para la estimación de la distrbución de contactos "
-         "hemos simplificado los valores para evitar bugs del modelo. "
-         "Por ello, la Población debe ser superior o igual a 1.000.000 de personas, y las audiencias, "
-         "A1 y A2 inferiores a 1.000.000. De ese modo, evitamos los bugs relacionados con "
-         "los parámetros de forma alpha y beta.")
+st.write("Es importante señalar que nuestra aplicación Fliflax que simula el modelo Beta-Binomial "
+         "para la estimación de la distribución de contactos, "
+         "hemos simplificado los valores para evitar los bugs "
+         "los bugs relacionados con los parámetros de forma alfa y beta. "
+         "Hemos establecido pues que la Población debe ser superior o igual a 1.000.000 de personas, "
+         "y las audiencias, A1 y A2, deben ser inferiores a 1.000.000. No olvides además "
+         "que por su naturaleza A1 debe ser inferior a A2.")
 #----------------------------------------------------#
 import pandas as pd
 import numpy as np
