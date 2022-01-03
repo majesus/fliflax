@@ -24,16 +24,17 @@ st.markdown("""---""")
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de Audiencia neta acumulada "
          "(o modelo de acumulación), es decir, se trabaja con un único soporte. ")
-st.write("Los datos de inicio son los siguientes: A1, es decir, la audiencia del soporte; "
-         "A2, es decir, la audiencia acumulada tras la segunda inserción, y n, es decir, "
-         "el número de inserciones que contratamos en el único soporte que seleccionamos.")
+st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte); "
+         "A2 (la audiencia acumulada tras la segunda inserción); n "
+         "(el número de inserciones que contratamos en el único soporte que seleccionamos), "
+         "y la población.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-st.write("Es importante señalar que nuestra aplicación Fliflax que simula el modelo Beta-Binomial "
+st.write("Es importante señalar que en nuestra aplicación Fliflax del modelo Beta-Binomial "
          "para la estimación de la distribución de contactos, "
          "hemos simplificado los valores para evitar los bugs "
-         "los bugs relacionados con los parámetros de forma alfa y beta. "
+         "relacionados con los parámetros de forma alfa y beta. "
          "Hemos establecido pues que la Población debe ser superior o igual a 1.000.000 de personas, "
          "y las audiencias, A1 y A2, deben ser inferiores a 1.000.000. No olvides además "
          "que por su naturaleza A1 debe ser inferior a A2.")
@@ -89,7 +90,11 @@ except ZeroDivisionError as e:
   alpha = 0.125
   beta = 0.125
   n = 5
-  st.warning("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar. Los resultados que ves abajo, se corresponden con valores de prueba de los parámetros de forma.")
+  st.warning("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. "
+             "Puede ser debido a varias razones, por ejemplo, que el valor A2 esté muy próximo al valor de la población "
+             "y se produzca un bug al no poderlo modelizar la distribución Beta-Binomial. "
+             "Debes pues revisarlo antes de continuar. Mientras tanto, "
+             "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma.")
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
