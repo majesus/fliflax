@@ -111,13 +111,13 @@ st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
          "La cobertura es pues el primer valor de Ri (distribución de contactos acumulada). "
          "Te recordamos que Pi hace referencia a las personas alcanzadas exclusivamente i veces, y "
          "Ri a las personas alcanzadas al menos i veces.")
-st.write("A su vez, la suma de los valores de Ri desde 1 hasta n, "
+st.write("A su vez, la suma de los valores de Ri (desde 1 hasta n), "
          "siendo n el total de inserciones, es igual al total de impactos. "
-         "Otro modo de calcular los impactos es mediante el producto de A1 x n, "
+         "Otro modo inmediato para calcular los impactos es mediante el producto de A1 x n, "
          "en este caso,", A1 * n," impactos")
 st.write("Y una vez que hemos calculado los impactos, la frecuencia media no es más que el cociente entre "
-         "los impactos y la cobertura, es decir,la frecuencia es igual a", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura.")
-st.write("Los resultados que te mostramos abajo, son los derivados de los datos que nos ha facilitado en el bloque de Selección de datos.")
+         "los impactos y la cobertura, es decir, la frecuencia es igual a", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura.")
+st.write("Los resultados que te mostramos abajo, son los derivados de los datos que nos has facilitado en el bloque: Selección de datos.")
 
 col1, col2 = st.columns([5,5])
 with col1:
@@ -138,8 +138,8 @@ with col2:
 #----------------------------------------------------#
 st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos el valor GRP "
          "(número medio de impactos por cada 100 personas de la población). "
-         "Y también el valor CPP (coste por punto de rating), es decir, el coste monetario de alcanzar a un 1 % de la población. El valor CPP "
-         "es el resultado de divir el presupuesto (es decir, el coste asociado al plan propuesto, i.e., Precio de una inserción x n) "
+         "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), es decir, el coste monetario de alcanzar a un 1 % de la población. El valor CPP "
+         "es el resultado de divir el presupuesto (el coste asociado al plan propuesto, i.e., Precio de una inserción x n) "
          "y el volumen de GRP a contratar.")
 st.write("También te dibujamos "
          "la representación gráfica de la distribución de contactos (y acumulada) "
@@ -185,7 +185,7 @@ st.pyplot(fig)
 #----------------------------------------------------#
 st.write("### Frecuencia efectiva mínima")
 st.write("A continuación, puedes seleccionar los valores de Pi y Ri cuyo valor desees conocer de modo preciso. "
-         "El valor i elegido puede corresponderse, por ejemplo, con la frecuencia efectiva mínima que has prupuesto como objetivo. "
+         "El valor i elegido puede corresponderse, por ejemplo, con la frecuencia efectiva mínima que has prupuesto como objetivo en tu plan de medios y soportes. "
          "Recuerda que la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar "
          "los objetivos de comunicación por encima de un determinado nivel crítico.")
 pd.options.display.float_format = '{:,}'.format
