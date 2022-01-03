@@ -130,7 +130,7 @@ with col2:
     st.metric(label="GRP", value = round(df['Ri'].sum() * 100 / P))  
 col1, col2 = st.columns([5,5])
 with col1:
-    st.metric(label="Presupuesto", value = Precio * n)  
+    st.metric(label="Presupuesto", value = f"{Precio * n:,.2f}")  # Precio * n
 with col2:
     st.metric(label="CPP", value = round(Precio * n / (df['Ri'].sum() * 100 / P)))  
 
