@@ -19,7 +19,7 @@ col1.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
 with col2:
     st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
 #----------------------------------------------------#
-
+st.markdown("""---""")
 #----------------------------------------------------#
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de Audiencia neta acumulada "
@@ -27,6 +27,9 @@ st.write("Beta binomial es un método de estimación de la "
 st.write("Los datos de inicio son los siguientes: A1, es decir, la audiencia del soporte; "
          "A2, es decir, la audiencia acumulada tras la segunda inserción, y n, es decir, "
          "el número de inserciones que contratamos en el único soporte que seleccionamos.")
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 st.write("Es importante señalar que nuestra aplicación Fliflax que simula el modelo Beta-Binomial "
          "para la estimación de la distribución de contactos, "
          "hemos simplificado los valores para evitar los bugs "
@@ -154,10 +157,11 @@ st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos
 st.write("A continuación, también te dibujamos "
          "la representación gráfica de la distribución de contactos Pi (y acumulada Ri) "
          "mediante el trazado de una curva suave (spline) en Matplotlib. ")
+
+#----------------------------------------------------#
+st.markdown("""---""")
 st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
 #----------------------------------------------------#
-
-st.markdown("""---""")
 
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
