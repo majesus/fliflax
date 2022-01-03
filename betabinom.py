@@ -19,10 +19,12 @@ st.markdown('<p style="font-family:Consolas; color:#000000; font-size: 50px;"><b
 #----------------------------------------------------#
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de Audiencia neta acumulada "
-         "(o modelo de acumulación), es decir, se trabaja con un único soporte."
+         "(o modelo de acumulación), es decir, se trabaja con un único soporte. "
+         ""
          "Los datos de inicio son los siguientes: A1, es decir, la audiencia del soporte; "
          "A2, es decir, la audiencia acumulada tras la segunda inserción, y n, es decir, "
-         "el número de inserciones que contratamos en el único soporte que seleccionamos.")
+         "el número de inserciones que contratamos en el único soporte que seleccionamos."
+         "")
 #----------------------------------------------------#
 import pandas as pd
 import numpy as np
@@ -93,7 +95,8 @@ else:
 st.write("Dibujamos "
          "la representación gráfica de la distribución de contactos "
          "mediante el trazado de una curva suave en Matplotlib. "
-         "La curva representa Pi, es decir, el número de personas alcanzadas exclusivamente i veces.")
+         "La curva representa Pi, es decir, el número de personas alcanzadas exclusivamente i veces."
+         "")
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -127,7 +130,8 @@ st.write("A continuación, te mostramos la tabla de valores Pi y Ri alcanzados. 
          "A su vez, la suma de Ri es el total de impactos logrados, en este caso,", round(df['Ri'].sum())," impactos. "
          "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones. "
          "Y una vez que hemos calculado los impactos, la frecuencia media no es más que el cociente entre "
-         "los impactos y la cobertura, es decir,", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura. ")
+         "los impactos y la cobertura, es decir,", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura."
+         "")
 
 # st.write("Distribución de contactos (y acumulada):")
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))      
