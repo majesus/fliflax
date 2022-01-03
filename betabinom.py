@@ -139,7 +139,9 @@ st.write("A su vez, la suma de los valores de Ri (desde 1 hasta n), "
 st.write("Y una vez que hemos calculado los impactos, la frecuencia media no es más que el cociente entre "
          "los impactos y la cobertura, es decir, la frecuencia es igual a", f"{round(df['Ri'].sum() / df['Ri'].iloc[0]):,.0f}","impactos por persona de la cobertura.")
 st.write("Los resultados que te mostramos abajo, son los derivados de los datos que nos has facilitado en el bloque: Selección de datos.")
-
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 col1, col2 = st.columns([5,5])
 with col1:
     st.slider("Cobertura", 1, max_value= P, value = round(df['Ri'].iloc[0]), step=None, key = "cobertura")
@@ -155,7 +157,8 @@ with col1:
     st.metric(label="Presupuesto €", value = f"{Precio * n:,.0f}")
 with col2:
     st.metric(label="CPP", value = f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}")  
-
+#----------------------------------------------------#
+st.markdown("""---""")
 #----------------------------------------------------#
 st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos el valor GRP "
          "(número medio de impactos por cada 100 personas de la población). "
