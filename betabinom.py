@@ -71,7 +71,7 @@ except ZeroDivisionError as e:
     alpha = 0.125
     beta = 0.125
     n = 5
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisar el valor de A2, por favor.</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Abajo te mostramos los resultados con loas datos que proponemos por defecto.</b></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
@@ -98,7 +98,7 @@ pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
-    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar en el Anexo que aparecen valores negativos en la tabla de la distribución de contactos (y acumulada). <b>El valor de A2 es excesivo en comparación con A1</b>, y los parámetros de forma <i>se vuelven locos</i>.</b></p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>Hay un problema con el valor de <b>A2</b>. Puedes observar en el Anexo que aparecen valores negativos en la tabla de la distribución de contactos (y acumulada). Abajo te mostramos los resultados con loas datos que proponemos por defecto.<b>El valor de A2 es excesivo en comparación con A1</b>, y los parámetros de forma <i>se vuelven locos</i>.</b></p>', unsafe_allow_html=True)
 else:
     st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
