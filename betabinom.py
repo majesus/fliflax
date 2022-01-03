@@ -10,13 +10,17 @@ st.set_page_config(layout="centered",
                    )
 #----------------------------------------------------#
 st.markdown(""" <style> .font {
-    font-size:50px ; font-family: 'sans-serif'; color: #000000;} 
+    font-size:50px ; 
+    #font-family: 'sans-serif'; 
+    color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
 col1, col2, col3 = st.columns([2, 5, 0.2])
 col1.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
 with col2:
-    st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align:center"><p 
+                #style="font-family:sans-serif; 
+                color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
 #----------------------------------------------------#
 
 #----------------------------------------------------#
