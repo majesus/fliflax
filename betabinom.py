@@ -125,14 +125,14 @@ with col2:
     st.slider("Frecuencia media", 1, max_value= n, value = round(df['Ri'].sum() / df['Ri'].iloc[0]), step=None, key = "frecuencia")
 col1, col2 = st.columns([5,5])
 with col1:
-    st.metric(label="Impactos", value = A1 * n)
+    st.metric(label="Impactos", value = f"{A1 * n:,.0f}")
 with col2:
-    st.metric(label="GRP", value = round(df['Ri'].sum() * 100 / P))  
+    st.metric(label="GRP", value = f"{round(df['Ri'].sum() * 100 / P):,.0f}")
 col1, col2 = st.columns([5,5])
 with col1:
-    st.metric(label="Presupuesto", value = f"{Precio * n:,.2f}")  # Precio * n
+    st.metric(label="Presupuesto", value = f"{Precio * n:,.0f}")
 with col2:
-    st.metric(label="CPP", value = round(Precio * n / (df['Ri'].sum() * 100 / P)))  
+    st.metric(label="CPP", value = f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}")  
 
 #----------------------------------------------------#
 st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos el valor GRP "
