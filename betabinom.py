@@ -70,7 +70,8 @@ except ZeroDivisionError as e:
   alpha = 0.125
   beta = 0.125
   n = 5
-  st.markdown('<p style="font-family:; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar. Los resultados que ves abajo, se corresponden con valores de prueba de los parámetros de forma.</b></p>', unsafe_allow_html=True)
+  # st.markdown('<p style="font-family:; color:Red; font-size: 14px;"><b>Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar. Los resultados que ves abajo, se corresponden con valores de prueba de los parámetros de forma.</b></p>', unsafe_allow_html=True)
+  st.warning("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. Debes revisarlo antes de continuar. Los resultados que ves abajo, se corresponden con valores de prueba de los parámetros de forma.")
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
@@ -98,13 +99,15 @@ df = df.head(n=n)
 
 if df.lt(0).any().any() == True:
   st.write("#### Observaciones:")
-  st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de <b>A2</b> es inferior a A1. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
+  # st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de <b>A2</b> es inferior a A1. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
+  st.warning("En este momento el valor de <b>A2</b> es inferior a A1. No olvides corregirlo antes de continuar.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
     
 if P < A2:
   st.write("#### Observaciones:")
-  st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de la <b>Población</b> es inferior a A2. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
+  # st.markdown('<p style="font-family:Consolas; color:Red; font-size: 14px;"><b>En este momento el valor de la <b>Población</b> es inferior a A2. No olvides corregirlo antes de continuar.</p>', unsafe_allow_html=True)
+  st.warning("En este momento el valor de la <b>Población</b> es inferior a A2. No olvides corregirlo antes de continuar.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 #----------------------------------------------------#
