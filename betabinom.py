@@ -154,6 +154,7 @@ st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos
 st.write("A continuación, también te dibujamos "
          "la representación gráfica de la distribución de contactos Pi (y acumulada Ri) "
          "mediante el trazado de una curva suave (spline) en Matplotlib. ")
+st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
 #----------------------------------------------------#
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -176,7 +177,7 @@ fig, ax = plt.subplots()
 ax.plot(xs1,ys1, label="Pi, spline")
 ax.plot(xs2,ys2, label="Ri, spline")
 ax.set_facecolor("white")
-plt.title("Distribución de contactos")
+#plt.title("Distribución de contactos")
 #plt.xticks(x,x)
 
 if n < 20:
@@ -229,7 +230,7 @@ if df.lt(0).any().any() == True:
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 
-st.write('###### Distribución de contactos Pi (y acumulada Ri)')
+st.write('###### Anexo 1. Distribución de contactos Pi (y acumulada Ri)')
 # st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))    
