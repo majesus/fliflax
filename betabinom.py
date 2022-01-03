@@ -110,13 +110,15 @@ else:
 #----------------------------------------------------#
 st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
          "el valor de la cobertura es igual a", round(df['Ri'].iloc[0]), "personas. "
-         "Es el primer valor de Ri, es decir, las personas alcanzadas al menos una vez. "
-         "A su vez, la suma de Ri es el total de impactos logrados. "
-         "Otro modo de calcular los impactos es mediante el producto de A1 x n, siendo n el total de inserciones, "
+         "Es decir,", round(df['Ri'].iloc[0]), "personas se exponen al menos 1 vez. " 
+         "La cobertura es pues el primer valor de Ri (distribución de contactos acumulada), i.e., R1. "
+         "A su vez, la suma de los valores de Ri desde 1 hasta n, "
+         "siendo n el total de inserciones, es igual al total de impactos. "
+         "Otro modo de calcular los impactos es mediante el producto de A1 x n, "
          "en este caso,", A1 * n," impactos")
 st.write("Y una vez que hemos calculado los impactos, la frecuencia media no es más que el cociente entre "
-         "los impactos y la cobertura, es decir,", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura.")
-st.write("Los resultados que te mostramos abajo, son los derivados de los datos que nos ha facilitado.")
+         "los impactos y la cobertura, es decir,la frecuencia es igual a", round(df['Ri'].sum() / df['Ri'].iloc[0]),"impactos por persona de la cobertura.")
+st.write("Los resultados que te mostramos abajo, son los derivados de los datos que nos ha facilitado en el bloque de Selección de datos.")
 
 col1, col2 = st.columns([5,5])
 with col1:
