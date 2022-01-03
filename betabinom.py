@@ -187,7 +187,7 @@ st.write("A continuación, puedes seleccionar los valores de Pi y Ri que se corr
          "Recuerda que la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar "
          "los objetivos de comunicación propuestos por encima de un determinado nivel crítico.")
 pd.options.display.float_format = '{:,}'.format
-
+df = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el valor de i:', df.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = df.loc[selected_indices]
@@ -205,6 +205,6 @@ st.write("Como dato completo, te mostramos el detalle de la tabla de valores Pi 
          "La columna Pi representa la distribución de contactos, y Ri es la distribución de contactos acumulada, "
          "que se relaciona con la frecuencia efectiva mínima. ")
 # st.write("Distribución de contactos (y acumulada):")
-df = df.set_index('exposiciones')
+#df = df.set_index('exposiciones')
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))    
 #----------------------------------------------------#
