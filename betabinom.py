@@ -142,7 +142,7 @@ st.write("Derivado de tus datos y siempre que se ajusten a las premisas del mode
          ", el valor de la cobertura alcanzada es igual a", f"{round(df['Ri'].iloc[0]):,.0f}", "personas. "
          "Es decir,", f"{round(df['Ri'].iloc[0]):,.0f}", "personas se exponen al menos 1 vez. "
          "Los impactos logrados con", f"{n:,.0f}", "inserciones son", f"{A1 * n:,.0f}"," impactos. "
-         "La frecuencia media es pues igual a", f"{df['Ri'].sum() / df['Ri'].iloc[0]:.,3f}","impactos por persona de la cobertura.")
+         "La frecuencia media es pues igual a", f"{df['Ri'].sum() / df['Ri'].iloc[0]:,.3f}","impactos por persona de la cobertura.")
 st.write("Junto a lo anterior, el valor GRP es igual a", f"{round(df['Ri'].sum() * 100 / P):,.0f}","impactos por cada 100 personas de la población "
          "que en nuestro caso es igual a", f"{P:,.0f}", "personas. "
          "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
