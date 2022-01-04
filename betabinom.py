@@ -185,10 +185,10 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from scipy.interpolate import make_interp_spline
 model1=make_interp_spline(df.exposiciones, df.Pi)
-xs1=np.linspace(1, n, 500)
+xs1=np.linspace(1, n, n)
 ys1=model1(xs1)
 model2=make_interp_spline(df.exposiciones, df.Ri)
-xs2=np.linspace(1, n, 500)
+xs2=np.linspace(1, n, n)
 ys2=model2(xs2)
 
 rcParams['font.family'] = 'monospace'
