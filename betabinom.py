@@ -96,6 +96,11 @@ except ZeroDivisionError as e:
              "y se produzca un bug al no poderlo modelizar la distribución Beta-Binomial. "
              "Debes pues revisarlo antes de continuar. Mientras tanto, "
              "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma.")
+if alpha, beta <= 0:
+  st.write("##### Observaciones:")
+  st.warning("Los parámetros de forma alfa y beta son negativos, y violan un presupuesto de partida.")
+else:
+  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)  
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
