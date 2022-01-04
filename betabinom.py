@@ -216,8 +216,8 @@ plt.ylabel("Personas")
 plt.legend()
 #----------------------------------------------------#
 data = {'exposiciones':  xs1, 'Pi': ys1}
-df1 = data.set_index('exposiciones')
-df1 = pd.DataFrame(df1)
+#df1 = data.set_index('exposiciones')
+df1 = pd.DataFrame(data)
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
     st.pyplot(fig)
