@@ -131,7 +131,6 @@ data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 df = pd.DataFrame(data)
 df = df.astype(int)
 pd.options.display.float_format = '{:,}'.format
-df = df.set_index('exposiciones')
 df = df.head(n=n)
 #----------------------------------------------------#
 st.markdown("""---""")
@@ -173,9 +172,11 @@ with col2:
 st.markdown("""---""")
 #----------------------------------------------------#    
 # Mostrar la tabla de Pi y Ri:
+# Convierto en index columna de exposiciones, y vuelco en otra tabla porque si no, me genera arror en Matplotlib.
+df1 = df.set_index('exposiciones')
 if st.checkbox("Mostrar los primeros 5 valores de Pi y Ri alcanzados", False):
     #st.subheader('Tabla de datos')
-    st.table(df.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
+    st.table(df1.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -242,7 +243,7 @@ st.write("En este apartado puedes seleccionar los valores de Pi y Ri cuyo valor 
          "(por encima de un determinado nivel crítico) "
          "los objetivos de comunicación.")
 pd.options.display.float_format = '{:,}'.format
-# df = df.set_index('exposiciones')
+df = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el/los valor/es i:', df.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = df.loc[selected_indices]
