@@ -141,9 +141,9 @@ st.markdown("""---""")
 #----------------------------------------------------#
 col1, col2 = st.columns([5,5])
 with col1:
-    st.metric(label="Cobertura", value = f"{round(df['Ri'].iloc[0]):,.0f}", key = "cobertura")
+    st.metric(label="Cobertura", value = f"{round(df['Ri'].iloc[0]):,.0f}")
 with col2:
-    st.metric(label="Frecuencia media", value = f"{round(df['Ri'].sum() / df['Ri'].iloc[0]:,.0f}), key = "frecuencia")
+    st.metric(label="Frecuencia media", value = f"{round(df['Ri'].sum() / df['Ri'].iloc[0]):,.0f}")
 col1, col2 = st.columns([5,5])
 with col1:
     st.metric(label="Impactos", value = f"{A1 * n:,.0f}")
