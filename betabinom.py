@@ -5,7 +5,7 @@ import streamlit as st
 st.set_page_config(layout="centered",
                    page_title="Fliflax",
                    page_icon=":smiley"
-                   #initial_sidebar_state='expanded'
+                   initial_sidebar_state='expanded'
                    )
 #----------------------------------------------------#
 st.markdown(""" <style> .font {
