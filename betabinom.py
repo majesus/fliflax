@@ -73,15 +73,8 @@ if P < A2:
   st.write("##### Observaciones:")
   st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
 else:
-  st.write("")    
-#----------------------------------------------------#
-inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
-# st.write("Valor elegido: {}".format(inserciones))
-#----------------------------------------------------#
-n = inserciones
-#----------------------------------------------------#
-R1=A1/P;R2=A2/P
-#----------------------------------------------------#
+  st.write("")
+  
 try:
   alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
   beta=(alpha*(1-R1))/(R1)
@@ -98,21 +91,28 @@ except ZeroDivisionError as e:
              "para una audiencia de 500,000 personas y una audiencia acumulada tras la segunda inserción de 550,000.")
   
 if alpha <= 0 or beta <= 0:
+  st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida. "
+           "Debes pues revisarlo antes de continuar. "
+           "Es posible que el valor de A2 sea demasiado alto, o que la población sea inferior a las audiencias. "
+           "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto de los parámetros de forma.")
   st.write("##### Observaciones:")
   # datos de muestra:
   alpha = 0.125
   beta = 0.125
   n = 5
-  st.error("Los parámetros de forma alfa y beta son negativos, y violan un presupuesto de partida. "
-             "Debes pues revisarlo antes de continuar. Mientras tanto, "
-             "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma.")
 else:
   st.write("")  
+#----------------------------------------------------#
+inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
+# st.write("Valor elegido: {}".format(inserciones))
+#----------------------------------------------------#
+n = inserciones
+#----------------------------------------------------#
+R1=A1/P;R2=A2/P
 #----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
 betas = beta
-# n = insertions
 #----------------------------------------------------#
 # https://docs.pymc.io/en/v3/api/distributions/discrete-2.py
 # https://docs.scipy.org/doc/scipy/tutorial/stats/discrete_betabinom.html
