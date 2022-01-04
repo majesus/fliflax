@@ -131,6 +131,7 @@ data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 df = pd.DataFrame(data)
 df = df.astype(int)
 pd.options.display.float_format = '{:,}'.format
+df = df.set_index('exposiciones')
 df = df.head(n=n)
 #----------------------------------------------------#
 st.markdown("""---""")
@@ -241,7 +242,7 @@ st.write("En este apartado puedes seleccionar los valores de Pi y Ri cuyo valor 
          "(por encima de un determinado nivel crítico) "
          "los objetivos de comunicación.")
 pd.options.display.float_format = '{:,}'.format
-df = df.set_index('exposiciones')
+# df = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el/los valor/es i:', df.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = df.loc[selected_indices]
