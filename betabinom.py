@@ -269,7 +269,5 @@ st.write('###### Anexo 1. Distribución de contactos Pi (y acumulada Ri)')
 if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados, marca la casilla.", False):
     st.write('###### Anexo. Distribución de contactos Pi (y acumulada Ri)')
     st.table(df1.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
-    st.info('Parámetros de forma: alfa: ',f"{alpha:,.3f}",'y beta: ',f"{alpha:,.3f}")
-# st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
-#st.write('Parámetros de forma: alfa: ',f"{alpha:,.3f}",'y beta: ',f"{alpha:,.3f}")
+    st.write('Parámetros de forma: alfa: ',f"{alpha:,.3f}",'y beta: ',f"{alpha:,.3f}")
 #----------------------------------------------------#
