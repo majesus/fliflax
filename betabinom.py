@@ -69,6 +69,10 @@ with col2:
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
     # st.write("Valor elegido: {}".format(P))
 
+#----------------------------------------------------#
+R1=A1/P;R2=A2/P    
+#----------------------------------------------------#
+
 if P < A2:
   st.write("##### Observaciones:")
   st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
@@ -107,9 +111,6 @@ inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserc
 # st.write("Valor elegido: {}".format(inserciones))
 #----------------------------------------------------#
 n = inserciones
-#----------------------------------------------------#
-R1=A1/P;R2=A2/P
-#----------------------------------------------------#
 x = np.arange(1,n+1)
 alphas = alpha
 betas = beta
