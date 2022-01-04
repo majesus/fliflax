@@ -175,21 +175,12 @@ st.markdown("""---""")
 # Convierto en index columna de exposiciones, y vuelco en otra tabla porque si no, me genera arror en Matplotlib.
 df1 = df.set_index('exposiciones')
 if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marca la casilla", False):
-    #st.subheader('Tabla de datos')
+    st.write('###### Tabla 1. Distribución de contactos Pi (y acumulada Ri)')
     st.table(df1.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.write("En nuestro Anexo de abajo, puedes ver todos los valores de Pi y Ri.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-st.write("A continuación, también te dibujamos "
-         "la representación gráfica de la distribución de contactos Pi (y acumulada Ri) "
-         "mediante el trazado de una curva suave (spline) en Matplotlib. ")
-
-#----------------------------------------------------#
-st.markdown("""---""")
-#----------------------------------------------------#
-st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
-
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from scipy.interpolate import make_interp_spline
@@ -222,8 +213,12 @@ else:
 plt.xlabel("i veces")
 plt.ylabel("Personas")
 plt.legend()
-st.pyplot(fig)
- 
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
+if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla", False):
+    st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
+    st.pyplot(fig)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -248,7 +243,7 @@ df = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el/los valor/es i:', df.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = df.loc[selected_indices]
-st.write('###### Tabla 1. Valores de Pi y Ri seleccionados')
+st.write('###### Tabla 2. Valores de Pi y Ri seleccionados')
 # st.table(selected_rows)
 st.table(selected_rows.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
 #----------------------------------------------------#
@@ -272,7 +267,6 @@ else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
 
 st.write('###### Anexo 1. Distribución de contactos Pi (y acumulada Ri)')
-# st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
 st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
 st.write('Parámetros de forma: alfa: ',f"{alpha:,.3f}",'y beta: ',f"{alpha:,.3f}")
