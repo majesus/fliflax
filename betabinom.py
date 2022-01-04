@@ -95,7 +95,7 @@ except ZeroDivisionError as e:
              "Recuerda que los parámetros de forma deben ser superiores a 0 ."
              "Debes pues revisarlo antes de continuar. Mientras tanto, "
              "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma "
-             "para una audiencia de 500,000 personas y una audiencia acumulada tras la segunda inserción de 550,000".)
+             "para una audiencia de 500,000 personas y una audiencia acumulada tras la segunda inserción de 550,000.")
   
 if alpha <= 0 or beta <= 0:
   st.write("##### Observaciones:")
