@@ -209,10 +209,10 @@ st.write("En este apartado puedes seleccionar los valores de Pi y Ri cuyo valor 
          "(por encima de un determinado nivel crítico) "
          "los objetivos de comunicación.")
 pd.options.display.float_format = '{:,}'.format
-df = df.set_index('exposiciones')
-selected_indices = st.multiselect('Selecciona el/los valor/es i:', df.index)
+df1 = df.set_index('exposiciones')
+selected_indices = st.multiselect('Selecciona el/los valor/es i:', df1.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
-selected_rows = df.loc[selected_indices]
+selected_rows = df1.loc[selected_indices]
 st.write('###### Tabla 2. Valores de Pi y Ri seleccionados')
 # st.table(selected_rows)
 st.table(selected_rows.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
