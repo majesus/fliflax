@@ -168,11 +168,13 @@ with col1:
     st.metric(label="Presupuesto €", value = f"{Precio * n:,.0f}")
 with col2:
     st.metric(label="CPP", value = f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}")  
-    
+#----------------------------------------------------#
+# st.markdown("""---""")
+#----------------------------------------------------#    
 # Mostrar la tabla de Pi y Ri:
 if st.checkbox("Mostrar los valores de Pi y Ri alcanzados", False):
     st.subheader('Tabla de datos')
-    st.write(df.head())
+    st.table(df.head())
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
