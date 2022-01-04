@@ -218,7 +218,7 @@ plt.legend()
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
     st.pyplot(fig)
-    st.line_chart(df[['Pi','Ri']])
+    st.line_chart(df[['Pi','Ri']].set_index('index'))
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
