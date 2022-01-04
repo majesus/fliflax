@@ -144,8 +144,8 @@ st.write("Derivado de tus datos y siempre que se ajuesten a las premisas del mod
          "Los impactos logrados con", f"{n:,.0f}", "inserciones son", f"{A1 * n:,.0f}"," impactos. "
          "La frecuencia media es pues igual a", f"{round(df['Ri'].sum() / df['Ri'].iloc[0]):,.0f}","impactos por persona de la cobertura.")
 st.write("Junto a lo anterior, el valor GRP es igual a", f"{round(df['Ri'].sum() * 100 / P):,.0f}","impactos por cada 100 personas de la población "
-         "que en nuestro caso es igual a", f"{P:,.0f}", ",
-         ". Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
+         "que en nuestro caso es igual a", f"{P:,.0f}", "personas. "
+         "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
          "el coste monetario de alcanzar a un 1 % de la población es igual a", f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}","€. "
          "El valor CPP es el resultado de divir el presupuesto (el coste asociado al plan propuesto "
          "y los GRP a contratar.")
