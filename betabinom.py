@@ -57,7 +57,7 @@ with col2:
 
 if A1 > A2:
   st.write("##### Observaciones:")
-  st.warning("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
+  st.error("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)  
     
