@@ -28,6 +28,15 @@ st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte);
          "A2 (la audiencia acumulada tras la segunda inserción); n "
          "(el número de inserciones que contratamos en el único soporte que seleccionamos), "
          "y la población.")
+st.markdown(
+    '''
+    La definición de cada uno de los datos de partida son los siguientes:
+- **Audiencia A1**: personas que frecuentan el soporte.
+- **Audiencia A2**: personas alcanzadas al menos una vez tras 2 inserciones.
+- **Población P**: continente que __contiene a las audiencias__.
+- **Inserciones n**: número de inserciones programadas para lograr los objetivos.
+    '''
+)
 #----------------------------------------------------#
 # st.markdown("""---""")
 #----------------------------------------------------#
