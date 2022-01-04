@@ -251,7 +251,7 @@ st.write("### Referencias:")
 #----------------------------------------------------#
 st.info("Finalmente, para profundizar en estos materiales, te recomendamos consultar la tesis doctoral de "
          "Joaquín Aldás Manzano de 1998, Catedrático actualmente en la Universidad de Valencia. ")
-st.info("También, te recomendamos visitar el siguiente enlace:","[Wikipedia: Beta-Binomial](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_beta-binomial)")
+st.info("También, te recomendamos visitar el siguiente enlace: [Wikipedia: Beta-Binomial](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_beta-binomial)")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
