@@ -117,7 +117,6 @@ Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
 data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 
 df = pd.DataFrame(data)
-df= df.fillna(0)
 df = df.astype(int)
 pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
