@@ -184,9 +184,10 @@ st.markdown("""---""")
 df1 = df.set_index('exposiciones')
 df1 = pd.DataFrame(df1)
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
-    st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
-    st.bar_chart(df1[['Pi']])
-    st.bar_chart(df1[['Ri']])
+    st.write('###### Figura 1. Distribución de contactos Pi')
+    st.bar_chart(df1[['Pi']], orientation = "horizontal", use_container_width = True)
+    st.write('###### Figura 2. Distribución de contactos acumulada Ri')
+    st.bar_chart(df1[['Ri']], use_container_width = True)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
