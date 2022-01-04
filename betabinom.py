@@ -247,6 +247,9 @@ import altair as alt
 g = alt.Chart(df).mark_line().encode(
     x='exposiciones',
     y='Pi'
+).configure_mark(
+    opacity=0.2,
+    color='red'
 )
 st.altair_chart(g, use_container_width = True)
 #----------------------------------------------------#
