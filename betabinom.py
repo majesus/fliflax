@@ -248,5 +248,5 @@ g = alt.Chart(df).mark_point().encode(
     x='exposiciones:Q',
     y='Pi:Q'
 )
-st.altair_chart(g, use_container_width = True)
+st.line_chart(g, use_container_width = True)
 
