@@ -45,14 +45,14 @@ import numpy as np
 #import scipy.stats as stats
 from scipy import special
 #----------------------------------------------------#
-st.sidebar.write("### Selección de datos:")
+st.write("### Selección de datos:")
 #----------------------------------------------------#
 col1, col2 = st.columns([5,5])
 with col1:
-    A1 = st.sidebar.number_input("Audiencia acumulada tras 1 inserción:", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
+    A1 = st.number_input("Audiencia acumulada tras 1 inserción:", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
     # st.write("Valor elegido: {:.0f}".format(A1))
 with col2:
-    A2 = st.sidebar.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
+    A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
 
 if A1 > A2:
