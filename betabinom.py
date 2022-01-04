@@ -132,7 +132,7 @@ st.write("Derivado de tus datos y siempre que se ajuesten a las premisas del mod
          "La frecuencia media es pues igual a", f"{round(df['Ri'].sum() / df['Ri'].iloc[0]):,.0f}","impactos por persona de la cobertura.")
 st.write("Junto a lo anterior, el valor GRP es igual a", f"{round(df['Ri'].sum() * 100 / P):,.0f}","impactos por cada 100 personas de la población. "
          "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
-         "el coste monetario de alcanzar a un 1 % de la población es igual a", f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}",". "
+         "el coste monetario de alcanzar a un 1 % de la población es igual a", f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}","€. "
          "El valor CPP es el resultado de divir el presupuesto (el coste asociado al plan propuesto "
          "y los GRP a contratar.")
 st.write("A continuación, te ofrecemos un breve resumen.")
@@ -141,9 +141,9 @@ st.markdown("""---""")
 #----------------------------------------------------#
 col1, col2 = st.columns([5,5])
 with col1:
-    st.slider("Cobertura", 1, max_value= P, value = round(df['Ri'].iloc[0]), step=None, key = "cobertura")
+    st.metric("Cobertura", 1, value = round(df['Ri'].iloc[0]), key = "cobertura")
 with col2:
-    st.slider("Frecuencia media", 1, max_value= n, value = round(df['Ri'].sum() / df['Ri'].iloc[0]), step=None, key = "frecuencia")
+    st.metric("Frecuencia media", 1, value = round(df['Ri'].sum() / df['Ri'].iloc[0]), key = "frecuencia")
 col1, col2 = st.columns([5,5])
 with col1:
     st.metric(label="Impactos", value = f"{A1 * n:,.0f}")
