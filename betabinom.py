@@ -244,8 +244,9 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     st.write('Parámetros de forma: alfa: ',f"{alphas:,.3f}",'y beta: ',f"{betas:,.3f}")
 #----------------------------------------------------#
 import altair as alt
+x = np.arange(1,n+1)
 g = alt.Chart(df).mark_line().encode(
-    x=np.arange(1,n+1),
+    x='x',
     y='Pi'
 )
 st.altair_chart(g, use_container_width = True)
