@@ -184,17 +184,11 @@ st.markdown("""---""")
 df1 = df.set_index('exposiciones')
 df1 = pd.DataFrame(df1)
 
-a = alt.Chart(df).mark_area(opacity=1).encode(x='exposiciones', y='Pi')
-b = alt.Chart(df).mark_area(opacity=0.6).encode(x='exposiciones', y='Ri')
-c = alt.layer(a, b)
-
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi')
     st.bar_chart(df1[['Pi']], use_container_width = True)
     st.write('###### Figura 2. Distribución de contactos acumulada Ri')
     st.bar_chart(df1[['Ri']], use_container_width = True)
-    
-    st.altair_chart(c, use_container_width = True)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
