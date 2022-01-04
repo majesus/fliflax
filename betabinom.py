@@ -265,5 +265,5 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     st.table(df1.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.write('Parámetros de forma: alfa: ',f"{alphas:,.3f}",'y beta: ',f"{betas:,.3f}")
 #----------------------------------------------------#
-
+#
 #----------------------------------------------------#
