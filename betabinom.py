@@ -71,7 +71,7 @@ with col2:
 
 if P < A2:
   st.write("##### Observaciones:")
-  st.warning("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
+  st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
 else:
   st.write("")    
 #----------------------------------------------------#
@@ -91,7 +91,7 @@ except ZeroDivisionError as e:
   alpha = 0.125
   beta = 0.125
   n = 5
-  st.warning("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. "
+  st.error("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. "
              "Recuerda que los parámetros de forma deben ser superiores a 0 ."
              "Debes pues revisarlo antes de continuar. Mientras tanto, "
              "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma "
@@ -103,7 +103,7 @@ if alpha <= 0 or beta <= 0:
   alpha = 0.125
   beta = 0.125
   n = 5
-  st.warning("Los parámetros de forma alfa y beta son negativos, y violan un presupuesto de partida. "
+  st.error("Los parámetros de forma alfa y beta son negativos, y violan un presupuesto de partida. "
              "Debes pues revisarlo antes de continuar. Mientras tanto, "
              "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma.")
 else:
@@ -195,7 +195,7 @@ st.write("### Frecuencia efectiva mínima")
 #----------------------------------------------------#
 if df.lt(0).any().any() == True:
   st.write("#### Observaciones:")
-  st.warning("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
+  st.error("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
             "Es debido probablemente a que el valor de A2 es superior a A1, y eso no es posible. "
             "Corrígelo antes de seleccionar ningún valor de i.")
 else:
@@ -230,7 +230,7 @@ st.write("### Anexo")
 #----------------------------------------------------#
 if df.lt(0).any().any() == True:
   st.write("#### Observaciones:")
-  st.warning("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
+  st.error("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
             "Es debido probablemente a que el valor de A2 es superior a A1, y eso no es posible.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
