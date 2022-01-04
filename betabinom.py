@@ -29,9 +29,9 @@ st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte);
          "(el número de inserciones que contratamos en el único soporte que seleccionamos), "
          "y la población.")
 #----------------------------------------------------#
-st.markdown("""---""")
+# st.markdown("""---""")
 #----------------------------------------------------#
-st.write("Es importante señalar que en nuestra aplicación Fliflax del modelo Beta-Binomial "
+st.info("Es importante señalar que en nuestra aplicación Fliflax del modelo Beta-Binomial "
          "para la estimación de la distribución de contactos, "
          "hemos simplificado los valores para evitar los bugs "
          "relacionados con los parámetros de forma alfa y beta. "
