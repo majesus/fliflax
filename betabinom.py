@@ -215,10 +215,11 @@ plt.xlabel("i veces")
 plt.ylabel("Personas")
 plt.legend()
 #----------------------------------------------------#
+df1 = df.set_index('exposiciones')
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
     st.pyplot(fig)
-    st.line_chart(df[['Pi','Ri']].set_index('exposiciones'))
+    st.line_chart(df1[['Pi','Ri']])
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
