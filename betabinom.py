@@ -54,13 +54,7 @@ with col1:
 with col2:
     A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
-
-if A1 > A2:
-  st.write("##### Observaciones:")
-  st.error("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
-else:
-  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)  
-    
+  
 col1, col2 = st.columns([5,5])
 with col1:
     P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
@@ -72,6 +66,11 @@ with col2:
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P    
 #----------------------------------------------------#
+if A1 > A2:
+  st.write("##### Observaciones:")
+  st.error("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
+else:
+  st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)  
 
 if P < A2:
   st.write("##### Observaciones:")
@@ -97,7 +96,7 @@ except ZeroDivisionError as e:
 if alpha <= 0 or beta <= 0:
   st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida. "
            "Debes pues revisarlo antes de continuar. "
-           "Es posible que el valor de A2 sea demasiado alto, o que la población sea inferior a las audiencias. "
+           "Es posible que el valor de A2 sea demasiado alto. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto de los parámetros de forma.")
   st.write("##### Observaciones:")
   # datos de muestra:
