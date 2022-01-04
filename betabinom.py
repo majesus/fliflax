@@ -181,46 +181,12 @@ if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marc
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
-from scipy.interpolate import make_interp_spline
-model1=make_interp_spline(df.exposiciones, df.Pi)
-xs1=np.linspace(1, n, n)
-ys1=model1(xs1)
-model2=make_interp_spline(df.exposiciones, df.Ri)
-xs2=np.linspace(1, n, n)
-ys2=model2(xs2)
-
-rcParams['font.family'] = 'monospace'
-rcParams['font.size'] = 8
-rcParams["axes.formatter.useoffset"] = False
-#fig = plt.figure(figsize=(4, 4))
-plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
-plt.figure(facecolor='white')
-plt.ticklabel_format(style="plain")
-
-fig, ax = plt.subplots()
-ax.plot(xs1,ys1, label="Pi, spline")
-ax.plot(xs2,ys2, label="Ri, spline")
-ax.set_facecolor("white")
-#plt.title("Distribución de contactos")
-#plt.xticks(x,x)
-
-if n < 20:
-    plt.xticks(np.arange(1, n+1, 1))
-else:
-    plt.xticks(np.arange(1, n+1, 5))
-
-plt.xlabel("i veces")
-plt.ylabel("Personas")
-plt.legend()
-#----------------------------------------------------#
 df1 = df.set_index('exposiciones')
 df1 = pd.DataFrame(df1)
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi (y acumulada Ri)')
-    #st.pyplot(fig)
-    st.bar_chart(df1)
+    st.bar_chart(df1[['Pi']])
+    st.bar_chart(df1[['Ri']])
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
