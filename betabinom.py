@@ -92,10 +92,10 @@ except ZeroDivisionError as e:
   beta = 0.125
   n = 5
   st.warning("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. "
-             "Puede ser debido a varias razones, por ejemplo, que el valor A2 esté muy próximo al valor de la población "
-             "y se produzca un bug al no poderlo modelizar la distribución Beta-Binomial. "
+             "Recuerda que los parámetros de forma deben ser superiores a 0 ."
              "Debes pues revisarlo antes de continuar. Mientras tanto, "
-             "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma.")
+             "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma "
+             "para una audiencia de 500,000 personas y una audiencia acumulada tras la segunda inserción de 550,000".)
   
 if alpha <= 0 or beta <= 0:
   st.write("##### Observaciones:")
