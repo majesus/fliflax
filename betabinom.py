@@ -169,12 +169,12 @@ with col1:
 with col2:
     st.metric(label="CPP", value = f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}")  
 #----------------------------------------------------#
-# st.markdown("""---""")
+st.markdown("""---""")
 #----------------------------------------------------#    
 # Mostrar la tabla de Pi y Ri:
-if st.checkbox("Mostrar los valores de Pi y Ri alcanzados", False):
-    st.subheader('Tabla de datos')
-    st.table(df.head())
+if st.checkbox("Mostrar los primeros 5 valores de Pi y Ri alcanzados", False):
+    #st.subheader('Tabla de datos')
+    st.table(df.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
