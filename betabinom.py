@@ -94,7 +94,7 @@ except ZeroDivisionError as e:
              "para una audiencia de 500,000 personas y una audiencia acumulada tras la segunda inserción de 550,000.")
   
 if alpha <= 0 or beta <= 0:
-  st.error("Los parámetros de forma alfa", f"{alpha:,.0f}", "o beta", f"{beta:,.0f}", "son negativos, y violan un presupuesto de partida. "
+  st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida. "
            "Debes pues revisarlo antes de continuar. "
            "Es posible que el valor de A2 sea demasiado alto. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto de los parámetros de forma.")
@@ -183,11 +183,19 @@ st.markdown("""---""")
 #----------------------------------------------------#
 df1 = df.set_index('exposiciones')
 df1 = pd.DataFrame(df1)
+
+total_cases_graph  =alt.Chart(df1).mark_line().encode(
+    x=alt.X('exposiciones', type='nominal', title='i'),
+    y=alt.Y('Pi',  title='Pi'),
+    color='Country')
+
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi')
     st.bar_chart(df1[['Pi']], use_container_width = True)
     st.write('###### Figura 2. Distribución de contactos acumulada Ri')
     st.bar_chart(df1[['Ri']], use_container_width = True)
+    
+    st.altair_chart(total_cases_graph, use_container_width = True)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
