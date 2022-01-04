@@ -250,6 +250,8 @@ g = alt.Chart(df).mark_line().encode(
 ).configure_mark(
     opacity=0.2,
     color='red'
+).configure_axis(
+    grid=False
 )
 st.altair_chart(g, use_container_width = True)
 #----------------------------------------------------#
