@@ -245,8 +245,8 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
 #----------------------------------------------------#
 import altair as alt
 g = alt.Chart(df).mark_line().encode(
-    x='exposiciones:Q',
-    y='Pi:Q'
+    x='exposiciones',
+    y='Pi'
 )
 st.line_chart(g, use_container_width = True)
 #----------------------------------------------------#
