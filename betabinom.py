@@ -181,14 +181,36 @@ if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marc
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
+import altair as alt
+
 df1 = df.set_index('exposiciones')
 df1 = pd.DataFrame(df1)
 
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi')
-    st.bar_chart(df1[['Pi']], use_container_width = True)
+    
+    g = alt.Chart(df).mark_line().encode(
+      x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
+      y='Pi'
+    ).configure_mark(
+      opacity=0.2,
+      color='red'
+    ).configure_axis(
+      grid=False
+    )
+    st.altair_chart(g, use_container_width = True)
+    
     st.write('###### Figura 2. Distribución de contactos acumulada Ri')
-    st.bar_chart(df1[['Ri']], use_container_width = True)
+    g = alt.Chart(df).mark_line().encode(
+      x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
+      y='Ri'
+    ).configure_mark(
+      opacity=0.2,
+      color='red'
+    ).configure_axis(
+      grid=False
+    )
+    st.altair_chart(g, use_container_width = True)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -243,15 +265,5 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     st.table(df1.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.write('Parámetros de forma: alfa: ',f"{alphas:,.3f}",'y beta: ',f"{betas:,.3f}")
 #----------------------------------------------------#
-import altair as alt
-g = alt.Chart(df).mark_line().encode(
-    x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
-    y='Pi'
-).configure_mark(
-    opacity=0.2,
-    color='red'
-).configure_axis(
-    grid=False
-)
-st.altair_chart(g, use_container_width = True)
+
 #----------------------------------------------------#
