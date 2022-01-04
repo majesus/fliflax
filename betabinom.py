@@ -31,13 +31,12 @@ st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte);
 #----------------------------------------------------#
 # st.markdown("""---""")
 #----------------------------------------------------#
-st.info("Es importante señalar que en nuestra aplicación Fliflax del modelo Beta-Binomial "
-         "para la estimación de la distribución de contactos, "
-         "hemos simplificado los valores para evitar los bugs "
+st.info("Es importante señalar que en nuestra aplicación Fliflax, "
+         "hemos restringido los valores para evitar los bugs "
          "relacionados con los parámetros de forma alfa y beta. "
-         "Hemos establecido pues que la Población debe ser superior o igual a 1.000.000 de personas, "
-         "y las audiencias, A1 y A2, deben ser inferiores a 1.000.000. No olvides además "
-         "que por su naturaleza A1 debe ser inferior a A2.")
+         "La Población debe ser superior o igual a 1.000.000 de personas, "
+         "y las audiencias, A1 y A2, deben ser inferiores a 1.000.000. "
+         "Por su naturaleza A1 debe ser inferior a A2.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -126,19 +125,17 @@ st.markdown("""---""")
 #----------------------------------------------------#
 st.write("### Resultados:")
 #----------------------------------------------------#
-st.write("A modo de resumen, y como te mostramos en los sliders de resultados, "
-         "con los datos correctos de arriba, el valor de la cobertura es igual a", f"{round(df['Ri'].iloc[0]):,.0f}", "personas. "
-         "Es decir,", f"{round(df['Ri'].iloc[0]):,.0f}", "personas se exponen al menos 1 vez. " 
-         "La cobertura es pues el primer valor de Ri (distribución de contactos acumulada). "
-         "Te recordamos que Pi hace referencia a las personas alcanzadas exclusivamente i veces, y "
-         "Ri a las personas alcanzadas al menos i veces.")
-st.write("A su vez, la suma de los valores de Ri (desde 1 hasta n), "
-         "siendo n el total de inserciones, es igual al total de impactos. "
-         "Otro modo inmediato para calcular los impactos es mediante el producto de A1 x n, "
-         "en este caso,", f"{A1 * n:,.0f}"," impactos")
-st.write("Y una vez que hemos calculado los impactos, la frecuencia media no es más que el cociente entre "
-         "los impactos y la cobertura, es decir, la frecuencia es igual a", f"{round(df['Ri'].sum() / df['Ri'].iloc[0]):,.0f}","impactos por persona de la cobertura.")
-st.write("Los resultados que te mostramos abajo, son los derivados de los datos que nos has facilitado en el bloque: Selección de datos.")
+st.write("Derivado de tus datos y siempre que se ajuesten a las premisas del modelo Beta-Binomial, "
+         "el valor de la cobertura alcanzada es igual a", f"{round(df['Ri'].iloc[0]):,.0f}", "personas. "
+         "Es decir,", f"{round(df['Ri'].iloc[0]):,.0f}", "personas se exponen al menos 1 vez."
+         "Los impactos logrados son", f"{A1 * n:,.0f}"," impactos. "
+         "La frecuencia media es pues igual a", f"{round(df['Ri'].sum() / df['Ri'].iloc[0]):,.0f}","impactos por persona de la cobertura.")
+st.write("Junto a lo anterior, el valor GRP es igual a", f"{round(df['Ri'].sum() * 100 / P):,.0f}","impactos por cada 100 personas de la población. "
+         "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
+         "el coste monetario de alcanzar a un 1 % de la población es igual a", f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}",". "
+         "El valor CPP es el resultado de divir el presupuesto (el coste asociado al plan propuesto "
+         "y los GRP a contratar.")
+st.write("A continuación, te ofrecemos un breve resumen.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -160,11 +157,6 @@ with col2:
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-st.write("Junto a lo anterior, y también en los sliders de arriba, te mostramos el valor GRP "
-         "(número medio de impactos por cada 100 personas de la población). "
-         "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), es decir, el coste monetario de alcanzar a un 1 % de la población. El valor CPP "
-         "es el resultado de divir el presupuesto (el coste asociado al plan propuesto, i.e., Precio de una inserción x n) "
-         "y el volumen de GRP a contratar.")
 st.write("A continuación, también te dibujamos "
          "la representación gráfica de la distribución de contactos Pi (y acumulada Ri) "
          "mediante el trazado de una curva suave (spline) en Matplotlib. ")
