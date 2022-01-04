@@ -31,7 +31,7 @@ st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte);
 #----------------------------------------------------#
 # st.markdown("""---""")
 #----------------------------------------------------#
-st.info("Es importante señalar que en nuestra calculdaora, "
+st.info("Es importante señalar que en nuestra calculadora, "
          "hemos restringido los valores para evitar los bugs "
          "relacionados con los parámetros de forma alfa y beta. "
          "En nuestra calculadora, la Población debe ser superior o igual a 1.000.000 de personas, "
