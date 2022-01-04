@@ -94,7 +94,7 @@ except ZeroDivisionError as e:
              "para una audiencia de 500,000 personas y una audiencia acumulada tras la segunda inserción de 550,000.")
   
 if alpha <= 0 or beta <= 0:
-  st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida. "
+  st.error("Los parámetros de forma alfa", f"{alpha:,.0f}", "o beta", f"{beta:,.0f}", "son negativos, y violan un presupuesto de partida. "
            "Debes pues revisarlo antes de continuar. "
            "Es posible que el valor de A2 sea demasiado alto. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto de los parámetros de forma.")
