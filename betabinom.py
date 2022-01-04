@@ -181,13 +181,12 @@ if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marc
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-df1 = df.set_index('exposiciones')
-df1 = pd.DataFrame(df1)
+#df1 = df.set_index('exposiciones')
+df1 = pd.DataFrame(df)
 
 total_cases_graph  =alt.Chart(df1).mark_line().encode(
-    x=alt.X('exposiciones', type='nominal', title='i'),
-    y=alt.Y('Pi',  title='Pi'),
-    color='Country')
+  x=alt.X('exposiciones', type='nominal', title='i'),
+  y=alt.Y('Pi',  title='Pi'))
 
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi')
