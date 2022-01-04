@@ -249,5 +249,6 @@ else:
 st.write('###### Anexo 1. Distribución de contactos Pi (y acumulada Ri)')
 # st.write("Distribución de contactos (y acumulada):")
 #df = df.set_index('exposiciones')
-st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))    
+st.table(df.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
+st.write("##### Parámetros de forma:",f"{alpha:,.0f}","y ",f"{alpha:,.0f}")
 #----------------------------------------------------#
