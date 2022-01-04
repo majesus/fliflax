@@ -193,6 +193,7 @@ ys2=model2(xs2)
 
 rcParams['font.family'] = 'monospace'
 rcParams['font.size'] = 8
+rcParams["axes.formatter.useoffset"] = False
 #fig = plt.figure(figsize=(4, 4))
 plt.grid(b=True, which='major', color='#ffffff', linestyle='-')
 plt.figure(facecolor='white')
@@ -201,7 +202,6 @@ plt.ticklabel_format(style="plain")
 fig, ax = plt.subplots()
 ax.plot(xs1,ys1, label="Pi, spline")
 ax.plot(xs2,ys2, label="Ri, spline")
-ax.get_xaxis().get_major_formatter().set_scientific(False)
 ax.set_facecolor("white")
 #plt.title("Distribución de contactos")
 #plt.xticks(x,x)
