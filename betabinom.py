@@ -14,7 +14,7 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-col1, col2, col3 = st.columns([2.5, 5, 0.2])
+col1, col2, col3 = st.columns([2, 5, 0.2])
 col1.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
 with col2:
     st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
@@ -31,10 +31,10 @@ st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte);
 #----------------------------------------------------#
 # st.markdown("""---""")
 #----------------------------------------------------#
-st.info("Es importante señalar que en nuestra aplicación Fliflax, "
+st.info("Es importante señalar que en nuestra calculdaora, "
          "hemos restringido los valores para evitar los bugs "
          "relacionados con los parámetros de forma alfa y beta. "
-         "La Población debe ser superior o igual a 1.000.000 de personas, "
+         "En nuestra calculadora, la Población debe ser superior o igual a 1.000.000 de personas, "
          "y las audiencias, A1 y A2, deben ser inferiores a 1.000.000. "
          "Por su naturaleza A1 debe ser inferior a A2.")
 #----------------------------------------------------#
