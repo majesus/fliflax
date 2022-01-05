@@ -60,7 +60,7 @@ with col2:
   # st.write("Valor elegido: {:.0f}".format(A2))
 
 if A1 > A2:
-  st.write("ERROR")
+  st.error("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
   P = 1000000
   Precio = 1000000
 else:
@@ -75,13 +75,13 @@ else:
 R1=A1/P;R2=A2/P    
 #----------------------------------------------------#
 if A1 > A2:
-  st.write("##### Observaciones:")
+  # st.write("##### Observaciones:")
   st.error("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)  
 
 if P < A2:
-  st.write("##### Observaciones:")
+  # st.write("##### Observaciones:")
   st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
 else:
   st.write("")
@@ -90,7 +90,7 @@ try:
   alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
   beta=(alpha*(1-R1))/(R1)
 except ZeroDivisionError as e:
-  st.write("#### Observaciones:")
+  # st.write("#### Observaciones:")
   # datos de muestra:
   alpha = 0.125
   beta = 0.125
@@ -106,7 +106,7 @@ if alpha <= 0 or beta <= 0:
            "Debes pues revisarlo antes de continuar. "
            "Es posible que el valor de A2 sea demasiado alto. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto de los parámetros de forma.")
-  st.write("##### Observaciones:")
+  # st.write("##### Observaciones:")
   # datos de muestra:
   alpha = 0.125
   beta = 0.125
