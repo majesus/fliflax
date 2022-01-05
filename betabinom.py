@@ -141,16 +141,16 @@ st.markdown("""---""")
 st.write("### Resultados:")
 #----------------------------------------------------#
 st.write("Derivado de tus datos y siempre que se ajusten a las premisas del modelo Beta-Binomial, "
-         "con una audiencia de", f"{A1:,.0f}", "y una audiencia acumulada tras la segunda inserción de", f"{A2:,.0f}", 
+         "con una audiencia de", f"**{A1:,.0f}**", "y una audiencia acumulada tras la segunda inserción de", f"**{A2:,.0f}**", 
          ", el valor de la cobertura alcanzada es igual a", f"{round(df['Ri'].iloc[0]):,.0f}", "personas. "
-         "Es decir,", f"{round(df['Ri'].iloc[0]):,.0f}", "personas se exponen al menos 1 vez. "
-         "Los impactos logrados con", f"{n:,.0f}", "inserciones son", f"{A1 * n:,.0f}"," impactos. "
-         "La frecuencia media es pues igual a", f"{df['Ri'].sum() / df['Ri'].iloc[0]:,.3f}","impactos por persona de la cobertura.")
-st.write("Junto a lo anterior, el valor GRP es igual a", f"{round(df['Ri'].sum() * 100 / P):,.0f}","impactos por cada 100 personas de la población "
+         "Es decir,", f"**{round(df['Ri'].iloc[0]):,.0f}**", "personas se exponen al menos 1 vez. "
+         "Los impactos logrados con", f"**{n:,.0f}**", "inserciones son", f"**{A1 * n:,.0f}**"," impactos. "
+         "La frecuencia media es pues igual a", f"**{df['Ri'].sum() / df['Ri'].iloc[0]:,.3f}**","impactos por persona de la cobertura.")
+st.write("Junto a lo anterior, el valor GRP es igual a", f"**{round(df['Ri'].sum() * 100 / P):,.0f}**","impactos por cada 100 personas de la población "
          "que en nuestro caso es igual a", f"{P:,.0f}", "personas. "
          "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
-         "el coste monetario de alcanzar a un 1 % de la población es igual a", f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}","€. "
-         "El valor CPP es el resultado de divir un presupuesto de", f"{Precio * n:,.0f}", "€ "
+         "el coste monetario de alcanzar a un 1 % de la población es igual a", f"**{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}**","€. "
+         "El valor CPP es el resultado de divir un presupuesto de", f"**{Precio * n:,.0f}**", "€ "
          "y los GRP logrados con la programación de inserciones.")
 st.write("A continuación, te ofrecemos un breve resumen.")
 #----------------------------------------------------#
@@ -181,7 +181,7 @@ if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marc
     st.write('###### Tabla 1. Distribución de contactos Pi (y acumulada Ri)')
     st.table(df1.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.info("En nuestro Anexo de abajo, puedes ver todos los valores de Pi y Ri.")
-    st.balloons()
+    #st.balloons()
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -197,26 +197,26 @@ if st.checkbox("Si deseas ver la representación gráfica de la distribución de
       x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
       y='Pi'
     ).configure_mark(
-      opacity=0.2,
+      opacity=0.5,
       color='red'
     ).configure_axis(
       grid=False
     )
     st.altair_chart(g, use_container_width = True)
-    st.balloons()
+    #st.balloons()
     
     st.write('###### Figura 2. Distribución de contactos acumulada Ri')
     g = alt.Chart(df).mark_line().encode(
       x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
       y='Ri'
     ).configure_mark(
-      opacity=0.2,
-      color='red'
+      opacity=0.5,
+      color='blue'
     ).configure_axis(
       grid=False
     )
     st.altair_chart(g, use_container_width = True)
-    st.balloons()
+    #st.balloons()
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
