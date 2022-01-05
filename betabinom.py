@@ -15,8 +15,7 @@ st.markdown(""" <style> .font {
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
 st.title("Modelo Beta-Binomial")
-img=Image.open('Avatar-con-naming-Fliflax.jpg')
-st.image(img,width=100)
+st.image('Avatar-con-naming-Fliflax.jpg',width=100)
 
 # st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
 #----------------------------------------------------#
