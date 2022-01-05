@@ -225,7 +225,7 @@ st.write("### Frecuencia efectiva mínima")
 if df.lt(0).any().any() == True:
   st.write("#### Observaciones:")
   st.error("Puedes comprobar que en la tabla se muestran valores extraños, por ejemplo, valores negativos. "
-            "Es debido probablemente a que el valor de A2 es superior a A1, y eso no es posible. "
+            "Debes revisar los valores de A1 y A2. "
             "Corrígelo antes de seleccionar ningún valor de i.")
 else:
   st.markdown('<p style="font-family:Consolas; color:black; font-size: 14px;"></p>', unsafe_allow_html=True)
@@ -233,9 +233,9 @@ else:
 st.write("En este apartado puedes seleccionar los valores de Pi y Ri cuyo valor desees conocer de modo preciso. "
          "El valor i que elijas, puede corresponderse, por ejemplo, con la frecuencia efectiva mínima que "
          "has prupuesto como objetivo en tu plan de medios y soportes. "
-         "Recuerda que la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar "
-         "(por encima de un determinado nivel crítico) "
-         "los objetivos de comunicación.")
+         "Recuerda que **la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar** "
+         "**(por encima de un determinado nivel crítico)** "
+         "**los objetivos de comunicación**.")
 pd.options.display.float_format = '{:,}'.format
 df1 = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el/los valor/es i:', df1.index)
@@ -250,7 +250,7 @@ st.markdown("""---""")
 st.write("### Referencias:")
 #----------------------------------------------------#
 st.info("Finalmente, para profundizar en estos materiales, te recomendamos consultar la tesis doctoral de "
-         "Joaquín Aldás Manzano de 1998, Catedrático actualmente en la Universidad de Valencia. ")
+         "**Joaquín Aldás Manzano** de 1998, Catedrático actualmente en la Universidad de Valencia. ")
 st.info("También, te recomendamos visitar el siguiente enlace: [Wikipedia: Beta-Binomial](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_beta-binomial)")
 #----------------------------------------------------#
 st.markdown("""---""")
