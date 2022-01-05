@@ -14,11 +14,11 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-col1, col2, col3 = st.columns([2, 5, 0.2])
-col1.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
-with col2:
-    # st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
-    st.title("Modelo Beta-Binomial")
+st.title("Modelo Beta-Binomial")
+img=Image.open('Avatar-con-naming-Fliflax.jpg')
+st.image(img,width=100)
+
+# st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
