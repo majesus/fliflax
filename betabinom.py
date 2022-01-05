@@ -64,6 +64,7 @@ if A1 > A2:
   # datos de muestra:
   P = 1000000
   Precio = 1000000
+  n = 5
 else:
   col1, col2 = st.columns([5,5])
   with col1:
