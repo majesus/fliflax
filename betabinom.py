@@ -60,7 +60,7 @@ with col2:
   # st.write("Valor elegido: {:.0f}".format(A2))
 
 if A1 > A2:
-  st.error("El valor de A2 es inferior a A1. No olvides corregirlo antes de continuar.")
+  st.error("El valor de A2 es inferior a A1. Debes corregirlo antes de continuar.")
   # datos de muestra:
   P = 1000000
   Precio = 1000000
@@ -74,6 +74,11 @@ else:
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
     # st.write("Valor elegido: {}".format(P))
   inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
+  
+container = st.beta_container()
+if A1 < A2:
+    with container:
+        st.write("I am in a container")
 #----------------------------------------------------#
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P    
@@ -94,16 +99,14 @@ except ZeroDivisionError as e:
   beta = 0.125
   n = 5
   st.error("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. "
-             "Recuerda que los parámetros de forma deben ser superiores a 0 ."
-             "Debes pues revisarlo antes de continuar. Mientras tanto, "
-             "los resultados que ves abajo, se corresponden con valores ficticios de los parámetros de forma "
-             "para una audiencia de 500,000 personas y una audiencia acumulada tras la segunda inserción de 550,000.")
+           "Recuerda que los parámetros de forma deben ser superiores a 0 ."
+           "Debes pues revisarlo antes de continuar. "
+           "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
   
 if alpha <= 0 or beta <= 0:
   st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida. "
            "Debes pues revisarlo antes de continuar. "
-           "Es posible que el valor de A2 sea demasiado alto. "
-           "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto de los parámetros de forma.")
+           "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
   # st.write("##### Observaciones:")
   # datos de muestra:
   alpha = 0.125
