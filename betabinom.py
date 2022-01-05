@@ -23,13 +23,13 @@ st.markdown("""---""")
 #----------------------------------------------------#
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de **Audiencia neta acumulada** "
-         "(o modelo de acumulación), es decir, se programa en con un único soporte.")
+         "(o modelo de acumulación), es decir, se programan las inserciones en un único soporte.")
 st.markdown(
     '''
     La definición de cada uno de los datos de partida son los siguientes:
 - **Audiencia A1**: personas que frecuentan el soporte.
 - **Audiencia A2**: personas alcanzadas al menos una vez tras 2 inserciones.
-- **Población P**: continente _que contiene_ a las audiencias.
+- **Población P**: grupo de personas con características comunes _que contiene_ a las audiencias.
 - **Inserciones n**: número de inserciones programadas para lograr los objetivos.
     '''
 )
