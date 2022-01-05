@@ -17,14 +17,14 @@ st.markdown(""" <style> .font {
 col1, col2, col3 = st.columns([2, 5, 0.2])
 col1.image("Avatar-con-naming-Fliflax.jpg", use_column_width=True, width = 400)
 with col2:
-    st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
-st.title("Modelo Beta-Binomial")
+    # st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
+    st.title("Modelo Beta-Binomial")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
 st.write("Beta binomial es un método de estimación de la "
-         "distribución de contactos que denominamos de Audiencia neta acumulada "
-         "(o modelo de acumulación), es decir, se trabaja con un único soporte. ")
+         "distribución de contactos que denominamos de **Audiencia neta acumulada** "
+         "(o modelo de acumulación), es decir, se programa en con un único soporte. ")
 st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte); "
          "A2 (la audiencia acumulada tras la segunda inserción); n "
          "(el número de inserciones que contratamos en el único soporte que seleccionamos), "
@@ -44,9 +44,9 @@ st.markdown(
 st.info("Es importante señalar que en nuestra calculadora, "
          "hemos restringido los valores para evitar los bugs "
          "relacionados con los parámetros de forma alfa y beta. "
-         "En nuestra calculadora, la Población debe ser superior o igual a 1.000.000 de personas, "
-         "y las audiencias, A1 y A2, deben ser inferiores a 1.000.000. "
-         "Por su naturaleza A1 debe ser inferior a A2.")
+         "En nuestra calculadora, la Población es superior a 1.000.000 de personas, "
+         "y las audiencias inferiores a 1.000.000. "
+         "Por su naturaleza A1 debe ser inferior a A2 y la Población superior a ambas.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
