@@ -71,7 +71,7 @@ if A1 < A2:
         # st.write("Valor elegido: {}".format(P))
       inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
 else:
-  st.error("El valor de A2 es inferior a A1. Debes corregirlo antes de continuar.")
+  st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
   # datos de muestra:
   P = 1000000
   Precio = 1000000
@@ -97,12 +97,12 @@ except ZeroDivisionError as e:
   n = 5
   st.error("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. "
            "Recuerda que los parámetros de forma deben ser superiores a 0 ."
-           "Debes pues revisarlo antes de continuar. "
+           "Debes pues revisar los valores de A1 y A2. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
   
 if alpha <= 0 or beta <= 0:
   st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida. "
-           "Debes pues revisarlo antes de continuar. "
+           "Debes pues revisar los valores de A1 y A2. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
   # st.write("##### Observaciones:")
   # datos de muestra:
