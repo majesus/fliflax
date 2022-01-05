@@ -37,7 +37,7 @@ st.markdown(
 if st.checkbox("Si deseas ver la expresión matemática empleada, marca la casilla.", False):
     st.image('beta_binomial_expresion.png')
 #----------------------------------------------------#
-# st.markdown("""---""")
+st.markdown("""---""")
 #----------------------------------------------------#
 st.info("En nuestra calculadora, "
          "hemos restringido los valores posibles para evitar **bugs** "
