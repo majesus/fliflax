@@ -71,7 +71,7 @@ if A1 < A2:
       with col2:
         Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
         # st.write("Valor elegido: {}".format(P))
-      inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
+      inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
 else:
   st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
   # datos de muestra:
