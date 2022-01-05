@@ -14,38 +14,33 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
+st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
-st.image('Avatar-con-naming-Fliflax.jpg',width=100)
-
 # st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de **Audiencia neta acumulada** "
-         "(o modelo de acumulación), es decir, se programa en con un único soporte. ")
-st.write("Los datos de inicio son los siguientes: A1 (la audiencia del soporte); "
-         "A2 (la audiencia acumulada tras la segunda inserción); n "
-         "(el número de inserciones que contratamos en el único soporte que seleccionamos), "
-         "y la población.")
+         "(o modelo de acumulación), es decir, se programa en con un único soporte.")
 st.markdown(
     '''
     La definición de cada uno de los datos de partida son los siguientes:
 - **Audiencia A1**: personas que frecuentan el soporte.
 - **Audiencia A2**: personas alcanzadas al menos una vez tras 2 inserciones.
-- **Población P**: continente que __contiene a las audiencias__.
+- **Población P**: continente que contiene a las audiencias.
 - **Inserciones n**: número de inserciones programadas para lograr los objetivos.
     '''
 )
 #----------------------------------------------------#
 # st.markdown("""---""")
 #----------------------------------------------------#
-st.info("Es importante señalar que en nuestra calculadora, "
-         "hemos restringido los valores para evitar los bugs "
+st.info("En nuestra calculadora, "
+         "hemos restringido los valores posibles para evitar **bugs** "
          "relacionados con los parámetros de forma alfa y beta. "
          "En nuestra calculadora, la Población es superior a 1.000.000 de personas, "
          "y las audiencias inferiores a 1.000.000. "
-         "Por su naturaleza A1 debe ser inferior a A2 y la Población superior a ambas.")
+         "**Por su naturaleza A1 debe ser inferior a A2 y la Población superior a ambas**.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -63,15 +58,18 @@ with col1:
 with col2:
     A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
-  
-col1, col2 = st.columns([5,5])
-with col1:
+
+if A1 < A2:
+  col1, col2 = st.columns([5,5])
+  with col1:
     P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
     # st.write("Valor elegido: {}".format(P))
-with col2:    
+  with col2:
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
     # st.write("Valor elegido: {}".format(P))
-
+else:
+  st.write("##### Observaciones:")
+  st.error("El valor de A2 es inferior a A1. Debes corregirlo antes de continuar.")
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P    
 #----------------------------------------------------#
@@ -187,6 +185,7 @@ if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marc
     st.write('###### Tabla 1. Distribución de contactos Pi (y acumulada Ri)')
     st.table(df1.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.info("En nuestro Anexo de abajo, puedes ver todos los valores de Pi y Ri.")
+    st.balloons()
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
@@ -208,6 +207,7 @@ if st.checkbox("Si deseas ver la representación gráfica de la distribución de
       grid=False
     )
     st.altair_chart(g, use_container_width = True)
+    st.balloons()
     
     st.write('###### Figura 2. Distribución de contactos acumulada Ri')
     g = alt.Chart(df).mark_line().encode(
@@ -220,6 +220,7 @@ if st.checkbox("Si deseas ver la representación gráfica de la distribución de
       grid=False
     )
     st.altair_chart(g, use_container_width = True)
+    st.balloons()
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
