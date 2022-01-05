@@ -75,7 +75,7 @@ else:
     # st.write("Valor elegido: {}".format(P))
   inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
   
-container = st.beta_container()
+container = st.container()
 if A1 < A2:
     with container:
         st.write("I am in a container")
