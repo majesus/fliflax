@@ -59,22 +59,6 @@ with col2:
   A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
   # st.write("Valor elegido: {:.0f}".format(A2))
 
-if A1 > A2:
-  st.error("El valor de A2 es inferior a A1. Debes corregirlo antes de continuar.")
-  # datos de muestra:
-  P = 1000000
-  Precio = 1000000
-  inserciones = 5
-else:
-  col1, col2 = st.columns([5,5])
-  with col1:
-    P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
-    # st.write("Valor elegido: {}".format(P))
-  with col2:
-    Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
-    # st.write("Valor elegido: {}".format(P))
-  inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
-  
 container = st.container()
 if A1 < A2:
     with container:
