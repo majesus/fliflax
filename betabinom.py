@@ -195,7 +195,7 @@ df1 = pd.DataFrame(df1)
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
     st.write('###### Figura 1. Distribución de contactos Pi')
     
-    g = alt.Chart(df).mark_line().encode(
+    g = alt.Chart(df).mark_area().encode(
       x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
       y='Pi'
     ).configure_mark(
