@@ -1,9 +1,9 @@
 #----------------------------------------------------#
 import streamlit as st
 #----------------------------------------------------#
-@st.cache(suppress_st_warning=False, allow_output_mutation=True)
+# @st.cache(suppress_st_warning=False, allow_output_mutation=True)
 #----------------------------------------------------#
-st.set_page_config(# layout="centered",
+st.set_page_config(layout="centered",
                    page_title="Fliflax",
                    page_icon=":smiley",
                    initial_sidebar_state='expanded'
