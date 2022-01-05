@@ -34,6 +34,8 @@ st.markdown(
 - **Inserciones n**: número de inserciones programadas para lograr los objetivos.
     '''
 )
+if st.checkbox("Si deseas ver la expresión matemática empleada, marca la casilla.", False):
+    st.image('beta_binomial_expresion.png')
 #----------------------------------------------------#
 # st.markdown("""---""")
 #----------------------------------------------------#
