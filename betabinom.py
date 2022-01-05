@@ -28,7 +28,7 @@ st.markdown(
     La definición de cada uno de los datos de partida son los siguientes:
 - **Audiencia A1**: personas que frecuentan el soporte.
 - **Audiencia A2**: personas alcanzadas al menos una vez tras 2 inserciones.
-- **Población P**: continente que contiene a las audiencias.
+- **Población P**: continente _que contiene_ a las audiencias.
 - **Inserciones n**: número de inserciones programadas para lograr los objetivos.
     '''
 )
@@ -68,12 +68,17 @@ with col2:
   # st.write("Valor elegido: {}".format(P))
   
 if A1 > A2:
-    with container:
-        col1, col2 = st.columns([5,5])
-        with col1:
-          P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
-        with col2:
-          Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
+  st.write("ERROR")
+  P = 1000000
+  Precio = 1000000
+else:
+  col1, col2 = st.columns([5,5])
+  with col1:
+    P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
+    # st.write("Valor elegido: {}".format(P))
+  with col2:
+    Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
+    # st.write("Valor elegido: {}".format(P))
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P    
 #----------------------------------------------------#
