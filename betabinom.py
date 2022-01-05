@@ -208,7 +208,7 @@ if st.checkbox("Si deseas ver la representación gráfica de la distribución de
     #st.balloons()
     
     st.write('###### Figura 2. Distribución de contactos acumulada Ri')
-    g = alt.Chart(df).mark_line().encode(
+    g = alt.Chart(df).mark_area().encode(
       x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
       y='Ri'
     ).configure_mark(
