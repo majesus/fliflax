@@ -103,8 +103,8 @@ except ZeroDivisionError as e:
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
   
 if alpha <= 0 or beta <= 0:
-  st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida. "
-           "Debes pues revisar los valores de A1 y A2. "
+  st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida "
+           "relacionado con los valores A1 y A2. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
   # st.write("##### Observaciones:")
   # datos de muestra:
@@ -144,7 +144,7 @@ st.write("### Resultados:")
 #----------------------------------------------------#
 st.write("Derivado de tus datos y siempre que se ajusten a las premisas del modelo Beta-Binomial, "
          "con una audiencia de", f"**{A1:,.0f}**", "y una audiencia acumulada tras la segunda inserción de", f"**{A2:,.0f}**", 
-         ", el valor de la cobertura alcanzada es igual a", f"{round(df['Ri'].iloc[0]):,.0f}", "personas. "
+         ", el valor de la cobertura alcanzada es igual a", f"**{round(df['Ri'].iloc[0]):,.0f}**", "personas. "
          "Es decir,", f"**{round(df['Ri'].iloc[0]):,.0f}**", "personas se exponen al menos 1 vez. "
          "Los impactos logrados con", f"**{n:,.0f}**", "inserciones son", f"**{A1 * n:,.0f}**"," impactos. "
          "La frecuencia media es pues igual a", f"**{df['Ri'].sum() / df['Ri'].iloc[0]:,.3f}**","impactos por persona de la cobertura.")
