@@ -78,7 +78,14 @@ else:
 container = st.container()
 if A1 < A2:
     with container:
-        st.write("I am in a container")
+      col1, col2 = st.columns([5,5])
+      with col1:
+        P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
+        # st.write("Valor elegido: {}".format(P))
+      with col2:
+        Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
+        # st.write("Valor elegido: {}".format(P))
+      inserciones = st.slider("Inserciones:", 2, 100, value = 5, step=1, key = "inserciones")
 #----------------------------------------------------#
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P    
