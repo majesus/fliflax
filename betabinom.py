@@ -74,7 +74,22 @@ with st.form(key ='Form1'):
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
   
   inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
-    
+  
+  if A1 > A2:
+    st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
+  elif P < A2:
+    st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
+  elif alpha <= 0 or beta <= 0:
+    st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida "
+           "relacionado con los valores A1 y A2. "
+           "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
+    # datos de muestra:
+    # alpha = 0.125
+    # beta = 0.125
+    # n = 5
+  else:
+    st.write("")
+  
   submitted = st.form_submit_button("Calcular")
 
 #----------------------------------------------------#
