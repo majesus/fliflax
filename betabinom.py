@@ -1,10 +1,10 @@
 #----------------------------------------------------#
 import streamlit as st
 
-color = st.select_slider(
-     'Select a color of the rainbow',
-     options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
-st.write('My favorite color is', color)
+PO = st.select_slider(
+     'Elige la Población a que te diriges',
+     options=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario'])
+st.write('La población elegida es', PO)
 
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
