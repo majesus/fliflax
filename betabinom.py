@@ -78,9 +78,9 @@ with st.form(key ='Form1'):
   if A1 > A2:
     st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
     # datos de muestra:
-    alpha = 0.125
-    beta = 0.125
-    n = 5
+    P = 1000000
+    A1 = 500000
+    A2 = 550000
   elif P < A2:
     st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
   else:
