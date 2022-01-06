@@ -309,5 +309,5 @@ with st.form(key ='Form1'):
   with col2:
     A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
     # st.write("Valor elegido: {:.0f}".format(A2))
-form.form_submit_button("Submit")
+st.form_submit_button("Calcular")
 
