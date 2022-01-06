@@ -74,18 +74,14 @@ with st.form(key ='Form1'):
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
   inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
   
-  if A1 < A2:
-    st.write("")
-  else:
+  if A1 > A2:
     st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
-  
-  if P < A2:
-    # st.write("##### Observaciones:")
+  elif P < A2:
     st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
   else:
-    st.write("")
+    st.form_submit_button("Calcular")
   
-  st.form_submit_button("Calcular")
+  #st.form_submit_button("Calcular")
 
 #----------------------------------------------------#
 #----------------------------------------------------#
