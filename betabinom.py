@@ -1,11 +1,10 @@
 #----------------------------------------------------#
 import streamlit as st
 
-st.sidebar.write('---')
-options = ['A','B']
 color = st.select_slider(
      'Select a color of the rainbow',
-     options=options)
+     options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
+st.write('My favorite color is', color)
 
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
