@@ -79,9 +79,9 @@ with st.form(key ='Form1'):
   elif P < A2:
     st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
   else:
-    st.form_submit_button("Calcular")
+    st.success("")
   
-  #st.form_submit_button("Calcular")
+  st.form_submit_button("Calcular")
 
 #----------------------------------------------------#
 #----------------------------------------------------#
