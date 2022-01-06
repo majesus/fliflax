@@ -76,8 +76,6 @@ with st.form(key ='Form1'):
   inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
     
   submitted = st.form_submit_button("Calcular")
-  if submitted:
-    st.write("slider", slider_val, "checkbox", checkbox_val)
 
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P  
