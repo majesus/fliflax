@@ -2,7 +2,8 @@
 import streamlit as st
 
 st.sidebar.write('---')
-parameter_max_depth = st.sidebar.slider('Maximum depth', 5, 15, (5,8), 2)
+options = ['A','B']
+parameter_max_depth = st.sidebar.slider('Maximum depth', options)
 
 
 #----------------------------------------------------#
