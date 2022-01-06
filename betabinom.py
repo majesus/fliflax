@@ -91,10 +91,10 @@ with st.form(key ='Form1'):
     # beta = 0.125
     # n = 5
   else:
-    submitted = st.form_submit_button("Calcular")
+    st.write("")
 
   
-  #submitted = st.form_submit_button("Calcular")
+  submitted = st.form_submit_button("Calcular")
 
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P  
