@@ -290,3 +290,12 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
 #----------------------------------------------------#
 #
 #----------------------------------------------------#
+import streamlit as st
+
+with st.sidebar.form(key ='Form1'):
+    user_word = st.text_input("Enter a keyword", "habs")    
+    select_language = st.radio('Tweet language', ('All', 'English', 'French'))
+    include_retweets = st.checkbox('Include retweets in data')
+    num_of_tweets = st.number_input('Maximum number of tweets', 100)
+    submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
+#----------------------------------------------------#    
