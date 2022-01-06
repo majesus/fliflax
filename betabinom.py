@@ -115,7 +115,7 @@ else:
   alphas = 0.125
   betas = 0.125
   pmf = BetaBinom(alphas, betas, n, x)
-  st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
+  st.error("Se ha producido un error catastrófico. Los valores alfa", f"**{alphas:,.0f}**", "y beta", f"**{betas:,.0f}**", "generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
           "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor alfa igual a 0.125, y un valor beta igual a 0.125.")
   
 # Pi:
