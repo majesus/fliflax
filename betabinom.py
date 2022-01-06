@@ -2,7 +2,7 @@
 import streamlit as st
 
 st.sidebar.write('---')
-parameter_max_features =st.sidebar.multiselect('Max Features (You can select multiple options)',['auto', 'sqrt', 'log2'],['auto'])
+parameter_max_depth = st.sidebar.slider('Maximum depth', 5, 15, (5,8), 2)
 
 
 #----------------------------------------------------#
