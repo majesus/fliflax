@@ -90,7 +90,7 @@ with st.form(key ='Form1'):
   else:
     st.write("")
   
-    st.form_submit_button("Calcular")
+  st.form_submit_button("Calcular")
 
 #----------------------------------------------------#
 #----------------------------------------------------#
