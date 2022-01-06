@@ -1,11 +1,11 @@
 #----------------------------------------------------#
 import streamlit as st
 
-LC = 2
-PO = st.selectbox(
-     'Elige la Población a que te diriges',
-     options=['Leal a mi marca' = 0, 'Favorable a mi marca' = 1, 'Leal/Favorable otras marcas' = 2, 'No usuario' = LC + 1])
-st.write('La población elegida es', PO)
+# LC = 2
+# PO = st.selectbox(
+     # 'Elige la Población a que te diriges',
+     # options=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario')
+# st.write('La población elegida es', PO)
 
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
