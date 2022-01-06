@@ -82,6 +82,10 @@ with st.form(key ='Form1'):
     st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
   elif P < A2:
     st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
+    # datos de muestra:
+    alpha = 0.125
+    beta = 0.125
+    n = 5
   elif alpha <= 0 or beta <= 0:
     st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida "
            "relacionado con los valores A1 y A2. "
