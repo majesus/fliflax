@@ -72,7 +72,7 @@ with st.form(key ='Form1'):
     P = st.number_input("Población:", min_value = pow(10, 6), max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
   with col2:
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
-  inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
+    inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
   
   alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
   beta=(alpha*(1-R1))/(R1)
@@ -90,7 +90,7 @@ with st.form(key ='Form1'):
     # beta = 0.125
     # n = 5
   else:
-    st.success("Los valores elegidos son correctos. Puedes clicar el botón para Calcular")
+    st.write("")
   
   st.form_submit_button("Calcular")
 
