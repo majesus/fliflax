@@ -97,17 +97,6 @@ R1=A1/P;R2=A2/P
 alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
 beta=(alpha*(1-R1))/(R1)
 #----------------------------------------------------#
-if alpha <= 0 or beta <= 0:
-  st.error("Los parámetros de forma alfa o beta son negativos, y violan un presupuesto de partida "
-           "relacionado con los valores A1 y A2. "
-           "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
-  # datos de muestra:
-  alpha = 0.125
-  beta = 0.125
-  n = 5
-else:
-  st.write("")
-#----------------------------------------------------#
 try:
   alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
   beta=(alpha*(1-R1))/(R1)
