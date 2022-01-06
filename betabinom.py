@@ -79,17 +79,18 @@ with st.form(key ='Form1'):
   else:
     st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
   
+  if P < A2:
+    # st.write("##### Observaciones:")
+    st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
+  else:
+    st.write("")
+  
   st.form_submit_button("Calcular")
 
 #----------------------------------------------------#
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P    
 #----------------------------------------------------#
-if P < A2:
-  # st.write("##### Observaciones:")
-  st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
-else:
-  st.write("")
   
 try:
   alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
