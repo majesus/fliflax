@@ -83,6 +83,10 @@ with st.form(key ='Form1'):
     A2 = 550000
   elif P < A2:
     st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
+    # datos de muestra:
+    P = 1000000
+    A1 = 500000
+    A2 = 550000
   else:
     st.write("")
   
