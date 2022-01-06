@@ -74,13 +74,16 @@ with st.form(key ='Form1'):
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
   
   inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
-  
-  alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
-  beta=(alpha*(1-R1))/(R1)
-  
-  st.form_submit_button("Calcular")
+    
+  submitted = st.form_submit_button("Calcular")
+  if submitted:
+    alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
+    beta=(alpha*(1-R1))/(R1)
 
 #----------------------------------------------------#
+
+alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
+beta=(alpha*(1-R1))/(R1)
 
 if A1 > A2:
   st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
