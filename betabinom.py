@@ -74,22 +74,7 @@ with st.form(key ='Form1'):
     Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
   
   inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
-  
-  if A1 > A2:
-    st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
-    # datos de muestra:
-    P = 1000000
-    A1 = 500000
-    A2 = 550000
-  elif P < A2:
-    st.error("El valor de la Población es inferior a A2. No olvides corregirlo antes de continuar.")
-    # datos de muestra:
-    P = 1000000
-    A1 = 500000
-    A2 = 550000
-  else:
-    st.write("")
-  
+    
   submitted = st.form_submit_button("Calcular")
 
 #----------------------------------------------------#
@@ -122,7 +107,7 @@ def BetaBinom(a, b, n, x):
     pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
     return pmf
 
-if alphas >= 0 or betas >= 0:
+if alphas > 0 or betas > 0:
   pmf = BetaBinom(alphas, betas, n, x)
 else:
   A1 = 500000
