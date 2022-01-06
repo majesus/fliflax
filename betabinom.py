@@ -3,8 +3,9 @@ import streamlit as st
 
 st.sidebar.write('---')
 options = ['A','B']
-parameter_max_depth = st.sidebar.slider('Maximum depth', options)
-
+color = st.select_slider(
+     'Select a color of the rainbow',
+     options=options)
 
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
