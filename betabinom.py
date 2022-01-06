@@ -1,7 +1,7 @@
 #----------------------------------------------------#
 import streamlit as st
 
-PO = st.select_slider(
+PO = st.selectbox(
      'Elige la Población a que te diriges',
      options=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario'])
 st.write('La población elegida es', PO)
