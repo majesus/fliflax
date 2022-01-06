@@ -110,13 +110,13 @@ def BetaBinom(a, b, n, x):
 if alphas > 0 or betas > 0:
   pmf = BetaBinom(alphas, betas, n, x)
 else:
+  st.error("Se ha producido un error catastrófico. Los valores alfa", f"**{alpha:,.0f}**", "y beta", f"**{beta:,.0f}**", "generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
+             "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor alfa igual a 0.125, y un valor beta igual a 0.125.")
   A1 = 500000
   A2 = 550000
   alphas = 0.125
   betas = 0.125
   pmf = BetaBinom(alphas, betas, n, x)
-  st.error("Se ha producido un error catastrófico. Los valores alfa", f"**{alphas:,.0f}**", "y beta", f"**{betas:,.0f}**", "generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
-          "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor alfa igual a 0.125, y un valor beta igual a 0.125.")
   
 # Pi:
 y = pmf*1000000
