@@ -138,6 +138,7 @@ if alphas >= 0 or betas >= 0:
 else:
   alphas = 0.125
   betas = 0.125
+  pmf = BetaBinom(alphas, betas, n, x)
 # Pi:
 y = pmf*1000000
 # Ri:
