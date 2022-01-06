@@ -61,17 +61,16 @@ from scipy import special
 st.write("### Selección de datos:")
 #----------------------------------------------------#
 
-with st.form("my_form"):
-  col1, col2 = st.columns([5,5])
-  with col1:
-    A1 = st.number_input("Audiencia acumulada tras 1 inserción:", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
-    # st.write("Valor elegido: {:.0f}".format(A1))
-  with col2:
-    A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
-    # st.write("Valor elegido: {:.0f}".format(A2))
+col1, col2 = st.columns([5,5])
+with col1:
+  A1 = st.number_input("Audiencia acumulada tras 1 inserción:", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
+  # st.write("Valor elegido: {:.0f}".format(A1))
+with col2:
+  A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
+  # st.write("Valor elegido: {:.0f}".format(A2))
 
-  container = st.container()
-  if A1 < A2:
+container = st.container()
+if A1 < A2:
     with container:
       col1, col2 = st.columns([5,5])
       with col1:
@@ -80,17 +79,13 @@ with st.form("my_form"):
       with col2:
         Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
         # st.write("Valor elegido: {}".format(P))
-        
-   inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
-  
-   else:
-      st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
-      # datos de muestra:
-      P = 1000000
-      Precio = 1000000
-      inserciones = 5
-  
-st.form_submit_button(label = 'Search Twitter 🔎')
+      inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
+else:
+  st.error("El valor de A2 es inferior a A1. Debes pues revisar los valores de A1 y A2.")
+  # datos de muestra:
+  P = 1000000
+  Precio = 1000000
+  inserciones = 5
 
 #----------------------------------------------------#
 #----------------------------------------------------#
@@ -306,3 +301,13 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     # num_of_tweets = st.number_input('Maximum number of tweets', 100)
     # submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
 #----------------------------------------------------#    
+with st.form(key ='Form1'):
+  col1, col2 = st.columns([5,5])
+  with col1:
+    A1 = st.number_input("Audiencia acumulada tras 1 inserción:", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
+    # st.write("Valor elegido: {:.0f}".format(A1))
+  with col2:
+    A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
+    # st.write("Valor elegido: {:.0f}".format(A2))
+form.form_submit_button("Submit")
+
