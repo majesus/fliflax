@@ -305,6 +305,7 @@ with st.form(key ='Form1'):
   col1, col2 = st.columns([5,5])
   with col1:
     A1 = st.number_input("Audiencia acumulada tras 1 inserción:", min_value = 1, max_value = pow(10, 6), value = 500000, step=100, key = "A1")
+  with col2:
     A2 = st.number_input("Audiencia acumulada tras 2 inserciones:", min_value = 1, max_value = pow(10, 6), value = 550000, step=100, key = "A2")
-    st.form_submit_button("Calcular")
+  st.form_submit_button("Calcular")
 
