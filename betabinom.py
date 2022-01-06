@@ -77,8 +77,7 @@ with st.form(key ='Form1'):
     
   submitted = st.form_submit_button("Calcular")
   if submitted:
-    alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
-    beta=(alpha*(1-R1))/(R1)
+    st.write("slider", slider_val, "checkbox", checkbox_val)
 
 #----------------------------------------------------#
 
