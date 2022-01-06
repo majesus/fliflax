@@ -1,5 +1,10 @@
 #----------------------------------------------------#
 import streamlit as st
+
+st.sidebar.write('---')
+parameter_max_features =st.sidebar.multiselect('Max Features (You can select multiple options)',['auto', 'sqrt', 'log2'],['auto'])
+
+
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
 #----------------------------------------------------#
