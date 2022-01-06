@@ -34,6 +34,9 @@ st.markdown(
 - **Inserciones n**: número de inserciones programadas para lograr los objetivos.
     '''
 )
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 if st.checkbox("Si deseas ver la expresión matemática empleada, marca la casilla.", False):
     st.image('beta_binomial_expresion.png')
     st.warning("**A** y **B** son los parámetros de forma alpha y beta. E **i** es el valor que pudiere interesarnos, "
@@ -211,6 +214,8 @@ if st.checkbox("Si deseas ver la representación gráfica de la distribución de
     st.altair_chart(g, use_container_width = True)
     #st.balloons()
     
+    st.markdown("""---""")
+    
     st.write('###### Figura 2. Distribución de contactos acumulada Ri')
     g = alt.Chart(df).mark_area().encode(
       x=alt.Y('exposiciones', axis=alt.Axis(tickCount=n)),
@@ -242,6 +247,9 @@ st.write("En este apartado puedes seleccionar los valores de Pi y Ri cuyo valor 
          "Recuerda que **la frecuencia efectiva mínima es el mínimo número de impactos por persona de la cobertura efectiva para alcanzar** "
          "**(por encima de un determinado nivel crítico)** "
          "**los objetivos de comunicación**.")
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
 pd.options.display.float_format = '{:,}'.format
 df1 = df.set_index('exposiciones')
 selected_indices = st.multiselect('Selecciona el/los valor/es i:', df1.index)
@@ -261,7 +269,9 @@ st.info("También, te recomendamos visitar el siguiente enlace: [Wikipedia: Beta
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-st.write("### Anexo")
+st.write("### Anexos")
+#----------------------------------------------------#
+st.markdown("""---""")
 #----------------------------------------------------#
 if df.lt(0).any().any() == True:
   st.write("#### Observaciones:")
