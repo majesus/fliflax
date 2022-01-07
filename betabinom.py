@@ -15,6 +15,7 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
+# https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.form(key ='Form_FEM'):
   with st.sidebar:
     LC = 2
@@ -22,16 +23,7 @@ with st.form(key ='Form_FEM'):
     options=[0, 1, 2, LC+1]
     dic = dict(zip(options, values))
     a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
-    st.write("El valor de corrección elegido es", f"**{a:,.0f}**", ".")
     submitted = st.form_submit_button("Calcular")
-
-with st.form(key ='Form1'):
-    with st.sidebar:
-        user_word = st.text_input("Enter a keyword", "habs")    
-        select_language = st.radio('Tweet language', ('All', 'English', 'French'))
-        include_retweets = st.checkbox('Include retweets in data')
-        num_of_tweets = st.number_input('Maximum number of tweets', 100)
-        submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
 #----------------------------------------------------#
 
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
