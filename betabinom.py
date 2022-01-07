@@ -18,10 +18,12 @@ st.markdown(""" <style> .font {
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
     LC = 2
+    Lider = st.checkbox('¿Soy líder?')
     values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
     dic = dict(zip(options, values))
     a = st.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic[x])
+    IP = st.radio('Influencia personal', ('Alta', 'Baja'))
     submitted = st.form_submit_button("Calcular")
     
 with st.sidebar.form(key ='Form1'):
