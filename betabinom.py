@@ -76,7 +76,7 @@ elif Lider == 2 and (NM == 2 or ACT == 2):
   FEM = 1 + VA * (PO + NM + ACT + IP + LC)
   st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
-  st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+  st.sidebar.write("La frecuencia efectiva mínima es XXX impactos por persona de la cobertura efectiva.")
   
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
