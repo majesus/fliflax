@@ -15,12 +15,13 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
+LC = 2
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', ('Alto', 'Bajo'))
-        
+    
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
     dic1 = dict(zip(options, values1))
@@ -38,7 +39,7 @@ with st.sidebar.form(key ='FormFEM'):
     
     IP = st.radio('¿Hay influencia personal positiva de otros agentes?', ('Sí', 'No'))
     
-    submitted = st.form_submit_button("Calcular")
+    submitted = st.form_submit_button(label = "Calcular")
 
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
