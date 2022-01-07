@@ -45,17 +45,17 @@ with st.sidebar.form(key ='FormFEM'):
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options, format_func=lambda x: dic0[x])
     
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
-    options=[0, 1, 2, LC+1]
+    options=[0, 1, 2, LC + 1]
     dic1 = dict(zip(options, values1))
     PO = st.selectbox('¿A qué población me dirijo?', options, format_func=lambda x: dic1[x])
     
     values2=['Reconocimiento', 'Recuerdo']
-    options=[0, LC+1]
+    options=[0, LC + 1]
     dic2 = dict(zip(options, values2))
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x])
     
     values3=['Informativa', 'Transformativa']
-    options=[0, LC+1]
+    options=[0, LC + 1]
     dic3 = dict(zip(options, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x])
     
@@ -68,12 +68,15 @@ with st.sidebar.form(key ='FormFEM'):
 
 if Lider == 1:
   LC = 1
+  st.write("", f"**{PO:,.1f}**", "")
   FEM = 1 + VA * (PO + NM + ACT + IP)
+  st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+elif Lider == 2 and (NM == 2 or ACT == 2):
+  st.sidebar.write("FEM líder", f"**{LC:,.1f}**", "")
+  FEM = 1 + VA * (PO + NM + ACT + IP + LC)
   st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
-  st.sidebar.write("FEM líder", f"**{LC:,.1f}**", "")
-  FEM = 1 + VA * (PO + NM + ACT + IP)
-  st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+  st.write("")
   
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
