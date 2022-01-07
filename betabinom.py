@@ -29,7 +29,7 @@ with st.sidebar.form(key ='FormFEM'):
     dic1 = dict(zip(options, values1))
     PO = st.selectbox('¿A qué población me dirijo?', options, format_func=lambda x: dic1[x])
     
-    values2=['Recuerdo', 'Reconocimiento']
+    values2=['Reconocimiento', 'Recuerdo']
     options=[0, LC+1]
     dic2 = dict(zip(options, values2))
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x])
