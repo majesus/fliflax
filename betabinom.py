@@ -73,14 +73,14 @@ if st.checkbox("Si deseas ver la expresión matemática empleada, marca la casil
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-st.info("En nuestra calculadora, "
-         "hemos restringido los valores posibles para evitar **bugs** "
-         "relacionados con los parámetros de forma alfa y beta. "
-         "En nuestra calculadora, la Población es superior a 1.000.000 de personas, "
-         "y las audiencias inferiores a 1.000.000. "
-         "**Por su naturaleza A1 debe ser inferior a A2 y la Población superior a ambas**.")
+# st.info("En nuestra calculadora, "
+         # "hemos restringido los valores posibles para evitar **bugs** "
+         # "relacionados con los parámetros de forma alfa y beta. "
+         # "En nuestra calculadora, la Población es superior a 1.000.000 de personas, "
+         # "y las audiencias inferiores a 1.000.000. "
+         # "**Por su naturaleza A1 debe ser inferior a A2 y la Población superior a ambas**.")
 #----------------------------------------------------#
-st.markdown("""---""")
+# st.markdown("""---""")
 #----------------------------------------------------#
 import pandas as pd
 import numpy as np
