@@ -20,7 +20,7 @@ values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas'
 options=[0, 1, 2, LC+1]
 dic = dict(zip(options, values))
 a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
-st.write('El valor de corrección elegido es", f"**{a:,.0f}**", ")
+st.sidebar.write("El valor de corrección elegido es", f"**{a:,.0f}**", ".")
 #----------------------------------------------------#
 
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
