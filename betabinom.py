@@ -22,7 +22,7 @@ with st.form(key ='Form_FEM'):
     values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
     dic = dict(zip(options, values))
-    a = st.sidebar.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic[x])
+    a = st.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic[x])
     submitted = st.form_submit_button("Calcular")
 
 with st.sidebar.form(key ='Form3'):
