@@ -1,13 +1,5 @@
 #----------------------------------------------------#
 import streamlit as st
-
-LC = 2
-values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
-options=[0, 1, 2, LC+1]
-dic = dict(zip(options, values))
-a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
-st.write('La población elegida es', a)
-
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
 #----------------------------------------------------#
@@ -23,6 +15,14 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
+LC = 2
+values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
+options=[0, 1, 2, LC+1]
+dic = dict(zip(options, values))
+a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
+st.write('La población elegida es', a)
+#----------------------------------------------------#
+
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
 st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
