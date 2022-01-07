@@ -70,13 +70,13 @@ if Lider == 1:
   LC = 1
   st.write("", f"**{PO:,.1f}**", "")
   FEM = 1 + VA * (PO + NM + ACT + IP)
-  st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+  st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 elif Lider == 2 and (NM == 2 or ACT == 2):
   st.sidebar.write("FEM líder", f"**{LC:,.1f}**", "")
   FEM = 1 + VA * (PO + NM + ACT + IP + LC)
-  st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+  st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
-  st.write("")
+  st.sidebar.write("3) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
