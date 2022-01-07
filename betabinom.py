@@ -18,12 +18,12 @@ st.markdown(""" <style> .font {
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
-    LC = st.number_input("FEM del líder:", min_value = 1, max_value = 100, value = 1, step=1, key = "LC")
-    Lider = st.checkbox('Soy líder')
+    Lider = st.checkbox('¿Soy líder?')
+    LC = st.number_input("Si no soy líder, ¿cuál es la FEM del líder?", min_value = 1, max_value = 100, value = 1, step=1, key = "LC")
     
-    VA = st.radio('¿Cuál es el valor de atención del medio que elijo:', ('Alto', 'Bajo'))
+    VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', ('Alto', 'Bajo'))
     Lider_VA = st.radio('Si no soy líder, ¿el líder emplea un medio de alto o bajo valor de atención?', ('Alto', 'Bajo'))
-    
+        
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
     dic1 = dict(zip(options, values1))
