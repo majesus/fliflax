@@ -23,6 +23,13 @@ with st.sidebar.form(key ='FormFEM'):
     dic = dict(zip(options, values))
     a = st.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic[x])
     submitted = st.form_submit_button("Calcular")
+    
+with st.sidebar.form(key ='Form1'):
+    user_word = st.text_input("Enter a keyword", "habs")    
+    select_language = st.radio('Tweet language', ('All', 'English', 'French'))
+    include_retweets = st.checkbox('Include retweets in data')
+    num_of_tweets = st.number_input('Maximum number of tweets', 100)
+    submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
 #----------------------------------------------------#
 
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
