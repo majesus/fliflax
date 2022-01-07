@@ -100,7 +100,7 @@ with st.form(key ='Form1'):
   with col1:
     P = st.number_input("Población:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "poblacion")
   with col2:
-    Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000000, step=100, key = "precio")
+    Precio = st.number_input("Precio de una inserción €:", min_value = 1, max_value = pow(10, 10), value = 1000, step=100, key = "precio")
   
   inserciones = st.slider("Inserciones:", 2, 50, value = 5, step=1, key = "inserciones")
     
@@ -136,7 +136,7 @@ def BetaBinom(a, b, n, x):
     pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
     return pmf
 
-if alphas > 0 or betas > 0 or P < A1:
+if alphas > 0 or betas > 0:
   pmf = BetaBinom(alphas, betas, n, x)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
