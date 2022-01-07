@@ -21,6 +21,7 @@ with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
     with st.expander("Si no soy líder, clica el signo +."):
+      
       values5=['No soy líder']
       options=[1]
       dic5 = dict(zip(options, values5))
@@ -60,9 +61,10 @@ with st.sidebar.form(key ='FormFEM'):
     
     submitted = st.form_submit_button(label = "Calcular")
 
-
-FEM = 1 + VA * (PO + NM + ACT + IP)
-st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+if No_Lider != 1:
+  LC = 1
+  FEM = 1 + VA * (PO + NM + ACT + IP)
+  st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
