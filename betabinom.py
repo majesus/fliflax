@@ -15,14 +15,15 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-with st.sidebar.form(key ='Form_FEM'):
-  LC = 2
-  values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
-  options=[0, 1, 2, LC+1]
-  dic = dict(zip(options, values))
-  a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
-  st.sidebar.write("El valor de corrección elegido es", f"**{a:,.0f}**", ".")
-  submitted = st.form_submit_button("Calcular")
+with st.form(key ='Form_FEM'):
+  with st.sidebar:
+    LC = 2
+    values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
+    options=[0, 1, 2, LC+1]
+    dic = dict(zip(options, values))
+    a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
+    st.sidebar.write("El valor de corrección elegido es", f"**{a:,.0f}**", ".")
+    submitted = st.form_submit_button("Calcular")
 #----------------------------------------------------#
 
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
