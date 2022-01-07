@@ -52,7 +52,7 @@ with st.sidebar.form(key ='FormFEM'):
     submitted = st.form_submit_button(label = "Calcular")
 
 FEM = 1 + VA * (PO + NM + ACT + IP)
-st.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
