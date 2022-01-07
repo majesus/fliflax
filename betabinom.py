@@ -17,7 +17,7 @@ st.markdown(""" <style> .font {
 #----------------------------------------------------#
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
-    st.markdown("Por **Frec. efectiva min.**")
+    st.write("**Frec. efectiva min.**")
     LC = 2
     Lider = st.checkbox('Soy líder')
     
