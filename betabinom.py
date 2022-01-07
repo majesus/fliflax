@@ -45,7 +45,6 @@ with st.sidebar.form(key ='FormFEM'):
     
 
 #----------------------------------------------------#
-
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
 st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
