@@ -22,7 +22,7 @@ with st.sidebar.form(key ='FormFEM'):
   dic = dict(zip(options, values))
   a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
   st.sidebar.write("El valor de corrección elegido es", f"**{a:,.0f}**", ".")
-  submitted = st.sidebar.form_submit_button("Calcular")
+  submitted = st.form_submit_button("Calcular")
 #----------------------------------------------------#
 
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
