@@ -17,8 +17,8 @@ st.markdown(""" <style> .font {
 #----------------------------------------------------#
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
-    st.write("## **Frec. efectiva mínima**")
-    LC = 2
+    st.write("## **Frec. efectiva mínima [FEM]**")
+    LC = st.number_input("FEM del líder:", min_value = 1, max_value = 100, value = 1, step=1, key = "LC")
     Lider = st.checkbox('Soy líder')
     
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo:', ('Alto', 'Bajo'))
@@ -42,6 +42,8 @@ with st.sidebar.form(key ='FormFEM'):
     IP = st.radio('¿Hay influencia personal positiva de otros agentes?', ('Sí', 'No'))
     
     submitted = st.form_submit_button("Calcular")
+    
+
 #----------------------------------------------------#
 
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
