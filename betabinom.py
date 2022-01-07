@@ -41,10 +41,15 @@ with st.sidebar.form(key ='FormFEM'):
     dic3 = dict(zip(options, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x])
     
-    IP = st.radio('¿Hay influencia personal positiva de otros agentes?', ('Sí', 'No'))
+    values4=['Alta', 'Baja']
+    options=[-0]
+    dic4 = dict(zip(options, values4))
+    IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options, format_func=lambda x: dic4[x])
     
     submitted = st.form_submit_button(label = "Calcular")
 
+FEM = 1 + VA * (PO + NM + ACT + IP)
+st.write("La frecuencia efectiva mínima es"", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva")
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
