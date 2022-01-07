@@ -32,7 +32,7 @@ with st.sidebar.form(key ='FormFEM'):
       dic5 = dict(zip(options, values5))
       No_Lider = st.selectbox('',  options, format_func=lambda x: dic5[x])
       
-      LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 1, step=1, key = "LC")
+      LC_lider = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 1, step=1, key = "LC")
       
       values0=['Alto', 'Bajo']
       options=[1,2]
@@ -70,6 +70,12 @@ if Lider == 1:
   LC = 1
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+elif Lider == 2 and Lider_VA == 1:
+  LC = LC_lider
+  FEM = 1 + VA * (PO + NM + ACT + IP)
+else:
+  st.write("¡error!")
+  
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
