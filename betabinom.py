@@ -26,12 +26,12 @@ with st.sidebar.form(key ='FormFEM'):
     PO = st.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic1[x])
     
     values2=['Recuerdo', 'Reconocimiento']
-    # options=[0, LC+1]
+    options=[0, LC+1]
     dic2 = dict(zip(options, values2))
     NM = st.selectbox('Elige un objetivo de memoria:', options, format_func=lambda x: dic2[x])
     
     values3=['Informativa', 'Transformativa']
-    # options=[0, LC+1]
+    options=[0, LC+1]
     dic3 = dict(zip(options, values3))
     ACT = st.selectbox('Elige una estrategia comunicativa:', options, format_func=lambda x: dic3[x])
     
