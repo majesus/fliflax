@@ -19,10 +19,22 @@ st.markdown(""" <style> .font {
 with st.sidebar.form(key ='FormFEM'):
     LC = 2
     Lider = st.checkbox('Soy líder')
-    values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
+    
+    values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
-    dic = dict(zip(options, values))
-    a = st.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic[x])
+    dic1 = dict(zip(options, values1))
+    PO = st.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic1[x])
+    
+    values2=['Recuerdo', 'Reconocimiento']
+    # options=[0, LC+1]
+    dic2 = dict(zip(options, values2))
+    NM = st.selectbox('Elige un objetivo de memoria:', options, format_func=lambda x: dic2[x])
+    
+    values3=['Informativa', 'Transformativa']
+    # options=[0, LC+1]
+    dic3 = dict(zip(options, values3))
+    ACT = st.selectbox('Elige una estrategia comunicativa:', options, format_func=lambda x: dic3[x])
+    
     IP = st.radio('Influencia personal', ('Alta', 'Baja'))
     submitted = st.form_submit_button("Calcular")
     
