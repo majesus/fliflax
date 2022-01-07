@@ -24,7 +24,10 @@ with st.sidebar.form(key ='FormFEM'):
       LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 1, step=1, key = "LC")
       Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?', ('Alto', 'Bajo'))
     
-    VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', ('Alto', 'Bajo'))
+    values0=['Alto', 'Bajo']
+    options=[1,2]
+    dic0 = dict(zip(options, values0))
+    VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options, format_func=lambda x: dic0[x])
     
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
@@ -42,7 +45,7 @@ with st.sidebar.form(key ='FormFEM'):
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x])
     
     values4=['Alta', 'Baja']
-    options=[-0]
+    options=[-1,0]
     dic4 = dict(zip(options, values4))
     IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options, format_func=lambda x: dic4[x])
     
