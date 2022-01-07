@@ -19,7 +19,6 @@ st.markdown(""" <style> .font {
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
-    
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', ('Alto', 'Bajo'))
         
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
@@ -40,7 +39,6 @@ with st.sidebar.form(key ='FormFEM'):
     IP = st.radio('¿Hay influencia personal positiva de otros agentes?', ('Sí', 'No'))
     
     submitted = st.form_submit_button("Calcular")
-    
 
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
