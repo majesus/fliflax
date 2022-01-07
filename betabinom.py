@@ -22,8 +22,8 @@ with st.form(key ='Form_FEM'):
     options=[0, 1, 2, LC+1]
     dic = dict(zip(options, values))
     a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
+    st.write("El valor de corrección elegido es", f"**{a:,.0f}**", ".")
     submitted = st.form_submit_button("Calcular")
-st.write("El valor de corrección elegido es", f"**{a:,.0f}**", ".")
 
 #----------------------------------------------------#
 
