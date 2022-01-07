@@ -21,8 +21,13 @@ with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
     with st.expander("Si no soy líder, clica el signo +."):
-      No_Lider = st.selectbox('¿A qué población me dirijo?', ('No soy líder'))
+      values5=['No soy líder']
+      options=[1]
+      dic5 = dict(zip(options, values5))
+      No_Lider = st.selectbox('',  options, format_func=lambda x: dic5[x])
+      
       LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 1, step=1, key = "LC")
+      
       values0=['Alto', 'Bajo']
       options=[1,2]
       dic0 = dict(zip(options, values0))
