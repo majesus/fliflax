@@ -20,8 +20,7 @@ LC = 2
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
-    Lider = st.checkbox("Si no soy líder, marca la casilla.", False):
-    if Lider:
+    if st.checkbox("Si no soy líder, marca la casilla."):
       LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 1, step=1, key = "LC")
       Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?', ('Alto', 'Bajo'))
     
