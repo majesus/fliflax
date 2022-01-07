@@ -5,7 +5,10 @@ import streamlit as st
 # PO = st.selectbox(
      # 'Elige la Población a que te diriges',
      # options=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario')
-# st.write('La población elegida es', PO)
+options=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
+values=[0, 1, 2, 3]
+a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: values[x])
+# st.write('La población elegida es', a)
 
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
