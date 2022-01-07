@@ -136,7 +136,7 @@ def BetaBinom(a, b, n, x):
     pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
     return pmf
 
-if alphas > 0 or betas > 0:
+if alphas > 0 or betas > 0 or P > A2:
   pmf = BetaBinom(alphas, betas, n, x)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
