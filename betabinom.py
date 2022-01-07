@@ -7,7 +7,8 @@ import streamlit as st
      # options=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario')
 options=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
 values=[0, 1, 2, 3]
-a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: values[x])
+dic = dict(zip(options, values))
+a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
 # st.write('La población elegida es', a)
 
 #----------------------------------------------------#
