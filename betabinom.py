@@ -70,11 +70,9 @@ if Lider == 1:
   LC = 1
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
-elif Lider == 2:
+else Lider == 2:
   LC = LC_lider
   FEM = 1 + VA * (PO + NM + ACT + IP)
-else:
-  st.write("¡error!")
   
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
