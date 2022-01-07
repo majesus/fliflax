@@ -20,7 +20,7 @@ values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas'
 options=[0, 1, 2, LC+1]
 dic = dict(zip(options, values))
 a = st.sidebar.selectbox('Choose a restaurant', options, format_func=lambda x: dic[x])
-st.write('La población elegida es', a)
+st.write('El valor de corrección elegido es", f"**{a:,.0f}**", ")
 #----------------------------------------------------#
 
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
@@ -147,7 +147,7 @@ st.write("Derivado de tus datos y siempre que se ajusten a las premisas del mode
          ", el valor de la cobertura alcanzada es igual a", f"**{round(df['Ri'].iloc[0]):,.0f}**", "personas. "
          "Es decir,", f"**{round(df['Ri'].iloc[0]):,.0f}**", "personas se exponen al menos 1 vez. "
          "Los impactos logrados con", f"**{n:,.0f}**", "inserciones son", f"**{A1 * n:,.0f}**"," impactos. "
-         "La frecuencia media es pues igual a", f"**{df['Ri'].sum() / df['Ri'].iloc[0]:,.3f}**","impactos por persona de la cobertura.")
+         "La frecuencia media es pues igual a", f"**{df['Ri'].sum() / df['Ri'].iloc[0]:,.0f}**","impactos por persona de la cobertura.")
 st.write("Junto a lo anterior, el valor GRP es igual a", f"**{round(df['Ri'].sum() * 100 / P):,.0f}**","impactos por cada 100 personas de la población "
          "que en nuestro caso es igual a", f"{P:,.0f}", "personas. "
          "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
