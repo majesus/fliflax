@@ -21,25 +21,25 @@ with st.sidebar.form(key ='FormFEM'):
     LC = 2
     Lider = st.checkbox('Soy líder')
     
-    VA = st.radio('Valor de atención del medio que elijo:', ('Alto', 'Bajo'))
+    VA = st.radio('¿Cuál es el valor de atención del medio que elijo:', ('Alto', 'Bajo'))
     Lider_VA = st.radio('Si no soy líder, ¿el líder emplea un medio de alto o bajo valor de atención?', ('Alto', 'Bajo'))
     
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
     dic1 = dict(zip(options, values1))
-    PO = st.selectbox('Elige un valor de Población objetivo:', options, format_func=lambda x: dic1[x])
+    PO = st.selectbox('¿A qué población me dirijo?', options, format_func=lambda x: dic1[x])
     
     values2=['Recuerdo', 'Reconocimiento']
     options=[0, LC+1]
     dic2 = dict(zip(options, values2))
-    NM = st.selectbox('Elige un objetivo de memoria:', options, format_func=lambda x: dic2[x])
+    NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x])
     
     values3=['Informativa', 'Transformativa']
     options=[0, LC+1]
     dic3 = dict(zip(options, values3))
-    ACT = st.selectbox('Elige una estrategia comunicativa:', options, format_func=lambda x: dic3[x])
+    ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x])
     
-    IP = st.radio('Influencia personal:', ('Alta', 'Baja'))
+    IP = st.radio('¿Hay influencia personal positiva de otros agentes?', ('Sí', 'No'))
     
     submitted = st.form_submit_button("Calcular")
 #----------------------------------------------------#
