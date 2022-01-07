@@ -16,8 +16,7 @@ st.markdown(""" <style> .font {
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
-with st.form(key ='Form_FEM'):
-  with st.sidebar:
+with st.sidebar.form(key ='FormFEM'):
     LC = 2
     values=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
