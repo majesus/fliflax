@@ -21,8 +21,12 @@ with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
     with st.expander("Si no soy líder, clica el signo +."):
+      No_Lider = st.selectbox('¿A qué población me dirijo?', ('No soy líder'))
       LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 1, step=1, key = "LC")
-      Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?', ('Alto', 'Bajo'))
+      values0=['Alto', 'Bajo']
+      options=[1,2]
+      dic0 = dict(zip(options, values0))
+      Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options, format_func=lambda x: dic0[x])
     
     values0=['Alto', 'Bajo']
     options=[1,2]
@@ -50,6 +54,7 @@ with st.sidebar.form(key ='FormFEM'):
     IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options, format_func=lambda x: dic4[x])
     
     submitted = st.form_submit_button(label = "Calcular")
+
 
 FEM = 1 + VA * (PO + NM + ACT + IP)
 st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
@@ -148,6 +153,8 @@ def BetaBinom(a, b, n, x):
 
 if alphas > 0 or betas > 0:
   pmf = BetaBinom(alphas, betas, n, x)
+elif P < A2:
+  st.error("La población no debe ser inferior a las audiencias")
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
              "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de A1 igual a 500,000 y un valor de A2 igual a 550,000 personas.")
