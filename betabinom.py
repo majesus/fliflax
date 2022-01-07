@@ -21,8 +21,8 @@ with st.sidebar.form(key ='FormFEM'):
     LC = 2
     Lider = st.checkbox('Soy líder')
     
-    VA = st.radio('Valor de atención del medio', ('Alta', 'Baja'))
-    Lider_VA = st.radio('Si no soy líder, ¿el líder emplea un medio de bajo valor de atención?', ('Alta', 'Baja'))
+    VA = st.radio('Valor de atención del medio que elijo:', ('Alto', 'Bajo'))
+    Lider_VA = st.radio('Si no soy líder, ¿el líder emplea un medio de alto o bajo valor de atención?', ('Alto', 'Bajo'))
     
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal/Favorable otras marcas', 'No usuario']
     options=[0, 1, 2, LC+1]
@@ -39,7 +39,7 @@ with st.sidebar.form(key ='FormFEM'):
     dic3 = dict(zip(options, values3))
     ACT = st.selectbox('Elige una estrategia comunicativa:', options, format_func=lambda x: dic3[x])
     
-    IP = st.radio('Influencia personal', ('Alta', 'Baja'))
+    IP = st.radio('Influencia personal:', ('Alta', 'Baja'))
     
     submitted = st.form_submit_button("Calcular")
 #----------------------------------------------------#
