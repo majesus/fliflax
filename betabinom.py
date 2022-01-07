@@ -5,7 +5,7 @@ import streamlit as st
 #----------------------------------------------------#
 st.set_page_config(layout="centered",
                    page_title="Fliflax",
-                   page_icon=":smiley",
+                   page_icon=':crescent-moon:',
                    initial_sidebar_state='expanded'
                    )
 #----------------------------------------------------#
