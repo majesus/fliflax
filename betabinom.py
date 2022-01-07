@@ -20,6 +20,11 @@ LC = 2
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
+    values6=['Sí', 'No']
+    options=[1,2]
+    dic6 = dict(zip(options, values6))
+    Lider = st.radio('¿Soy líder?', options, format_func=lambda x: dic6[x])
+    
     with st.expander("Si no soy líder, clica el signo +."):
       
       values5=['No soy líder']
@@ -61,7 +66,7 @@ with st.sidebar.form(key ='FormFEM'):
     
     submitted = st.form_submit_button(label = "Calcular")
 
-if No_Lider != 1:
+if Lider == 1:
   LC = 1
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
