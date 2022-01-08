@@ -32,7 +32,7 @@ with st.sidebar.form(key ='FormFEM'):
       dic5 = dict(zip(options5, values5))
       No_Lider = st.selectbox('',  options5, format_func=lambda x: dic5[x], key = "No_Lider")
       
-      Lider_LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 99, value = 5, step=1, key = "Lider_LC")
+      LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 99, value = 5, step=1, key = "Lider_LC")
       
       values7=['Alto', 'Bajo']
       options7=[1,2]
@@ -73,7 +73,7 @@ with st.sidebar.form(key ='FormFEM'):
 if Lider == 1:
   st.sidebar.write("primera opción")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
-  st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
+  st.sidebar.write("Lider_LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
@@ -86,7 +86,7 @@ else:
   LC = Lider_LC
   st.sidebar.write("segunda opción")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
-  st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
+  st.sidebar.write("Lider_LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
