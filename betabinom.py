@@ -31,7 +31,7 @@ with st.sidebar.form(key ='FormFEM'):
       values5=['No soy líder']
       options5=[1]
       dic5 = dict(zip(options5, values5))
-      No_Lider = st.selectbox('',  options5, format_func=lambda x: dic5[x], key = "No_Lider")
+      # No_Lider = st.selectbox('',  options5, format_func=lambda x: dic5[x], key = "No_Lider")
       
       Lider_LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 99, value = 4, step=1, key = "Lider_LC")
       
