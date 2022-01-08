@@ -394,4 +394,5 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     # num_of_tweets = st.number_input('Maximum number of tweets', 100)
     # submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
 #----------------------------------------------------#    
+st.write("[![Follow](<https://img.shields.io/twitter/follow/><fliflax>?style=social)](<https://www.twitter.com/><fliflax>)")
 
