@@ -55,7 +55,7 @@ with st.sidebar.form(key ='FormFEM'):
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x], key = "NM")
     
     values3=['Informativa', 'Transformativa']
-    options=[0, LC + 5]
+    options=[0, LC + 10]
     dic3 = dict(zip(options, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x], key = "ACT")
     
@@ -68,7 +68,7 @@ with st.sidebar.form(key ='FormFEM'):
 
 if Lider == 1:
   st.sidebar.write("primera opción")
-  #LC = -8 # 1 # el resultado debe ser -8 + 10 = 1
+  LC = LC - 8
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
