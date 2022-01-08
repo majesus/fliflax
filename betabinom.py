@@ -32,7 +32,7 @@ with st.sidebar.form(key ='FormFEM'):
       dic5 = dict(zip(options, values5))
       No_Lider = st.selectbox('',  options, format_func=lambda x: dic5[x])
       
-      Lider_LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 5, step=1, key = "LC")
+      Lider_LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 99, value = 5, step=1, key = "LC")
       
       values0=['Alto', 'Bajo']
       options=[1,2]
@@ -54,17 +54,17 @@ with st.sidebar.form(key ='FormFEM'):
       options=[0, 1, 2]
     else:
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca', 'No usuario']
-      options=[0, 1, 2, LC + 10]
+      options=[0, 1, 2, LC + 100]
     dic1 = dict(zip(options, values1))
     PO = st.selectbox('¿A qué población me dirijo?', options, format_func=lambda x: dic1[x], key = "PO")
     
     values2=['Reconocimiento', 'Recuerdo']
-    options=[0, LC + 10]
+    options=[0, LC + 100]
     dic2 = dict(zip(options, values2))
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x], key = "NM")
    
     values3=['Informativa', 'Transformativa']
-    options=[0, LC + 10]
+    options=[0, LC + 100]
     dic3 = dict(zip(options, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x], key = "ACT")
     
@@ -85,7 +85,7 @@ if Lider == 1:
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
-elif PO == LC + 10 or NM == LC + 10 or ACT == LC + 10 and Lider == 2:
+elif PO == LC + 100 or NM == LC + 100 or ACT == LC + 100 and Lider == 2:
   st.sidebar.write("segunda opción")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
