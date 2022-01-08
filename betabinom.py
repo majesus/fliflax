@@ -15,7 +15,7 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-LC = -98
+LC = -97
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
