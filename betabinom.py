@@ -88,7 +88,7 @@ if Lider == 1:
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #elif Lider == 2: # PO == LC + 100 or NM == LC + 100 or ACT == LC + 100 and 
 else:
-  LC = LC_Lider
+  LC = Lider_LC
   st.sidebar.write("segunda opción")
   st.sidebar.write("Lider", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
