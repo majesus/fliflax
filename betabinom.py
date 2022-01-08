@@ -66,7 +66,7 @@ with st.sidebar.form(key ='FormFEM'):
     
     submitted = st.form_submit_button(label = "Calcular")
 
-if VA = 2 and Lider_VA = 2:
+if VA == 2 and Lider_VA == 2:
   Lider_LC = Lider_LC / 2
 else:
   Lider_LC = Lider_LC
