@@ -15,7 +15,7 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-LC = 2
+LC = 1
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
@@ -50,12 +50,12 @@ with st.sidebar.form(key ='FormFEM'):
     PO = st.radio('¿Cuál es la población a que me dirijo?', options1, format_func=lambda x: dic1[x], key = "PO")
     
     values2=['Reconocimiento', 'Recuerdo']
-    options2=[0, LC]
+    options2=[0, LC + 1]
     dic2 = dict(zip(options2, values2))
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options2, format_func=lambda x: dic2[x], key = "NM")
    
     values3=['Informativa', 'Transformativa']
-    options3=[0, LC]
+    options3=[0, LC + 1]
     dic3 = dict(zip(options3, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options3, format_func=lambda x: dic3[x], key = "ACT")
     
@@ -84,6 +84,7 @@ if Lider == 1:
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
+  # if PO != 3 and NM != 2 and ACT != 2
   st.sidebar.write("segunda opción")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
