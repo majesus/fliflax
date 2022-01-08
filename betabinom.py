@@ -68,7 +68,7 @@ with st.sidebar.form(key ='FormFEM'):
 
 if Lider == 1:
   st.sidebar.write("primera opción")
-  LC = -8 # 1 # el resultado debe ser -8 + 10 = 1
+  #LC = -8 # 1 # el resultado debe ser -8 + 10 = 1
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
