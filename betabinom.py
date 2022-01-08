@@ -67,7 +67,7 @@ with st.sidebar.form(key ='FormFEM'):
     submitted = st.form_submit_button(label = "Calcular")
 
 if Lider == 1:
-  st.sidebar.write("primera opción")
+  st.sidebar.write("Lider == 1")
   if PO == 3:
     PO_cor = 2
     FEM = 1 + VA * (PO_cor + NM + ACT + IP)
@@ -75,6 +75,7 @@ if Lider == 1:
   else:
     FEM = 1 + VA * (PO + NM + ACT + IP)
 else:
+  st.sidebar.write("Lider == 2")
   if PO != 3 and NM != 2 and ACT != 2:
     st.sidebar.write("primer IF ELSE")
     FEM = 1 + VA * (PO + NM + ACT + IP)
@@ -84,7 +85,6 @@ else:
     FEM = 1 + VA * (PO + NM + ACT + IP)
     st.sidebar.write("2.3) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
     
-st.sidebar.write("segunda opción")
 st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
 st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
 st.sidebar.write("LC", f"**{LC:,.1f}**", "")
