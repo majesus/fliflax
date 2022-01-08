@@ -39,19 +39,20 @@ with st.sidebar.form(key ='FormFEM'):
       dic7 = dict(zip(options7, values7))
       Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options7, format_func=lambda x: dic7[x], key = "Lider_VA")
     
-
+    if Lider == 1:
+      LC = -98 # restando -98 + 100 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
+    elif Lider == 2:
+      LC = Lider_LC
+    else:
+      st.write("")
     
     values0=['Alto', 'Bajo']
     options0=[1,2]
     dic0 = dict(zip(options0, values0))
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options0, format_func=lambda x: dic0[x], key = "VA")
     
-    if Lider == 1:
-      values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca / No usuario']
-      options1=[0, 1, 2]
-    else:
-      values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca', 'No usuario']
-      options1=[0, 1, 2, LC + 100]
+    values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca', 'No usuario']
+    options1=[0, 1, 2, LC + 100]
     dic1 = dict(zip(options1, values1))
     PO = st.selectbox('¿A qué población me dirijo?', options1, format_func=lambda x: dic1[x], key = "PO")
     
