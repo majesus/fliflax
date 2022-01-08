@@ -92,6 +92,26 @@ else:
     st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
     FEM = 1 + VA * (PO_cor + NM_cor + ACT_cor + IP + Lider_LC)
     st.sidebar.write("2.3) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+    
+  elif PO == 3 and NM != 2 and ACT != 2:
+    PO_cor = 1
+    FEM = 1 + VA * (PO_cor + NM + ACT + IP + Lider_LC)
+  elif PO != 3 and NM == 2 and ACT != 2:
+    NM_cor = 1
+    FEM = 1 + VA * (PO + NM_cor + ACT + IP + Lider_LC)
+  elif PO != 3 and NM != 2 and ACT == 2:
+    ACT_cor = 1
+    FEM = 1 + VA * (PO + NM + ACT_cor+ IP + Lider_LC)
+    
+  elif PO == 3 and NM == 2 and ACT != 2:
+    PO_cor = 1; NM_cor = 1
+    FEM = 1 + VA * (PO_cor + NM_cor + ACT + IP + Lider_LC)
+  elif PO == 3 and NM != 2 and ACT == 2:
+    PO_cor = 1; ACT_cor = 1
+    FEM = 1 + VA * (PO_cor + NM + ACT_cor + IP + Lider_LC)
+  elif PO != 3 and NM == 2 and ACT == 2:
+    NM_cor = 1; ACT_cor = 1
+    FEM = 1 + VA * (PO + NM_cor+ ACT_cor + IP + Lider_LC)
   else:
     st.sidebar.write("")
     
