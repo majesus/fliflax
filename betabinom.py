@@ -219,7 +219,7 @@ if alphas > 0 and betas > 0 and P > A2:
   pmf = BetaBinom(alphas, betas, n, x)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. Debes revisar la elección de A1 y A2 o de la población. "
-             "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de A1 igual a 500,000 y un valor de A2 igual a 550,000 personas.")
+             "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de A1 igual a 500,000 y un valor de A2 igual a 550,000 personas, y una población igual a 1,000,000.")
   A1 = 500000
   A2 = 550000
   alphas = 0.125
