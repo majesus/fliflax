@@ -72,7 +72,7 @@ if Lider == 1:
   elif NM == 100:
     NM == 2
   elif ACT == 100:
-    ACT == 2
+    ACT == ACT - 98
   else:
     st.sidebar.write("")
   st.sidebar.write("primera opción")
