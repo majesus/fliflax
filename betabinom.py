@@ -15,7 +15,7 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-# LC = 0
+# LC = 1
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
@@ -71,10 +71,10 @@ if Lider == 1:
   st.write("", f"**{PO:,.1f}**", "")
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
-elif Lider == 2:
-  LC = LC
+elif Lider == 2 and (PO = LC + 1 or NM = LC + 1 or ACT = LC + 1):
+  LC = 0
   st.sidebar.write("FEM líder", f"**{LC:,.1f}**", "")
-  FEM = 1 + VA * (PO + NM + ACT + IP + LC)
+  FEM = 1 + VA * (PO + NM + ACT + IP + LC_lider)
   st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
   st.sidebar.write("La frecuencia efectiva mínima es XXX impactos por persona de la cobertura efectiva.")
