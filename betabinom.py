@@ -90,7 +90,7 @@ else:
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
   # FEM = 1 + VA * (PO + NM + ACT + IP + LC)
-  if PO == LC + 100:
+  if PO == LC + 1:
     LC = 1
     st.sidebar.write("primer IF ELSE")
     FEM = 1 + VA * (PO + NM + ACT + IP + LC)
