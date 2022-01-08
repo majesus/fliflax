@@ -39,6 +39,11 @@ with st.sidebar.form(key ='FormFEM'):
       dic0 = dict(zip(options, values0))
       Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options, format_func=lambda x: dic0[x], key = "Lider_VA")
     
+    if Lider == 1:
+      LC = -8 # restando -8 + 10 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
+    else:
+      LC = Lider_LC
+    
     values0=['Alto', 'Bajo']
     options=[1,2]
     dic0 = dict(zip(options, values0))
@@ -53,12 +58,7 @@ with st.sidebar.form(key ='FormFEM'):
     options=[0, LC + 10]
     dic2 = dict(zip(options, values2))
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x], key = "NM")
-    
-    if Lider == 1:
-      LC = 2
-    else:
-      LC = Lider_LC
-    
+   
     values3=['Informativa', 'Transformativa']
     options=[0, LC + 10]
     dic3 = dict(zip(options, values3))
@@ -82,15 +82,14 @@ if Lider == 1:
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 elif PO == LC + 1 or NM == LC + 1 or ACT == LC + 1 and Lider == 2:
   st.sidebar.write("segunda opción")
-  LC = -9 # 0 # el resultado debe ser -9 + 10 = 1
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
   st.sidebar.write("LC_lider", f"**{LC_lider:,.1f}**", "")
-  #FEM = 1 + VA * (PO + NM + ACT + IP + LC_lider)
-  #st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+  FEM = 1 + VA * (PO + NM + ACT + IP + LC_lider)
+  st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
   st.sidebar.write("tercera opción")
   LC = 1
