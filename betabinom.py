@@ -67,12 +67,12 @@ with st.sidebar.form(key ='FormFEM'):
     submitted = st.form_submit_button(label = "Calcular")
 
 if Lider == 1:
-  if PO = 100:
-    PO = 2
-  elif NM = 100:
-    NM = 2
+  if PO == 100:
+    PO == 2
+  elif NM == 100:
+    NM == 2
   elif ACT = 100:
-    ACT = 2
+    ACT == 2
   else:
     st.sidebar.write("")
   st.sidebar.write("primera opción")
