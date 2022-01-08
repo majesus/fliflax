@@ -67,6 +67,7 @@ with st.sidebar.form(key ='FormFEM'):
     submitted = st.form_submit_button(label = "Calcular")
 
 if Lider == 1:
+  st.sidebar.write("primera opción")
   LC = 1
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
@@ -76,6 +77,7 @@ if Lider == 1:
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 elif PO == LC + 1 or NM == LC + 1 or ACT == LC + 1 and Lider == 2:
+  st.sidebar.write("segunda opción")
   LC = 0
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
@@ -86,7 +88,15 @@ elif PO == LC + 1 or NM == LC + 1 or ACT == LC + 1 and Lider == 2:
   #FEM = 1 + VA * (PO + NM + ACT + IP + LC_lider)
   #st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
-  st.sidebar.write("La frecuencia efectiva mínima es XXX impactos por persona de la cobertura efectiva.")
+  st.sidebar.write("tercera opción")
+  LC = 1
+  st.sidebar.write("LC", f"**{LC:,.1f}**", "")
+  st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
+  st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
+  st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
+  st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
+  FEM = 1 + VA * (PO + NM + ACT + IP)
+  st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
