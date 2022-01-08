@@ -67,6 +67,7 @@ with st.sidebar.form(key ='FormFEM'):
     submitted = st.form_submit_button(label = "Calcular")
 
 if Lider == 1:
+  LC = -98
   st.sidebar.write("primera opción")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
