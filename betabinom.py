@@ -86,6 +86,7 @@ else:
     st.sidebar.write("segundo IF ELSE")
     if PO == 3:
       PO_cor = 2
+      st.sidebar.write("PO_cor", f"**{PO_cor:,.1f}**", "")
     FEM = 1 + VA * (PO_cor + NM + ACT + IP)
     st.sidebar.write("2.3) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
     
