@@ -39,12 +39,10 @@ with st.sidebar.form(key ='FormFEM'):
       dic0 = dict(zip(options, values0))
       Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options, format_func=lambda x: dic0[x], key = "Lider_VA")
     
-    if Lider == 1:
-      LC = -8 # restando -8 + 10 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
-    elif Lider == 2:
-      LC = Lider_LC
-    else: 
-      LC = st.write("no procede")
+    if Lider == 2:
+      LC = Lider_LC # restando -8 + 10 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
+    else:
+      LC = -98
     
     values0=['Alto', 'Bajo']
     options=[1,2]
@@ -88,7 +86,7 @@ if Lider == 1:
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 elif PO == LC + 100 or NM == LC + 100 or ACT == LC + 100 and Lider == 2:
-  LC = -80
+  LC = -8
   st.sidebar.write("segunda opción")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
