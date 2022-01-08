@@ -69,9 +69,9 @@ with st.sidebar.form(key ='FormFEM'):
 if Lider == 1:
   st.sidebar.write("primera opción")
   if PO == 3:
-    PO == 2
+    st.sidebar.write("hola")
   else:
-    st.sidebar.write("")
+    st.sidebar.write("bye")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
