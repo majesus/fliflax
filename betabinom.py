@@ -83,6 +83,7 @@ if Lider == 1:
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+  
 else:
   if PO != 3 and NM != 2 and ACT != 2:
     st.sidebar.write("primer IF ELSE")
@@ -91,6 +92,7 @@ else:
   else:
     st.sidebar.write("segundo IF ELSE")
     FEM = 1 + VA * (PO + NM + ACT + IP + LC)
+    st.sidebar.write("2.2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
     
   st.sidebar.write("segunda opción")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
@@ -102,7 +104,6 @@ else:
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
 
-  
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
