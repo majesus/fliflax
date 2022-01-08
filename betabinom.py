@@ -78,6 +78,7 @@ with st.sidebar.form(key ='FormFEM'):
 if Lider == 1:
   st.sidebar.write("primera opción")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
+  st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
@@ -87,6 +88,7 @@ if Lider == 1:
 elif PO == LC + 1 or NM == LC + 1 or ACT == LC + 1 and Lider == 2:
   st.sidebar.write("segunda opción")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
+  st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
