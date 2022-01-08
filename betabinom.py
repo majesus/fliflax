@@ -69,15 +69,16 @@ with st.sidebar.form(key ='FormFEM'):
 if Lider == 1:
   st.sidebar.write("primera opción")
   if PO == 3:
-    st.sidebar.write("hola")
     PO_cor = 2
+    FEM = 1 + VA * (PO_cor + NM + ACT + IP)
   else:
-    st.sidebar.write("bye")
+    FEM = 1 + VA * (PO_cor + NM + ACT + IP)
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
+  st.sidebar.write("PO_cor valor de corrección", f"**{PO_cor:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
