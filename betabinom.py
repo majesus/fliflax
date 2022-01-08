@@ -71,7 +71,7 @@ if Lider == 1:
     PO == 2
   elif NM == 100:
     NM == 2
-  elif ACT = 100:
+  elif ACT == 100:
     ACT == 2
   else:
     st.sidebar.write("")
