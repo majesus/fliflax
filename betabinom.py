@@ -72,7 +72,7 @@ if Lider == 1:
     PO_cor = 2
     FEM = 1 + VA * (PO_cor + NM + ACT + IP)
   else:
-    FEM = 1 + VA * (PO_cor + NM + ACT + IP)
+    FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
