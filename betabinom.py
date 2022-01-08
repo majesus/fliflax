@@ -215,10 +215,8 @@ def BetaBinom(a, b, n, x):
     pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
     return pmf
 
-if alphas > 0 or betas > 0:
+if alphas > 0 or betas > 0 or P > A2:
   pmf = BetaBinom(alphas, betas, n, x)
-elif P < A2:
-  st.error("La población no debe ser inferior a las audiencias")
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a su valor. Debes revisar la elección de A1 y A2. "
              "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de A1 igual a 500,000 y un valor de A2 igual a 550,000 personas.")
