@@ -119,12 +119,16 @@ else:
 st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
-st.title("Modelo Beta-Binomial")
+st.title("Fliflax: Una plataforma de apoyo al estudio")
 st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
-# st.markdown('<div style="text-align:center"><p style="font-family:sans-serif; color:#000000; font-size: 50px;"><b>Modelo<br>Beta-Binomial</b></p></div>', unsafe_allow_html=True)
+st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias de Comportamiento y Comunicacion "
+         "no dependan del lugar en que te encuentras. Nuestra obsesión es la ubicuidad, o **u-learning**, "
+         "es decir, queremops ofrecerte una enseñanza en cualquier momento y lugar siempre que "
+         "tengas entre tus manos un teléfono móvil o una tablet."
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
+st.write("### Modelo Beta-Binomial"
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de **Audiencia neta acumulada** "
          "(o modelo de acumulación), es decir, se programan las inserciones en un único soporte.")
