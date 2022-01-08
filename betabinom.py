@@ -47,9 +47,11 @@ with st.sidebar.form(key ='FormFEM'):
     if Lider_LC + 1 == 2: # LC + 100
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca / No usuario']
       options1=[0, 1, 2]
-    else:
+    elif Lider_LC + 1 != 2::
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca", "No usuario']
       options1=[0, 1, 2, Lider_LC + 1]
+    else:
+      st.sidebar.write("")
     dic1 = dict(zip(options1, values1))
     PO = st.radio('¿Cuál es la población a que me dirijo?', options1, format_func=lambda x: dic1[x], key = "PO")
     
