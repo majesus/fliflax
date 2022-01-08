@@ -19,13 +19,12 @@ st.markdown(
 st.markdown(
   """
 <style>
-.sidebar .sidebar-content {background-image: linear-gradient(#2e7bcf,#2e7bcf); color: white;
-}
+.sidebar .sidebar-content {background-image: linear-gradient(#2e7bcf,#2e7bcf); color: white;}
 </style>
 """,unsafe_allow_html=True,
 )
 #----------------------------------------------------#
-st.sidebar.write("En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
+st.sidebar.write("### En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
