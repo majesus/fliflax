@@ -45,17 +45,17 @@ with st.sidebar.form(key ='FormFEM'):
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options0, format_func=lambda x: dic0[x], key = "VA")
     
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca", "No usuario']
-    options1=[0, 1, 2, LC + 100]
+    options1=[0, 1, 2, 3]
     dic1 = dict(zip(options1, values1))
     PO = st.radio('¿Cuál es la población a que me dirijo?', options1, format_func=lambda x: dic1[x], key = "PO")
     
     values2=['Reconocimiento', 'Recuerdo']
-    options2=[0, LC + 100]
+    options2=[0, LC + 1]
     dic2 = dict(zip(options2, values2))
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options2, format_func=lambda x: dic2[x], key = "NM")
    
     values3=['Informativa', 'Transformativa']
-    options3=[0, LC + 100]
+    options3=[0, LC + 1]
     dic3 = dict(zip(options3, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options3, format_func=lambda x: dic3[x], key = "ACT")
     
