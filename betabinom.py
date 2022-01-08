@@ -40,7 +40,7 @@ with st.sidebar.form(key ='FormFEM'):
       Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options, format_func=lambda x: dic0[x], key = "Lider_VA")
     
     if Lider == 1:
-      LC = -98 # restando -8 + 10 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
+      LC = -98 # restando -98 + 100 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
     else:
       LC = Lider_LC
     
@@ -86,15 +86,15 @@ if Lider == 1:
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 elif Lider == 2: # PO == LC + 100 or NM == LC + 100 or ACT == LC + 100 and 
-  LC = 1
+  #LC = 1
   st.sidebar.write("segunda opción")
+  st.sidebar.write("LC_lider", f"**{LC:,.1f}**", "")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
-  st.sidebar.write("LC_lider", f"**{LC:,.1f}**", "")
   if PO == LC + 100 or NM == LC + 100 or ACT == LC + 100:
     FEM = 1 + VA * (PO + NM + ACT + IP + Lider_LC)
   else:
