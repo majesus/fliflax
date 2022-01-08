@@ -92,8 +92,10 @@ else:
   # FEM = 1 + VA * (PO + NM + ACT + IP + LC)
   if PO == LC + 100 or NM == LC + 100 or ACT == LC + 100:
     LC = 1
+    st.write("primer IF ELSE")
     FEM = 1 + VA * (PO + NM + ACT + IP + LC)
   else:
+    st.write("segundo IF ELSE")
     FEM = 1 + VA * (PO + NM + ACT + IP)
     st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 
