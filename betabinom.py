@@ -21,23 +21,23 @@ with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
     
     values6=['Sí', 'No']
-    options=[1,2]
-    dic6 = dict(zip(options, values6))
+    options6=[1,2]
+    dic6 = dict(zip(options6, values6))
     Lider = st.radio('¿Soy líder?', options, format_func=lambda x: dic6[x], key = "Lider")
     
     with st.expander("Si no soy líder, clica el signo +."):
       
       values5=['No soy líder']
-      options=[1]
-      dic5 = dict(zip(options, values5))
-      No_Lider = st.selectbox('',  options, format_func=lambda x: dic5[x], key = "No_Lider")
+      options5=[1]
+      dic5 = dict(zip(options5, values5))
+      No_Lider = st.selectbox('',  options5, format_func=lambda x: dic5[x], key = "No_Lider")
       
       Lider_LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 99, value = 5, step=1, key = "Lider_LC")
       
-      values0=['Alto', 'Bajo']
-      options=[1,2]
-      dic0 = dict(zip(options, values0))
-      Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options, format_func=lambda x: dic0[x], key = "Lider_VA")
+      values7=['Alto', 'Bajo']
+      options7=[1,2]
+      dic7 = dict(zip(options7, values7))
+      Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options7, format_func=lambda x: dic7[x], key = "Lider_VA")
     
     if Lider == 1:
       LC = -98 # restando -98 + 100 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
@@ -45,33 +45,33 @@ with st.sidebar.form(key ='FormFEM'):
       LC = Lider_LC
     
     values0=['Alto', 'Bajo']
-    options=[1,2]
-    dic0 = dict(zip(options, values0))
-    VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options, format_func=lambda x: dic0[x], key = "VA")
+    options0=[1,2]
+    dic0 = dict(zip(options0, values0))
+    VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options0, format_func=lambda x: dic0[x], key = "VA")
     
     if Lider == 1:
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca / No usuario']
-      options=[0, 1, 2]
+      options1=[0, 1, 2]
     else:
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca', 'No usuario']
-      options=[0, 1, 2, LC + 100]
-    dic1 = dict(zip(options, values1))
-    PO = st.selectbox('¿A qué población me dirijo?', options, format_func=lambda x: dic1[x], key = "PO")
+      options1=[0, 1, 2, LC + 100]
+    dic1 = dict(zip(options1, values1))
+    PO = st.selectbox('¿A qué población me dirijo?', options1, format_func=lambda x: dic1[x], key = "PO")
     
     values2=['Reconocimiento', 'Recuerdo']
-    options=[0, LC + 100]
-    dic2 = dict(zip(options, values2))
-    NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x], key = "NM")
+    options2=[0, LC + 100]
+    dic2 = dict(zip(options2, values2))
+    NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options2, format_func=lambda x: dic2[x], key = "NM")
    
     values3=['Informativa', 'Transformativa']
-    options=[0, LC + 100]
-    dic3 = dict(zip(options, values3))
-    ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x], key = "ACT")
+    options3=[0, LC + 100]
+    dic3 = dict(zip(options3, values3))
+    ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options3, format_func=lambda x: dic3[x], key = "ACT")
     
     values4=['Alta', 'Baja']
-    options=[-1,0]
-    dic4 = dict(zip(options, values4))
-    IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options, format_func=lambda x: dic4[x], key = "IP")
+    options4=[-1,0]
+    dic4 = dict(zip(options4, values4))
+    IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options4, format_func=lambda x: dic4[x], key = "IP")
     
     submitted = st.form_submit_button(label = "Calcular")
 
