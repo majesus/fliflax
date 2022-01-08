@@ -24,7 +24,7 @@ st.markdown(
 """,unsafe_allow_html=True,
 )
 #----------------------------------------------------#
-st.sidebar.write("### En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
+st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
