@@ -74,6 +74,7 @@ with st.sidebar.form(key ='FormFEM'):
     submitted = st.form_submit_button(label = "Calcular")
 
 if Lider == 1:
+  LC = -98
   st.sidebar.write("primera opción")
   st.sidebar.write("Lider", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
@@ -87,7 +88,7 @@ if Lider == 1:
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #elif Lider == 2: # PO == LC + 100 or NM == LC + 100 or ACT == LC + 100 and 
 else:
-  #LC = 1
+  LC = LC_Lider
   st.sidebar.write("segunda opción")
   st.sidebar.write("Lider", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
