@@ -59,8 +59,8 @@ with st.sidebar.form(key ='FormFEM'):
     dic3 = dict(zip(options3, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options3, format_func=lambda x: dic3[x], key = "ACT")
     
-    values4=['Alta', 'Baja']
-    options4=[-1,0]
+    values4=['Baja', 'Alta']
+    options4=[0,-1]
     dic4 = dict(zip(options4, values4))
     IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options4, format_func=lambda x: dic4[x], key = "IP")
     
