@@ -72,14 +72,12 @@ else:
   Lider_LC = Lider_LC
    
 if Lider == 1:
-  st.sidebar.write("Lider == 1")
   if PO == 3:
     PO_cor = 2
     FEM = 1 + VA * (PO_cor + NM + ACT + IP)
   else:
     FEM = 1 + VA * (PO + NM + ACT + IP)
 else:
-  st.sidebar.write("Lider == 2")
   if PO != 3 and NM != 2 and ACT != 2:
     FEM = 1 + VA * (PO + NM + ACT + IP)
   elif PO == 3 and NM == 2 and ACT == 2:
