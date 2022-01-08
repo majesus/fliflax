@@ -4,6 +4,8 @@ import streamlit as st
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
 #----------------------------------------------------#
 st.set_page_config(layout="centered",
+                   theme="light",
+                   layout="wide",
                    page_title="Fliflax",
                    page_icon=':crescent-moon:',
                    initial_sidebar_state='expanded'
