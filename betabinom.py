@@ -108,7 +108,7 @@ else:
   else:
     st.sidebar.write("")
 
-st.sidebar.info("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+st.sidebar.warning("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
