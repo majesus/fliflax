@@ -41,8 +41,10 @@ with st.sidebar.form(key ='FormFEM'):
     
     if Lider == 1:
       LC = -8 # restando -8 + 10 = 2 ... el valor LC para siendo líder, seleccionar objetivo: última columna.
-    else:
+    elif Lider == 2:
       LC = Lider_LC
+    else: 
+      LC = st.write("no procede")
     
     values0=['Alto', 'Bajo']
     options=[1,2]
