@@ -47,7 +47,7 @@ with st.sidebar.form(key ='FormFEM'):
     if Lider_LC + 1 == 2: # LC + 100
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca / No usuario']
       options1=[0, 1, 2]
-    elif Lider_LC + 1 != 2::
+    elif Lider_LC + 1 != 2:
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca", "No usuario']
       options1=[0, 1, 2, Lider_LC + 1]
     else:
