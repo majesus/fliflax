@@ -95,6 +95,7 @@ elif Lider == 2: # PO == LC + 100 or NM == LC + 100 or ACT == LC + 100 and
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
+  FEM = 1 + VA * (PO + NM + ACT + IP + LC)
   #if PO == LC + 100 or NM == LC + 100 or ACT == LC + 100:
     #LC = 1
     #FEM = 1 + VA * (PO + NM + ACT + IP + LC)
