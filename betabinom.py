@@ -128,7 +128,7 @@ st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias 
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
-st.write("### Modelo Beta-Binomial"
+st.write("### Modelo Beta-Binomial")
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de **Audiencia neta acumulada** "
          "(o modelo de acumulación), es decir, se programan las inserciones en un único soporte.")
