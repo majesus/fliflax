@@ -55,7 +55,7 @@ with st.sidebar.form(key ='FormFEM'):
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x], key = "NM")
     
     values3=['Informativa', 'Transformativa']
-    options=[0, LC + 10]
+    options=[0, LC + 5]
     dic3 = dict(zip(options, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x], key = "ACT")
     
