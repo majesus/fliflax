@@ -88,6 +88,8 @@ else:
     st.sidebar.write("PO_cor", f"**{PO_cor:,.1f}**", "")
     FEM = 1 + VA * (PO_cor + NM_cor + ACT_cor + IP + Lider_LC)
     st.sidebar.write("2.3) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+  else:
+    st.sidebar.write("")
     
 st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
 st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
