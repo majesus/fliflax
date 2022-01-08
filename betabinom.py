@@ -85,6 +85,7 @@ else:
   elif PO == 3 and NM == 2 and ACT == 2:
     st.sidebar.write("segundo IF ELSE")
     PO_cor = 1; NM_cor = 1; ACT_cor = 1
+    st.sidebar.write("VA", f"**{VA:,.1f}**", "")
     st.sidebar.write("PO_cor", f"**{PO_cor:,.1f}**", "")
     st.sidebar.write("NM_cor", f"**{NM_cor:,.1f}**", "")
     st.sidebar.write("ACT_cor", f"**{ACT_cor:,.1f}**", "")
