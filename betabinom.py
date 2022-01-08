@@ -108,16 +108,7 @@ else:
   else:
     st.sidebar.write("")
 
-st.sidebar.write("2.9) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
-st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
-st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
-st.sidebar.write("LC", f"**{LC:,.1f}**", "")
-st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
-st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
-st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
-st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
-st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
-
+st.sidebar.info("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #----------------------------------------------------#
 st.image('Avatar-con-naming-Fliflax.jpg',width=200)
 st.title("Modelo Beta-Binomial")
