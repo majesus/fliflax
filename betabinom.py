@@ -23,7 +23,7 @@ with st.sidebar.form(key ='FormFEM'):
     values6=['Sí', 'No']
     options=[1,2]
     dic6 = dict(zip(options, values6))
-    Lider = st.radio('¿Soy líder?', options, format_func=lambda x: dic6[x])
+    Lider = st.radio('¿Soy líder?', options, format_func=lambda x: dic6[x], key = "Lider")
     
     with st.expander("Si no soy líder, clica el signo +."):
       
@@ -37,32 +37,32 @@ with st.sidebar.form(key ='FormFEM'):
       values0=['Alto', 'Bajo']
       options=[1,2]
       dic0 = dict(zip(options, values0))
-      Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options, format_func=lambda x: dic0[x])
+      Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options, format_func=lambda x: dic0[x], key = "Lider_VA")
     
     values0=['Alto', 'Bajo']
     options=[1,2]
     dic0 = dict(zip(options, values0))
-    VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options, format_func=lambda x: dic0[x])
+    VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options, format_func=lambda x: dic0[x], key = "VA")
     
     values1=['A', 'B', 'C', 'D']
     options=[0, 1, 2, LC + 1]
     dic1 = dict(zip(options, values1))
-    PO = st.selectbox('¿A qué población me dirijo?', options, format_func=lambda x: dic1[x])
+    PO = st.selectbox('¿A qué población me dirijo?', options, format_func=lambda x: dic1[x], key = "PO")
     
     values2=['Reconocimiento', 'Recuerdo']
     options=[0, LC + 1]
     dic2 = dict(zip(options, values2))
-    NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x])
+    NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options, format_func=lambda x: dic2[x], key = "NM")
     
     values3=['Informativa', 'Transformativa']
     options=[0, LC + 1]
     dic3 = dict(zip(options, values3))
-    ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x])
+    ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options, format_func=lambda x: dic3[x], key = "ACT")
     
     values4=['Alta', 'Baja']
     options=[-1,0]
     dic4 = dict(zip(options, values4))
-    IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options, format_func=lambda x: dic4[x])
+    IP = st.radio('¿Hay influencia personal positiva de otros agentes?', options, format_func=lambda x: dic4[x], key = "IP")
     
     submitted = st.form_submit_button(label = "Calcular")
 
