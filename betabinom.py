@@ -15,8 +15,9 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-st.write("la frecuencia efectiva mínima es el **mínimo número de impactos por** "
-         "**persona de la cobertura efectiva** para alcanzar (por encima de un determinado nivel crítico) los objetivos de comunicación")
+st.sidebar.write("En **Fliflax** te hemos construido una calculadora de la frecuencia efectiva mínima. La frecuencia efectiva mínima "
+                 "es el **mínimo número de impactos por** "
+                 "**persona de la cobertura efectiva** para alcanzar (por encima de un determinado nivel crítico) los objetivos de comunicación")
 LC = 1
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
