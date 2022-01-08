@@ -44,7 +44,7 @@ with st.sidebar.form(key ='FormFEM'):
     dic0 = dict(zip(options0, values0))
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options0, format_func=lambda x: dic0[x], key = "VA")
     
-    if LC + 100 == 2:
+    if Lider_LC + 1 == 2: # LC + 100
       values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca / No usuario']
       options1=[0, 1, 2]
     else:
