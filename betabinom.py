@@ -23,7 +23,7 @@ with st.sidebar.form(key ='FormFEM'):
     values6=['Sí', 'No']
     options6=[1,2]
     dic6 = dict(zip(options6, values6))
-    Lider = st.radio('¿Soy líder?', options, format_func=lambda x: dic6[x], key = "Lider")
+    Lider = st.radio('¿Soy líder?', options6, format_func=lambda x: dic6[x], key = "Lider")
     
     with st.expander("Si no soy líder, clica el signo +."):
       
