@@ -92,7 +92,6 @@ else:
   st.sidebar.write("segunda opción")
   st.sidebar.write("Lider", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
-  st.sidebar.write("LC_lider", f"**{LC:,.1f}**", "")
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("VA valor de corrección", f"**{VA:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
