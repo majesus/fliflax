@@ -32,7 +32,7 @@ with st.sidebar.form(key ='FormFEM'):
       dic5 = dict(zip(options, values5))
       No_Lider = st.selectbox('',  options, format_func=lambda x: dic5[x])
       
-      LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 1, step=1, key = "LC")
+      LC = st.number_input("¿Cuál es la FEM del líder?", min_value = 0, max_value = 100, value = 0, step=1, key = "LC")
       
       values0=['Alto', 'Bajo']
       options=[1,2]
