@@ -75,6 +75,7 @@ if Lider == 1:
     st.sidebar.write("PO_cor valor de corrección", f"**{PO_cor:,.1f}**", "")
   else:
     FEM = 1 + VA * (PO + NM + ACT + IP)
+    st.sidebar.write("2.1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
   st.sidebar.write("Lider == 2")
   if PO != 3 and NM != 2 and ACT != 2:
