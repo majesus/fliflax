@@ -68,7 +68,7 @@ with st.sidebar.form(key ='FormFEM'):
 
 if Lider == 1:
   st.sidebar.write("primera opción")
-  LC = 1
+  LC = -8 # 1 # el resultado debe ser -8 + 10 = 1
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
@@ -78,7 +78,7 @@ if Lider == 1:
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 elif PO == LC + 1 or NM == LC + 1 or ACT == LC + 1 and Lider == 2:
   st.sidebar.write("segunda opción")
-  LC = 0
+  LC = -9 # 0 # el resultado debe ser -9 + 10 = 1
   st.sidebar.write("LC", f"**{LC:,.1f}**", "")
   st.sidebar.write("PO valor de corrección", f"**{PO:,.1f}**", "")
   st.sidebar.write("NM valor de corrección", f"**{NM:,.1f}**", "")
