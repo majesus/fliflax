@@ -95,7 +95,7 @@ else:
     #FEM = 1 + VA * (PO + NM + ACT + IP + LC)
   else:
     FEM = 1 + VA * (PO + NM + ACT + IP)
-  st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+    st.sidebar.write("2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 
   
 #----------------------------------------------------#
