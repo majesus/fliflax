@@ -15,7 +15,7 @@ st.markdown(""" <style> .font {
     color: #000000;} 
     </style> """, unsafe_allow_html=True)
 #----------------------------------------------------#
-LC = -98
+LC = 100
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
 with st.sidebar.form(key ='FormFEM'):
     st.write("## **Frec. efectiva mínima [FEM]**")
@@ -45,17 +45,17 @@ with st.sidebar.form(key ='FormFEM'):
     VA = st.radio('¿Cuál es el valor de atención del medio que elijo?', options0, format_func=lambda x: dic0[x], key = "VA")
     
     values1=['Leal a mi marca', 'Favorable a mi marca', 'Leal a otra marca', 'No usuario']
-    options1=[0, 1, 2, LC + 1]
+    options1=[0, 1, 2, LC]
     dic1 = dict(zip(options1, values1))
     PO = st.radio('¿Cuál es la población a que me dirijo?', options1, format_func=lambda x: dic1[x], key = "PO")
     
     values2=['Reconocimiento', 'Recuerdo']
-    options2=[0, LC + 1]
+    options2=[0, LC]
     dic2 = dict(zip(options2, values2))
     NM = st.selectbox('¿Cuál es mi objetivo de memoria?', options2, format_func=lambda x: dic2[x], key = "NM")
    
     values3=['Informativa', 'Transformativa']
-    options3=[0, LC + 1]
+    options3=[0, LC]
     dic3 = dict(zip(options3, values3))
     ACT = st.selectbox('¿Cuál es mi estrategia comunicativa?', options3, format_func=lambda x: dic3[x], key = "ACT")
     
@@ -67,6 +67,14 @@ with st.sidebar.form(key ='FormFEM'):
     submitted = st.form_submit_button(label = "Calcular")
 
 if Lider == 1:
+  if PO = 100:
+    PO = 2
+  elif NM = 100:
+    NM = 2
+  elif ACT = 100:
+    ACT = 2
+  else:
+    st.sidebar.write("")
   st.sidebar.write("primera opción")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
@@ -79,7 +87,6 @@ if Lider == 1:
   FEM = 1 + VA * (PO + NM + ACT + IP)
   st.sidebar.write("1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 else:
-  LC = Lider_LC
   st.sidebar.write("segunda opción")
   st.sidebar.write("Lider 1/2", f"**{Lider:,.1f}**", "")
   st.sidebar.write("Lider_LC", f"**{Lider_LC:,.1f}**", "")
@@ -90,7 +97,7 @@ else:
   st.sidebar.write("ACT valor de corrección", f"**{ACT:,.1f}**", "")
   st.sidebar.write("IP valor de corrección", f"**{IP:,.1f}**", "")
   # FEM = 1 + VA * (PO + NM + ACT + IP + LC)
-  if PO == LC + 1:
+  if PO == LC:
     LC = 1
     st.sidebar.write("primer IF ELSE")
     FEM = 1 + VA * (PO + NM + ACT + IP + LC)
