@@ -81,7 +81,7 @@ else:
   if PO != 3 and NM != 2 and ACT != 2:
     st.sidebar.write("primer IF ELSE")
     FEM = 1 + VA * (PO + NM + ACT + IP)
-    st.sidebar.write("2.1) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
+    st.sidebar.write("2.2) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   elif PO == 3 and NM == 2 and ACT == 2:
     st.sidebar.write("segundo IF ELSE")
     PO_cor = 1; NM_cor = 1; ACT_cor = 1
@@ -96,22 +96,28 @@ else:
   elif PO == 3 and NM != 2 and ACT != 2:
     PO_cor = 1
     FEM = 1 + VA * (PO_cor + NM + ACT + IP + Lider_LC)
+    st.sidebar.write("2.4) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   elif PO != 3 and NM == 2 and ACT != 2:
     NM_cor = 1
     FEM = 1 + VA * (PO + NM_cor + ACT + IP + Lider_LC)
+    st.sidebar.write("2.5) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   elif PO != 3 and NM != 2 and ACT == 2:
     ACT_cor = 1
     FEM = 1 + VA * (PO + NM + ACT_cor+ IP + Lider_LC)
+    st.sidebar.write("2.6) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
     
   elif PO == 3 and NM == 2 and ACT != 2:
     PO_cor = 1; NM_cor = 1
     FEM = 1 + VA * (PO_cor + NM_cor + ACT + IP + Lider_LC)
+    st.sidebar.write("2.7) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   elif PO == 3 and NM != 2 and ACT == 2:
     PO_cor = 1; ACT_cor = 1
     FEM = 1 + VA * (PO_cor + NM + ACT_cor + IP + Lider_LC)
+    st.sidebar.write("2.8) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   elif PO != 3 and NM == 2 and ACT == 2:
     NM_cor = 1; ACT_cor = 1
     FEM = 1 + VA * (PO + NM_cor+ ACT_cor + IP + Lider_LC)
+    st.sidebar.write("2.9) La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
   else:
     st.sidebar.write("")
     
