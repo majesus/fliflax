@@ -384,5 +384,5 @@ selected_indices = st.multiselect('Selecciona el/los concepto/es:', dfg1.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = dfg1.loc[selected_indices]
 st.write('###### Glosario')
-st.table(selected_rows)
+st.table(selected_rows.definicion)
 #----------------------------------------------------#
