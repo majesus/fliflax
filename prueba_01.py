@@ -1,6 +1,8 @@
 # https://share.streamlit.io/andfanilo/streamlit-echarts-demo/master/app.py
+import streamlit as st
 from streamlit_echarts import st_echarts
-import json        
+import json
+
 with open("miserables.json", "r") as f:
     graph = json.loads(f.read())
 
