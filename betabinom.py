@@ -17,14 +17,6 @@ st.markdown(
 .font {font-size:50px ; #font-family: 'sans-serif'; color: #ffffff;} 
 </style>
 """, unsafe_allow_html=True)
-
-st.markdown(
-  """
-<style>
-.sidebar .sidebar-content {background-image: linear-gradient(#2e7bcf,#2e7bcf); color: white;}
-</style>
-""",unsafe_allow_html=True,
-)
 #----------------------------------------------------#
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
