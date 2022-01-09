@@ -403,4 +403,4 @@ selected_rows = dfg.loc[selected_indices]
 st.markdown("""---""")
 st.write('###### Anexo 2. Glosario')
 # st.table(selected_rows)
-st.table(selected_rows.set_properties(**{'background-color': '#ffffff'}))
+st.table(selected_rows)
