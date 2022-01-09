@@ -119,7 +119,8 @@ st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias 
          "no dependan del lugar en que te encuentras. Nuestra obsesión es la ubicuidad, o **u-learning**, "
          "es decir, queremos ofrecerte una enseñanza en cualquier momento y lugar siempre que "
          "tengas entre tus manos un teléfono móvil o una tablet.")
-st.write("Abajo te mostramos, por ejemplo, el modelo Beta-Binomial, y en el _sidebar_ una calculadora de la Frecuencia efectiva mínima.")
+st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el _sidebar_ de la izquierda una **calculadora de la Frecuencia efectiva mínima**. "
+        "También abajo hemos incluido un breve **glosario** que puede ayudarte.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
