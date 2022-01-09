@@ -391,16 +391,10 @@ st.table(dfg.head())
 concepto = dfg['concepto'].tolist()
 definicion = dfg['definicion'].tolist()
 
-container = st.container()
-all = st.checkbox("Seleccionar todo")
-if all:
-    selected_indices = container.multiselect("Select one or more options:",
-         concepto,concepto)
-else:
-    selected_indices =  container.multiselect("Select one or more options:",
-        concepto)
-selected_rows = dfg.loc[selected_indices]
+dfg1 = dfg.set_index('concepto')
+selected_indices = st.multiselect('Selecciona el/los concepto/es:', dfg1.index)
+selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
+selected_rows = dfg1.loc[selected_indices]
 st.markdown("""---""")
 st.write('###### Anexo 2. Glosario')
-# st.table(selected_rows)
 st.table(selected_rows)
