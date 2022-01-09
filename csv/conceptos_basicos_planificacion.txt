@@ -1,4 +1,4 @@
-concepto,definición
+concepto,definicion
 actitud,actitud - La actitud se define como la asociación entre un objeto y un valor dado. Un ejemplo de actitud explícita favorable es simplemente mencionar 'mi actitud hacia el uso de FliflaxBot es muy favorable'.
 aprendizaje,aprendizaje - El aprendizaje es un proceso que implica un cambio duradero en la conducta -o en la capacidad para comportarse de una determinada manera- que se produce como resultado de la práctica o de otras formas de experiencia
 atención selectiva,atención selectiva - La atención selectiva permite al perceptor procesar estímulos relevantes mientras suprime el procesamiento de estímulos irrelevantes para la tarea que pueden aparecer simultáneamente en el campo sensorial junto a los relevantes.
