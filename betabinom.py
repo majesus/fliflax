@@ -375,22 +375,10 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     st.table(df1.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.write('Parámetros de forma: alfa: ',f"{alphas:,.3f}",'y beta: ',f"{betas:,.3f}")
 #----------------------------------------------------#
-#
+st.markdown("""---""")
 #----------------------------------------------------#
-#import streamlit as st
-
-# with st.sidebar.form(key ='Form1'):
-    # user_word = st.text_input("Enter a keyword", "habs")    
-    # select_language = st.radio('Tweet language', ('All', 'English', 'French'))
-    # include_retweets = st.checkbox('Include retweets in data')
-    # num_of_tweets = st.number_input('Maximum number of tweets', 100)
-    # submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
-#----------------------------------------------------#    
+st.write('###### Anexo 2. Glosario')
 dfg = pd.read_csv('csv/conceptos_basicos_planificacion.txt', sep=",")
-st.table(dfg.head())
-concepto = dfg['concepto'].tolist()
-definicion = dfg['definicion'].tolist()
-
 dfg1 = dfg.set_index('concepto')
 selected_indices = st.multiselect('Selecciona el/los concepto/es:', dfg1.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
@@ -398,3 +386,4 @@ selected_rows = dfg1.loc[selected_indices]
 st.markdown("""---""")
 st.write('###### Anexo 2. Glosario')
 st.table(selected_rows)
+#----------------------------------------------------#
