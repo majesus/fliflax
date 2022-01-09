@@ -371,7 +371,7 @@ else:
 st.write('###### Anexo 1. Distribución de contactos Pi (y acumulada Ri)')
 #df = df.set_index('exposiciones')
 if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados, marca la casilla.", False):
-    st.write('###### Anexo. Distribución de contactos Pi (y acumulada Ri)')
+    st.write('###### Distribución de contactos Pi (y acumulada Ri)')
     st.table(df1.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.write('Parámetros de forma: alfa: ',f"{alphas:,.3f}",'y beta: ',f"{betas:,.3f}")
 #----------------------------------------------------#
@@ -383,7 +383,6 @@ dfg1 = dfg.set_index('concepto')
 selected_indices = st.multiselect('Selecciona el/los concepto/es:', dfg1.index)
 selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
 selected_rows = dfg1.loc[selected_indices]
-st.markdown("""---""")
-st.write('###### Anexo 2. Glosario')
+st.write('###### Glosario')
 st.table(selected_rows)
 #----------------------------------------------------#
