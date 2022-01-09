@@ -386,15 +386,19 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     # num_of_tweets = st.number_input('Maximum number of tweets', 100)
     # submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
 #----------------------------------------------------#    
-df = pd.read_csv('csv/conceptos_basicos_planificacion.txt', sep=",")
-concepto = df.index.tolist()
-definicion = df.index.tolist()
+dfg = pd.read_csv('csv/conceptos_basicos_planificacion.txt', sep=",")
+concepto = dfg.concepto.tolist()
+definicion = dfg.definicion.tolist()
 container = st.container()
-all = st.checkbox("Select all")
+all = st.checkbox("Seleccionar todo")
 if all:
-    selected_options = container.multiselect("Select one or more options:",
-         ['A', 'B', 'C'],['A', 'B', 'C'])
+    selected_indices = container.multiselect("Select one or more options:",
+         concepto,concepto)
 else:
-    selected_options =  container.multiselect("Select one or more options:",
-        ['A', 'B', 'C'])
-
+    selected_indices =  container.multiselect("Select one or more options:",
+        concepto)
+selected_rows = dfg.loc[selected_indices]
+st.markdown("""---""")
+st.write('###### Anexo 2. Glosario')
+# st.table(selected_rows)
+st.table(selected_rows.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))
