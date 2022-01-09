@@ -387,18 +387,7 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
     # submitted1 = st.form_submit_button(label = 'Search Twitter 🔎')
 #----------------------------------------------------#    
 dfg = pd.read_csv('csv/conceptos_basicos_planificacion.txt', sep=",")
+st.table(dfg.head())
 concepto = dfg.concepto.tolist()
 definicion = dfg.definicion.tolist()
-container = st.container()
-all = st.checkbox("Seleccionar todo")
-if all:
-    selected_indices = container.multiselect("Select one or more options:",
-         concepto,concepto)
-else:
-    selected_indices =  container.multiselect("Select one or more options:",
-        concepto)
-selected_rows = dfg.loc[selected_indices]
-st.markdown("""---""")
-st.write('###### Anexo 2. Glosario')
-# st.table(selected_rows)
-st.table(selected_rows.style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'}))
+
