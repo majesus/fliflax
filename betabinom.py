@@ -388,6 +388,6 @@ if st.checkbox("Si deseas ver la tabla completa de valores de Pi y Ri alcanzados
 #----------------------------------------------------#    
 dfg = pd.read_csv('csv/conceptos_basicos_planificacion.txt', sep=",")
 st.table(dfg.head())
-concepto = dfg.concepto.tolist()
-definicion = dfg.definicion.tolist()
+concepto = dfg['concepto'].tolist()
+definicion = dfg['definicion'].tolist()
 
