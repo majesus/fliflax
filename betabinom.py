@@ -217,7 +217,7 @@ else:
            "Debes revisar la elección de A1 y A2 o de la población. "
            "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de A1 igual a 500,000 y "
            "un valor de A2 igual a 550,000 personas, y una población igual a 1,000,000.")
-  st.error("Recuerda que A2 debe ser superior a A1, y nunca más del doble, y que la población debe ser superior a A2. 
+  st.error("Recuerda que A2 debe ser superior a A1, y nunca más del doble, y que la población debe ser superior a A2. "
            "Asimismo, valores excesivos de A2 producen errores graves que impiden a la distribución ofrecer valores consistentes.")
 
   A1 = 500000
