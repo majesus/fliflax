@@ -17,6 +17,16 @@ st.markdown(
 .font {font-size:50px ; #font-family: 'sans-serif'; color: #ffffff;} 
 </style>
 """, unsafe_allow_html=True)
+
+from streamlit_option_menu import option_menu
+with st.sidebar:
+    selected = option_menu("Menu", ["FEM", 'Beta-Binomial'], 
+        icons=['house', 'gear'], default_index=0)
+
+#if selected == "Home":
+    #st.write("home is where the heart is")
+#else:
+    #st.write("settings is my bettings")
 #----------------------------------------------------#
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
