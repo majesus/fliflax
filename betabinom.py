@@ -23,10 +23,10 @@ with st.sidebar:
     selected = option_menu("Menu", ["Frec. efectiva mín.", 'Beta-Binomial'], 
         icons=['house', 'gear'], default_index=0)
 
-#if selected == "Home":
-    #st.write("home is where the heart is")
-#else:
-    #st.write("settings is my bettings")
+if selected == "Home":
+    st.sidebar.write("home is where the heart is")
+else:
+    st.sidebar.write("settings is my bettings")
 #----------------------------------------------------#
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
