@@ -110,7 +110,7 @@ else:
   else:
     st.sidebar.write("")
 
-st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva")
+st.sidebar.write("La frecuencia efectiva mínima es", f"**{FEM:,.1f}**", "impactos por persona de la cobertura efectiva.")
 #----------------------------------------------------#
 st.image('img/fliflax-logo.jpg',width=200)
 st.title("Fliflax: Una plataforma de apoyo al estudio")
