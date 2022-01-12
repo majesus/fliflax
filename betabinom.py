@@ -25,7 +25,7 @@ with st.sidebar:
 
 if selected == None:
   st.sidebar.write("")
-elif == "Frec. efectiva mín.":
+elif selected == "Frec. efectiva mín.":
     st.sidebar.write("home is where the heart is")
 elif selected == "Beta-Binomial":
     st.sidebar.write("settings is my bettings")
