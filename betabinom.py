@@ -20,7 +20,7 @@ st.markdown(
 
 from streamlit_option_menu import option_menu
 with st.sidebar:
-    selected = option_menu("Menu", ["FEM", 'Beta-Binomial'], 
+    selected = option_menu("Menu", ["Frecuencia efectiva mín.", 'Beta-Binomial'], 
         icons=['house', 'gear'], default_index=0)
 
 #if selected == "Home":
