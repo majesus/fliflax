@@ -21,7 +21,7 @@ st.markdown(
 from streamlit_option_menu import option_menu
 with st.sidebar:
     selected = option_menu("Menu", ["Frec. efectiva mín.", 'Beta-Binomial'], 
-        icons=['house', 'gear'], default_index=-1)
+        icons=['house', 'gear'], default_index=2)
 
 if selected == "Frec. efectiva mín.":
     st.sidebar.write("home is where the heart is")
