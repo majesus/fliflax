@@ -41,8 +41,7 @@ with st.sidebar.form(key ='FormFEM'):
       values7=['Alto', 'Bajo']
       options7=[1,2]
       dic7 = dict(zip(options7, values7))
-      Lider_VA = st.radio('¿El líder emplea un medio de alto o bajo valor de atención?',  options7, format_func=lambda x: dic7[x], key = "Lider_VA")
-      st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+      Lider_VA = st.radio(label='¿El líder emplea un medio de alto o bajo valor de atención?',  options7, format_func=lambda x: dic7[x], key = "Lider_VA")
     
     values0=['Alto', 'Bajo']
     options0=[1,2]
