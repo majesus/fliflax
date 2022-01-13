@@ -3,11 +3,12 @@ import streamlit as st
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
 #----------------------------------------------------#
+img=Image.open('img/fliflax-logo.jpg')
 st.set_page_config(#layout="centered",
                    #theme="light",
                    layout="wide",
                    page_title="Fliflax",
-                   page_icon=':crescent-moon:',
+                   page_icon=img,
                    initial_sidebar_state='expanded'
                    )
 #----------------------------------------------------#
