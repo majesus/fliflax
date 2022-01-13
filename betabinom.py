@@ -3,6 +3,7 @@ import streamlit as st
 #----------------------------------------------------#
 # @st.cache(suppress_st_warning=False, allow_output_mutation=True)
 #----------------------------------------------------#
+from PIL import Image
 img=Image.open('img/fliflax-logo.jpg')
 st.set_page_config(#layout="centered",
                    #theme="light",
