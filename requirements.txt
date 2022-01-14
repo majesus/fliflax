@@ -6,4 +6,4 @@ scipy >= 1.6.1
 streamlit-echarts
 streamlit-option-menu
 streamlit-tags
-pygal
+plotly
