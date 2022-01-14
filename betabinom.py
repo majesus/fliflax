@@ -417,7 +417,7 @@ st.write('###### Glosario')
 st.table(selected_rows.definicion)
 #----------------------------------------------------#
 value = round(df['Ri'] * 100 / P)
-st.write("value", f"{betas:,.3f}", "")
+st.write("value", f"{value:,.3f}", "")
 
 options = {
         "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
