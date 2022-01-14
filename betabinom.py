@@ -27,6 +27,7 @@ st.markdown(
 </style>
 """, unsafe_allow_html=True)
 #----------------------------------------------------#
+import streamlit-tags
 keyword = st_tags_sidebar(
     label='# Keywords:',
     #text='Press enter to add more',
