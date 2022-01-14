@@ -416,7 +416,9 @@ selected_rows = dfg1.loc[selected_indices]
 st.write('###### Glosario')
 st.table(selected_rows.definicion)
 #----------------------------------------------------#
-value = df['R1'] * 100 / P
+value = round(df['Ri'] * 100 / P)
+st.write("value")
+
 options = {
         "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
         "series": [
