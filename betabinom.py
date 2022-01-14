@@ -446,7 +446,7 @@ import plotly.graph_objects as go
 value = round(df['Ri'].iloc[0] * 100 / P)
 fig = go.Figure(go.Indicator(
   mode = "gauge+number",
-  value = value,
+  value = 600000,
   domain = {'x': [0, 1], 'y': [0, 1]},
   title = {'text': "Cobertura %"},
   gauge = {'axis': {'range': [0, P]}}))
