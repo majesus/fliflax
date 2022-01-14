@@ -454,7 +454,7 @@ value1 = round(df['Ri'].iloc[0] * 100 / P)
 value2 = df['Ri'].sum() / df['Ri'].iloc[0]
 
 # Random data
-Solid_Gauge.add('A', [{'value': value1, 'max_value': P}])
-Solid_Gauge.add('B', [{'value': value2, 'max_value': n}])
+Solid_Gauge.add('Cobertura %', [{'value': value1, 'max_value': P}])
+Solid_Gauge.add('Frecuencia media', [{'value': value2, 'max_value': n}])
   
 Solid_Gauge
