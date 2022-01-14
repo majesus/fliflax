@@ -27,17 +27,6 @@ st.markdown(
 </style>
 """, unsafe_allow_html=True)
 #----------------------------------------------------#
-from streamlit_tags import st_tags, st_tags_sidebar
-keyword = st_tags_sidebar(
-    label='# Keywords:',
-    #text='Press enter to add more',
-    value=['publicidad', 'comportamiento', 'marketing',
-          'advertising', 'behaviour'],
-    suggestions=['five', 'six'],
-    maxtags = 5,
-    key='1')
-st.sidebar.write(keyword)
-#----------------------------------------------------#
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
@@ -141,6 +130,19 @@ st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias 
          "tengas entre tus manos un teléfono móvil o una tablet.")
 st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el _sidebar_ de la izquierda una **calculadora de la Frecuencia efectiva mínima**. "
         "También abajo hemos incluido un breve **glosario** que puede ayudarte.")
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
+from streamlit_tags import st_tags, st_tags_sidebar
+keyword = st_tags_sidebar(
+    label='# Keywords:',
+    text='CLica enter para añadir alguna más.',
+    value=['publicidad', 'comportamiento', 'marketing',
+          'advertising', 'behaviour'],
+    suggestions=['five', 'six'],
+    maxtags = 5,
+    key='1')
+st.sidebar.write(keyword)
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
