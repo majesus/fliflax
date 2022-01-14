@@ -131,12 +131,12 @@ st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias 
 st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el _sidebar_ de la izquierda una **calculadora de la Frecuencia efectiva mínima**. "
         "También abajo hemos incluido un breve **glosario** que puede ayudarte.")
 #----------------------------------------------------#
-st.markdown("""---""")
+st.sidebar.markdown("""---""")
 #----------------------------------------------------#
 from streamlit_tags import st_tags, st_tags_sidebar
 keyword = st_tags_sidebar(
-    label='# Keywords:',
-    text='CLica enter para añadir alguna más.',
+    label='## Palabras clave:',
+    text='Clica enter para añadir alguna más.',
     value=['publicidad', 'comportamiento', 'marketing',
           'advertising', 'behaviour'],
     suggestions=['five', 'six'],
@@ -144,7 +144,7 @@ keyword = st_tags_sidebar(
     key='1')
 st.sidebar.write(keyword)
 #----------------------------------------------------#
-st.markdown("""---""")
+st.sidebar.markdown("""---""")
 #----------------------------------------------------#
 st.write("### Modelo Beta-Binomial")
 st.write("Beta binomial es un método de estimación de la "
