@@ -435,3 +435,4 @@ options = {
     }
 from streamlit_echarts import st_echarts
 st_echarts(options=options, width="100%", key=0)
+#----------------------------------------------------#
