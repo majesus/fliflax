@@ -416,10 +416,11 @@ selected_rows = dfg1.loc[selected_indices]
 st.write('###### Glosario')
 st.table(selected_rows.definicion)
 #----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
+st.write('###### Anexo 3. % de cobertura')
+st.write('A continuación, te mostramos el % de cobertura alcanzada como dato complementario.')
 value = round(df['Ri'].iloc[0] * 100 / P)
-st.write("value", f"{round(df['Ri'].iloc[0]):,.3f}", "")
-st.write("value", f"{P:,.0f}", "")
-st.write("value", f"{value:,.0f}", "")
 options = {
         "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
         "series": [
