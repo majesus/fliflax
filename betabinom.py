@@ -434,7 +434,30 @@ options = {
                 },
                 "progress": {"show": "true", "width": 10},
                 "detail": {"valueAnimation": "true", "formatter": "{value}"},
-                "data": [{"value": value, "name": "Score"}],
+                "data": [{"value": value, "name": "Cobertura %"}],
+            }
+        ],
+    }
+from streamlit_echarts import st_echarts
+st_echarts(options=options, width="100%", key=0)
+
+# f"**{df['Ri'].sum() / df['Ri'].iloc[0]:,.0f}**"
+
+value = df['Ri'].sum() / df['Ri'].iloc[0] * 100 / n
+options = {
+        "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+        "series": [
+            {
+                "name": "Pressure",
+                "type": "gauge",
+                "axisLine": {
+                    "lineStyle": {
+                        "width": 10,
+                    },
+                },
+                "progress": {"show": "true", "width": 10},
+                "detail": {"valueAnimation": "true", "formatter": "{value}"},
+                "data": [{"value": value, "name": "Frecuencia %"}],
             }
         ],
     }
