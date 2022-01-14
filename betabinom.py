@@ -443,8 +443,8 @@ st_echarts(options=options, width="100%", key=0)
 
 # f"**{df['Ri'].sum() / df['Ri'].iloc[0]:,.0f}**"
 
-value = df['Ri'].sum() / df['Ri'].iloc[0] * 100 / n
-options = {
+value2 = df['Ri'].sum() * 100 / df['Ri'].iloc[0] / n
+options2 = {
         "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
         "series": [
             {
@@ -457,10 +457,10 @@ options = {
                 },
                 "progress": {"show": "true", "width": 10},
                 "detail": {"valueAnimation": "true", "formatter": "{value}"},
-                "data": [{"value": value, "name": "Frecuencia %"}],
+                "data": [{"value": value2, "name": "Frecuencia %"}],
             }
         ],
     }
 from streamlit_echarts import st_echarts
-st_echarts(options=options, width="100%", key=0)
+st_echarts(options=options2, width="100%", key=0)
 #----------------------------------------------------#
