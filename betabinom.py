@@ -234,12 +234,13 @@ def BetaBinom(a, b, n, x):
 
 if alphas > 0 and betas > 0 and P > A2:
   pmf = BetaBinom(alphas, betas, n, x)
+  print(pmf)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
            "Debes revisar la elección de A1 y A2 o de la población. "
            "Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de A1 igual a 500,000 y "
-           "un valor de A2 igual a 550,000 personas, y una población igual a 1,000,000.")
-  st.error("Recuerda que A2 debe ser superior a A1, y nunca más del doble, y que la población debe ser superior a A2. "
+           "un valor de A2 igual a 550,000 personas, y una población igual a 1,000,000."
+           "Recuerda que A2 debe ser superior a A1, y nunca más del doble, y que la población debe ser superior a A2. "
            "Asimismo, valores excesivos de A2 producen errores graves que impiden a la distribución ofrecer valores consistentes.")
 
   A1 = 500000
