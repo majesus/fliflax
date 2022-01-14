@@ -27,6 +27,17 @@ st.markdown(
 </style>
 """, unsafe_allow_html=True)
 #----------------------------------------------------#
+keyword = st_tags_sidebar(
+    label='# Keywords:',
+    #text='Press enter to add more',
+    value=['publicidad', 'comportamiento', 'marketing',
+          'advertising', 'behaviour'],
+    suggestions=['five', 'six', 'seven', 
+                 'eight', 'nine', 'three', 
+                 'eleven', 'ten', 'four'],
+    maxtags = 5,
+    key='1')
+#----------------------------------------------------#
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
 # https://discuss.streamlit.io/t/form-and-submit-button-in-sidebar/12436/3
