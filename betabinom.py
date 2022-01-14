@@ -441,3 +441,20 @@ options = {
 from streamlit_echarts import st_echarts
 st_echarts(options=options, width="100%", key=0)
 #----------------------------------------------------#
+# importing pygal
+import pygal
+  
+# creating the chart object
+Solid_Gauge = pygal.SolidGauge(inner_radius = 0.75)
+  
+# naming the title
+Solid_Gauge.title = 'Métricas esenciales'     
+
+value1 = round(df['Ri'].iloc[0] * 100 / P)
+value2 = df['Ri'].sum() / df['Ri'].iloc[0]
+
+# Random data
+Solid_Gauge.add('A', [{'value': value1, 'max_value': P}])
+Solid_Gauge.add('B', [{'value': value2, 'max_value': n}])
+  
+Solid_Gauge
