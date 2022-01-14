@@ -417,9 +417,9 @@ st.write('###### Glosario')
 st.table(selected_rows.definicion)
 #----------------------------------------------------#
 value = round(df1['Ri'].sum() * 100 / P)
-st.write("value", f"{df1['Ri']:,.3f}", "")
-st.write("value", f"{P:,.3f}", "")
-st.write("value", f"{value:,.3f}", "")
+st.write("value", f"{round(df['Ri'].iloc[0]):,.3f}", "")
+st.write("value", f"{P:,.0f}", "")
+st.write("value", f"{value:,.0f}", "")
 options = {
         "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
         "series": [
