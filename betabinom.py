@@ -298,6 +298,8 @@ with col2:
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#    
+# https://github.com/PablocFonseca/streamlit-aggrid  # --> Para el futuro.
+#----------------------------------------------------#
 # Mostrar la tabla de Pi y Ri:
 # Convierto en index columna de exposiciones, y vuelco en otra tabla porque si no, me genera arror en Matplotlib.
 df1 = df.set_index('exposiciones')
