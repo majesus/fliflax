@@ -416,7 +416,7 @@ selected_rows = dfg1.loc[selected_indices]
 st.write('###### Glosario')
 st.table(selected_rows.definicion)
 #----------------------------------------------------#
-value = round(df['Ri'] * 100 / P)
+value = round(df1['Ri'].sum() * 100 / P)
 st.write("value", f"{value:,.3f}", "")
 
 #----------------------------------------------------#
