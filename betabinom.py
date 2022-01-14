@@ -33,12 +33,10 @@ keyword = st_tags_sidebar(
     #text='Press enter to add more',
     value=['publicidad', 'comportamiento', 'marketing',
           'advertising', 'behaviour'],
-    suggestions=['five', 'six', 'seven', 
-                 'eight', 'nine', 'three', 
-                 'eleven', 'ten', 'four'],
+    suggestions=['five', 'six'],
     maxtags = 5,
     key='1')
-st.sidebar.write(keywords)
+st.sidebar.write(keyword)
 #----------------------------------------------------#
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
