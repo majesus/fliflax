@@ -139,8 +139,8 @@ keyword = st_tags_sidebar(
     text='Clica enter para añadir alguna más.',
     value=['publicidad', 'comportamiento', 'marketing',
           'advertising', 'behaviour'],
-    suggestions=['five', 'six'],
-    maxtags = 5,
+    suggestions=['media', 'planning'],
+    maxtags = 10,
     key='1')
 st.sidebar.write(keyword)
 #----------------------------------------------------#
