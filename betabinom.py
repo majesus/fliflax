@@ -429,7 +429,7 @@ options = {
                 },
                 "progress": {"show": "true", "width": 10},
                 "detail": {"valueAnimation": "true", "formatter": "{value}"},
-                "data": [{"value": df['Ri'], "name": "Score"}],
+                "data": [{"value": 50, "name": "Score"}],
             }
         ],
     }
