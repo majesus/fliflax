@@ -234,7 +234,6 @@ def BetaBinom(a, b, n, x):
 
 if alphas > 0 and betas > 0 and P > A2:
   pmf = BetaBinom(alphas, betas, n, x)
-  st.write("", f"**{pmf:,.5f}**", "")
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
            "Debes revisar la elección de A1 y A2 o de la población. "
