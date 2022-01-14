@@ -442,7 +442,7 @@ from streamlit_echarts import st_echarts
 st_echarts(options=options, width="100%", key=0)
 
 value = round(df['Ri'].iloc[0] * 100 / P)
-options = {
+options1 = {
         "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
         "series": [
             {
@@ -460,5 +460,5 @@ options = {
         ],
     }
 from streamlit_echarts import st_echarts
-st_echarts(options=options, width="100%", key=0)
+st_echarts(options=options1, width="100%", key=0)
 #----------------------------------------------------#
