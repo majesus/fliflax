@@ -457,4 +457,4 @@ value2 = df['Ri'].sum() / df['Ri'].iloc[0]
 Solid_Gauge.add('Cobertura %', [{'value': value1, 'max_value': P}])
 Solid_Gauge.add('Frecuencia media', [{'value': value2, 'max_value': n}])
   
-Solid_Gauge
+st.write(Solid_Gauge)
