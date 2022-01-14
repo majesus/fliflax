@@ -443,10 +443,10 @@ st_echarts(options=options, width="100%", key=0)
 
 # https://plotly.com/python/gauge-charts/
 import plotly.graph_objects as go
-value = round(df['Ri'].iloc[0] * 100 / P)
+value1 = round(df['Ri'].iloc[0] * 100 / P)
 fig = go.Figure(go.Indicator(
   mode = "gauge+number",
-  value = 600000,
+  value = value1,
   domain = {'x': [0, 1], 'y': [0, 1]},
   title = {'text': "Cobertura %"},
   gauge = {'axis': {'range': [0, P]}}))
