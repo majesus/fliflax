@@ -38,6 +38,7 @@ keyword = st_tags_sidebar(
                  'eleven', 'ten', 'four'],
     maxtags = 5,
     key='1')
+st.sidebar.write(keywords)
 #----------------------------------------------------#
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 LC = 1
