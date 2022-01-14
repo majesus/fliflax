@@ -261,7 +261,7 @@ pd.options.display.float_format = '{:,}'.format
 df = df.head(n=n)
 #----------------------------------------------------#
 if df['Ri'].iloc[0] > P:
-  st.error("Se ha producido un error catastrófico. La cobertura es superior a la población, y es imposible; puedes verlo en los resultados de abajo. "
+  st.error("La cobertura es superior a la población, y es imposible; puedes verlo en los resultados de abajo. "
            "Igual el número de inserciones es excesivo.")
 else:
   st.write("")
