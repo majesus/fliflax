@@ -441,6 +441,7 @@ options = {
 from streamlit_echarts import st_echarts
 st_echarts(options=options, width="100%", key=0)
 
+# https://plotly.com/python/gauge-charts/
 import plotly.graph_objects as go
 
 fig = go.Figure(go.Indicator(
@@ -448,7 +449,7 @@ fig = go.Figure(go.Indicator(
   value = value,
   domain = {'x': [0, 1], 'y': [0, 1]},
   title = {'text': "Speed"},
-  gauge = {'axis': {'range': [None, P]}))
+  gauge = {'axis': {'range': [None, P]}}))
 
 st.plotly_chart(fig)
 #----------------------------------------------------#
