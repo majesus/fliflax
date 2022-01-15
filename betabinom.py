@@ -233,7 +233,7 @@ def BetaBinom(a, b, n, x):
     return pmf
 
 if alphas > 0 and betas > 0 and P > A2:
-  st.write("", f"**{sum(BetaBinom(alphas, betas, n, x)):,.0f}**", "") 
+  st.write("", f"**{sum(BetaBinom(alphas, betas, n, x)):,.0f}**", "")   #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   pmf = BetaBinom(alphas, betas, n, x)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
@@ -253,6 +253,9 @@ else:
 y = pmf*1000000
 # Ri:
 Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
+
+st.write("", f"**{np.flip(y):,.0f}**", "")  #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 #----------------------------------------------------#
 data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 
