@@ -235,8 +235,7 @@ def BetaBinom(a, b, n, x):
 # eliminar primer elemento de la lista pmf que hace referencia a los individuos no expuestos:
 dc = BetaBinom(alphas, betas, n, x); 
   
-if alphas > 0 and betas > 0 and P > A2 and sum(dc) <= 1:
-  st.write("", f"**{sum(BetaBinom(alphas, betas, n, x)):,.0f}**", "")   #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if alphas > 0 and betas > 0 and P > A2:
   pmf = BetaBinom(alphas, betas, n, x)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
@@ -248,12 +247,13 @@ else:
 
   A1 = 500000
   A2 = 550000
+  P = 1000000
   alphas = 0.125
   betas = 0.125
   pmf = BetaBinom(alphas, betas, n, x)
   
 # Pi:
-y = pmf*P
+y = pmf * P
 # Ri:
 Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
 #----------------------------------------------------#
