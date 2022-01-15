@@ -232,7 +232,7 @@ def BetaBinom(a, b, n, x):
     pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
     return pmf
 
-if alphas > 0 and betas > 0 and P > A2 and sum(BetaBinom(alphas, betas, n, x)) <= 1:
+if alphas > 0 and betas > 0 and P > A2:
   st.write("", f"**{sum(BetaBinom(alphas, betas, n, x)):,.0f}**", "") 
   pmf = BetaBinom(alphas, betas, n, x)
 else:
