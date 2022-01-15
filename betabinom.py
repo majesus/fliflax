@@ -233,7 +233,7 @@ def BetaBinom(a, b, n, x):
     return pmf
 
 # eliminar primer elemento de la lista pmf que hace referencia a los individuos no expuestos:
-dc = BetaBinom(alphas, betas, n, x); dc = dc.pop(0)
+dc = BetaBinom(alphas, betas, n, x)
   
 if alphas > 0 and betas > 0 and P > A2 and sum(dc) <= 1:
   st.write("", f"**{sum(BetaBinom(alphas, betas, n, x)):,.0f}**", "")   #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
