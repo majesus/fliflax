@@ -6,5 +6,3 @@ scipy >= 1.6.1
 streamlit-echarts
 streamlit-option-menu
 streamlit-tags
-plotly
-streamlit_jina
