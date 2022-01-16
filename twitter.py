@@ -8,6 +8,9 @@ st.write("consumerSecret:", st.secrets["consumerSecret"])
 st.write("access_token:", st.secrets["access_token"])
 st.write("access_token_secret:", st.secrets["access_token_secret"])
 
+import os
+st.write("Has environment variables been set:", os.environ["db_username"] == st.secrets["db_username"])
+
 auth = tw.OAuthHandler(consumerKey, consumerSecret)
 auth.set_access_token(access_token, access_token_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
