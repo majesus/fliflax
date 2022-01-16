@@ -19,7 +19,7 @@ st.write("Has environment variables been set:", os.environ["consumerSecret"] == 
 st.write("Has environment variables been set:", os.environ["access_token"] == st.secrets["access_token"])
 st.write("Has environment variables been set:", os.environ["access_token_secret"] == st.secrets["access_token_secret"])
 
-auth = tweepy.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
+auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
-api = tweepy.API(auth)
+api = tw.API(auth)
 
