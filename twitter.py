@@ -31,22 +31,14 @@ pipe = load_model()
 twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
 twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
 
-def get_sentiment(texts):
-    preds = pipe(texts)
-
-    response = dict()
-    response["labels"] = [pred["label"] for pred in preds]
-    response["scores"] = [pred["score"] for pred in preds]
-    return response
-
-def get_tweets(username, count):
+if st.sidebar.button("Get tweets!"):
     tweets = tweepy.Cursor(
         api.user_timeline,
-        screen_name=username,
+        screen_name=twitter_handle,
         tweet_mode="extended",
         exclude_replies=True,
         include_rts=False,
-    ).items(count)
+    ).items(twitter_count)
 
     tweets = list(tweets)
     response = {
@@ -55,9 +47,3 @@ def get_tweets(username, count):
         "retweets": [tweet.retweet_count for tweet in tweets],
         "likes": [tweet.favorite_count for tweet in tweets],
     }
-    return response
-
-if st.sidebar.button("Get tweets!"):
-    tweets = get_tweets(twitter_handle, twitter_count)
-    df = pd.DataFrame(tweets)
-    st.table(df)
