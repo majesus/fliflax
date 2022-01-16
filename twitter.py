@@ -18,7 +18,7 @@ api = tw.API(auth)
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    pipe = pipeline(task="sentiment-analysis", model="bhadresh-savani/distilbert-base-uncased-emotion")
+    pipe = pipeline(task="sentiment-analysis", model="nlptown/bert-base-multilingual-uncased-sentiment")
     return pipe
 
 
