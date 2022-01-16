@@ -47,3 +47,4 @@ if st.sidebar.button("Get tweets!"):
         "retweets": [tweet.retweet_count for tweet in tweets],
         "likes": [tweet.favorite_count for tweet in tweets],
     }
+    st.table(response)
