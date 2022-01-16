@@ -28,8 +28,8 @@ def load_model():
 
 
 pipe = load_model()
-twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
-twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
+#twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
+#twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
 
 def get_sentiment(texts):
     preds = pipe(texts)
@@ -59,9 +59,9 @@ def get_tweets(username, count):
    
 
 with st.sidebar.form(key='my_form'):
-	twitter_handle = st.text_input(label='Username', key = "twitter_handle")
-    twitter_count = st.slider(label='Tweets', min_value=0, max_value=100, key="twitter_count")
-	submit_button = st.form_submit_button(label='Submit')
+	twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
+	twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
+	submitted1 = st.form_submit_button('Submit 1')
     
 tweets = get_tweets(twitter_handle, twitter_count)
 preds = get_sentiment(tweets["tweets"])
