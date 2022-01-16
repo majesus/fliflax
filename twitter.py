@@ -20,7 +20,9 @@ api = tw.API(auth)
 def load_model():
     # bhadresh-savani/distilbert-base-uncased-emotion
     # daveni/twitter-xlm-roberta-emotion-es
-    pipe = pipeline(task="sentiment-analysis", model="bhadresh-savani/distilbert-base-uncased-emotion")
+    # pipe = pipeline(task="sentiment-analysis", model="bhadresh-savani/distilbert-base-uncased-emotion")
+    model_path = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
+    pipe = pipeline("sentiment-analysis", model=model_path, tokenizer=model_path)
     return pipe
 
 
