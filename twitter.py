@@ -18,13 +18,13 @@ api = tw.API(auth)
 
 # https://github.com/pysentimiento/pysentimiento
 from pysentimiento import create_analyzer
-analyzer = create_analyzer(task="sentiment", lang="es")
-results = analyzer.predict("Qué gran jugador es Messi")
+#analyzer = create_analyzer(task="sentiment", lang="es")
+#results = analyzer.predict("Qué gran jugador es Messi")
 
-data_items = results.probas.items()
-data_list = list(data_items)
-df = pd.DataFrame(data_list)
-st.table(df)
+#data_items = results.probas.items()
+#data_list = list(data_items)
+#df = pd.DataFrame(data_list)
+#st.table(df)
 
 
 if st.sidebar.button("Get tweets!"):
