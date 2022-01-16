@@ -24,8 +24,8 @@ def load_model():
     pipe1 = pipeline(task="sentiment-analysis", model="bhadresh-savani/distilbert-base-uncased-emotion")
     
     model_path = "daveni/twitter-xlm-roberta-emotion-es"
-    pipe2 = pipeline("text-classification", framework="pt", model=model_path, tokenizer=model_path)
-    return pipe2
+    pipe = pipeline("text-classification", framework="pt", model=model_path, tokenizer=model_path)
+    return pipe
 
 
 """
