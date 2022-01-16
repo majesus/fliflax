@@ -74,6 +74,7 @@ if st.sidebar.button("Get tweets!"):
     # dataframe creation + preprocessing
     df = pd.DataFrame(tweets)
     df["timestamps"] = pd.to_datetime(df["timestamps"])
+    st.table(df)
     # plots
     agg_period = get_aggregation_period(df)
     ts_sentiment = (
@@ -85,3 +86,4 @@ if st.sidebar.button("Get tweets!"):
         .stack()
         .reset_index())
     ts_sentiment.columns = ["timestamp", "label", "count"]
+    st.table(ts_sentiment)
