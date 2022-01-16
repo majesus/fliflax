@@ -32,7 +32,7 @@ twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
 twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
 
 if st.sidebar.button("Get tweets!"):
-    tweets = tweepy.Cursor(
+    tweets = tw.Cursor(
         api.user_timeline,
         screen_name=twitter_handle,
         tweet_mode="extended",
