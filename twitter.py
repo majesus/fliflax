@@ -19,5 +19,5 @@ api = tw.API(auth)
 from pysentimiento import create_analyzer
 analyzer = create_analyzer(task="sentiment", lang="es")
 results = analyzer.predict("Qué gran jugador es Messi")
-results = pd.DataFrame.from_dict(results)
+#results = pd.DataFrame.from_dict(results)
 st.write(results)
