@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-import tweepy
+import tweepy as tw
 from transformers import pipeline
 
 import os
