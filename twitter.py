@@ -19,13 +19,6 @@ st.write("Has environment variables been set:", os.environ["consumerSecret"] == 
 st.write("Has environment variables been set:", os.environ["access_token"] == st.secrets["access_token"])
 st.write("Has environment variables been set:", os.environ["access_token_secret"] == st.secrets["access_token_secret"])
 
-import streamlit as st
-# Everything is accessible via the st.secrets dict:
-st.write("DB consumerKey:", st.secrets["consumerKey"])
-st.write("DB consumerSecret:", st.secrets["consumerSecret"])
-st.write("DB access_token:", st.secrets["access_token"])
-st.write("DB access_token_secret:", st.secrets["access_token_secret"])
-# And the root-level secrets are also accessible as environment variables:
 import os
 st.write(
 	"Has environment variables been set:",
