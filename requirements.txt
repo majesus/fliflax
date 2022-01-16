@@ -10,3 +10,4 @@ streamlit-tags
 tweepy
 transformers
 tensorflow
+os
