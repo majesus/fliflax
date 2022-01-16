@@ -16,6 +16,10 @@ auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
 api = tw.API(auth)
 
+model_path = "daveni/twitter-xlm-roberta-emotion-es"
+pipe1 = pipeline("text-classification", framework="pt", model=model_path, tokenizer=model_path)
+st.write(pipe1("Hoy luce el sol, y estoy triste"))
+
 @st.cache(allow_output_mutation=True)
 def load_model():
     # bhadresh-savani/distilbert-base-uncased-emotion
