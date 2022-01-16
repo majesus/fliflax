@@ -8,7 +8,7 @@ st.markdown("This app uses tweepy to get tweets from twitter based on the input 
             "It then processes the tweets through HuggingFace transformers pipeline function for sentiment analysis. "
             "The resulting sentiments and corresponding tweets are then put in a dataframe for display which is what you see as result.")
 
-#st.write("consumerKey:", st.secrets["consumerKey"])
+st.write("consumerKey:", st.secrets["consumerKey"])
 #st.write("consumerSecret:", st.secrets["consumerSecret"])
 #st.write("access_token:", st.secrets["access_token"])
 #st.write("access_token_secret:", st.secrets["access_token_secret"])
