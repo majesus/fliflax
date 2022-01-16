@@ -28,7 +28,6 @@ from pysentimiento import create_analyzer
 
 
 if st.sidebar.button("Get tweets!"):
-    @st.cache(allow_output_mutation=True)
     analyzer = create_analyzer(task="sentiment", lang="es")
     results = analyzer.predict(tweets)
 
