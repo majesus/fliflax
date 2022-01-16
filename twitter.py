@@ -57,16 +57,17 @@ def get_tweets(username, count):
     }
     return response
     
-tweets = get_tweets(twitter_handle, twitter_count)
-preds = get_sentiment(tweets["tweets"])
-# neutralise_sentiment(preds)
-tweets.update(preds)
-# dataframe creation + preprocessing
-df = pd.DataFrame(tweets)
-df["timestamps"] = pd.to_datetime(df["timestamps"])
-# plots
-agg_period = get_aggregation_period(df)
-ts_sentiment = (
+if st.sidebar.button("Get tweets!"):
+    tweets = get_tweets(twitter_handle, twitter_count)
+    preds = get_sentiment(tweets["tweets"])
+    # neutralise_sentiment(preds)
+    tweets.update(preds)
+    # dataframe creation + preprocessing
+    df = pd.DataFrame(tweets)
+    df["timestamps"] = pd.to_datetime(df["timestamps"])
+    # plots
+    agg_period = get_aggregation_period(df)
+    ts_sentiment = (
         df.groupby(["timestamps", "labels"])
         .count()["likes"]
         .unstack()
@@ -74,4 +75,4 @@ ts_sentiment = (
         .count()
         .stack()
         .reset_index())
-ts_sentiment.columns = ["timestamp", "label", "count"]
+    ts_sentiment.columns = ["timestamp", "label", "count"]
