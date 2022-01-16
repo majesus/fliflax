@@ -57,24 +57,27 @@ def get_tweets(username, count):
     }
     return response
    
- b1 = st.sidebar.button("Get tweets!")
- if b1:
-    tweets = get_tweets(twitter_handle, twitter_count)
-    preds = get_sentiment(tweets["tweets"])
-    # neutralise_sentiment(preds)
-    tweets.update(preds)
-    # dataframe creation + preprocessing
-    df = pd.DataFrame(tweets)
-    df["timestamps"] = pd.to_datetime(df["timestamps"])
-    # plots
-    agg_period = get_aggregation_period(df)
-    ts_sentiment = (
+
+with st.sidebar.form(key='my_form'):
+	twitter_handle = st.text_input(label='Username', key = "twitter_handle")
+    twitter_count = st.slider(label='Tweets', min_value=0, max_value=100, key="twitter_count")
+	submit_button = st.form_submit_button(label='Submit')
+    
+tweets = get_tweets(twitter_handle, twitter_count)
+preds = get_sentiment(tweets["tweets"])
+# neutralise_sentiment(preds)
+tweets.update(preds)
+# dataframe creation + preprocessing
+df = pd.DataFrame(tweets)
+df["timestamps"] = pd.to_datetime(df["timestamps"])
+# plots
+agg_period = get_aggregation_period(df)
+ts_sentiment = (
         df.groupby(["timestamps", "labels"])
         .count()["likes"]
         .unstack()
         .resample(agg_period)
         .count()
         .stack()
-        .reset_index()
-    )
-    ts_sentiment.columns = ["timestamp", "label", "count"]
+        .reset_index())
+ts_sentiment.columns = ["timestamp", "label", "count"]
