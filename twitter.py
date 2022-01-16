@@ -25,3 +25,14 @@ data_items = results.probas.items()
 data_list = list(data_items)
 df = pd.DataFrame(data_list)
 st.table(df)
+
+
+if st.sidebar.button("Get tweets!"):
+    @st.cache(allow_output_mutation=True)
+    analyzer = create_analyzer(task="sentiment", lang="es")
+    results = analyzer.predict(tweets)
+
+    data_items = results.probas.items()
+    data_list = list(data_items)
+    df = pd.DataFrame(data_list)
+    st.table(df)
