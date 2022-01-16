@@ -26,8 +26,8 @@ from pysentimiento import create_analyzer
 #df = pd.DataFrame(data_list)
 #st.table(df)
 
-tweets = st.sidebar.text_input("Twitter handle:", "huggingface")
 analyzer = create_analyzer(task="sentiment", lang="es")
+tweets = st.sidebar.text_input("Twitter handle:", "huggingface")
 if st.sidebar.button("Get tweets!"):
     results = analyzer.predict(tweets)
 
