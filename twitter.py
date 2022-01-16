@@ -57,7 +57,7 @@ def get_tweets(username, count):
     }
     return response
    
- b1 = st.sidebar.button("Get tweets!", key="1")
+ b1 = st.sidebar.button("Get tweets!")
  if b1:
     tweets = get_tweets(twitter_handle, twitter_count)
     preds = get_sentiment(tweets["tweets"])
