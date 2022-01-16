@@ -39,6 +39,15 @@ def get_sentiment(texts):
     response["scores"] = [pred["score"] for pred in preds]
     return response
 
+def get_aggregation_period(df):
+    t_min, t_max = df["timestamps"].min(), df["timestamps"].max()
+    t_delta = t_max - t_min
+    if t_delta < pd.to_timedelta("30D"):
+        return "1D"
+    elif t_delta < pd.to_timedelta("365D"):
+        return "7D"
+    else:
+        return "30D"
 def get_tweets(username, count):
     tweets = tw.Cursor(
         api.user_timeline,
