@@ -14,7 +14,10 @@ st.write("access_token:", st.secrets["access_token"])
 st.write("access_token_secret:", st.secrets["access_token_secret"])
 
 import os
-st.write("Has environment variables been set:", os.environ["db_username"] == st.secrets["db_username"])
+st.write("Has environment variables been set:", os.environ["consumerKey"] == st.secrets["consumerKey"])
+st.write("Has environment variables been set:", os.environ["consumerSecret"] == st.secrets["consumerSecret"])
+st.write("Has environment variables been set:", os.environ["access_token"] == st.secrets["access_token"])
+st.write("Has environment variables been set:", os.environ["access_token_secret"] == st.secrets["access_token_secret"])
 
 auth = tw.OAuthHandler(consumerKey, consumerSecret)
 auth.set_access_token(access_token, access_token_secret)
