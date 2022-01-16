@@ -16,6 +16,7 @@ auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
 api = tw.API(auth)
 
+# https://github.com/pysentimiento/pysentimiento
 from pysentimiento import create_analyzer
 analyzer = create_analyzer(task="sentiment", lang="es")
 results = analyzer.predict("Qué gran jugador es Messi")
