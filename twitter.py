@@ -18,4 +18,11 @@ api = tw.API(auth)
 
 model_path = "daveni/twitter-xlm-roberta-emotion-es"
 pipe1 = pipeline("text-classification", framework="pt", model=model_path, tokenizer=model_path)
-st.markdown(pipe1("Hoy luce el sol, y estoy triste"))
+
+preds = pipe("Hoy luce el sol, y estoy triste")
+response = dict()
+response["labels"] = [pred["label"] for pred in preds]
+response["scores"] = [pred["score"] for pred in preds]
+df = pd.DataFrame(response)
+
+st.table(df)
