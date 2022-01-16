@@ -39,15 +39,6 @@ def get_sentiment(texts):
     response["scores"] = [pred["score"] for pred in preds]
     return response
 
-tweets = api.user_timeline(screen_name=userID, 
-                           # 200 is the maximum allowed count
-                           count=200,
-                           include_rts = False,
-                           # Necessary to keep full_text 
-                           # otherwise only the first 140 words are extracted
-                           tweet_mode = 'extended'
-                           )
-
 if st.sidebar.button("Get tweets!"):
     tweets = get_tweets(twitter_handle, twitter_count)
     df = pd.DataFrame(tweets)
