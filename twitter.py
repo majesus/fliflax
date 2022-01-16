@@ -18,7 +18,9 @@ api = tw.API(auth)
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    pipe = pipeline(task="sentiment-analysis", model="daveni/twitter-xlm-roberta-emotion-es")
+    # bhadresh-savani/distilbert-base-uncased-emotion
+    # daveni/twitter-xlm-roberta-emotion-es
+    pipe = pipeline(task="sentiment-analysis", model="bhadresh-savani/distilbert-base-uncased-emotion")
     return pipe
 
 
