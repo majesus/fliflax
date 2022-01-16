@@ -26,6 +26,7 @@ from pysentimiento import create_analyzer
 #df = pd.DataFrame(data_list)
 #st.table(df)
 
+@st.cache(allow_output_mutation=True)
 analyzer = create_analyzer(task="sentiment", lang="es")
 tweets = st.sidebar.text_input("Texto:", "La vida es maravillosa")
 if st.sidebar.button("Get tweets!"):
