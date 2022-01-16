@@ -56,11 +56,6 @@ def get_tweets(username, count):
         "likes": [tweet.favorite_count for tweet in tweets],
     }
     return response
-   
-
-twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
-twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
-submitted1 = st.form_submit_button('Submit 1')
     
 tweets = get_tweets(twitter_handle, twitter_count)
 preds = get_sentiment(tweets["tweets"])
