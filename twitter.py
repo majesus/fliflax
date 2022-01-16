@@ -19,6 +19,30 @@ st.write("Has environment variables been set:", os.environ["consumerSecret"] == 
 st.write("Has environment variables been set:", os.environ["access_token"] == st.secrets["access_token"])
 st.write("Has environment variables been set:", os.environ["access_token_secret"] == st.secrets["access_token_secret"])
 
+import streamlit as st
+# Everything is accessible via the st.secrets dict:
+st.write("DB consumerKey:", st.secrets["consumerKey"])
+st.write("DB consumerSecret:", st.secrets["consumerSecret"])
+st.write("DB access_token:", st.secrets["access_token"])
+st.write("DB access_token_secret:", st.secrets["access_token_secret"])
+# And the root-level secrets are also accessible as environment variables:
+import os
+st.write(
+	"Has environment variables been set:",
+	os.environ["db_username"] == st.secrets["consumerKey"])
+st.write(
+	"Has environment variables been set:",
+	os.environ["db_username"] == st.secrets["consumerSecret"])
+st.write(
+	"Has environment variables been set:",
+	os.environ["db_username"] == st.secrets["access_token"])
+st.write(
+	"Has environment variables been set:",
+	os.environ["db_username"] == st.secrets["access_token_secret"])
+
+
+
+
 auth = tw.OAuthHandler(consumerKey, consumerSecret)
 auth.set_access_token(access_token, access_token_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
