@@ -39,9 +39,25 @@ def get_sentiment(texts):
     response["scores"] = [pred["score"] for pred in preds]
     return response
 
+def get_tweets(username, count):
+    tweets = tweepy.Cursor(
+        api.user_timeline,
+        screen_name=username,
+        tweet_mode="extended",
+        exclude_replies=True,
+        include_rts=False,
+    ).items(count)
+
+    tweets = list(tweets)
+    response = {
+        "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
+        "timestamps": [str(tweet.created_at) for tweet in tweets],
+        "retweets": [tweet.retweet_count for tweet in tweets],
+        "likes": [tweet.favorite_count for tweet in tweets],
+    }
+    return response
+
 if st.sidebar.button("Get tweets!"):
-    tweets = tw.Cursor(api.search,
-              q=twitter_handle,
-              lang="en").items(twitter_count)
+    tweets = get_tweets(twitter_handle, twitter_count)
     df = pd.DataFrame(tweets)
     st.table(df)
