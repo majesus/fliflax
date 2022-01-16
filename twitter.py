@@ -20,7 +20,8 @@ api = tw.API(auth)
 def load_model():
     # pipe = pipeline(task="sentiment-analysis", model="daveni/twitter-xlm-roberta-emotion-es")
     model_path="daveni/twitter-xlm-roberta-emotion-es"
-    pipe = pipeline("text-classification", framework="pt", model=model_path, tokenizer=model_path)
+    pipe = pipeline(task="sentiment-analysis", #framework="pt", 
+                    model=model_path, tokenizer=model_path)
     return pipe
 
 
