@@ -31,14 +31,22 @@ pipe = load_model()
 twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
 twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
 
-if st.sidebar.button("Get tweets!"):
+def get_sentiment(texts):
+    preds = pipe(texts)
+
+    response = dict()
+    response["labels"] = [pred["label"] for pred in preds]
+    response["scores"] = [pred["score"] for pred in preds]
+    return response
+
+def get_tweets(username, count):
     tweets = tw.Cursor(
         api.user_timeline,
-        screen_name=twitter_handle,
+        screen_name=username,
         tweet_mode="extended",
         exclude_replies=True,
         include_rts=False,
-    ).items(twitter_count)
+    ).items(count)
 
     tweets = list(tweets)
     response = {
@@ -47,4 +55,25 @@ if st.sidebar.button("Get tweets!"):
         "retweets": [tweet.retweet_count for tweet in tweets],
         "likes": [tweet.favorite_count for tweet in tweets],
     }
-    st.table(response)
+    return response
+    
+ if st.sidebar.button("Get tweets!"):
+    tweets = get_tweets(twitter_handle, twitter_count)
+    preds = get_sentiment(tweets["tweets"])
+    # neutralise_sentiment(preds)
+    tweets.update(preds)
+    # dataframe creation + preprocessing
+    df = pd.DataFrame(tweets)
+    df["timestamps"] = pd.to_datetime(df["timestamps"])
+    # plots
+    agg_period = get_aggregation_period(df)
+    ts_sentiment = (
+        df.groupby(["timestamps", "labels"])
+        .count()["likes"]
+        .unstack()
+        .resample(agg_period)
+        .count()
+        .stack()
+        .reset_index()
+    )
+    ts_sentiment.columns = ["timestamp", "label", "count"]
