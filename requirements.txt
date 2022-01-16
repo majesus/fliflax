@@ -6,3 +6,7 @@ scipy >= 1.6.1
 streamlit-echarts
 streamlit-option-menu
 streamlit-tags
+
+tweepy
+transformers
+tensorflow
