@@ -19,16 +19,6 @@ st.write("Has environment variables been set:", os.environ["consumerSecret"] == 
 st.write("Has environment variables been set:", os.environ["access_token"] == st.secrets["access_token"])
 st.write("Has environment variables been set:", os.environ["access_token_secret"] == st.secrets["access_token_secret"])
 
-import os
-st.write(
-	"Has environment variables been set:",
-	os.environ["db_username"] == st.secrets["consumerKey"])
-st.write(
-	"Has environment variables been set:",
-	os.environ["db_username"] == st.secrets["consumerSecret"])
-st.write(
-	"Has environment variables been set:",
-	os.environ["db_username"] == st.secrets["access_token"])
-st.write(
-	"Has environment variables been set:",
-	os.environ["db_username"] == st.secrets["access_token_secret"])
+auth = tw.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tw.API(auth, wait_on_rate_limit=True)
