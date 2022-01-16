@@ -28,8 +28,8 @@ def load_model():
 
 
 pipe = load_model()
-#twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
-#twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
+twitter_handle = st.sidebar.text_input("Twitter handle:", "huggingface")
+twitter_count = st.sidebar.selectbox("Number of tweets:", (10, 100, 500, 1000, 3200))
 
 def get_sentiment(texts):
     preds = pipe(texts)
