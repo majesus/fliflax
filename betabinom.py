@@ -164,8 +164,9 @@ st.markdown("""---""")
 #----------------------------------------------------#
 if st.checkbox("Si deseas ver la expresión matemática empleada, marca la casilla.", False):
     st.image('img/beta_binomial_expresion.png')
-    st.warning("**A** y **B** son los parámetros de forma alpha y beta. E **i** es el valor que pudiere interesarnos, "
-            "por ejemplo, **P3** (siendo i = 3) estima la **probabilidad de exponerse exclusivamente 3 veces**.")
+    st.warning("**A** y **B** son los parámetros de forma alpha y beta, y n el número de inserciones contratadas; **i** es el valor de la distribución de contactos "
+               "que pudiere interesarnos, "
+               "por ejemplo, **P3** (siendo i = 3) estima la **probabilidad de exponerse exclusivamente 3 veces**.")
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
