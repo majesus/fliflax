@@ -43,6 +43,12 @@ def get_sentiment(texts):
     response["scores"] = [pred["score"] for pred in preds]
     return response
 
+def neutralise_sentiment(preds):
+    for i, (label, score) in enumerate(zip(preds["labels"], preds["scores"])):
+        if score < 0.5:
+            preds["labels"][i] = "neutral"
+            preds["scores"][i] = 1.0 - score
+            
 def get_aggregation_period(df):
     t_min, t_max = df["timestamps"].min(), df["timestamps"].max()
     t_delta = t_max - t_min
@@ -52,6 +58,7 @@ def get_aggregation_period(df):
         return "7D"
     else:
         return "30D"
+
 def get_tweets(username, count):
     tweets = tw.Cursor(
         api.user_timeline,
@@ -77,7 +84,9 @@ if st.sidebar.button("Get tweets!"):
     tweets.update(preds)
     # dataframe creation + preprocessing
     df = pd.DataFrame(tweets)
+    df = df[df["scores"] >= 0.80]
     df["timestamps"] = pd.to_datetime(df["timestamps"])
+    st.write("**Table**. Tweets with Score >= 0.80.")
     st.table(df)
     # plots
     agg_period = get_aggregation_period(df)
