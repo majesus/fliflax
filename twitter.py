@@ -42,7 +42,6 @@ def get_sentiment(texts):
 if st.sidebar.button("Get tweets!"):
     tweets = tw.Cursor(api.search,
               q=twitter_handle,
-              lang="en",
-              since=date_since).items(twitter_count)
+              lang="en").items(twitter_count)
     df = pd.DataFrame(tweets)
     st.table(df)
