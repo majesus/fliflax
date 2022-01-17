@@ -38,7 +38,6 @@ response = {
   "retweets": [tweet.retweet_count for tweet in tweets],
   "likes": [tweet.favorite_count for tweet in tweets],
 }
-return response
   
 results = pd.DataFrame(response)
 st.table(results)
