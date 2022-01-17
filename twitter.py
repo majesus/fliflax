@@ -5,6 +5,8 @@ from transformers import pipeline
 
 import os
 
+st.write("Hola")
+
 # https://huggingface.co/spaces/lewtun/twitter-sentiments/blob/aa8bd7daee9993846d1a2330b163aa76b6690023/app.py
 
 st.write("Has environment variables been set:", os.environ["consumerKey"] == st.secrets["consumerKey"])
