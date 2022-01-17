@@ -16,9 +16,9 @@ auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secre
 api = tw.API(auth)
 
 with st.sidebar.form("my_form"):
-    st.write("Inside the form")
-    username = st.text_input(label="username", value = "zara_es")
-    count = st.slider("count", min_value=10, max_value=100, value=10, step=10)
+    st.write("Buscador de **tweets**:")
+    username = st.text_input(label="Cuenta a buscar ...", value = "zara_es")
+    count = st.slider("Hasta un máximo de ...", min_value=10, max_value=100, value=10, step=10)
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Descargar")
