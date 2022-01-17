@@ -17,7 +17,7 @@ api = tw.API(auth)
 
 with st.sidebar.form("my_form"):
     st.write("Buscador de **tweets**:")
-    username = st.text_input(label="Cuenta a buscar ...", value = "zara_es")
+    username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
     count = st.slider("Hasta un máximo de ...", min_value=10, max_value=100, value=10, step=10)
 
     # Every form must have a submit button.
