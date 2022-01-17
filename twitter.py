@@ -17,7 +17,7 @@ api = tw.API(auth)
 
 with st.sidebar.form("my_form"):
     st.write("Inside the form")
-    username = st.text_input(label="username")
+    username = st.text_input(label="username", value = "zara_es")
     count = st.slider("count", min_value=10, max_value=100, value=10, step=10)
 
     # Every form must have a submit button.
