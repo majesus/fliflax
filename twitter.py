@@ -16,23 +16,3 @@ auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
 api = tw.API(auth)
 
-# https://github.com/pysentimiento/pysentimiento
-from pysentimiento import create_analyzer
-#analyzer = create_analyzer(task="sentiment", lang="es")
-#results = analyzer.predict("Qué gran jugador es Messi")
-
-#data_items = results.probas.items()
-#data_list = list(data_items)
-#df = pd.DataFrame(data_list)
-#st.table(df)
-
-#@st.cache(allow_output_mutation=True)
-analyzer = create_analyzer(task="sentiment", lang="es")
-tweets = st.sidebar.text_input("Texto:", "La vida es maravillosa")
-if st.sidebar.button("Get tweets!"):
-    results = analyzer.predict(tweets)
-
-    data_items = results.probas.items()
-    data_list = list(data_items)
-    df = pd.DataFrame(data_list)
-    st.table(df)
