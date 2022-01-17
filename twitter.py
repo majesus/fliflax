@@ -52,7 +52,7 @@ n_row = len(ylabels)
 n_col = 1
 for count, ylabel in enumerate(ylabels):
     ax = fig.add_subplot(n_row,n_col,count+1)
-    ax.plot(df["created_at"],df[ylabel])
+    ax.plot(results["created_at"],results[ylabel])
     ax.set_ylabel(ylabel)
 plt.show()
 
