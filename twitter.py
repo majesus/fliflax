@@ -36,7 +36,24 @@ response = {
   "timestamps": [str(tweet.created_at) for tweet in tweets],
   "retweets": [tweet.retweet_count for tweet in tweets],
   "likes": [tweet.favorite_count for tweet in tweets],
+    
+   #"id": [tweet.id_str for tweet in tweets],
 }
   
 results = pd.DataFrame(response)
 st.table(results)
+
+
+import matplotlib.pyplot as plt
+ylabels = ["favorite_count","retweet_count"]
+fig = plt.figure(figsize=(13,3))
+fig.subplots_adjust(hspace=0.01,wspace=0.01)
+n_row = len(ylabels)
+n_col = 1
+for count, ylabel in enumerate(ylabels):
+    ax = fig.add_subplot(n_row,n_col,count+1)
+    ax.plot(df["created_at"],df[ylabel])
+    ax.set_ylabel(ylabel)
+plt.show()
+
+st.pyplot(fig)
