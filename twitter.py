@@ -45,15 +45,14 @@ st.table(results)
 
 
 import matplotlib.pyplot as plt
-ylabels = ["favorite_count","retweet_count"]
+ylabel = ["favorite_count"]
 fig = plt.figure(figsize=(13,3))
 fig.subplots_adjust(hspace=0.01,wspace=0.01)
-n_row = len(ylabels)
+n_row = len(ylabel)
 n_col = 1
-for count, ylabel in enumerate(ylabels):
-    ax = fig.add_subplot(n_row,n_col,count+1)
-    ax.plot(results["created_at"],results[ylabel])
-    ax.set_ylabel(ylabel)
+ax = fig.add_subplot(n_row,n_col,count+1)
+ax.plot(results["created_at"],results[ylabel])
+ax.set_ylabel(ylabel)
 plt.show()
 
 st.pyplot(fig)
