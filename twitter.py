@@ -44,7 +44,7 @@ with st.sidebar.form("my_form"):
 
     submitted = st.form_submit_button("Descargar")
   
-@st.cache(suppress_st_warning=False)
+#@st.cache(suppress_st_warning=False)
 def get_tweets(username, count):
     tweets = tw.Cursor(
       api.user_timeline,
@@ -110,7 +110,5 @@ if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fech
   
 st.markdown("----")
 
-df = results[results.columns[2:4]]
-df = df.resample('W', on='timestamps').sum().reset_index().sort_values(by='timestamps')
-# results = results.resample("W", on="timestamps",closed="left", label="left").agg({"likes":"sum", "retweets":"sum"})
+df = results.resample('W-Mon', on='timestamps').sum().reset_index().sort_values(by='timestamps')
 st.table(df)
