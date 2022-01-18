@@ -53,7 +53,7 @@ response = {
 results = pd.DataFrame(response)
 st.table(results.head())
 
-
+import streamlit as st
 import altair as alt
 g = alt.Chart(results).mark_area().encode(
   x=alt.Y('likes', axis=alt.Axis(tickCount=timestamps)),
