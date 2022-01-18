@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import tweepy as tw
+import altair as alt
 from transformers import pipeline
 import os
 
@@ -27,12 +28,13 @@ st.set_page_config(#layout="centered",
 
 with st.sidebar.form("my_form"):
     st.write("Buscador de **tweets**:")
-    username = st.text_input(label="Cuenta a buscar ...", value = "enjutomojamuto")
+    username = st.text_input(label="Cuenta a buscar ...", value = "@enjutomojamuto")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=3200, value=100, step=100)
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Descargar")
     
+@st.cache
 tweets = tw.Cursor(
         api.user_timeline,
         screen_name=username,
@@ -59,7 +61,7 @@ st.markdown("----")
 
 # https://altair-viz.github.io/user_guide/times_and_dates.html
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
-  import altair as alt
+  #import altair as alt
   st.markdown("----")
   chart = alt.Chart(results).mark_area(opacity=0.3,).encode(
     x=alt.X('timestamps:T', title='', axis=alt.Axis(labelOverlap="greedy",grid=False)),
@@ -70,7 +72,7 @@ st.markdown("----")
 
 # https://altair-viz.github.io/user_guide/times_and_dates.html
 if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fecha.", False):
-  import altair as alt
+  #import altair as alt
   st.markdown("----")
   chart = alt.Chart(results).mark_area(opacity=0.3,).encode(
     x=alt.X('timestamps:T', title='', axis=alt.Axis(labelOverlap="greedy",grid=False)),
