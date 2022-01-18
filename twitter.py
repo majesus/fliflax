@@ -54,6 +54,7 @@ results = pd.DataFrame(response)
 if st.checkbox("Si deseas ver los tweets descargados por fecha.", False):
   st.table(results)
 
+# https://altair-viz.github.io/user_guide/times_and_dates.html
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
   import altair as alt
   chart = alt.Chart(results).mark_line().encode(
