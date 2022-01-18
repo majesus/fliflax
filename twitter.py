@@ -67,7 +67,7 @@ st.markdown("----")
 
 # https://altair-viz.github.io/user_guide/times_and_dates.html
 
-if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fecha.", False, key = "likes"):
+if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False, key = "likes"):
   #import altair as alt
   st.markdown("----")
   chart = alt.Chart(results).mark_area(color = "lightblue", interpolate = "step-after", line = True, opacity=0.3,).encode(
