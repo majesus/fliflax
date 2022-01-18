@@ -65,7 +65,7 @@ def get_tweets(username, count):
       
       #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
       "screen_name": [tweet.user.screen_name for tweet in tweets],
-      "query": [query for tweet in tweets],
+      #"query": [query for tweet in tweets],
       #"hashtags": [tweet.hashtags for tweet in tweets],
       #"status_count": [tweet.status_count for tweet in tweets],
       #"location": [tweet.location for tweet in tweets],
