@@ -53,12 +53,20 @@ response = {
 results = pd.DataFrame(response)
 st.table(results.head())
 
-import streamlit as st
 import altair as alt
-g = alt.Chart(results).mark_area().encode(
+
+df = results.set_index('timestamps')
+df = pd.DataFrame(df)
+
+if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
+st.write('###### Figura 1. Distribución de contactos Pi')
+g = alt.Chart(df).mark_area().encode(
   x=alt.Y('likes', axis=alt.Axis(tickCount=timestamps)),
-  y='likes').configure_mark(
+  y='likes'
+).configure_mark(
   opacity=0.5,
-  color='red').configure_axis(
-  grid=False)
+  color='red'
+).configure_axis(
+  grid=False
+)
 st.altair_chart(g, use_container_width = True)
