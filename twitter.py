@@ -29,7 +29,7 @@ st.set_page_config(#layout="centered",
 with st.sidebar.form("my_form"):
     st.write("Buscador de **tweets**:")
     username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
-    count = st.slider("Hasta un máximo de ...", min_value=1, max_value=3200, value=20, step=10)
+    count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
     
     values1=['Sí', 'No']
     options1=[True,False]
@@ -55,10 +55,17 @@ def get_tweets(username, count):
 
     tweets = list(tweets)
     response = {
-        "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
-        "timestamps": [str(tweet.created_at) for tweet in tweets],
-        "retweets": [tweet.retweet_count for tweet in tweets],
-        "likes": [tweet.favorite_count for tweet in tweets],
+      "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
+      "timestamps": [str(tweet.created_at) for tweet in tweets],
+      "retweets": [tweet.retweet_count for tweet in tweets],
+      "likes": [tweet.favorite_count for tweet in tweets],
+      
+      "retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
+      "screen_name": [tweet.screen_name for tweet in tweets],
+      "hashtags": [tweet.hashtags for tweet in tweets],
+      "status_count": [tweet.status_count for tweet in tweets],
+      "location": [tweet.location for tweet in tweets],
+      "source_device": [tweet.source_device for tweet in tweets],
     }
     
     results = pd.DataFrame(response) 
