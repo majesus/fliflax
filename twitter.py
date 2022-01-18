@@ -51,7 +51,8 @@ response = {
 }
   
 results = pd.DataFrame(response)
-# st.table(results.head())
+if st.checkbox("Si deseas ver los tweets descargados por fecha.", False):
+  st.table(results)
 
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
   import altair as alt
