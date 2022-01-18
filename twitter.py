@@ -28,7 +28,7 @@ st.set_page_config(#layout="centered",
 
 with st.sidebar.form("my_form"):
     st.write("Buscador de **tweets**:")
-    username = st.text_input(label="Cuenta a buscar ...", value = "enjutomojamuto")
+    username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=3200, value=20, step=10)
 
     # Every form must have a submit button.
