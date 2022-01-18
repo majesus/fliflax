@@ -34,13 +34,16 @@ with st.sidebar.form("my_form"):
     # Every form must have a submit button.
     submitted = st.form_submit_button("Descargar")
     
-@st.cache
-tweets = tw.Cursor(
-        api.user_timeline,
-        screen_name=username,
-        tweet_mode="extended",
-        exclude_replies=True,
-        include_rts=False,).items(count)
+@st.cache(suppress_st_warning=True)
+def tweets_download(username, count):
+  tweets = tw.Cursor(
+    api.user_timeline,
+    screen_name=username,
+    tweet_mode="extended",
+    exclude_replies=True,
+    include_rts=False,).items(count)
+
+tweets_download(username, count)
 
 tweets = list(tweets)
 response = {
