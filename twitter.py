@@ -33,7 +33,8 @@ with st.sidebar.form("my_form"):
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Descargar")
-    
+  
+@st.cache(suppress_st_warning=True)
 def get_tweets(username, count):
     tweets = tw.Cursor(
         api.user_timeline,
@@ -54,7 +55,8 @@ def get_tweets(username, count):
     results = pd.DataFrame(response) 
 
     return results 
-tweets = get_tweets(username, count)
+
+  results = get_tweets(username, count)
 
 
 if st.checkbox("Si deseas ver los tweets descargados por fecha.", False):
