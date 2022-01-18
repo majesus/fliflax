@@ -34,28 +34,29 @@ with st.sidebar.form("my_form"):
     # Every form must have a submit button.
     submitted = st.form_submit_button("Descargar")
     
-@st.cache(suppress_st_warning=True)
-def tweets_download(username, count):
-  tw.Cursor(
-    api.user_timeline,
-    screen_name=username,
-    tweet_mode="extended",
-    exclude_replies=True,
-    include_rts=False,).items(count)
+def get_tweets(username, count):
+    tweets = tw.Cursor(
+        api.user_timeline,
+        screen_name=username,
+        tweet_mode="extended",
+        exclude_replies=True,
+        include_rts=False,
+    ).items(count)
 
-tweets = tweets_download(username, count)
-
-tweets = list(tweets)
-response = {
-  "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
-  "timestamps": [str(tweet.created_at) for tweet in tweets],
-  "retweets": [tweet.retweet_count for tweet in tweets],
-  "likes": [tweet.favorite_count for tweet in tweets],
+    tweets = list(tweets)
+    response = {
+        "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
+        "timestamps": [str(tweet.created_at) for tweet in tweets],
+        "retweets": [tweet.retweet_count for tweet in tweets],
+        "likes": [tweet.favorite_count for tweet in tweets],
+    }
     
-   #"id": [tweet.id_str for tweet in tweets],
-}
-  
-results = pd.DataFrame(response)
+    results = pd.DataFrame(response) 
+
+    return results 
+tweets = get_tweets(username, count)
+
+
 if st.checkbox("Si deseas ver los tweets descargados por fecha.", False):
   st.markdown("----")
   st.table(results)
