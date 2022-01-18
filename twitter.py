@@ -32,12 +32,12 @@ with st.sidebar.form("my_form"):
     username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
     
-    values1=['Sí', 'No']
+    values1=['Sí','No']
     options1=[True,False]
     dic1 = dict(zip(options1, values1))
     retweets = st.radio('¿Deseas descargar los retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets")
     
-    values2=['Sí', 'No']
+    values2=['Sí','No']
     options2=[True,False]
     dic2 = dict(zip(options2, values2))
     replies = st.radio('¿Deseas descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets")
@@ -62,7 +62,7 @@ def get_tweets(username, count):
       "likes": [tweet.favorite_count for tweet in tweets],
       
       #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
-      #"screen_name": [tweet.screen_name for tweet in tweets],
+      "screen_name": [tweet.user.screen_name for tweet in tweets],
       #"hashtags": [tweet.hashtags for tweet in tweets],
       #"status_count": [tweet.status_count for tweet in tweets],
       #"location": [tweet.location for tweet in tweets],
