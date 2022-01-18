@@ -110,3 +110,7 @@ if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fech
   
 st.markdown("----")
 
+
+# results = results.resample('W', on='timestamps').sum().reset_index().sort_values(by='timestamps')
+results = results.resample("W", on="timestamps",closed="left", label="left").agg({"likes":"sum", "retweets":"sum"})
+st.table(results)
