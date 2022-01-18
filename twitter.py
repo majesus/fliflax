@@ -118,4 +118,3 @@ value1 = df['likes'].iloc[-1]
 value2 = df['likes'].iloc[len(df) -1]
 delta = (value1 - value2) / value2
 st.metric(label="likes", value=value1, delta=delta, delta_color="off")
-st.metric
