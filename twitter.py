@@ -55,13 +55,11 @@ st.table(results.head())
 
 import altair as alt
 
-df = results.set_index('timestamps')
-df = pd.DataFrame(df)
 
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
 st.write('###### Figura 1. Distribución de contactos Pi')
-g = alt.Chart(df).mark_area().encode(
-  x=alt.Y('likes', axis=alt.Axis(tickCount=timestamps)),
+g = alt.Chart(results).mark_area().encode(
+  x=alt.Y('Date', axis=alt.Axis(tickCount=timestamps)),
   y='likes'
 ).configure_mark(
   opacity=0.5,
