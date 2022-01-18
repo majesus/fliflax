@@ -116,6 +116,6 @@ st.table(df)
 
 value1 = df['retweets'].iloc[-1]
 value2 = df['retweets'].iloc[len(df) - 2]
-st.write("", f"**{value2:,.0f}**", "")
-delta = (value1 - value2) * 100 / value2
+#st.write("", f"**{value2:,.0f}**", "")
+delta = round((value1 - value2) * 100 / value2)
 st.metric(label="retweets", value=value1, delta=delta, delta_color="off")
