@@ -15,6 +15,16 @@ auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
 api = tw.API(auth)
 
+from PIL import Image
+img=Image.open('img/fliflax-logo.jpg')
+st.set_page_config(#layout="centered",
+                   #theme="light",
+                   layout="wide",
+                   page_title="Fliflax",
+                   page_icon=img,
+                   initial_sidebar_state='expanded'
+                   )
+
 with st.sidebar.form("my_form"):
     st.write("Buscador de **tweets**:")
     username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
