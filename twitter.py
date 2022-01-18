@@ -78,7 +78,8 @@ def get_tweets(username, count):
     return results 
   
   except tweepy.TweepError as e: 
-        print("Tweepy Error: {}".format(e))
+    #print("Tweepy Error: {}".format(e))
+    print("Failed to run the command on that user, Skipping...")
 
       
 results = get_tweets(username, count)
