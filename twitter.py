@@ -5,6 +5,16 @@ import altair as alt
 from transformers import pipeline
 import os
 
+from PIL import Image
+img=Image.open('img/fliflax-logo.jpg')
+st.set_page_config(#layout="centered",
+                   #theme="light",
+                   layout="wide",
+                   page_title="Fliflax",
+                   page_icon=img,
+                   initial_sidebar_state='expanded'
+                   )
+
 # https://huggingface.co/spaces/lewtun/twitter-sentiments/blob/aa8bd7daee9993846d1a2330b163aa76b6690023/app.py
 
 # st.write("Has environment variables been set:", os.environ["consumerKey"] == st.secrets["consumerKey"])
@@ -16,15 +26,6 @@ auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
 api = tw.API(auth)
 
-from PIL import Image
-img=Image.open('img/fliflax-logo.jpg')
-st.set_page_config(#layout="centered",
-                   #theme="light",
-                   layout="wide",
-                   page_title="Fliflax",
-                   page_icon=img,
-                   initial_sidebar_state='expanded'
-                   )
 
 with st.sidebar.form("my_form"):
     st.write("Buscador de **tweets**:")
@@ -61,11 +62,11 @@ def get_tweets(username, count):
       "likes": [tweet.favorite_count for tweet in tweets],
       
       #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
-      "screen_name": [tweet.screen_name for tweet in tweets],
-      "hashtags": [tweet.hashtags for tweet in tweets],
-      "status_count": [tweet.status_count for tweet in tweets],
-      "location": [tweet.location for tweet in tweets],
-      "source_device": [tweet.source_device for tweet in tweets],
+      #"screen_name": [tweet.screen_name for tweet in tweets],
+      #"hashtags": [tweet.hashtags for tweet in tweets],
+      #"status_count": [tweet.status_count for tweet in tweets],
+      #"location": [tweet.location for tweet in tweets],
+      #"source_device": [tweet.source_device for tweet in tweets],
     }
     
     results = pd.DataFrame(response) 
