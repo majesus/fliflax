@@ -58,13 +58,4 @@ import altair as alt
 
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
   st.write('###### Figura 1. Distribución de contactos Pi')
-  g = alt.Chart(results).mark_area().encode(
-    x=alt.Y('Date', axis=alt.Axis(tickCount=likes)),
-    y='timestamps'
-  ).configure_mark(
-    opacity=0.5,
-    color='red'
-  ).configure_axis(
-    grid=False
-  )
-  st.altair_chart(g, use_container_width = True)
+  st.line_chart(results[[‘timestamps’, ‘likes’]])
