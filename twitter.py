@@ -111,7 +111,7 @@ if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fech
 st.markdown("----")
 
 results['date'] = pd.to_datetime(results['timestamps']) - pd.to_timedelta(7, unit='d')
-df = df.['likes']
+df = df['likes']
        .sum()
        .reset_index()
        .sort_values('date')
