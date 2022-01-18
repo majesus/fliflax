@@ -36,14 +36,14 @@ with st.sidebar.form("my_form"):
     
 @st.cache(suppress_st_warning=True)
 def tweets_download(username, count):
-  tweets = tw.Cursor(
+  tw.Cursor(
     api.user_timeline,
     screen_name=username,
     tweet_mode="extended",
     exclude_replies=True,
     include_rts=False,).items(count)
 
-tweets_download(username, count)
+tweets = tweets_download(username, count)
 
 tweets = list(tweets)
 response = {
