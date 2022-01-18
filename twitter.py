@@ -58,6 +58,6 @@ if st.checkbox("Si deseas ver los tweets descargados por fecha.", False):
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
   import altair as alt
   chart = alt.Chart(results).mark_area(opacity=0.3,).encode(
-    x=alt.X('timestamps:T', axis=alt.Axis(labelOverlap="greedy",grid=False)),
+    x=alt.X('timestamps:T', title='', axis=alt.Axis(labelOverlap="greedy",grid=False)),
     y=alt.Y('likes', scale=alt.Scale(type='log')))
   st.altair_chart(chart, use_container_width=True)
