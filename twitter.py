@@ -57,7 +57,7 @@ import altair as alt
 
 
 if st.checkbox("Si deseas ver la representación gráfica de la distribución de contactos Pi (y acumulada Ri), marca la casilla.", False):
-st.write('###### Figura 1. Distribución de contactos Pi')
+#st.write('###### Figura 1. Distribución de contactos Pi')
 g = alt.Chart(results).mark_area().encode(
   x=alt.Y('Date', axis=alt.Axis(tickCount=likes)),
   y='timestamps'
