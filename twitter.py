@@ -77,7 +77,7 @@ def get_tweets(username, count):
 
     return results 
   
-  except tweepy.TweepError:
+  except tweepy.TweepError as e: 
     print("Failed to run the command on that user, Skipping...")
 
 
