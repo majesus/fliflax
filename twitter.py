@@ -56,12 +56,9 @@ st.table(results.head())
 
 import altair as alt
 g = alt.Chart(results).mark_area().encode(
-      x=alt.Y('likes', axis=alt.Axis(tickCount=timestamps)),
-      y='likes'
-    ).configure_mark(
-      opacity=0.5,
-      color='red'
-    ).configure_axis(
-      grid=False
-    )
-    st.altair_chart(g, use_container_width = True)
+  x=alt.Y('likes', axis=alt.Axis(tickCount=timestamps)),
+  y='likes').configure_mark(
+  opacity=0.5,
+  color='red').configure_axis(
+  grid=False)
+st.altair_chart(g, use_container_width = True)
