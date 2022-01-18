@@ -79,14 +79,3 @@ st.markdown("----")
 
 
 st.markdown("----")
-
-# https://altair-viz.github.io/user_guide/times_and_dates.html
-if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fecha.", False):
-  #import altair as alt
-  st.markdown("----")
-  chart = alt.Chart(results).mark_area(opacity=0.3,).encode(
-    x=alt.X('timestamps:T', title='', axis=alt.Axis(labelOverlap="greedy",grid=False)),
-    y=alt.Y('retweets', scale=alt.Scale(type='log')))
-  st.altair_chart(chart, use_container_width=True)
-
-st.markdown("----")
