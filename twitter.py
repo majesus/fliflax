@@ -46,6 +46,7 @@ with st.sidebar.form("my_form"):
   
 @st.cache(suppress_st_warning=True)
 def get_tweets(username, count):
+  try:
     tweets = tw.Cursor(
       api.user_timeline,
       screen_name=username,
@@ -75,8 +76,11 @@ def get_tweets(username, count):
     results = pd.DataFrame(response) 
 
     return results 
+  
+  except tweepy.TweepError as e: 
+        print("Tweepy Error: {}".format(e))
 
-
+      
 results = get_tweets(username, count)
 
 
