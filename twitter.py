@@ -54,12 +54,12 @@ results = pd.DataFrame(response)
 st.table(results.head())
 
 import altair as alt
-
-st.table(results)
+st.write("prueba")
+# st.table(results)
 
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
   import altair as alt
-  chart = alt.Chart(df).mark_line().encode(
+  chart = alt.Chart(results).mark_line().encode(
     x=alt.X('timestamps', axis=alt.Axis(labelOverlap="greedy",grid=False)),
     y=alt.Y('likes'))
   st.altair_chart(chart, use_container_width=True)
