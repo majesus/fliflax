@@ -47,11 +47,12 @@ with st.sidebar.form("my_form"):
 @st.cache(suppress_st_warning=True)
 def get_tweets(username, count):
     tweets = tw.Cursor(
-        api.user_timeline,
-        screen_name=username,
-        tweet_mode="extended",
-        exclude_replies=replies,
-        include_rts=retweets,
+      api.user_timeline,
+      #screen_name=username,
+      q = username,
+      tweet_mode="extended",
+      exclude_replies=replies,
+      include_rts=retweets,
     ).items(count)
 
     tweets = list(tweets)
@@ -63,6 +64,7 @@ def get_tweets(username, count):
       
       #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
       "screen_name": [tweet.user.screen_name for tweet in tweets],
+      "query": [query for tweet in tweets],
       #"hashtags": [tweet.hashtags for tweet in tweets],
       #"status_count": [tweet.status_count for tweet in tweets],
       #"location": [tweet.location for tweet in tweets],
