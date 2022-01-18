@@ -110,5 +110,6 @@ if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fech
   
 st.markdown("----")
 
-df = results.resample('W-Mon', on='timestamps').sum().reset_index().sort_values(by='timestamps')
+results.date = pd.to_datetime(results.timestamps)
+df = results.resample('W-Mon', on='date').sum().reset_index().sort_values(by='date')
 st.table(df)
