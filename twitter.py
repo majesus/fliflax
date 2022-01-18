@@ -35,18 +35,17 @@ with st.sidebar.form("my_form"):
     values1=['Sí','No']
     options1=[True,False]
     dic1 = dict(zip(options1, values1))
-    retweets = st.radio('¿Deseas descargar los retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets")
+    retweets = st.radio('¿Deseas descargar los retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets", disabled = True)
     
     values2=['Sí','No']
     options2=[True,False]
     dic2 = dict(zip(options2, values2))
-    replies = st.radio('¿Deseas descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets")
+    replies = st.radio('¿Deseas descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = True)
 
     submitted = st.form_submit_button("Descargar")
   
 @st.cache(suppress_st_warning=True)
 def get_tweets(username, count):
-  try:
     tweets = tw.Cursor(
       #api.user_timeline,
       #screen_name=username,
@@ -76,9 +75,6 @@ def get_tweets(username, count):
     results = pd.DataFrame(response) 
 
     return results 
-  
-  except tweepy.TweepError as e: 
-    print("Failed to run the command on that user, Skipping...")
 
 
 results = get_tweets(username, count)
