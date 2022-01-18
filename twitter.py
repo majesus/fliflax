@@ -112,7 +112,6 @@ if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fech
     x=alt.X('timestamps:T', title='', axis=alt.Axis(labelOverlap="greedy",grid=False)),
     y=alt.Y('retweets', scale=alt.Scale(type='log')))
   st.altair_chart(chart, use_container_width=True)
-  st.table(results.head())
-
+  
 st.markdown("----")
 
