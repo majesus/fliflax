@@ -96,6 +96,7 @@ st.markdown("----")
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
   #import altair as alt
   st.markdown("----")
+  results.loc[results.likes == 0, 'likes'] = 0.001 # log
   chart = alt.Chart(results).mark_area(color = "lightblue", interpolate = "step-after", line = True, opacity=0.3,).encode(
     x=alt.X('timestamps:T', title='', axis=alt.Axis(labelOverlap="greedy",grid=False)),
     y=alt.Y('likes', scale=alt.Scale(type='log')))
@@ -106,6 +107,7 @@ st.markdown("----")
 if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fecha.", False):
   #import altair as alt
   st.markdown("----")
+  results.loc[results.retweets == 0, 'retweets'] = 0.001 # log
   chart = alt.Chart(results).mark_area(color = "lightblue", interpolate = "step-after", line = True, opacity=0.3,).encode(
     x=alt.X('timestamps:T', title='', axis=alt.Axis(labelOverlap="greedy",grid=False)),
     y=alt.Y('retweets', scale=alt.Scale(type='log')))
