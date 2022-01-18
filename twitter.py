@@ -51,11 +51,7 @@ response = {
 }
   
 results = pd.DataFrame(response)
-st.table(results.head())
-
-import altair as alt
-st.write("prueba")
-# st.table(results)
+# st.table(results.head())
 
 if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
   import altair as alt
