@@ -30,7 +30,16 @@ with st.sidebar.form("my_form"):
     st.write("Buscador de **tweets**:")
     username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=3200, value=20, step=10)
-    retweets = st.radio("¿Deseas descargar los retweets",('Sí', 'No'))
+    
+    values1=['Sí', 'No']
+    options1=[True,False]
+    dic1 = dict(zip(options1, values1))
+    retweets = st.radio('¿Deseas descargar los retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets")
+    
+    values2=['Sí', 'No']
+    options2=[True,False]
+    dic2 = dict(zip(options2, values2))
+    replies = st.radio('¿Deseas descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets")
 
     submitted = st.form_submit_button("Descargar")
   
@@ -40,8 +49,8 @@ def get_tweets(username, count):
         api.user_timeline,
         screen_name=username,
         tweet_mode="extended",
-        exclude_replies=True,
-        include_rts=False,
+        exclude_replies=replies,
+        include_rts=retweets,
     ).items(count)
 
     tweets = list(tweets)
