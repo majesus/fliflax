@@ -114,8 +114,8 @@ st.write("### A continuación, te mostramos la evolución semanal de retweets y 
 
 st.markdown("----")
 
-results['date'] = pd.to_datetime(results['timestamps']) - pd.to_timedelta(7, unit='d')
-df = results.resample('W-Mon', on='date').sum().reset_index().sort_values(by='date')
+results['start_date'] = pd.to_datetime(results['timestamps']) - pd.to_timedelta(7, unit='d')
+df = results.resample('W-Mon', on='start_date').sum().reset_index().sort_values(by='start_date')
 st.table(df)
 
 st.markdown("----")
