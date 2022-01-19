@@ -60,11 +60,8 @@ with st.sidebar.form("my_form"):
 #@st.cache(suppress_st_warning=False)
 def get_tweets(username, count):
     tweets = tw.Cursor(
-      #api.user_timeline,
-      api.search,
+      api.user_timeline,
       screen_name=username,
-      #api.search,
-      #q=username,
       tweet_mode="extended",
       exclude_replies=replies,
       include_rts=retweets,
