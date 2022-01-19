@@ -30,7 +30,7 @@ api = tw.API(auth)
 with st.sidebar.form("my_form"):
     st.write("**Tweet Finder**:")
     username = st.text_input(label="Query ...", value = "JoeBiden")
-    count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
+    count = st.slider("Up to a maximum of ...", min_value=1, max_value=600, value=20, step=10)
     
     values1=['Yes','No']
     options1=[True,False]
