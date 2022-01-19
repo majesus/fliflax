@@ -114,9 +114,10 @@ results['date'] = pd.to_datetime(results['timestamps']) - pd.to_timedelta(7, uni
 df = results.resample('W-Mon', on='date').sum().reset_index().sort_values(by='date')
 st.table(df)
 
-value1 = df['retweets'].iloc[-1]
-value2 = df['retweets'].iloc[len(df) - 2]
+#value1 = df['retweets'].iloc[-1]
+value1 = df['retweets'].iloc[len(df) - 2]
+value2 = df['retweets'].iloc[len(df) - 3]
 #st.write("", f"**{value2:,.0f}**", "")
-delta = round((value1 - value2) / value2)
+delta = round((value2 - value1) / value2)
 delta = "{:.0%}".format(delta)
 st.metric(label="retweets", value=value1, delta=delta, delta_color="inverse")
