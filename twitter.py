@@ -67,11 +67,12 @@ with st.sidebar.form("my_form"):
 
 def searchTweets(username, count):
   tweets = tw.Cursor(
+    api.search,
     q=username,
     lang='es'
     #geo=geo,
     #result_type='mixed',
-    tweet_mode="extended"
+    tweet_mode="extended",
     exclude_replies=replies,
     include_rts=retweets,
     count=count
