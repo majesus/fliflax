@@ -41,10 +41,13 @@ api = tw.API(auth, wait_on_rate_limit=True)
 #-----------------------------------------------------------------#
 with st.sidebar.form("my_form"):
     st.write("**Buscador de Tweets**:")
-    username = st.text_input(label="¿QUé deseas buscar?", value = "JoeBiden")
-    count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
     
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
+    username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "JoeBiden")
+    count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
+    
+    st.markdown("----")
+    st.write("Si deseas descargar tweets de un usuario, indicanos:")
     
     values1=['Yes','No']
     options1=[True,False]
