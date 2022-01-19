@@ -90,13 +90,12 @@ def get_tweets(username, count):
   return results 
 
 def searchTweets(username, count):
-    tweets = api.search(
+    tweets = tw.Cursor(
       q=str(username),
-      #lang=lang,
+      lang='es',
       #geo=geo,
       #result_type='mixed',
-      count=count,
-      tweet_mode="extended")
+      tweet_mode="extended").items(count)
 
     tweets = list(tweets)
     response = {
