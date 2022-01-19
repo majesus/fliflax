@@ -119,7 +119,7 @@ def searchTweets(username, count):
       
 if tipo == "Usuario":
   results = get_tweets(username, count)
-else:
+elif tipo == "Tema":
   results = searchTweets(username, count)
 #-----------------------------------------------------------------#
 
