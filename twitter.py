@@ -117,9 +117,9 @@ def get_tweets2(username, count):
                 break
             else:
                 pass
-    # Function to Clean the Tweet.
-    def clean_tweet(tweet):
-        return ' '.join(re.sub('(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|([RT])', ' ', tweet.lower()).split())
+# Function to Clean the Tweet.
+def clean_tweet(tweet):
+  return ' '.join(re.sub('(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|([RT])', ' ', tweet.lower()).split())
 
 def get_tweets(username, count):
   tweets = tw.Cursor(
