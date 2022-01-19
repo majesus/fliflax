@@ -23,6 +23,8 @@ st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias 
          "es decir, queremos ofrecerte una enseñanza en cualquier momento y lugar siempre que "
          "tengas entre tus manos un teléfono móvil o una tablet.")
 st.write("Abajo te mostramos, por ejemplo, unas métricas sencillas de Twitter, y en el _sidebar_ de la izquierda un **cuadro para elegir qué tipo de descarga prefieres**. ")
+
+st.markdown("----")
 #-----------------------------------------------------------------#
 
 # https://huggingface.co/spaces/lewtun/twitter-sentiments/blob/aa8bd7daee9993846d1a2330b163aa76b6690023/app.py
