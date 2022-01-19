@@ -68,16 +68,7 @@ with st.sidebar.form("my_form"):
 #@st.cache(suppress_st_warning=False)
 
 def searchTweets(username, count):
-  tweets = tw.Cursor(
-    api.search,
-    q=username,
-    lang='es'
-    #geo=geo,
-    #result_type='mixed',
-    #tweet_mode="extended",
-    #exclude_replies=replies,
-    #include_rts=retweets,
-  ).items(count)
+  tweets = tw.Cursor(api.search, q=username,count=count, lang="es",exclude='retweets').items()
   
   tweets = list(tweets)
   response = {
@@ -87,7 +78,7 @@ def searchTweets(username, count):
     #"likes": [tweet.favorite_count for tweet in tweets],
     #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
     "screen_name": [tweet.user.name for tweet in tweets],
-    "query": [query for tweet in tweets],
+    #"query": [query for tweet in tweets],
     #"hashtags": [tweet.hashtags for tweet in tweets],
     #"status_count": [tweet.status_count for tweet in tweets],
     "location": [tweet.user.location for tweet in tweets],
@@ -96,29 +87,6 @@ def searchTweets(username, count):
   }
   results = pd.DataFrame(response) 
   return results 
-      
-def get_tweets2(username, count):
-        i=0
-        for tweet in tw.Cursor(api.search, q=username,count=count, lang="es",exclude='retweets').items():
-            #time.sleep(0.1)
-            #my_bar.progress(i)
-            df.loc[i,"timestamps"] = tweet.created_at
-            df.loc[i,"screen_name"] = tweet.user.name
-            df.loc[i,"IsVerified"] = tweet.user.verified
-            df.loc[i,"tweets"] = tweet.text
-            df.loc[i,"likes"] = tweet.favorite_count
-            df.loc[i,"retweets"] = tweet.retweet_count
-            df.loc[i,"User_location"] = tweet.user.location
-            #df.to_csv("TweetDataset.csv",index=False)
-            #df.to_excel('{}.xlsx'.format("TweetDataset"),index=False)   ## Save as Excel
-            i=i+1
-            if i>Count:
-                break
-            else:
-                pass
-# Function to Clean the Tweet.
-def clean_tweet(tweet):
-  return ' '.join(re.sub('(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|([RT])', ' ', tweet.lower()).split())
 
 def get_tweets(username, count):
   tweets = tw.Cursor(
@@ -148,9 +116,9 @@ def get_tweets(username, count):
 
 
 if tipo == "Usuario":
-  results = get_tweets(username, count)
+  results = searchTweets(username, count)
 elif tipo == "Tema":
-  results = get_tweets2(username, count)
+  results = get_tweets(username, count)
 #-----------------------------------------------------------------#
 
 if st.checkbox("If you want to see the tweets downloaded by date, click here.", False):
