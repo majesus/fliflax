@@ -122,10 +122,21 @@ st.markdown("----")
 
 st.write("### Here are the main performance metrics.")
 
-#value1 = df['retweets'].iloc[-1]
 value1 = df['retweets'].iloc[len(df) - 2]
 value2 = df['retweets'].iloc[len(df) - 3]
-#st.write("", f"**{value2:,.0f}**", "")
 delta = round((value2 - value1) / (value2 + 1)) # división por 0
 delta = "{:.0%}".format(delta)
-st.metric(label="retweets", value='{:,}'.format(value1), delta=delta, delta_color="inverse")
+
+col1, col2 = st.columns([5,5])
+with col1:
+  value1 = df['retweets'].iloc[len(df) - 2]
+  value2 = df['retweets'].iloc[len(df) - 3]
+  delta = round((value2 - value1) / (value2 + 1)) # división por 0
+  delta = "{:.0%}".format(delta)
+  st.metric(label="retweets", value='{:,}'.format(value1), delta=delta, delta_color="inverse")
+with col2:
+  value1 = df['likes'].iloc[len(df) - 2]
+  value2 = df['likes'].iloc[len(df) - 3]
+  delta = round((value2 - value1) / (value2 + 1)) # división por 0
+  delta = "{:.0%}".format(delta)
+  st.metric(label="likes", value='{:,}'.format(value1), delta=delta, delta_color="inverse")
