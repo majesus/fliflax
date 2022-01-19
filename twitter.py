@@ -97,8 +97,8 @@ def searchTweets(username, count):
     response = {
       "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
       "timestamps": [str(tweet.created_at) for tweet in tweets],
-      "retweets": [tweet.retweet_count for tweet in tweets],
-      "likes": [tweet.favorite_count for tweet in tweets],
+      #"retweets": [tweet.retweet_count for tweet in tweets],
+      #"likes": [tweet.favorite_count for tweet in tweets],
       
       #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
       "screen_name": [tweet.user.screen_name for tweet in tweets],
