@@ -45,6 +45,7 @@ with st.sidebar.form("my_form"):
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
     username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "JoeBiden")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
+    fecha = st.text_input(label="¿Desde qué fecha?", value = "fecha")
     
     st.markdown("----")
     st.write("Si deseas descargar tweets de un usuario, indicanos:")
