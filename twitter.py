@@ -72,7 +72,7 @@ def searchTweets(username, count):
     lang='es'
     #geo=geo,
     #result_type='mixed',
-    tweet_mode="extended",
+    #tweet_mode="extended",
     exclude_replies=replies,
     include_rts=retweets,
     count=count
