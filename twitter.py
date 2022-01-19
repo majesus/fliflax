@@ -36,7 +36,7 @@ st.markdown("----")
 
 auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
-api = tw.API(auth)
+api = tw.API(auth, wait_on_rate_limit=True)
 
 #-----------------------------------------------------------------#
 with st.sidebar.form("my_form"):
@@ -60,7 +60,8 @@ with st.sidebar.form("my_form"):
 #@st.cache(suppress_st_warning=False)
 def get_tweets(username, count):
     tweets = tw.Cursor(
-      api.user_timeline,
+      #api.user_timeline,
+      api.search,
       screen_name=username,
       #api.search,
       #q=username,
@@ -82,7 +83,7 @@ def get_tweets(username, count):
       #"hashtags": [tweet.hashtags for tweet in tweets],
       #"status_count": [tweet.status_count for tweet in tweets],
       #"location": [tweet.location for tweet in tweets],
-      #"source_device": [tweet.source_device for tweet in tweets],
+      "source_device": [tweet.source_device for tweet in tweets],
     }
     
     results = pd.DataFrame(response) 
