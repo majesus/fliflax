@@ -88,7 +88,7 @@ def get_tweets(username, count):
 
 def searchTweets(username, count):
     tweets = tw.Cursor(api.search,
-                       q=query,
+                       q=username,
                        #lang=lang,
                        #geo=geo,
                        result_type='mixed').items(count)
