@@ -36,7 +36,7 @@ st.markdown("----")
 
 auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
-api = tw.API(auth, wait_on_rate_limit=True)
+api = tw.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 #-----------------------------------------------------------------#
 with st.sidebar.form("my_form"):
@@ -59,13 +59,13 @@ with st.sidebar.form("my_form"):
 
 #@st.cache(suppress_st_warning=False)
 def get_tweets(username, count):
-    tweets = tw.Cursor(
-      api.user_timeline,
-      screen_name=username,
-      tweet_mode="extended",
-      exclude_replies=replies,
-      include_rts=retweets,
-    ).items(count)
+  tweets = tw.Cursor(
+    api.user_timeline,
+    screen_name=username,
+    tweet_mode="extended",
+    exclude_replies=replies,
+    include_rts=retweets,
+  ).items(count)
 
     tweets = list(tweets)
     response = {
@@ -87,8 +87,38 @@ def get_tweets(username, count):
 
     return results 
 
+def searchTweets(username, count):
+    tweets = tw.Cursor(api.search,
+                       q=query,
+                       #lang=lang,
+                       #geo=geo,
+                       result_type='mixed').items(count)
+
+    tweets = list(tweets)
+    response = {
+      "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
+      "timestamps": [str(tweet.created_at) for tweet in tweets],
+      "id" = [tweet.id for tweet in tweets],
+      "retweets": [tweet.retweet_count for tweet in tweets],
+      "likes": [tweet.favorite_count for tweet in tweets],
       
-results = get_tweets(username, count)
+      #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
+      "screen_name": [tweet.user.screen_name for tweet in tweets],
+      "query": [query for tweet in tweets],
+      #"hashtags": [tweet.hashtags for tweet in tweets],
+      #"status_count": [tweet.status_count for tweet in tweets],
+      #"location": [tweet.location for tweet in tweets],
+      #"source_device": [tweet.source_device for tweet in tweets],
+    }
+    
+    results = pd.DataFrame(response) 
+
+    return results 
+      
+if type == 1:
+  results = get_tweets(username, count)
+else:
+   results = searchTweets(username, count)
 #-----------------------------------------------------------------#
 
 if st.checkbox("If you want to see the tweets downloaded by date, click here.", False):
