@@ -7,11 +7,6 @@ pandas >= 1.0.5
 numpy >= 1.18.5
 scipy >= 1.6.1
 
-transformers
-tensorflow
-
 matplotlib >= 3.2.2
 
 tweepy
-
-pysentimiento
