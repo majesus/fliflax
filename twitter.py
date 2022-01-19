@@ -110,7 +110,7 @@ if st.checkbox("If you want to see the graphical representation of the **likes**
   
 st.markdown("----")
 
-st.write("A continuación, te mostramos la evolución semanal de retweets y likes.")
+st.write("### A continuación, te mostramos la evolución semanal de retweets y likes.")
 
 st.markdown("----")
 
@@ -120,9 +120,7 @@ st.table(df)
 
 st.markdown("----")
 
-st.write("Here are the main performance metrics.")
-
-st.markdown("----")
+st.write("### Here are the main performance metrics.")
 
 #value1 = df['retweets'].iloc[-1]
 value1 = df['retweets'].iloc[len(df) - 2]
