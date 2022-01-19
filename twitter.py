@@ -1,3 +1,14 @@
+"""Interactive interface for Twitter Search API.
+Twitter - datasets
+"""
+
+__author__    = "Manuel J. Sánchez-Franco"
+__copyright__ = "Copyright 2022, @majesus"
+__credits__   = ["@majesus"]
+__license__   = ""
+__version__   = "0.1"
+__email__     = "majesus@us.es"
+#-----------------------------------------------------------------#
 import pandas as pd
 import streamlit as st
 import tweepy as tw
