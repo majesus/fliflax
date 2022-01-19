@@ -60,7 +60,7 @@ with st.sidebar.form("my_form"):
     dic2 = dict(zip(options2, values2))
     replies = st.radio('¿Quieres descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = True)
 
-    submitted = st.form_submit_button("Download")
+    submitted = st.form_submit_button("Descargar")
 #-----------------------------------------------------------------#
 
 #@st.cache(suppress_st_warning=False)
@@ -71,7 +71,7 @@ def searchTweets(username, count):
       lang='es',
       #geo=geo,
       #result_type='mixed',
-      tweet_mode="extended"
+      #tweet_mode="extended"
     ).items(count)
 
     tweets = list(tweets)
