@@ -97,6 +97,29 @@ def searchTweets(username, count):
   results = pd.DataFrame(response) 
   return results 
       
+def get_tweets2(username, count):
+        i=0
+        my_bar = st.progress(100) # To track progress of Extracted tweets
+        for tweet in tweepy.Cursor(api.search, q=username,count=count, lang="es",exclude='retweets').items():
+            #time.sleep(0.1)
+            #my_bar.progress(i)
+            df.loc[i,"timestamps"] = tweet.created_at
+            df.loc[i,"screen_name"] = tweet.user.name
+            df.loc[i,"IsVerified"] = tweet.user.verified
+            df.loc[i,"tweets"] = tweet.text
+            df.loc[i,"likes"] = tweet.favorite_count
+            df.loc[i,"retweets"] = tweet.retweet_count
+            df.loc[i,"User_location"] = tweet.user.location
+            #df.to_csv("TweetDataset.csv",index=False)
+            #df.to_excel('{}.xlsx'.format("TweetDataset"),index=False)   ## Save as Excel
+            i=i+1
+            if i>Count:
+                break
+            else:
+                pass
+    # Function to Clean the Tweet.
+    def clean_tweet(tweet):
+        return ' '.join(re.sub('(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|([RT])', ' ', tweet.lower()).split())
 
 def get_tweets(username, count):
   tweets = tw.Cursor(
@@ -128,7 +151,7 @@ def get_tweets(username, count):
 if tipo == "Usuario":
   results = get_tweets(username, count)
 elif tipo == "Tema":
-  results = searchTweets(username, count)
+  results = get_tweets2(username, count)
 #-----------------------------------------------------------------#
 
 if st.checkbox("If you want to see the tweets downloaded by date, click here.", False):
