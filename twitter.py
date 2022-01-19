@@ -35,12 +35,12 @@ with st.sidebar.form("my_form"):
     values1=['Yes','No']
     options1=[True,False]
     dic1 = dict(zip(options1, values1))
-    retweets = st.radio('Do you want to download retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets", disabled = False)
+    retweets = st.radio('Do you want to download retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets", disabled = True)
     
     values2=['Yes','No']
     options2=[True,False]
     dic2 = dict(zip(options2, values2))
-    replies = st.radio('Do you want to download replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = False)
+    replies = st.radio('Do you want to download replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = True)
 
     submitted = st.form_submit_button("Download")
   
