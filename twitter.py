@@ -91,11 +91,11 @@ def get_tweets(username, count):
 
 def searchTweets(username, count):
     tweets = tw.Cursor(
-      q=str(username),
+      q=username,
       lang='es',
       #geo=geo,
       #result_type='mixed',
-      tweet_mode="extended",
+      tweet_mode="extended"
     ).items(count)
 
     tweets = list(tweets)
