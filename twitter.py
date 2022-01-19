@@ -41,18 +41,18 @@ api = tw.API(auth)
 #-----------------------------------------------------------------#
 with st.sidebar.form("my_form"):
     st.write("**Tweet Finder**:")
-    username = st.text_input(label="Query ...", value = "JoeBiden")
-    count = st.slider("Up to a maximum of ...", min_value=1, max_value=600, value=20, step=10)
+    username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
+    count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
     
     values1=['Yes','No']
     options1=[True,False]
     dic1 = dict(zip(options1, values1))
-    retweets = st.radio('Do you want to download retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets", disabled = True)
+    retweets = st.radio('¿Quieres descargar los retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets", disabled = True)
     
     values2=['Yes','No']
     options2=[True,False]
     dic2 = dict(zip(options2, values2))
-    replies = st.radio('Do you want to download replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = True)
+    replies = st.radio('¿Quieres descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = True)
 
     submitted = st.form_submit_button("Download")
 #-----------------------------------------------------------------#
@@ -101,7 +101,7 @@ st.markdown("----")
 
 # https://altair-viz.github.io/user_guide/times_and_dates.html
 
-if st.checkbox("If you want to see the graphical representation of the retweets, click here.", False):
+if st.checkbox("Si deseas ver la representación gráfica de los retweets, haz clic aquí.", False):
   #import altair as alt
   st.markdown("----")
   results.loc[results.likes == 0, 'likes'] = 0.001 # log
@@ -112,7 +112,7 @@ if st.checkbox("If you want to see the graphical representation of the retweets,
 
 st.markdown("----")
 
-if st.checkbox("If you want to see the graphical representation of the likes, click here.", False):
+if st.checkbox("Si deseas ver la representación gráfica de los likes, haz clic aquí.", False):
   #import altair as alt
   st.markdown("----")
   results.loc[results.retweets == 0, 'retweets'] = 0.001 # log
@@ -135,7 +135,7 @@ st.table(df)
 st.markdown("----")
 #-----------------------------------------------------------------#
 
-st.write("#### Here are the main performance metrics.")
+st.write("#### Aquí te presentamos las principales métricas.")
 
 value1 = df['retweets'].iloc[len(df) - 2]
 value2 = df['retweets'].iloc[len(df) - 3]
