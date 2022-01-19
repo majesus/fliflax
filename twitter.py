@@ -36,7 +36,7 @@ st.markdown("----")
 
 auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
-api = tw.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+api = tw.API(auth, wait_on_rate_limit=True)
 
 #-----------------------------------------------------------------#
 with st.sidebar.form("my_form"):
