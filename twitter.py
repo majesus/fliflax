@@ -28,21 +28,21 @@ api = tw.API(auth)
 
 
 with st.sidebar.form("my_form"):
-    st.write("Buscador de **tweets**:")
-    username = st.text_input(label="Cuenta a buscar ...", value = "JoeBiden")
+    st.write("**Tweet Finder**:")
+    username = st.text_input(label="Query ...", value = "JoeBiden")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
     
-    values1=['Sí','No']
+    values1=['Yes','No']
     options1=[True,False]
     dic1 = dict(zip(options1, values1))
-    retweets = st.radio('¿Deseas descargar los retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets", disabled = False)
+    retweets = st.radio('Do you want to download retweets?',  options1, format_func=lambda x: dic1[x], key = "retweets", disabled = False)
     
-    values2=['Sí','No']
+    values2=['Yes','No']
     options2=[True,False]
     dic2 = dict(zip(options2, values2))
-    replies = st.radio('¿Deseas descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = False)
+    replies = st.radio('Do you want to download replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = False)
 
-    submitted = st.form_submit_button("Descargar")
+    submitted = st.form_submit_button("Download")
   
 #@st.cache(suppress_st_warning=False)
 def get_tweets(username, count):
@@ -80,7 +80,7 @@ def get_tweets(username, count):
 results = get_tweets(username, count)
 
 
-if st.checkbox("Si deseas ver los tweets descargados por fecha.", False):
+if st.checkbox("If you want to see the tweets downloaded by date, click here.", False):
   st.markdown("----")
   st.table(results)
   
@@ -88,7 +88,7 @@ st.markdown("----")
 
 # https://altair-viz.github.io/user_guide/times_and_dates.html
 
-if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha.", False):
+if st.checkbox("If you want to see the graphical representation of the **retweets**, click here.", False):
   #import altair as alt
   st.markdown("----")
   results.loc[results.likes == 0, 'likes'] = 0.001 # log
@@ -99,7 +99,7 @@ if st.checkbox("Si deseas ver la representación gráfica de 'likes' por fecha."
 
 st.markdown("----")
 
-if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fecha.", False):
+if st.checkbox("If you want to see the graphical representation of the **likes**, click here.", False):
   #import altair as alt
   st.markdown("----")
   results.loc[results.retweets == 0, 'retweets'] = 0.001 # log
@@ -110,9 +110,19 @@ if st.checkbox("Si deseas ver la representación gráfica de 'retweets' por fech
   
 st.markdown("----")
 
+st.write("A continuación, te mostramos la evolución semanal de retweets y likes.")
+
+st.markdown("----")
+
 results['date'] = pd.to_datetime(results['timestamps']) - pd.to_timedelta(7, unit='d')
 df = results.resample('W-Mon', on='date').sum().reset_index().sort_values(by='date')
 st.table(df)
+
+st.markdown("----")
+
+st.write("Here are the main performance metrics.")
+
+st.markdown("----")
 
 #value1 = df['retweets'].iloc[-1]
 value1 = df['retweets'].iloc[len(df) - 2]
@@ -120,4 +130,4 @@ value2 = df['retweets'].iloc[len(df) - 3]
 #st.write("", f"**{value2:,.0f}**", "")
 delta = round((value2 - value1) / value2)
 delta = "{:.0%}".format(delta)
-st.metric(label="retweets", value=value1, delta=delta, delta_color="inverse")
+st.metric(label="retweets", value='{:,}'.format(value1), delta=delta, delta_color="inverse")
