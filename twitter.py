@@ -14,6 +14,16 @@ st.set_page_config(#layout="centered",
                    page_icon=img,
                    initial_sidebar_state='expanded'
                    )
+#-----------------------------------------------------------------#
+st.image('img/fliflax-logo.jpg',width=200)
+st.title("Fliflax: Una plataforma de apoyo al estudio")
+st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
+st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias de Comportamiento y Comunicacion "
+         "no dependan del lugar en que te encuentras. Nuestra obsesión es la ubicuidad, o **u-learning**, "
+         "es decir, queremos ofrecerte una enseñanza en cualquier momento y lugar siempre que "
+         "tengas entre tus manos un teléfono móvil o una tablet.")
+st.write("Abajo te mostramos, por ejemplo, unas métricas sencillas de Twitter, y en el _sidebar_ de la izquierda un **cuadro para elegir qué tipo de descarga prefieres**. ")
+#-----------------------------------------------------------------#
 
 # https://huggingface.co/spaces/lewtun/twitter-sentiments/blob/aa8bd7daee9993846d1a2330b163aa76b6690023/app.py
 
@@ -26,7 +36,7 @@ auth = tw.OAuthHandler(st.secrets["consumerKey"], st.secrets["consumerSecret"])
 auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secret"])
 api = tw.API(auth)
 
-
+#-----------------------------------------------------------------#
 with st.sidebar.form("my_form"):
     st.write("**Tweet Finder**:")
     username = st.text_input(label="Query ...", value = "JoeBiden")
@@ -43,7 +53,8 @@ with st.sidebar.form("my_form"):
     replies = st.radio('Do you want to download replies?',  options2, format_func=lambda x: dic2[x], key = "retweets", disabled = True)
 
     submitted = st.form_submit_button("Download")
-  
+#-----------------------------------------------------------------#
+
 #@st.cache(suppress_st_warning=False)
 def get_tweets(username, count):
     tweets = tw.Cursor(
@@ -78,7 +89,7 @@ def get_tweets(username, count):
 
       
 results = get_tweets(username, count)
-
+#-----------------------------------------------------------------#
 
 if st.checkbox("If you want to see the tweets downloaded by date, click here.", False):
   st.markdown("----")
@@ -109,6 +120,7 @@ if st.checkbox("If you want to see the graphical representation of the likes, cl
   st.altair_chart(chart, use_container_width=True)
   
 st.markdown("----")
+#-----------------------------------------------------------------#
 
 st.write("#### A continuación, te mostramos la evolución semanal de retweets y likes.")
 
@@ -119,6 +131,7 @@ df = results.resample('W-Mon', on='start_date').sum().reset_index().sort_values(
 st.table(df)
 
 st.markdown("----")
+#-----------------------------------------------------------------#
 
 st.write("#### Here are the main performance metrics.")
 
@@ -130,13 +143,20 @@ delta = "{:.0%}".format(delta)
 col1, col2 = st.columns([5,5])
 with col1:
   value1 = df['retweets'].iloc[len(df) - 2]
-  value2 = df['retweets'].iloc[len(df) - 3]
+  if df['retweets'].iloc[len(df) - 3] == 0:
+    value2 == 1
+  else:
+    value2 = df['retweets'].iloc[len(df) - 3]
   delta = round((value2 - value1) / (value2 + 1)) # división por 0
   delta = "{:.0%}".format(delta)
   st.metric(label="retweets", value='{:,}'.format(value1), delta=delta, delta_color="inverse")
 with col2:
-  value1 = df['likes'].iloc[len(df) - 2]
-  value2 = df['likes'].iloc[len(df) - 3]
-  delta = round((value2 - value1) / (value2 + 1)) # división por 0
+  value3 = df['likes'].iloc[len(df) - 2]
+  if df['retweets'].iloc[len(df) - 3] == 0:
+    value4 == 1
+  else:
+    value4 = df['retweets'].iloc[len(df) - 3]
+  delta = round((value4 - value3) / (value4 + 1)) # división por 0
   delta = "{:.0%}".format(delta)
-  st.metric(label="likes", value='{:,}'.format(value1), delta=delta, delta_color="inverse")
+  st.metric(label="likes", value='{:,}'.format(value3), delta=delta, delta_color="inverse")
+#-----------------------------------------------------------------#
