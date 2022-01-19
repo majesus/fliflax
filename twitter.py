@@ -97,7 +97,6 @@ def searchTweets(username, count):
     response = {
       "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
       "timestamps": [str(tweet.created_at) for tweet in tweets],
-      "id" = [tweet.id for tweet in tweets],
       "retweets": [tweet.retweet_count for tweet in tweets],
       "likes": [tweet.favorite_count for tweet in tweets],
       
@@ -117,7 +116,7 @@ def searchTweets(username, count):
 if tipo == "Usuario":
   results = get_tweets(username, count)
 else:
-   results = searchTweets(username, count)
+  results = searchTweets(username, count)
 #-----------------------------------------------------------------#
 
 if st.checkbox("If you want to see the tweets downloaded by date, click here.", False):
