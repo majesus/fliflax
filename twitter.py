@@ -68,7 +68,7 @@ with st.sidebar.form("my_form"):
 #@st.cache(suppress_st_warning=False)
 
 def searchTweets(username, count):
-  tweets = tw.Cursor(api.search, q=username,count=count, lang="es",exclude='retweets').items()
+  tweets = tw.Cursor(api.search, q=username, count=count).items()
   
   tweets = list(tweets)
   response = {
@@ -116,9 +116,9 @@ def get_tweets(username, count):
 
 
 if tipo == "Usuario":
-  results = searchTweets(username, count)
-elif tipo == "Tema":
   results = get_tweets(username, count)
+elif tipo == "Tema":
+  results = searchTweets(username, count)
 #-----------------------------------------------------------------#
 
 if st.checkbox("If you want to see the tweets downloaded by date, click here.", False):
