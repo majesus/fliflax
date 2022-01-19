@@ -73,8 +73,8 @@ def searchTweets(username, count):
     #geo=geo,
     #result_type='mixed',
     #tweet_mode="extended",
-    exclude_replies=replies,
-    include_rts=retweets,
+    #exclude_replies=replies,
+    #include_rts=retweets,
     count=count
   ).items()
   
@@ -82,8 +82,8 @@ def searchTweets(username, count):
   response = {
     "tweets": [tweet.text.replace("\n", "").lower() for tweet in tweets],
     "timestamps": [str(tweet.created_at) for tweet in tweets],
-    "retweets": [tweet.retweet_count for tweet in tweets],
-    "likes": [tweet.favorite_count for tweet in tweets],
+    #"retweets": [tweet.retweet_count for tweet in tweets],
+    #"likes": [tweet.favorite_count for tweet in tweets],
     #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
     "screen_name": [tweet.user.name for tweet in tweets],
     "query": [query for tweet in tweets],
