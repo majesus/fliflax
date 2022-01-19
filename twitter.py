@@ -90,11 +90,13 @@ def get_tweets(username, count):
   return results 
 
 def searchTweets(username, count):
-    tweets = tw.Cursor(api.search,
-                       q=username,
-                       #lang=lang,
-                       #geo=geo,
-                       result_type='mixed').items(count)
+    tweets = tw.Cursor(
+      api.search,
+      q=username,
+      #lang=lang,
+      #geo=geo,
+      result_type='mixed',
+    ).items(count)
 
     tweets = list(tweets)
     response = {
@@ -113,7 +115,6 @@ def searchTweets(username, count):
     }
     
     results = pd.DataFrame(response) 
-
     return results 
       
 if tipo == "Usuario":
