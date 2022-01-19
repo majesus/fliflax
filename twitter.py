@@ -99,8 +99,7 @@ def searchTweets(username, count):
       
 def get_tweets2(username, count):
         i=0
-        my_bar = st.progress(100) # To track progress of Extracted tweets
-        for tweet in tweepy.Cursor(api.search, q=username,count=count, lang="es",exclude='retweets').items():
+        for tweet in tw.Cursor(api.search, q=username,count=count, lang="es",exclude='retweets').items():
             #time.sleep(0.1)
             #my_bar.progress(i)
             df.loc[i,"timestamps"] = tweet.created_at
