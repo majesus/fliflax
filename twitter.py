@@ -146,7 +146,7 @@ col1, col2 = st.columns([5,5])
 with col1:
   value1 = df['retweets'].iloc[len(df) - 2]
   if df['retweets'].iloc[len(df) - 3] == 0:
-    value2 == 1
+    value2 = df['retweets'].iloc[len(df) - 3] + 1
   else:
     value2 = df['retweets'].iloc[len(df) - 3]
   delta = round((value2 - value1) / (value2), 1) 
@@ -156,7 +156,7 @@ with col1:
 with col2:
   value3 = df['likes'].iloc[len(df) - 2]
   if df['likes'].iloc[len(df) - 3] == 0:
-    value4 == 1
+    value4 = df['likes'].iloc[len(df) - 3] + 1
   else:
     value4 = df['likes'].iloc[len(df) - 3]
   delta = round((value4 - value3) / (value4 ), 1) 
