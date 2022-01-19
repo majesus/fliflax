@@ -88,7 +88,7 @@ st.markdown("----")
 
 # https://altair-viz.github.io/user_guide/times_and_dates.html
 
-if st.checkbox("If you want to see the graphical representation of the **retweets**, click here.", False):
+if st.checkbox("If you want to see the graphical representation of the retweets, click here.", False):
   #import altair as alt
   st.markdown("----")
   results.loc[results.likes == 0, 'likes'] = 0.001 # log
@@ -99,7 +99,7 @@ if st.checkbox("If you want to see the graphical representation of the **retweet
 
 st.markdown("----")
 
-if st.checkbox("If you want to see the graphical representation of the **likes**, click here.", False):
+if st.checkbox("If you want to see the graphical representation of the likes, click here.", False):
   #import altair as alt
   st.markdown("----")
   results.loc[results.retweets == 0, 'retweets'] = 0.001 # log
@@ -110,7 +110,7 @@ if st.checkbox("If you want to see the graphical representation of the **likes**
   
 st.markdown("----")
 
-st.write("### A continuación, te mostramos la evolución semanal de retweets y likes.")
+st.write("#### A continuación, te mostramos la evolución semanal de retweets y likes.")
 
 st.markdown("----")
 
@@ -120,7 +120,7 @@ st.table(df)
 
 st.markdown("----")
 
-st.write("### Here are the main performance metrics.")
+st.write("#### Here are the main performance metrics.")
 
 value1 = df['retweets'].iloc[len(df) - 2]
 value2 = df['retweets'].iloc[len(df) - 3]
