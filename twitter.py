@@ -39,13 +39,15 @@ auth.set_access_token(st.secrets["access_token"], st.secrets["access_token_secre
 api = tw.API(auth, wait_on_rate_limit=True)
 
 #-----------------------------------------------------------------#
+import datetime as dt
+
 with st.sidebar.form("my_form"):
     st.write("**Buscador de Tweets**:")
     
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
     username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "JoeBiden")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
-    fecha = st.text_input(label="¿Desde qué fecha?", value = "fecha")
+    fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now())
     
     st.markdown("----")
     st.write("Si deseas descargar tweets de un usuario, indicanos:")
