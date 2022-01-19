@@ -66,32 +66,34 @@ with st.sidebar.form("my_form"):
 #@st.cache(suppress_st_warning=False)
 
 def searchTweets(username, count):
-    tweets = tw.Cursor(
-      q=username,
-      lang='es',
-      #geo=geo,
-      #result_type='mixed',
-      #tweet_mode="extended"
-    ).items(count)
-
-    tweets = list(tweets)
-    response = {
-      "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
-      "timestamps": [str(tweet.created_at) for tweet in tweets],
-      #"retweets": [tweet.retweet_count for tweet in tweets],
-      #"likes": [tweet.favorite_count for tweet in tweets],
-      
-      #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
-      "screen_name": [tweet.user.screen_name for tweet in tweets],
-      "query": [query for tweet in tweets],
-      #"hashtags": [tweet.hashtags for tweet in tweets],
-      #"status_count": [tweet.status_count for tweet in tweets],
-      #"location": [tweet.location for tweet in tweets],
-      #"source_device": [tweet.source_device for tweet in tweets],
-    }
-    
-    results = pd.DataFrame(response) 
-    return results 
+  tweets = tw.Cursor(
+    q=username,
+    lang='es'
+    #geo=geo,
+    #result_type='mixed',
+    tweet_mode="extended"
+    exclude_replies=replies,
+    include_rts=retweets,
+    count=count
+  ).items()
+  
+  tweets = list(tweets)
+  response = {
+    "tweets": [tweet.text.replace("\n", "").lower() for tweet in tweets],
+    "timestamps": [str(tweet.created_at) for tweet in tweets],
+    "retweets": [tweet.retweet_count for tweet in tweets],
+    "likes": [tweet.favorite_count for tweet in tweets],
+    #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
+    "screen_name": [tweet.user.name for tweet in tweets],
+    "query": [query for tweet in tweets],
+    #"hashtags": [tweet.hashtags for tweet in tweets],
+    #"status_count": [tweet.status_count for tweet in tweets],
+    "location": [tweet.user.location for tweet in tweets],
+    "verified": [tweet.user.verified for tweet in tweets],
+    #"source_device": [tweet.source_device for tweet in tweets],
+  }
+  results = pd.DataFrame(response) 
+  return results 
       
 
 def get_tweets(username, count):
