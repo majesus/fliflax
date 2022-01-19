@@ -77,8 +77,7 @@ def searchTweets(username, count):
     #tweet_mode="extended",
     #exclude_replies=replies,
     #include_rts=retweets,
-    count=count
-  ).items()
+  ).items(count)
   
   tweets = list(tweets)
   response = {
