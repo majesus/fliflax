@@ -79,7 +79,7 @@ with st.sidebar.form("my_form"):
 #@st.cache(suppress_st_warning=False)
 
 def searchTweets(username, count):
-  tweets = api.search_tweets(q=username, count=count, fromDate=fecha)
+  tweets = api.search_tweets(q=username, count=count, fromDate=fecha, tweet_mode='extended')
   
   tweets = list(tweets)
   response = {
