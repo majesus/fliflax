@@ -83,7 +83,7 @@ def searchTweets(username, count):
   
   tweets = list(tweets)
   response = {
-    "tweets": [tweet.text.replace("\n", "").lower() for tweet in tweets],
+    "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
     "timestamps": [str(tweet.created_at) for tweet in tweets],
     #"retweets": [tweet.retweet_count for tweet in tweets],
     #"likes": [tweet.favorite_count for tweet in tweets],
