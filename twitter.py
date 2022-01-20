@@ -56,7 +56,7 @@ with st.sidebar.form("my_form"):
     st.write("**Buscador de Tweets**:")
     
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
-    username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "JoeBiden")
+    username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "JoeBiden -filter:retweets")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
     fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now())
     
@@ -79,15 +79,15 @@ with st.sidebar.form("my_form"):
 #@st.cache(suppress_st_warning=False)
 
 def searchTweets(username, count):
-  tweets = api.search_tweets(q=username, count=count)
+  tweets = api.search_tweets(q=username, count=count, fromDate=fecha)
   
   tweets = list(tweets)
   response = {
     "tweets": [tweet.text.replace("\n", "").lower() for tweet in tweets],
     "timestamps": [str(tweet.created_at) for tweet in tweets],
     #"retweets": [tweet.retweet_count for tweet in tweets],
-    "likes": [tweet.favorite_count for tweet in tweets],
-    "retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
+    #"likes": [tweet.favorite_count for tweet in tweets],
+    #"retweet_text": [tweet.retweeted_status.full_text.replace("\n", "").lower() for tweet in tweets],
     "screen_name": [tweet.user.name for tweet in tweets],
     #"query": [query for tweet in tweets],
     #"hashtags": [tweet.hashtags for tweet in tweets],
