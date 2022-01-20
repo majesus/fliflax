@@ -56,7 +56,7 @@ with st.sidebar.form("my_form"):
     st.write("**Buscador de Tweets**:")
     
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
-    username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "JoeBiden -filter:retweets")
+    username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "currovillarejo")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=600, value=20, step=10)
     fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now())
     
