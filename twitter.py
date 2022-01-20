@@ -83,7 +83,7 @@ def searchTweets(username, count):
   
   tweets = list(tweets)
   response = {
-    "tweets": [tweet.full_text.replace("\n", "").lower() for tweet in tweets],
+    "tweets": [tweet.text.replace("\n", "").lower() for tweet in tweets],
     "timestamps": [str(tweet.created_at) for tweet in tweets],
     #"retweets": [tweet.retweet_count for tweet in tweets],
     #"likes": [tweet.favorite_count for tweet in tweets],
@@ -119,7 +119,7 @@ def get_tweets(username, count):
     #"query": [query for tweet in tweets],
     #"hashtags": [tweet.hashtags for tweet in tweets],
     #"status_count": [tweet.status_count for tweet in tweets],
-    #"location": [tweet.location for tweet in tweets],
+    "location": [tweet.location for tweet in tweets],
     #"source_device": [tweet.source_device for tweet in tweets],
     }
   results = pd.DataFrame(response) 
