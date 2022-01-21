@@ -58,6 +58,12 @@ search = username
 # the scraped tweets, this is a generator
 scraped_tweets = sntwitter.TwitterSearchScraper(username).get_items()
 
+# slicing the generator to keep only the first 100 tweets
+sliced_scraped_tweets = itertools.islice(scraped_tweets, 100)
+# convert to a DataFrame and keep only relevant columns
+df = pd.DataFrame(sliced_scraped_tweets)[['date', 'content']]
+
+st.table(df)
 st.write("fin")
 #-----------------------------------------------------------------#
 
