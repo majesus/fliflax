@@ -12,6 +12,7 @@ __email__     = "majesus@us.es"
 import pandas as pd
 import streamlit as st
 import altair as alt
+import snscrape
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 #-----------------------------------------------------------------#
