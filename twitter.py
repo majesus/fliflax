@@ -58,16 +58,7 @@ search = username
 # the scraped tweets, this is a generator
 scraped_tweets = sntwitter.TwitterSearchScraper(username).get_items()
 
-# Using TwitterSearchScraper to scrape data 
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:jack').get_items()):
-    if i>50:
-        break
-    tweets_list1.append([tweet.date, tweet.id, tweet.content, tweet.user.username])
 
-# Creating a dataframe from the tweets list above
-tweets_df1 = pd.DataFrame(tweets_list1, columns=['Datetime', 'Tweet Id', 'Text', 'Username'])
-
-st.table(tweets_df1)
 st.write("fin")
 #-----------------------------------------------------------------#
 
