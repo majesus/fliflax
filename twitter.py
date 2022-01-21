@@ -1,4 +1,4 @@
-"""Interactive interface for Twitter Search API.
+_"""Interactive interface for Twitter Search API.
 Twitter - datasets
 """
 
@@ -66,7 +66,7 @@ with st.sidebar.form("my_form"):
 search = username
 
 # the scraped tweets, this is a generator
-scraped_tweets = sntwitter.TwitterSearchScraper(search).get_items()
+scraped_tweets = sntwitter.TwitterSearchScraper('from:Setas_deSevilla').get_items()
 
 #-----------------------------------------------------------------#
 
