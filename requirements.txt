@@ -10,4 +10,6 @@ scipy >= 1.6.1
 matplotlib >= 3.2.2
 
 tweepy
+snscrape
+snscrape.modules.twitter 
 datetime
