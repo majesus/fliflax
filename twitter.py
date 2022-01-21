@@ -94,7 +94,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()):
                        tweet.place,
                        tweet.hashtags,
                        tweet.cashtags,
-                       tweet.inReplyToTweetId
+                       tweet.inReplyToTweetId,
                        tweet.inReplyToUser
                       ]) 
 
