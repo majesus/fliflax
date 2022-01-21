@@ -66,70 +66,37 @@ with st.sidebar.form("my_form"):
 tweets_list1 = []
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
-if tipo == "Usuario":
-  for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_items()): 
-    if i>count: #number of tweets you want to scrape
-      break
-    tweets_list1.append([tweet.date, 
-                         tweet.id, 
-                         tweet.content, 
-                         tweet.user.username,
-                         tweet.retweetCount,
-                         tweet.retweetedTweet,
-                         tweet.renderedContent,
-                         tweet.outlinks,
-                         tweet.tcooutlinks,
-                         tweet.replyCount,
-                         tweet.likeCount,
-                         tweet.quoteCount,
-                         tweet.conversationId,
-                         tweet.lang,
-                         tweet.source,
-                         tweet.sourceUrl,
-                         tweet.sourceLabel,
-                         tweet.media,
-                         tweet.quotedTweet,
-                         tweet.mentionedUsers,
-                         tweet.url,
-                         tweet.coordinates,
-                         tweet.place,
-                         tweet.hashtags,
-                         tweet.cashtags,
-                         tweet.inReplyToTweetId,
-                         tweet.inReplyToUser
-                         ]) #declare the attributes to be returned
-elif tipo == "Tema":
-  for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()): 
-    if i>count: #number of tweets you want to scrape
-      break
-    tweets_list1.append([tweet.date, 
-                         tweet.id, 
-                         tweet.content, 
-                         tweet.user.username,
-                         tweet.retweetCount,
-                         tweet.retweetedTweet,
-                         tweet.renderedContent,
-                         tweet.outlinks,
-                         tweet.tcooutlinks,
-                         tweet.replyCount,
-                         tweet.likeCount,
-                         tweet.quoteCount,
-                         tweet.conversationId,
-                         tweet.lang,
-                         tweet.source,
-                         tweet.sourceUrl,
-                         tweet.sourceLabel,
-                         tweet.media,
-                         tweet.quotedTweet,
-                         tweet.mentionedUsers,
-                         tweet.url,
-                         tweet.coordinates,
-                         tweet.place,
-                         tweet.hashtags,
-                         tweet.cashtags,
-                         tweet.inReplyToTweetId,
-                         tweet.inReplyToUser
-                         ]) #declare the attributes to be returned
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_items()): 
+  if i>count: #number of tweets you want to scrape
+    break
+  tweets_list1.append([tweet.date, 
+                       tweet.id, 
+                       tweet.content, 
+                       tweet.user.username,
+                       tweet.retweetCount,
+                       tweet.retweetedTweet,
+                       tweet.renderedContent,
+                       tweet.outlinks,
+                       tweet.tcooutlinks,
+                       tweet.replyCount,
+                       tweet.likeCount,
+                       tweet.quoteCount,
+                       tweet.conversationId,
+                       tweet.lang,
+                       tweet.source,
+                       tweet.sourceUrl,
+                       tweet.sourceLabel,
+                       tweet.media,
+                       tweet.quotedTweet,
+                       tweet.mentionedUsers,
+                       tweet.url,
+                       tweet.coordinates,
+                       tweet.place,
+                       tweet.hashtags,
+                       tweet.cashtags,
+                       tweet.inReplyToTweetId
+                       tweet.inReplyToUser
+                      ]) 
 
 # Creating a dataframe from the tweets list above 
 results = pd.DataFrame(tweets_list1, 
