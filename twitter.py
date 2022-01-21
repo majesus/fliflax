@@ -66,7 +66,7 @@ with st.sidebar.form("my_form"):
 tweets_list1 = []
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_items()): 
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()): 
   if i>count: #number of tweets you want to scrape
     break
   tweets_list1.append([tweet.date, 
