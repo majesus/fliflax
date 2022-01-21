@@ -55,10 +55,11 @@ with st.sidebar.form("my_form"):
 #-----------------------------------------------------------------#
 # our search term, using syntax for Twitter's Advanced Search
 search = username
-
 # the scraped tweets, this is a generator
-scraped_tweets = sntwitter.TwitterSearchScraper(username).get_items()
+#scraped_tweets = sntwitter.TwitterSearchScraper(username).get_items()
 
+results = pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper('"data science"').get_items(), 100))
+st.table(results)
 #-----------------------------------------------------------------#
 
 #-----------------------------------------------------------------#
