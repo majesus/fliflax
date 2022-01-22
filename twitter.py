@@ -16,82 +16,6 @@ st.set_page_config(#layout="centered",
                    initial_sidebar_state='expanded'
                    )
 #-----------------------------------------------------------------#
-import os
-# Using OS library to call CLI commands in Python
-os.system("snscrape --jsonl --max-results 10 --since 2000-01-01 twitter-search 'from:Setas_deSevilla' > prueba_text-query-tweets.json")
-import pandas as pd
-# Reads the json generated from the CLI commands above and creates a pandas dataframe
-tweets_df = pd.read_json('prueba_text-query-tweets.json', lines=True)
-st.table(tweets_df)
-#-----------------------------------------------------------------#
-
-# Creating list to append tweet data to
-tweets_list2 = []
-
-# Using TwitterSearchScraper to scrape data and append tweets to list
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('its the elephant since:2020-06-01 until:2020-07-31').get_items()):
-    if i>10:
-        break
-    tweets_list2.append([tweet.date, tweet.id, tweet.content])
-    
-# Creating a dataframe from the tweets list above
-tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Tweet Id', 'Text'])
-
-
-
-
-# https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
-# Using TwitterSearchScraper to scrape data and append tweets to list
-tweets_list1 = []
-users_name = 'futbol'
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:currovillarejo').get_items()):
-  if i>2:
-    break
-  tweets_list1.append([tweet.id,
-                       tweet.content,
-                       tweet.date])
-
-tweets_df1 = pd.DataFrame(tweets_list1)
-st.table(tweets_df1)
-
-
-tweets_list1 = []
-users_name = 'futbol'
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Los Angeles" within:10km').get_items()):
-  if i>2:
-    break
-  tweets_list1.append([tweet.id,
-                       tweet.content,
-                       tweet.date])
-
-tweets_df1 = pd.DataFrame(tweets_list1)
-st.table(tweets_df1)
-
-
-loc = '34.052235, -118.243683, 10km'
-tweets_list1 = []
-users_name = 'futbol'
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza geocode:"{}"'.format(loc)).get_items()):
-  if i>2:
-    break
-  tweets_list1.append([tweet.id,
-                       tweet.content,
-                       tweet.date])
-
-tweets_df1 = pd.DataFrame(tweets_list1)
-st.table(tweets_df1)
-#-----------------------------------------------------------------#
-
-
-
-
-
-
-
-
-
-
-
 st.image('img/fliflax-logo.jpg',width=200)
 st.title("Fliflax: Una plataforma de apoyo al estudio")
 st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
@@ -139,6 +63,61 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+users_name).get_
   tweets_list1.append([tweet.id,
                        tweet.content,
                        tweet.lang])
+
+tweets_df1 = pd.DataFrame(tweets_list1)
+st.table(tweets_df1)
+#-----------------------------------------------------------------#
+
+# Creating list to append tweet data to
+tweets_list2 = []
+
+# Using TwitterSearchScraper to scrape data and append tweets to list
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(Tema + 'since:2010-01-01 until:2020-07-31').get_items()):
+    if i>count:
+        break
+    tweets_list2.append([tweet.date, tweet.id, tweet.content])
+    
+# Creating a dataframe from the tweets list above
+tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Tweet Id', 'Text'])
+
+
+# https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
+# Using TwitterSearchScraper to scrape data and append tweets to list
+tweets_list1 = []
+#users_name = 'futbol'
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_items()):
+  if i>count:
+    break
+  tweets_list1.append([tweet.id,
+                       tweet.content,
+                       tweet.date])
+
+tweets_df1 = pd.DataFrame(tweets_list1)
+st.table(tweets_df1)
+
+
+tweets_list1 = []
+users_name = 'futbol'
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Los Angeles" within:10km').get_items()):
+  if i>count:
+    break
+  tweets_list1.append([tweet.id,
+                       tweet.content,
+                       tweet.date])
+
+tweets_df1 = pd.DataFrame(tweets_list1)
+st.table(tweets_df1)
+
+
+loc = '34.052235, -118.243683, 10km'
+tweets_list1 = []
+users_name = 'futbol'
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza geocode:"{}"'.format(loc)).get_items()):
+  if i>count:
+    break
+  tweets_list1.append([tweet.id,
+                       tweet.content,
+                       tweet.date])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
