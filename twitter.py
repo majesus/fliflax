@@ -59,9 +59,9 @@ tweets_list1 = []
 users_name = ['bbcmundo','nytimes']
 for n, k in enumerate(users_name):
     for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:{}'.format(users_name[n])).get_items()):
-      if i>10:
+      if i>20:
         break
-      tweets_list1.append([tweet.retweetCount, tweet.id, tweet.content])
+      tweets_list1.append([tweet.id, tweet.content])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
