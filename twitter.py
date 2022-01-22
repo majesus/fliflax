@@ -62,7 +62,7 @@ for n, k in enumerate(users_name):
       tweets_list1.append([tweet.date, 
                            tweet.id, 
                            tweet.content, 
-                           tweet.user.username,
+                           #tweet.user.username,
                            tweet.retweetCount,
                            tweet.retweetedTweet,
                            tweet.renderedContent,
