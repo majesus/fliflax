@@ -27,11 +27,23 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper(users_name).get_items())
     break
   tweets_list1.append([tweet.id,
                        tweet.content,
-                       tweet.date,
-                       tweet.lang])
+                       tweet.date])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
+
+tweets_list1 = []
+users_name = 'futbol'
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Los Angeles" within:10km').get_items()):
+  if i>20:
+    break
+  tweets_list1.append([tweet.id,
+                       tweet.content,
+                       tweet.date])
+
+tweets_df1 = pd.DataFrame(tweets_list1)
+st.table(tweets_df1)
+
 #-----------------------------------------------------------------#
 
 
