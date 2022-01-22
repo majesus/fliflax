@@ -16,7 +16,13 @@ st.set_page_config(#layout="centered",
                    initial_sidebar_state='expanded'
                    )
 #-----------------------------------------------------------------#
-
+import os
+# Using OS library to call CLI commands in Python
+os.system("snscrape --jsonl --max-results 10 --since 2000-01-01 twitter-search 'from:Setas_deSevilla' > prueba_text-query-tweets.json")
+import pandas as pd
+# Reads the json generated from the CLI commands above and creates a pandas dataframe
+tweets_df = pd.read_json('prueba_text-query-tweets.json', lines=True)
+st.table(tweets_df)
 #-----------------------------------------------------------------#
 
 # Creating list to append tweet data to
