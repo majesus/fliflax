@@ -22,12 +22,12 @@ st.set_page_config(#layout="centered",
 # Using TwitterSearchScraper to scrape data and append tweets to list
 tweets_list1 = []
 users_name = 'futbol'
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper(users_name).get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:currovillarejo').get_items()):
   if i>2:
     break
   tweets_list1.append([tweet.id,
                        tweet.content,
-                       tweet.date, tweet.user])
+                       tweet.date, tweet.user.username])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
