@@ -73,4 +73,4 @@ for n, k in enumerate(users_name):
                          tweet.inReplyToTweetId, tweet.inReplyToUser, tweet.mentionedUsers,\
                          tweet.coordinates, tweet.place, tweet.hashtags, tweet.cashtags])
 #-----------------------------------------------------------------#
-st.write("fin")
+st.write("fin2")
