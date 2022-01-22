@@ -57,18 +57,6 @@ with st.sidebar.form("my_form"):
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
 
-tweets_list1 = []
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username + 'since:2010-01-01 until:2020-07-31').get_items()):
-  if i>count:
-    break
-  tweets_list1.append([tweet.id,
-                       tweet.content,
-                       tweet.date])
-
-tweets_df1 = pd.DataFrame(tweets_list1)
-st.table(tweets_df1)
-#-----------------------------------------------------------------#
-
 # Creating list to append tweet data to
 tweets_list2 = []
 
@@ -80,7 +68,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username + 'since:2010-0
     
 # Creating a dataframe from the tweets list above
 tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Tweet Id', 'Text'])
-
+st.table(tweets_df2)
 
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
