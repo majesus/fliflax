@@ -67,11 +67,11 @@ for n, k in enumerate(users_name):
     for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:{}'.format(users_name[n])).get_items()):
       if i>100:
         break
-    tweets_list1.append([tweet.date, tweet.id, tweet.content, tweet.url,\
-                         tweet.user.username, tweet.user.followersCount,tweet.replyCount,\
-                         tweet.retweetCount, tweet.likeCount, tweet.quoteCount, tweet.lang,\
-                         tweet.outlinks, tweet.media, tweet.retweetedTweet, tweet.quotedTweet,\
-                         tweet.inReplyToTweetId, tweet.inReplyToUser, tweet.mentionedUsers,\
+    tweets_list1.append([tweet.date, tweet.id, tweet.content, tweet.url,
+                         tweet.user.username, tweet.user.followersCount,tweet.replyCount,
+                         tweet.retweetCount, tweet.likeCount, tweet.quoteCount, tweet.lang,
+                         tweet.outlinks, tweet.media, tweet.retweetedTweet, tweet.quotedTweet,
+                         tweet.inReplyToTweetId, tweet.inReplyToUser, tweet.mentionedUsers,
                          tweet.coordinates, tweet.place, tweet.hashtags, tweet.cashtags])
 #-----------------------------------------------------------------#
 st.write("fin2")
