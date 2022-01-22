@@ -58,7 +58,7 @@ with st.sidebar.form("my_form"):
 tweets_list1 = []
 users_name = 'currovillarejo'
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+users_name).get_items()):
-  if i>20:
+  if i>count:
     break
   tweets_list1.append([tweet.id,
                        tweet.content,
