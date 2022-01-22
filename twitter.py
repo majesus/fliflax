@@ -61,7 +61,7 @@ for n, k in enumerate(users_name):
     for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:{}'.format(users_name[n])).get_items()):
       if i>10:
         break
-      tweets_list1.append([tweet.date, 
+      tweets_list1.append([tweet.retweetCount, 
                            tweet.id, 
                            tweet.content])
 
