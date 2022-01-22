@@ -1,3 +1,5 @@
+os
+
 streamlit >= 0.79.0
 streamlit-echarts
 streamlit-option-menu
