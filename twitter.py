@@ -58,6 +58,7 @@ with st.sidebar.form("my_form"):
 # Using TwitterSearchScraper to scrape data and append tweets to list
 
 sd = desde_fecha.strftime("%Y-%m-%d")
+st.write(sd)
 
 # Creating list to append tweet data to
 tweets_list2 = []
