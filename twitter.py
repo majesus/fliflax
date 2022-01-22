@@ -37,7 +37,7 @@ with st.sidebar.form("my_form"):
     username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "currovillarejo")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=100, value=2, step=10)
     desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now() - 7)
-    hasta_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now())
+    hasta_fecha = st.date_input('¿Hasta qué fecha?',value = dt.datetime.now())
     
     st.markdown("----")
     st.write("Si deseas descargar tweets de un usuario, indicanos:")
