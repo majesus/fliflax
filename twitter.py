@@ -16,6 +16,33 @@ st.set_page_config(#layout="centered",
                    initial_sidebar_state='expanded'
                    )
 #-----------------------------------------------------------------#
+
+#-----------------------------------------------------------------#
+# https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
+# Using TwitterSearchScraper to scrape data and append tweets to list
+tweets_list1 = []
+users_name = 'currovillarejo'
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+users_name).get_items()):
+  if i>20:
+    break
+  tweets_list1.append([tweet.id,
+                       tweet.content,
+                       tweet.lang])
+
+tweets_df1 = pd.DataFrame(tweets_list1)
+st.table(tweets_df1)
+#-----------------------------------------------------------------#
+
+
+
+
+
+
+
+
+
+
+
 st.image('img/fliflax-logo.jpg',width=200)
 st.title("Fliflax: Una plataforma de apoyo al estudio")
 st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
@@ -61,7 +88,8 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+users_name).get_
   if i>20:
     break
   tweets_list1.append([tweet.id,
-                       tweet.content])
+                       tweet.content,
+                       tweet.lang])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
