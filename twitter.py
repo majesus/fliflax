@@ -61,6 +61,7 @@ scraped_tweets = sntwitter.TwitterSearchScraper(username).get_items()
 
 st.write("fin")
 #-----------------------------------------------------------------#
+tweets_list1 = []
 users_name = ['bbcmundo','nytimes']
 for n, k in enumerate(users_name):
     for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:{}'.format(users_name[n])).get_items()):
