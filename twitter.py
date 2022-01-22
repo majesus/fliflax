@@ -72,7 +72,7 @@ st.table(tweets_df1)
 tweets_list2 = []
 
 # Using TwitterSearchScraper to scrape data and append tweets to list
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper(Tema + 'since:2010-01-01 until:2020-07-31').get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username + 'since:2010-01-01 until:2020-07-31').get_items()):
     if i>count:
         break
     tweets_list2.append([tweet.date, tweet.id, tweet.content])
@@ -84,7 +84,6 @@ tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Tweet Id', 'Text']
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
 tweets_list1 = []
-#users_name = 'futbol'
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_items()):
   if i>count:
     break
