@@ -26,10 +26,10 @@ tweets_list2 = []
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper('its the elephant since:2020-06-01 until:2020-07-31').get_items()):
     if i>10:
         break
-    tweets_list2.append([tweet.date, tweet.id, tweet.content, tweet.user.username])
+    tweets_list2.append([tweet.date, tweet.id, tweet.content])
     
 # Creating a dataframe from the tweets list above
-tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Tweet Id', 'Text', 'Username'])
+tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Tweet Id', 'Text'])
 
 
 
