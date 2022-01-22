@@ -23,7 +23,7 @@ st.set_page_config(#layout="centered",
 tweets_list1 = []
 users_name = 'futbol'
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper(users_name).get_items()):
-  if i>20:
+  if i>2:
     break
   tweets_list1.append([tweet.id,
                        tweet.content,
@@ -31,11 +31,12 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper(users_name).get_items())
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
+
 
 tweets_list1 = []
 users_name = 'futbol'
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Los Angeles" within:10km').get_items()):
-  if i>20:
+  if i>2:
     break
   tweets_list1.append([tweet.id,
                        tweet.content,
@@ -44,6 +45,13 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Los Angeles
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
 
+
+loc = '34.052235, -118.243683, 10km'
+df_coord = pd.DataFrame(itertools.islice(sntwitter.TwitterSearchScraper(
+    'pizza geocode:"{}"'.format(loc)).get_items(), 50))[['user', 'date','content']]
+
+df_coord['user_location'] =  df_coord['user'].apply(lambda x: x['location'])
+st.table(df_coord)
 #-----------------------------------------------------------------#
 
 
