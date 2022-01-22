@@ -113,3 +113,13 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza geocode:"{}"'.for
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
 #-----------------------------------------------------------------#
+import os
+
+sd = desde_fecha.strftime("%Y-%m-%d")
+ed = hasta_fecha.strftime("%Y-%m-%d")
+city = "Madrid"
+
+query = 'snscrape --jsonl --max-results 10 twitter-search "(("covid" OR "corona" OR "coronavirus" OR "positive" OR "ve") AND ' + '"{}"'.format(city) + ') AND (("Available" AND ' + 'vantilator' + ') AND ("contact" OR "mobile" OR "call" OR "number" OR "91" OR "message" OR "phone" OR "num" OR "tel")) since:' + sd + " until:" + ed + '" > COVID_data.json'
+os.system(query)
+df = pd.read_json('COVID_data.json', lines=True)
+st.table(df)
