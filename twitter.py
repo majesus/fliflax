@@ -53,14 +53,6 @@ with st.sidebar.form("my_form"):
 
     submitted = st.form_submit_button("Descargar")
 #-----------------------------------------------------------------#
-# our search term, using syntax for Twitter's Advanced Search
-search = username
-# the scraped tweets, this is a generator
-scraped_tweets = sntwitter.TwitterSearchScraper('from:jack').get_items()
-
-
-st.write("fin")
-#-----------------------------------------------------------------#
 tweets_list1 = []
 users_name = ['bbcmundo','nytimes']
 for n, k in enumerate(users_name):
@@ -77,4 +69,3 @@ for n, k in enumerate(users_name):
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
 #-----------------------------------------------------------------#
-st.write("fin2")
