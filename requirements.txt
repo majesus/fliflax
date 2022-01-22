@@ -8,6 +8,6 @@ numpy >= 1.18.5
 scipy >= 1.6.1
 
 tweepy
-snscrape >= 0.4.3
+snscrape >= 0.4.3.20220106
 more-itertools
 datetime
