@@ -36,7 +36,8 @@ with st.sidebar.form("my_form"):
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
     username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "currovillarejo")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=100, value=2, step=10)
-    fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now())
+    desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now())
+    hasta_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now() - 7)
     
     st.markdown("----")
     st.write("Si deseas descargar tweets de un usuario, indicanos:")
@@ -56,7 +57,7 @@ with st.sidebar.form("my_form"):
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
 tweets_list1 = []
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:' +username + 'since:'+ fecha_desde + 'until:' + hasta_fecha).get_items()):
   if i>count:
     break
   tweets_list1.append([tweet.id,
