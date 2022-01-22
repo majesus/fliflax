@@ -21,14 +21,14 @@ st.set_page_config(#layout="centered",
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
 tweets_list1 = []
-users_name = 'currovillarejo'
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+users_name).get_items()):
+users_name = 'futbol'
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(users_name).get_items()):
   if i>20:
     break
   tweets_list1.append([tweet.id,
                        tweet.content,
                        tweet.date,
-                       tweet.user])
+                       tweet.lang])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
