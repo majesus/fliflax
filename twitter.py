@@ -61,7 +61,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_it
     break
   tweets_list1.append([tweet.id,
                        tweet.content,
-                       tweet.date])
+                       tweet.date,tweet.retweetCount])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
