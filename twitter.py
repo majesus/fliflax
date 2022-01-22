@@ -56,12 +56,12 @@ with st.sidebar.form("my_form"):
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
 tweets_list1 = []
-users_name = ['currovillarejo','Setas_deSevilla']
+users_name = ['currovillarejo']
 for n, k in enumerate(users_name):
     for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:{}'.format(users_name[n])).get_items()):
       if i>20:
         break
-      tweets_list1.append([tweet.id, tweet.content, tweet.retweetCount])
+      tweets_list1.append([tweet.id, tweet.content, tweet.lang])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
