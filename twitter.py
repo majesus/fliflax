@@ -63,28 +63,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+'Setas_deSevilla
                          tweet.content, 
                          tweet.user.username,
                          tweet.retweetCount,
-                         tweet.retweetedTweet,
-                         tweet.renderedContent,
-                         tweet.outlinks,
-                         tweet.tcooutlinks,
-                         tweet.replyCount,
-                         tweet.likeCount,
-                         tweet.quoteCount,
-                         tweet.conversationId,
-                         tweet.lang,
-                         tweet.source,
-                         tweet.sourceUrl,
-                         tweet.sourceLabel,
-                         tweet.media,
-                         tweet.quotedTweet,
-                         tweet.mentionedUsers,
-                         tweet.url,
-                         tweet.coordinates,
-                         tweet.place,
-                         tweet.hashtags,
-                         tweet.cashtags,
-                         tweet.inReplyToTweetId,
-                         tweet.inReplyToUser
+                         tweet.retweetedTweet
                          ]) #declare the attributes to be returned
     
 # Creating a dataframe from the tweets list above 
@@ -94,29 +73,7 @@ tweets_df1 = pd.DataFrame(tweets_list1,
                                    'Text',
                                    'Username',
                                    'retweetCount',
-                                   'retweetedTweet',
-                                   'renderedContent',
-                                   'outlinks',
-                                   'tcooutlinks',
-                                   'replyCount',
-                                   'likeCount',
-                                   'quoteCount',
-                                   'conversationId',
-                                   'lang',
-                                   'source',
-                                   'sourceUrl',
-                                   'sourceLabel',
-                                   'media',
-                                   'quotedTweet',
-                                   'mentionedUsers',
-                                   'url',
-                                   'coordinates',
-                                   'place',
-                                   'hashtags',
-                                   'cashtags',
-                                   'inReplyToTweetId',
-                                   'inReplyToUser'
-                                   ])
+                                   'retweetedTweet'])
 
 tweets_df1.tail()
 
