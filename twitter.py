@@ -57,11 +57,13 @@ with st.sidebar.form("my_form"):
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
 
+sd = desde_fecha.strftime("%Y-%m-%d")
+
 # Creating list to append tweet data to
 tweets_list2 = []
 
 # Using TwitterSearchScraper to scrape data and append tweets to list
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username + 'since:' + sd).get_items()):
     if i>count:
         break
     tweets_list2.append([tweet.date, tweet.id, tweet.content])
