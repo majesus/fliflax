@@ -26,7 +26,6 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+users_name).get_
   if i>20:
     break
   tweets_list1.append([tweet.id,
-                       tweet.content,
                        tweet.lang])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
