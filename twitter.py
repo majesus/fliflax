@@ -61,7 +61,7 @@ with st.sidebar.form("my_form"):
 tweets_list2 = []
 
 # Using TwitterSearchScraper to scrape data and append tweets to list
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username + 'since:2010-01-01 until:2020-07-31').get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()):
     if i>count:
         break
     tweets_list2.append([tweet.date, tweet.id, tweet.content])
