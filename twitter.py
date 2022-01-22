@@ -53,41 +53,72 @@ with st.sidebar.form("my_form"):
 
     submitted = st.form_submit_button("Descargar")
 #-----------------------------------------------------------------#
-tweets_list1 = []
-users_name = ['bbcmundo','nytimes']
-for n, k in enumerate(users_name):
-    for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:{}'.format(users_name[n])).get_items()):
-      if i>10:
+# https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
+# Using TwitterSearchScraper to scrape data and append tweets to list
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+'Setas_deSevilla').get_items()): #declare a username 
+    if i>50: #number of tweets you want to scrape
         break
-      tweets_list1.append([tweet.date, 
-                           tweet.id, 
-                           tweet.content, 
-                           #tweet.user.username,
-                           tweet.retweetCount,
-                           tweet.retweetedTweet,
-                           tweet.renderedContent,
-                           tweet.outlinks,
-                           tweet.tcooutlinks,
-                           tweet.replyCount,
-                           tweet.likeCount,
-                           tweet.quoteCount,
-                           tweet.conversationId,
-                           tweet.lang,
-                           tweet.source,
-                           tweet.sourceUrl,
-                           tweet.sourceLabel,
-                           tweet.media,
-                           tweet.quotedTweet,
-                           tweet.mentionedUsers,
-                           tweet.url,
-                           tweet.coordinates,
-                           tweet.place,
-                           tweet.hashtags,
-                           tweet.cashtags,
-                           tweet.inReplyToTweetId,
-                           tweet.inReplyToUser
-                         ])
+    tweets_list1.append([tweet.date, 
+                         tweet.id, 
+                         tweet.content, 
+                         tweet.user.username,
+                         tweet.retweetCount,
+                         tweet.retweetedTweet,
+                         tweet.renderedContent,
+                         tweet.outlinks,
+                         tweet.tcooutlinks,
+                         tweet.replyCount,
+                         tweet.likeCount,
+                         tweet.quoteCount,
+                         tweet.conversationId,
+                         tweet.lang,
+                         tweet.source,
+                         tweet.sourceUrl,
+                         tweet.sourceLabel,
+                         tweet.media,
+                         tweet.quotedTweet,
+                         tweet.mentionedUsers,
+                         tweet.url,
+                         tweet.coordinates,
+                         tweet.place,
+                         tweet.hashtags,
+                         tweet.cashtags,
+                         tweet.inReplyToTweetId,
+                         tweet.inReplyToUser
+                         ]) #declare the attributes to be returned
+    
+# Creating a dataframe from the tweets list above 
+tweets_df1 = pd.DataFrame(tweets_list1, 
+                          columns=['Datetime',
+                                   'Tweet Id',
+                                   'Text',
+                                   'Username',
+                                   'retweetCount',
+                                   'retweetedTweet',
+                                   'renderedContent',
+                                   'outlinks',
+                                   'tcooutlinks',
+                                   'replyCount',
+                                   'likeCount',
+                                   'quoteCount',
+                                   'conversationId',
+                                   'lang',
+                                   'source',
+                                   'sourceUrl',
+                                   'sourceLabel',
+                                   'media',
+                                   'quotedTweet',
+                                   'mentionedUsers',
+                                   'url',
+                                   'coordinates',
+                                   'place',
+                                   'hashtags',
+                                   'cashtags',
+                                   'inReplyToTweetId',
+                                   'inReplyToUser'
+                                   ])
 
-tweets_df1 = pd.DataFrame(tweets_list1)
+tweets_df1.tail()
+
 st.table(tweets_df1)
 #-----------------------------------------------------------------#
