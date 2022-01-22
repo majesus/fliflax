@@ -28,7 +28,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+users_name).get_
   tweets_list1.append([tweet.id,
                        tweet.content,
                        tweet.date,
-                       tweet.place])
+                       tweet.user])
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
