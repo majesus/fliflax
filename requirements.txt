@@ -9,6 +9,6 @@ scipy >= 1.6.1
 
 tweepy
 twint
-snscrape == 0.4.3.20220106
+snscrape >= 0.3.4
 
 datetime
