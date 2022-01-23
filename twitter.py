@@ -62,16 +62,16 @@ st.write(sd)
 
 # Creating list to append tweet data to
 tweets_list2 = []
-
 # Using TwitterSearchScraper to scrape data and append tweets to list
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username + 'since:' + sd).get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()):
     if i>count:
         break
-    tweets_list2.append([tweet.date, tweet.id, tweet.content])
+    #tweets_list2.append([tweet.date, tweet.id, tweet.content])
     
 # Creating a dataframe from the tweets list above
-tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Tweet Id', 'Text'])
+tweets_df2 = pd.DataFrame(tweets_list2)
 st.table(tweets_df2)
+#-----------------------------------------------------------------#
 
 # https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 # Using TwitterSearchScraper to scrape data and append tweets to list
@@ -85,7 +85,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_it
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
-
+#-----------------------------------------------------------------#
 
 tweets_list1 = []
 users_name = 'futbol'
@@ -98,7 +98,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Los Angeles
 
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
-
+#-----------------------------------------------------------------#
 
 loc = '34.052235, -118.243683, 10km'
 tweets_list1 = []
@@ -113,6 +113,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza geocode:"{}"'.for
 tweets_df1 = pd.DataFrame(tweets_list1)
 st.table(tweets_df1)
 #-----------------------------------------------------------------#
+
 import os
 
 sd = desde_fecha.strftime("%Y-%m-%d")
@@ -123,3 +124,14 @@ query = 'snscrape --jsonl --max-results 10 twitter-search "(("covid" OR "corona"
 os.system(query)
 df = pd.read_json('COVID_data.json', lines=True)
 st.table(df)
+#-----------------------------------------------------------------#
+
+
+
+
+st.markdown('''
+## Contáctame con cualqueir duda:
+- [LinkedIn](https://www.linkedin.com/in/.../)
+- [Mail](https://mail.google.com/mail/u/0/...) 
+- [GitHub](https://github.com/...) (Source code will be updated soon)
+''', unsafe_allow_html=False)
