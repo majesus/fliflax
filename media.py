@@ -150,6 +150,11 @@ st.sidebar.write("Mi valoración, pon la cara que se ha quedado después de cons
 img_file = st.sidebar.camera_input("")
 if img_file is not None:
     st.sidebar.image(img_file)
+    
+from fer import FER
+detector = FER()
+emotion, score = detector.top_emotion(img_file)
+st.sidebar.write("Mi emoción es", f"**{emotion}**", "")
 #----------------------------------------------------#
 st.sidebar.markdown("""---""")
 #----------------------------------------------------#
