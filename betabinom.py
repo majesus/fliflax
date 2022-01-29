@@ -146,6 +146,7 @@ st.sidebar.write(keyword)
 #----------------------------------------------------#
 st.sidebar.markdown("""---""")
 #----------------------------------------------------#
+st.sidebar.write("Captura de valoración ...")
 img_file = st.sidebar.camera_input("Webcam image")
 if img_file is not None:
     st.image(img_file)
