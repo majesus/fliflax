@@ -151,12 +151,6 @@ img_file = st.sidebar.camera_input("")
 if img_file is not None:
     st.sidebar.image(img_file)
     
-from fer import FER
-import cv2
-img = cv2.imread(img_file)
-detector = FER()
-emotion, score = detector.top_emotion(img)
-st.sidebar.write("Mi emoción es", f"**{emotion}**", "")
 #----------------------------------------------------#
 st.sidebar.markdown("""---""")
 #----------------------------------------------------#
