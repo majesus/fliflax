@@ -12,7 +12,3 @@ twint
 snscrape >= 0.3.4
 
 datetime
-
-fer
-
-opencv-python-headless
