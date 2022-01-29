@@ -146,6 +146,14 @@ st.sidebar.write(keyword)
 #----------------------------------------------------#
 st.sidebar.markdown("""---""")
 #----------------------------------------------------#
+img_file = st.sidebar.camera_input("Webcam image")
+if img_file is not None:
+    st.image(img_file)
+#----------------------------------------------------#
+st.sidebar.markdown("""---""")
+#----------------------------------------------------#
+#----------------------------------------------------#
+#----------------------------------------------------#
 st.write("### Modelo Beta-Binomial")
 st.write("Beta binomial es un método de estimación de la "
          "distribución de contactos que denominamos de **Audiencia neta acumulada** "
