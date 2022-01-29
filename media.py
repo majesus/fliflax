@@ -151,6 +151,14 @@ img_file = st.sidebar.camera_input("")
 if img_file is not None:
     st.sidebar.image(img_file)
     
+from fer import FER
+#test_image_one = plt.imread(img_file)
+emo_detector = FER(mtcnn=True)
+# Capture all the emotions on the image
+captured_emotions = emo_detector.detect_emotions(img_file)
+# Print all captured emotions with the image
+# print(captured_emotions)
+st.sidebar.image(captured_emotions)
 #----------------------------------------------------#
 st.sidebar.markdown("""---""")
 #----------------------------------------------------#
