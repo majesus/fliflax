@@ -12,4 +12,3 @@ twint
 snscrape >= 0.3.4
 
 datetime
-fer
