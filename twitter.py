@@ -35,7 +35,7 @@ with st.sidebar.form("my_form"):
     st.write("**Buscador de Tweets**:")
     
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
-    username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "currovillarejo")
+    username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "BMWEspana")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=100, value=2, step=10)
     desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now())
     hasta_fecha = st.date_input('¿Hasta qué fecha?',value = dt.datetime.now())
@@ -56,8 +56,8 @@ with st.sidebar.form("my_form"):
     submitted = st.form_submit_button("Descargar")
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
-# https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
-# Using TwitterSearchScraper to scrape data and append tweets to list
+
+# IMPORTANTE: https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 
 sd = desde_fecha.strftime("%Y-%m-%d")
 st.write(sd)
@@ -75,8 +75,8 @@ tweets_df2 = pd.DataFrame(tweets_list2)
 st.table(tweets_df2)
 #-----------------------------------------------------------------#
 
-# https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
-# Using TwitterSearchScraper to scrape data and append tweets to list
+# IMPORTANTE: https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
+
 tweets_list1 = []
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:'+username).get_items()):
   if i>count:
@@ -91,7 +91,7 @@ st.table(tweets_df1)
 
 tweets_list1 = []
 users_name = 'futbol'
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Los Angeles" within:10km').get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('pizza near:"Madrid" within:10km').get_items()):
   if i>count:
     break
   tweets_list1.append([tweet.id,
@@ -127,9 +127,6 @@ os.system(query)
 df = pd.read_json('COVID_data.json', lines=True)
 st.table(df)
 #-----------------------------------------------------------------#
-
-
-
 
 st.markdown('''
 ## Contáctame con cualqueir duda:
