@@ -8,7 +8,7 @@ from transformers import pipeline
 
 import os
 
-# https://huggingface.co/spaces/lewtun/twitter-sentiments/blob/aa8bd7daee9993846d1a2330b163aa76b6690023/app.py
+# IMPORTANTE: https://huggingface.co/spaces/lewtun/twitter-sentiments/blob/aa8bd7daee9993846d1a2330b163aa76b6690023/app.py
 
 # st.write("Has environment variables been set:", os.environ["consumerKey"] == st.secrets["consumerKey"])
 # st.write("Has environment variables been set:", os.environ["consumerSecret"] == st.secrets["consumerSecret"])
@@ -100,10 +100,12 @@ if st.sidebar.button("Get tweets!"):
     ts_sentiment.columns = ["timestamp", "label", "count"]
     st.table(ts_sentiment)
 #----------------------------------------------------------------#
-# https://github.com/pysentimiento/pysentimiento
+
+# IMPORTANTE:  https://github.com/pysentimiento/pysentimiento
+
 from pysentimiento import create_analyzer
 #analyzer = create_analyzer(task="sentiment", lang="es")
-#results = analyzer.predict("Qué gran jugador es Messi")
+#results = analyzer.predict("La vida es maravillosa.")
 
 #data_items = results.probas.items()
 #data_list = list(data_items)
@@ -127,12 +129,12 @@ if st.sidebar.button("Get tweets!"):
 Twitter - datasets
 """
 
-__author__    = "Manuel J. Sánchez-Franco"
-__copyright__ = "Copyright 2022, @majesus"
-__credits__   = ["@majesus"]
+__author__    = ""
+__copyright__ = "Copyright 2022, @..."
+__credits__   = ["@..."]
 __license__   = ""
 __version__   = "0.1"
-__email__     = "majesus@us.es"
+__email__     = "...@....es"
 #-----------------------------------------------------------------#
 import pandas as pd
 import streamlit as st
