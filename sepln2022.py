@@ -99,11 +99,11 @@ sims = util.cos_sim(query_emb, emb)
 sims = [(float(s),i) for i, s in enumerate(sims[0])]
 sims.sort(reverse=True)
 
-st.markdown("#----#")
-
+st.sidebar.markdown("""---""")
 """
-Resultados:
+st.write("**Resultados:**")
 """
+st.sidebar.markdown("""---""")
 
 for s, i in sims[:10]:
     st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
