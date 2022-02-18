@@ -72,7 +72,8 @@ Resultados:
 for s, i in sims[:10]:
     st.write(str(s)+"\t"+labs[i]+": "+ text[i])
     d = {'col1': labs[i], 'col2': text[i]}
-    st.table(d)
+    df = pd.DataFrame(data=d)
+    st.table(df)
     
 
 st.write("Proporción de frases [100] por tipo de alojamiento ordenadas de mayor a menor similitud:")
