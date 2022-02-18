@@ -105,7 +105,7 @@ st.write("*Resultados:*")
 
 st.markdown("""---""")
 
-data= data[]
+data= []
 for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
     data = [str(s), labs[i], text[i]]
