@@ -22,7 +22,7 @@ from collections import Counter
 import pandas as pd
 import re
 
-datos = pd.read_csv("drive/MyDrive/Colab Notebooks/Fermin/proyecto.csv")
+datos = pd.read_csv("csv/proyecto.csv")
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 
