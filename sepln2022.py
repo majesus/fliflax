@@ -1,15 +1,8 @@
 from sentence_transformers import SentenceTransformer, util
 import streamlit as st
-
-
 #-----------------------------------------------------------------------------#
 @st.cache
-st.download_button(
-     label="Download data as pkl",
-     #data=csv,
-     file_name='model/emb.pkl',
-     #mime='text/csv',
- )
+emb = open('model/emb', 'rb')
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
