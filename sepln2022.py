@@ -105,13 +105,22 @@ st.write("### Resultados:")
 
 st.markdown("""---""")
 
-data = pd.DataFrame()
-data1 = pd.DataFrame()
+#data = pd.DataFrame()
+#data1 = pd.DataFrame()
+columns = list()
+data = []
 for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
-    data = [str(s), labs[i], text[i]]
-    data1 = data1.append(data)
-st.table(data1)
+    #data = [str(s), labs[i], text[i]]
+    #data1 = data1.append(data)
+    
+    values = [str(s), labs[i], text[i]]
+    zipped = zip(clumns, values)
+    a_dictionary = dict(zipped)
+    data.append(a_dictionary)
+    
+#st.table(data1)
+st.table(data)
     
 st.markdown("""---""")
 
