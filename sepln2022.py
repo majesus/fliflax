@@ -121,21 +121,3 @@ st.markdown("""---""")
 #---------------------------------------------------------#
 #---------------------------------------------------------#
 
-#---------------------------------------------------------#
-from textblob import TextBlob
-from nltk.tokenize import sent_tokenize
-
-sents = sent_tokenize(text)
-entireText = TextBlob(text)
-sentScores = []
-for sent in sents:
-    text = TextBlob(sent)
-    score = text.sentiment[0]
-    sentScores.append(score)
-    
-st.line_chart(sentScores)
-
-#Polarity and Subjectivity of the entire text inputted
-sentimentTotal = entireText.sentiment
-st.write("The sentiment of the overall text below.")
-st.write(sentimentTotal)
