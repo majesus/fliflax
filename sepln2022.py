@@ -64,7 +64,11 @@ query_emb = model.encode(query)
 sims = util.cos_sim(query_emb, emb)
 sims = [(float(s),i) for i, s in enumerate(sims[0])]
 sims.sort(reverse=True)
-    
+
+"""
+Resultados:
+"""
+
 for s, i in sims[:10]:
     st.write(str(s)+"\t"+labs[i]+": "+ text[i])
 
