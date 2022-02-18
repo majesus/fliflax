@@ -56,7 +56,7 @@ datos = pd.read_csv("csv/proyecto.csv")
 with st.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
     n_top = st.slider(label='número de frases a emplear por tipo de alojamiento:', value=10, max_value= len(datos)//2, min_value = 1)
-    query = st.text_input(label='frase objetivo con que comparar similitudes [coseno]:', value = "enduring relationship")
+    text = st.text_input(label='frase objetivo con que comparar similitudes [coseno]:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
 # datos = pd.read_csv("csv/proyecto.csv")
@@ -93,7 +93,7 @@ emb = model.encode(text)
 #---------------------------------------------------------#
 #st.table(datos.head())
 #---------------------------------------------------------#
-query_emb = model.encode(query)
+query_emb = model.encode(text)
     
 sims = util.cos_sim(query_emb, emb)
 sims = [(float(s),i) for i, s in enumerate(sims[0])]
@@ -119,3 +119,23 @@ st.write(Counter(labs[i] for _,i in sims[:100]))
 
 st.markdown("""---""")
 #---------------------------------------------------------#
+#---------------------------------------------------------#
+
+#---------------------------------------------------------#
+from textblob import TextBlob
+from nltk.tokenize import sent_tokenize
+
+sents = sent_tokenize(text)
+entireText = TextBlob(text)
+sentScores = []
+for sent in sents:
+    text = TextBlob(sent)
+    score = text.sentiment[0]
+    sentScores.append(score)
+    
+st.line_chart(sentScores)
+
+#Polarity and Subjectivity of the entire text inputted
+sentimentTotal = entireText.sentiment
+st.write("The sentiment of the overall text below.")
+st.write(sentimentTotal)
