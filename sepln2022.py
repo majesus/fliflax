@@ -48,6 +48,9 @@ with st.form(key='my_form'):
     query = st.text_input(label='frase objetivo', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 
+st.write("n_top",n_top)
+st.write("query",query)     
+    
 if n_top is not None:
     st.write("Codificando",n_top,"frases...")
     text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
