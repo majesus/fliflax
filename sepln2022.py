@@ -42,7 +42,7 @@ query = 'enduring relationship'
 
 with st.form(key='my_form'):
     n_top = st.text_input(label='número de frases', value="10")
-    query = st.text_input(label='frase objetivo', value = "enduring relationship)
+    query = st.text_input(label='frase objetivo', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 
 if n_top is not None:
