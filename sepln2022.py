@@ -15,10 +15,14 @@ st.write("cargado")
 
 # None para usar todas => ¡Tarda mucho!
 
-with st.form(key='my_form'):
-    n_top = st.text_input(label='número de frases')
-    query = st.text_input(label='frase objetivo')
-    query = st.form_submit_button(label='Calcular')
+if n_top, query is None:
+    with st.form(key='my_form'):
+        n_top = st.text_input(label='número de frases')
+        query = st.text_input(label='frase objetivo')
+        form1 = st.form_submit_button(label='Calcular')
+ else:
+    n_top = 10
+    query = 'enduring relationship'
 
 # Decide si se enmascaran palabras o no
 masking = False
