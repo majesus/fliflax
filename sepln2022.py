@@ -4,7 +4,7 @@ from collections import Counter
 import pandas as pd
 import re
 #---------------------------------------------------------#
-st.title('Cercanía de la fuente a conceptos usando queries.')
+st.title('Estimado de similitud de la fuente a conceptos mediante queries:')
 #---------------------------------------------------------#
 nombres_set ={
     "abraham","africa","agustin","alba","alberto","albertos","alejandro","alex","alfonso","alfredo","alicia","alvaro",
@@ -125,7 +125,7 @@ st.markdown("""---""")
 import streamlit as st
 from transformers import pipeline
 
-st.title('Sentiment Analyser App')
+st.title('Estimación de sentimientos:')
 st.write('Esta app emplea Hugging Face Transformers [sentiment analyser](https://huggingface.co/course/chapter1/3?fw=tf) para clasificar el texto como positivo o negativo.')
 
 form = st.form(key='sentiment-form')
