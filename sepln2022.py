@@ -19,6 +19,7 @@ model = init_retriever()
 masking = False
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
+datos = datos.head(100)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
