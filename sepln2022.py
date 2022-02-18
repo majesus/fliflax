@@ -120,15 +120,17 @@ st.write("### Resultados:")
 st.markdown("""---""")
 
 L = []
-for s, i in sims[:10]:    
+for s, i in sims[:100]:    
     dat= [str(s), labs[i], text[i]]
     L.append(dat)
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
-st.table(df)
+
+st.success("Materiales ordenador de mayor a menor similitud con el texto con que comparamos:")
+st.table(df.head())
     
 st.markdown("""---""")
 
-st.write("Proporción de frases [100] por tipo de alojamiento ordenadas de mayor a menor similitud:")
+st.write("Proporción de frases [n:100] por tipo de alojamiento:")
 st.success(Counter(labs[i] for _,i in sims[:100]))
 
 st.markdown("""---""")
