@@ -5,7 +5,7 @@ import pandas as pd
 import re
 
 from sentence_transformers import SentenceTransformer, util
-@st.cache
+#@st.cache
 model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
 
 st.write("cargado")
@@ -17,10 +17,6 @@ st.write("cargado")
 n_top = 2000
 # Decide si se enmascaran palabras o no
 masking = False
-
-from collections import Counter
-import pandas as pd
-import re
 
 datos = pd.read_csv("csv/proyecto.csv")
 airbnb = datos[datos.type=="airbnb"].description1 
@@ -47,21 +43,18 @@ def mask(s):
 airbnb_sents = split_sentences(airbnb)
 hotel_sents = split_sentences(hotel)
 
-print("Total sentences airbnb:", len(airbnb_sents))
-print("Total sentences hotel:",len(hotel_sents))
-
 if n_top:
-    print("Encoding",n_top,"sentences...")
+    st.write("Encoding",n_top,"sentences...")
     text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
     labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
     emb = model.encode(text)
-    print("Done")
+    st.write("Done")
 else:
-    print("Encoding all sentences...")
+    st.write("Encoding all sentences...")
     text = airbnb_sents + hotel_sents
     labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
     emb = model.encode(text)
-    print("Done")
+    st.write("Done")
     
  
-st.table(airbnb_sents)
+st.table(datos)
