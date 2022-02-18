@@ -45,20 +45,14 @@ airbnb_sents = split_sentences(airbnb)
 hotel_sents = split_sentences(hotel)
 #---------------------------------------------------------#
 with st.form(key='my_form'):
-    n_top = st.text_input(label='número de frases', value=10)
+    # n_top = st.text_input(label='número de frases a emplear', value=10)
     query = st.text_input(label='frase objetivo', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
-
-st.write("n_top",n_top)
-st.write("query",query)     
-    
 
 #st.write("Codificando todas las frases...")
 text = airbnb_sents + hotel_sents
 labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
-emb = model.encode(text)
-st.write("Done")
-    
+emb = model.encode(text)   
 #---------------------------------------------------------#
 #st.table(datos.head())
 #---------------------------------------------------------#
@@ -69,9 +63,7 @@ sims = [(float(s),i) for i, s in enumerate(sims[0])]
 sims.sort(reverse=True)
     
 for s, i in sims[:10]:
-    st.write(str(s)+"\t"+labs[i]+": "+ text[i])
+    st.table(str(s)+"\t"+labs[i]+": "+ text[i])
 
 st.write(Counter(labs[i] for _,i in sims[:100]))
-
-
 #---------------------------------------------------------#
