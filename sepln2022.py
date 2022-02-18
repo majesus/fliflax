@@ -101,12 +101,17 @@ sims.sort(reverse=True)
 
 st.markdown("""---""")
 
-st.write("***Resultados:***")
+st.write("*Resultados:*")
 
 st.markdown("""---""")
 
+data= data[]
 for s, i in sims[:10]:
-    st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
+    #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
+    data = [str(s), labs[i], text[i]]
+
+df = pd.DataFrame(data, columns = ['Name', 'Age'])
+st.table(df)
 
 st.markdown("""---""")
 
