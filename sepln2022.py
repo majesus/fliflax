@@ -113,11 +113,11 @@ for s, i in sims[:10]:
     #data = [str(s), labs[i], text[i]]
     #data1 = data1.append(data)
     
-    dd = pd.DataFrame(dat, columns = ['V1', 'V2', 'V3'])
-    L.append(dd)
+    dat= [[str(s), labs[i], text[i]]]
+    L.append(dat)
     
 #st.table(data1)
-df = pd.concat(L, ignore_index=True)
+df = pd.DataFrame(L, columns = ['region', 'mean expr', 'gene_id'])
 st.table(df)
     
 st.markdown("""---""")
