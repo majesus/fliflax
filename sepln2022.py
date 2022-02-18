@@ -61,7 +61,7 @@ with st.form(key='my_form'):
 #---------------------------------------------------------#
 # datos = pd.read_csv("csv/proyecto.csv")
 # st.write(n_top)
-datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, random_state=None)).reset_index(drop = True)
+datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, random_state=123)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
