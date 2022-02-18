@@ -63,10 +63,10 @@ model = init_retriever()
 datos = pd.read_csv("csv/proyecto.csv")
 
 with st.sidebar.form(key='my_form'):
-    masking = st.sidebar.radio("¿masking?", (True,False))
+    masking = st.radio("¿masking?", (True,False))
     material = st.radio("¿material?", ("frases","revisiones"))
-    n_top = st.sidebar.slider(label='número de materiales a emplear por tipo de alojamiento:', value=10, max_value= len(datos)//2, min_value = 1)
-    text = st.sidebar.text_input(label='query a comparar su similitud [coseno] con dataset:', value = "enduring relationship")
+    n_top = st.slider(label='número de materiales a emplear por tipo de alojamiento:', value=10, max_value= len(datos)//2, min_value = 1)
+    text = st.text_input(label='query a comparar su similitud [coseno] con dataset:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
 # datos = pd.read_csv("csv/proyecto.csv")
