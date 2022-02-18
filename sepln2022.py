@@ -4,6 +4,8 @@ from collections import Counter
 import pandas as pd
 import re
 #---------------------------------------------------------#
+st.title('Cercanía de la fuente a conceptos usando queries.')
+#---------------------------------------------------------#
 nombres_set ={
     "abraham","africa","agustin","alba","alberto","albertos","alejandro","alex","alfonso","alfredo","alicia","alvaro",
     "ana","anas","andres","angel","angela","angeles","anna","anne","anselma","antonio","asun","august","aurora","avelina",
@@ -115,7 +117,7 @@ st.table(df)
 st.markdown("""---""")
 
 st.write("Proporción de frases [100] por tipo de alojamiento ordenadas de mayor a menor similitud:")
-st.write(Counter(labs[i] for _,i in sims[:100]))
+st.success(Counter(labs[i] for _,i in sims[:100]))
 
 st.markdown("""---""")
 #---------------------------------------------------------#
@@ -137,7 +139,7 @@ if submit:
     score = result['score']
 
     if label == 'POSITIVE':
-        st.success(f'{label} sentiment (score: {score})')
+        st.success(f'{label} sentiment [score: {score}]')
     else:
-        st.error(f'{label} sentiment (score: {score})')
+        st.error(f'{label} sentiment [score: {score}]')
 #---------------------------------------------------------#
