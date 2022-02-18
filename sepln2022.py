@@ -115,7 +115,7 @@ for s, i in sims[:10]:
     #data1 = data1.append(data)
     
     values = [str(s), labs[i], text[i]]
-    zipped = zip(clumns, values)
+    zipped = zip(columns, values)
     a_dictionary = dict(zipped)
     data.append(a_dictionary)
     
