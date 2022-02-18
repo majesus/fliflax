@@ -100,9 +100,9 @@ sims = [(float(s),i) for i, s in enumerate(sims[0])]
 sims.sort(reverse=True)
 
 st.markdown("""---""")
-"""
+
 st.write("**Resultados:**")
-"""
+
 st.markdown("""---""")
 
 for s, i in sims[:10]:
