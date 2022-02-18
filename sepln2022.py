@@ -5,15 +5,15 @@ import pandas as pd
 import re
 #---------------------------------------------------------#
 from sentence_transformers import SentenceTransformer, util
-#@st.cache
-#model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
-#st.write("cargado")
-
 @st.cache
-def init_retriever():
+model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
+st.write("cargado")
+
+#@st.cache
+#def init_retriever():
     # initialize retriever model
-    return SentenceTransformer('msmarco-MiniLM-L-12-v3')
-model = init_retriever()
+    #return SentenceTransformer('msmarco-MiniLM-L-12-v3')
+#model = init_retriever()
 #---------------------------------------------------------#
 # Decide si se enmascaran palabras o no
 masking = False
@@ -52,7 +52,7 @@ st.write("n_top",n_top)
 st.write("query",query)     
     
 
-st.write("Codificando todas las frases...")
+#st.write("Codificando todas las frases...")
 text = airbnb_sents + hotel_sents
 labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
 emb = model.encode(text)
