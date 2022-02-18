@@ -18,6 +18,11 @@ st.write("cargado")
 n_top = st.text_input("número de frases", default_value_goes_here)
 query = st.text_input("frase objetivo", default_value_goes_here)
 
+with st.form(key='my_form'):
+    n_top = st.text_input(label='número de frases')
+    query = st.text_input(label='frase objetivo')
+    query = st.form_submit_button(label='Calcular')
+
 # Decide si se enmascaran palabras o no
 masking = False
 
