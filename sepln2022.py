@@ -63,7 +63,7 @@ sims = [(float(s),i) for i, s in enumerate(sims[0])]
 sims.sort(reverse=True)
     
 for s, i in sims[:10]:
-    st.table(str(s)+"\t"+labs[i]+": "+ text[i])
+    st.write(str(s)+"\t"+labs[i]+": "+ text[i])
 
 st.write(Counter(labs[i] for _,i in sims[:100]))
 #---------------------------------------------------------#
