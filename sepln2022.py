@@ -1,13 +1,9 @@
 from sentence_transformers import SentenceTransformer, util
 import streamlit as st
+import pandas as pd
 #-----------------------------------------------------------------------------#
 @st.cache
-st.download_button(
-     label="Download data as CSV",
-     data=csv,
-     file_name='emb.csv',
-     mime='text/csv',
- )
+emb = pd.read_csv("model/emb.csv")
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
