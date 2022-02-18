@@ -107,7 +107,7 @@ st.markdown("""---""")
 
 L = []
 for s, i in sims[:10]:    
-    dat= [round(str(s),4), labs[i], text[i]]
+    dat= [str(s), labs[i], text[i]]
     L.append(dat)
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
 st.table(df) 
