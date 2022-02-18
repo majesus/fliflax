@@ -113,7 +113,7 @@ for s, i in sims[:10]:
     #data = [str(s), labs[i], text[i]]
     #data1 = data1.append(data)
     
-    dat= [[str(s), labs[i], text[i]]]
+    dat= [str(s), labs[i], text[i]]
     L.append(dat)
     
 #st.table(data1)
