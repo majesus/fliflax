@@ -9,7 +9,7 @@ from sentence_transformers import SentenceTransformer, util
 #model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
 #st.write("cargado")
 
-@st.cache
+@st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def init_retriever():
     # initialize retriever model
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
