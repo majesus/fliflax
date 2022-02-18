@@ -105,12 +105,11 @@ st.write("*Resultados:*")
 
 st.markdown("""---""")
 
-data= []
+data = pd.DataFrame()
 for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
     data = [str(s), labs[i], text[i]]
-    df = pd.DataFrame(data, columns = ['Value', 'Type', 'Review'])
-    st.table(df)
+    st.table(data)
 
 st.markdown("""---""")
 
