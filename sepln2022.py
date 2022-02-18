@@ -105,19 +105,11 @@ st.write("### Resultados:")
 
 st.markdown("""---""")
 
-#data = pd.DataFrame()
-#data1 = pd.DataFrame()
 L = []
-for s, i in sims[:10]:
-    #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
-    #data = [str(s), labs[i], text[i]]
-    #data1 = data1.append(data)
-    
+for s, i in sims[:10]:    
     dat= [str(s), labs[i], text[i]]
     L.append(dat)
-    
-#st.table(data1)
-df = pd.DataFrame(L, columns = ['region', 'mean expr', 'gene_id'])
+df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
 st.table(df)
     
 st.markdown("""---""")
