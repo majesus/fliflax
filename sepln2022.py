@@ -61,19 +61,16 @@ st.write("Done")
 #---------------------------------------------------------#
 #st.table(datos.head())
 #---------------------------------------------------------#
-if query:
-    query_emb = model.encode(query)
+query_emb = model.encode(query)
     
-    sims = util.cos_sim(query_emb, emb)
-    sims = [(float(s),i) for i, s in enumerate(sims[0])]
-    sims.sort(reverse=True)
+sims = util.cos_sim(query_emb, emb)
+sims = [(float(s),i) for i, s in enumerate(sims[0])]
+sims.sort(reverse=True)
     
-    for s, i in sims[:10]:
-        st.write(str(s)+"\t"+labs[i]+": "+ text[i])
-    Counter(labs[i] for _,i in sims[:100])
-    
-else:
-    st.write("falta query")
+for s, i in sims[:10]:
+    st.write(str(s)+"\t"+labs[i]+": "+ text[i])
+
+st.write(Counter(labs[i] for _,i in sims[:100]))
 
 
 #---------------------------------------------------------#
