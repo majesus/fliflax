@@ -71,6 +71,9 @@ Resultados:
 
 for s, i in sims[:10]:
     st.write(str(s)+"\t"+labs[i]+": "+ text[i])
+    d = {'col1': labs[i], 'col2': text[i]}
+    st.table(d)
+    
 
 st.write("Proporción de frases [100] por tipo de alojamiento ordenadas de mayor a menor similitud:")
 st.write(Counter(labs[i] for _,i in sims[:100]))
