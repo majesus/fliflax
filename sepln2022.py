@@ -57,6 +57,7 @@ datos = pd.read_csv("csv/proyecto.csv")
 
 with st.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
+    material = st.radio("¿material?", ("frases","revisiones"))
     n_top = st.slider(label='número de frases a emplear por tipo de alojamiento:', value=10, max_value= len(datos)//2, min_value = 1)
     text = st.text_input(label='frase objetivo con que comparar similitudes [coseno]:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
@@ -74,6 +75,13 @@ def split_sentences(reviews):
         res+= sts
     return res
 
+def split_sentences_join(reviews):
+    res = []
+    for r in reviews:
+        sts = [mask(s.strip())+"." for s in r.split(".") if s.strip()!=""]
+        res.append('. '.join(sts))
+    return res
+
 def mask(s):
     if masking:
         res = []
@@ -85,8 +93,12 @@ def mask(s):
     else:
         return s
 #---------------------------------------------------------#
-airbnb_sents = split_sentences(airbnb)
-hotel_sents = split_sentences(hotel)
+if material == "frases":
+    airbnb_sents = split_sentences(airbnb)
+    hotel_sents = split_sentences(hotel)
+else:
+    airbnb_sents = split_sentences_join(airbnb)
+    hotel_sents = split_sentences_join(hotel)
 #---------------------------------------------------------#
 #st.write("Codificando todas las frases...")
 text = airbnb_sents + hotel_sents
