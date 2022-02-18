@@ -64,7 +64,7 @@ with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
     material = st.radio("¿material?", ("frases","revisiones"))
     n_top = st.slider(label='número de materiales a emplear por tipo de alojamiento:', value=10, max_value= len(datos)//2, min_value = 1)
-    text = st.text_input(label='query a comparar su similitud [coseno] con dataset:', value = "enduring relationship")
+    target = st.text_input(label='query a comparar su similitud [coseno] con dataset:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
 datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, random_state=123)).reset_index(drop = True)
@@ -107,7 +107,7 @@ text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
 labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
 emb = model.encode(text)   
 #---------------------------------------------------------#
-query_emb = model.encode(text)
+query_emb = model.encode(target)
     
 sims = util.cos_sim(query_emb, emb)
 sims = [(float(s),i) for i, s in enumerate(sims[0])]
