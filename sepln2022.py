@@ -110,7 +110,7 @@ for s, i in sims[:10]:
     dat= [str(s), labs[i], text[i]]
     L.append(dat)
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
-st.table(df)
+st.table(df.style.format("{:,.4f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     
 st.markdown("""---""")
 
