@@ -107,17 +107,18 @@ st.markdown("""---""")
 
 #data = pd.DataFrame()
 #data1 = pd.DataFrame()
-results = pd.DataFrame()
+L = []
 for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
     #data = [str(s), labs[i], text[i]]
     #data1 = data1.append(data)
     
-    data = [str(s), labs[i], text[i]]
-    results = pd.concat([results, data], axis=0).reset_index(drop=True)
+    dd = pd.DataFrame(dat, columns = ['V1', 'V2', 'V3'])
+    L.append(dd)
     
 #st.table(data1)
-st.table(results)
+df = pd.concat(L, ignore_index=True)
+st.table(df)
     
 st.markdown("""---""")
 
