@@ -20,7 +20,8 @@ from collections import Counter
 import pandas as pd
 import re
 
-datos = pd.read_csv("csv/proyecto.csv")
+# datos = pd.read_csv("csv/proyecto.csv")
+datos = pd.read_csv("csv/proyecto.csv") #path folder of the data file
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 
