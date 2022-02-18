@@ -4,8 +4,9 @@ import streamlit as st
 
 #-----------------------------------------------------------------------------#
 import pickle
-with open('model/model.pkl', 'rb') as f:
-    model = pickle.load(f)
+@st.cache
+with open('model/emb.pkl', 'rb') as f:
+    emb = pickle.load(f)
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
@@ -58,5 +59,6 @@ else:
     emb = model.encode(text)
     print("Done")
  #-----------------------------------------------------------------------------#
-    
+ st.table(datos)
+ #-----------------------------------------------------------------------------#
     
