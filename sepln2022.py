@@ -111,7 +111,7 @@ for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
     data = [str(s), labs[i], text[i]]
     data1 = data1.append(data)
-    st.table(data)
+    st.table(data1)
 
 st.markdown("""---""")
 
