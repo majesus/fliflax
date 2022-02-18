@@ -107,17 +107,13 @@ st.markdown("""---""")
 
 #data = pd.DataFrame()
 #data1 = pd.DataFrame()
-columns = list()
-data = []
+data = pd.DataFrame([])
 for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
     #data = [str(s), labs[i], text[i]]
     #data1 = data1.append(data)
     
-    values = [str(s), labs[i], text[i]]
-    zipped = zip(columns, values)
-    a_dictionary = dict(zipped)
-    data.append(a_dictionary)
+    data = data.append(pd.DataFrame({'A': str(s), 'B': labs[i] + 1, 'C': text[i]}, index=[0]), ignore_index=True)
     
 #st.table(data1)
 st.table(data)
