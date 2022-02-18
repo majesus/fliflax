@@ -2,8 +2,8 @@ from sentence_transformers import SentenceTransformer, util
 import streamlit as st
 import pandas as pd
 #-----------------------------------------------------------------------------#
-@st.cache
-emb = pd.read_csv("model/emb.csv")
+data = pd.read_csv("model/emb.csv") #path folder of the data file
+st.write(data) #displays the table of data
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
