@@ -15,9 +15,6 @@ st.write("cargado")
 
 # None para usar todas => ¡Tarda mucho!
 
-n_top = st.text_input("número de frases", default_value_goes_here)
-query = st.text_input("frase objetivo", default_value_goes_here)
-
 with st.form(key='my_form'):
     n_top = st.text_input(label='número de frases')
     query = st.text_input(label='frase objetivo')
