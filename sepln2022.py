@@ -19,7 +19,14 @@ model = init_retriever()
 masking = False
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
-datos = datos.head(100)
+
+with st.form(key='my_form'):
+    n_top = st.slider(label='número de frases a emplear', value=10, max_value= len(datos))
+    query = st.text_input(label='frase objetivo', value = "enduring relationship")
+    form1 = st.form_submit_button(label='Calcular')
+#---------------------------------------------------------#
+# datos = pd.read_csv("csv/proyecto.csv")
+datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
@@ -44,11 +51,6 @@ def mask(s):
 airbnb_sents = split_sentences(airbnb)
 hotel_sents = split_sentences(hotel)
 #---------------------------------------------------------#
-with st.form(key='my_form'):
-    # n_top = st.text_input(label='número de frases a emplear', value=10)
-    query = st.text_input(label='frase objetivo', value = "enduring relationship")
-    form1 = st.form_submit_button(label='Calcular')
-
 #st.write("Codificando todas las frases...")
 text = airbnb_sents + hotel_sents
 labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
