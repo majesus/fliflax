@@ -55,7 +55,7 @@ datos = pd.read_csv("csv/proyecto.csv")
 
 with st.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
-    n_top = st.slider(label='número de frases a emplear por tipo de alojamiento:', value=10, max_value= len(datos), min_value = 1)
+    n_top = st.slider(label='número de frases a emplear por tipo de alojamiento:', value=10, max_value= len(datos)//2, min_value = 1)
     query = st.text_input(label='frase objetivo con que comparar similitudes [coseno]:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
