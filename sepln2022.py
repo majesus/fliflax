@@ -18,11 +18,10 @@ st.write("cargado")
 n_top = 10
 query = 'enduring relationship'
 
-if n_top is None:
-    with st.form(key='my_form'):
-        n_top = st.text_input(label='número de frases')
-        query = st.text_input(label='frase objetivo')
-        form1 = st.form_submit_button(label='Calcular')
+with st.form(key='my_form'):
+    n_top = st.text_input(label='número de frases')
+    query = st.text_input(label='frase objetivo')
+    form1 = st.form_submit_button(label='Calcular')
 
 # Decide si se enmascaran palabras o no
 masking = False
