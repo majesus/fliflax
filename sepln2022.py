@@ -15,7 +15,8 @@ st.write("cargado")
 
 # None para usar todas => ¡Tarda mucho!
 
-if n_top, query is None:
+if n_top is None:
+    query = 'enduring relationship'
     with st.form(key='my_form'):
         n_top = st.text_input(label='número de frases')
         query = st.text_input(label='frase objetivo')
