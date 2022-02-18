@@ -64,3 +64,4 @@ else:
     print("Done")
     
  
+st.table(airbnb_sents)
