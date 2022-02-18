@@ -9,9 +9,8 @@ st.write("En estos experimentos usamos un modelo que sirve para hacer retrieval:
          "Se trata de búsquedas semánticas, en las que la query puede ser una palabra, una pregunta, o cualquier enunciado. "
          "El modelo que usamos sirve para búsquedas asimétricas (la query es mucho más corta que los documentos). "
          "Podría servir para definir una serie de queries relacionadas con las dimensiones SATISFACCIÓN, CONFIANZA y COMPROMISO (esto tiene que ayudar Manolo), "
-         "o con otros conceptos que nos parezcan interesantes. Y podríamos hacer representaciones de las fuentes (airbnb/hotel) con respecto a las dimensiones escogidas. "
-         ""
-         "J.A. Troyano / Fermín Cruz")
+         "o con otros conceptos que nos parezcan interesantes. Y podríamos hacer representaciones de las fuentes (airbnb/hotel) con respecto a las dimensiones escogidas. ")
+st.write("J.A. Troyano / Fermín Cruz")
 #---------------------------------------------------------#
 nombres_set ={
     "abraham","africa","agustin","alba","alberto","albertos","alejandro","alex","alfonso","alfredo","alicia","alvaro",
