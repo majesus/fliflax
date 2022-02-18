@@ -51,18 +51,12 @@ with st.form(key='my_form'):
 st.write("n_top",n_top)
 st.write("query",query)     
     
-if n_top:
-    st.write("Codificando",n_top,"frases...")
-    text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
-    labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
-    emb = model.encode(text)
-    st.write("Done")
-else:
-    st.write("Codificando todas las frases...")
-    text = airbnb_sents + hotel_sents
-    labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
-    emb = model.encode(text)
-    st.write("Done")
+
+st.write("Codificando todas las frases...")
+text = airbnb_sents + hotel_sents
+labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
+emb = model.encode(text)
+st.write("Done")
     
 #---------------------------------------------------------#
 #st.table(datos.head())
