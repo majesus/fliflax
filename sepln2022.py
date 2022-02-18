@@ -51,7 +51,7 @@ with st.form(key='my_form'):
 st.write("n_top",n_top)
 st.write("query",query)     
     
-if n_top is not None:
+if n_top:
     st.write("Codificando",n_top,"frases...")
     text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
     labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
@@ -67,7 +67,7 @@ else:
 #---------------------------------------------------------#
 #st.table(datos.head())
 #---------------------------------------------------------#
-if query is not None:
+if query:
     query_emb = model.encode(query)
     
     sims = util.cos_sim(query_emb, emb)
