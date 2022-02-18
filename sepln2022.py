@@ -2,7 +2,7 @@ from sentence_transformers import SentenceTransformer, util
 import streamlit as st
 #-----------------------------------------------------------------------------#
 @st.cache
-emb = open('model/emb.pkl', 'rb')
+emb = open('model/emb.csv', 'rb')
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
