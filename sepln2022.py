@@ -41,11 +41,11 @@ n_top = 10
 query = 'enduring relationship'
 
 with st.form(key='my_form'):
-    n_top = st.text_input(label='número de frases')
-    query = st.text_input(label='frase objetivo')
+    n_top = st.text_input(label='número de frases', value="10")
+    query = st.text_input(label='frase objetivo', value = "enduring relationship)
     form1 = st.form_submit_button(label='Calcular')
 
-if n_top:
+if n_top is not None:
     st.write("Codificando",n_top,"frases...")
     text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
     labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
