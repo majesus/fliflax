@@ -107,7 +107,7 @@ st.markdown("""---""")
 
 #data = pd.DataFrame()
 #data1 = pd.DataFrame()
-data = pd.DataFrame([])
+data = pd.DataFrame()
 for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
     #data = [str(s), labs[i], text[i]]
