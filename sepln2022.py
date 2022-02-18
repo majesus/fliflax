@@ -6,7 +6,6 @@ data = pd.read_csv("model/emb.csv") #path folder of the data file
 st.write(data) #displays the table of data
 #-----------------------------------------------------------------------------#
 spectra = st.file_uploader("upload file", type={"csv", "txt"})
-st.write(spectra_df)
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
