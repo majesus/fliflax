@@ -3,10 +3,13 @@ import streamlit as st
 
 
 #-----------------------------------------------------------------------------#
-import pickle
 @st.cache
-with open('model/emb.pkl', 'rb') as f:
-    emb = pickle.load(f)
+st.download_button(
+     label="Download data as pkl",
+     #data=csv,
+     file_name='model/emb.pkl',
+     #mime='text/csv',
+ )
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
