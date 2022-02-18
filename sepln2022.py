@@ -5,15 +5,15 @@ import pandas as pd
 import re
 #---------------------------------------------------------#
 from sentence_transformers import SentenceTransformer, util
-@st.cache
-model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
-st.write("cargado")
-
 #@st.cache
-#def init_retriever():
+#model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
+#st.write("cargado")
+
+@st.cache
+def init_retriever():
     # initialize retriever model
-    #return SentenceTransformer('msmarco-MiniLM-L-12-v3')
-#model = init_retriever()
+    return SentenceTransformer('msmarco-MiniLM-L-12-v3')
+model = init_retriever()
 #---------------------------------------------------------#
 # Decide si se enmascaran palabras o no
 masking = False
