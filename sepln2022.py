@@ -110,7 +110,7 @@ data1 = pd.DataFrame()
 for s, i in sims[:10]:
     #st.write(str(s)+"\t"+labs[i]+": "+ text[i])  
     data = [str(s), labs[i], text[i]]
-    data1 = data1.append(data)
+    data1 = data1.append(data, axis = 1)
 st.table(data1)
     
 st.markdown("""---""")
