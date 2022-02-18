@@ -6,8 +6,14 @@ import re
 #---------------------------------------------------------#
 from sentence_transformers import SentenceTransformer, util
 #@st.cache
-model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
-st.write("cargado")
+#model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
+#st.write("cargado")
+
+@st.cache
+def init_retriever():
+    # initialize retriever model
+    return SentenceTransformer('msmarco-MiniLM-L-12-v3')
+model = init_retriever()
 #---------------------------------------------------------#
 # Decide si se enmascaran palabras o no
 masking = False
@@ -37,9 +43,6 @@ def mask(s):
 airbnb_sents = split_sentences(airbnb)
 hotel_sents = split_sentences(hotel)
 #---------------------------------------------------------#
-n_top = 10
-query = 'enduring relationship'
-
 with st.form(key='my_form'):
     n_top = st.text_input(label='número de frases', value=10)
     query = st.text_input(label='frase objetivo', value = "enduring relationship")
