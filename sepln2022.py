@@ -113,7 +113,8 @@ for s, i in sims[:10]:
     #data = [str(s), labs[i], text[i]]
     #data1 = data1.append(data)
     
-    data = data.append(pd.DataFrame({'A': str(s), 'B': labs[i] + 1, 'C': text[i]}, index=[0]), ignore_index=True)
+    data = [str(s), labs[i], text[i]]
+    data = pd.concat([results, data], axis=0).reset_index(drop=True)
     
 #st.table(data1)
 st.table(data)
