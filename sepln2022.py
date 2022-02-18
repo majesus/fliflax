@@ -4,7 +4,7 @@ import streamlit as st
 
 #-----------------------------------------------------------------------------#
 import pickle
-with open('drive/MyDrive/Colab Notebooks/Fermin/model.pkl', 'rb') as f:
+with open('model/model.pkl', 'rb') as f:
     model = pickle.load(f)
 #-----------------------------------------------------------------------------#
 
@@ -17,7 +17,7 @@ from collections import Counter
 import pandas as pd
 import re
 
-datos = pd.read_csv("drive/MyDrive/Colab Notebooks/Fermin/proyecto.csv")
+datos = pd.read_csv("csv/proyecto.csv")
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 
