@@ -120,4 +120,24 @@ st.write(Counter(labs[i] for _,i in sims[:100]))
 st.markdown("""---""")
 #---------------------------------------------------------#
 #---------------------------------------------------------#
+import streamlit as st
+from transformers import pipeline
 
+st.title('Sentiment Analyser App')
+st.write('Esta app emplea Hugging Face Transformers [sentiment analyser](https://huggingface.co/course/chapter1/3?fw=tf) para clasificar el texto como positivo o negativo.')
+
+form = st.form(key='sentiment-form')
+user_input = form.text_area('texto')
+submit = form.form_submit_button('enviar')
+
+if submit:
+    classifier = pipeline("sentiment-analysis")
+    result = classifier(user_input)[0]
+    label = result['label']
+    score = result['score']
+
+    if label == 'POSITIVE':
+        st.success(f'{label} sentiment (score: {score})')
+    else:
+        st.error(f'{label} sentiment (score: {score})')
+#---------------------------------------------------------#
