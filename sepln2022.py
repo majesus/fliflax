@@ -57,7 +57,7 @@ else:
     st.write("Done")
     
  
-st.table(datos.head()))
+st.table(datos.head())
 
 
 query_emb = model.encode('joy')
