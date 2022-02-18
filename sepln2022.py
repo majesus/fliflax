@@ -2,7 +2,12 @@ from sentence_transformers import SentenceTransformer, util
 import streamlit as st
 #-----------------------------------------------------------------------------#
 @st.cache
-emb = open('model/emb.csv', 'rb')
+st.download_button(
+     label="Download data as CSV",
+     data=csv,
+     file_name='emb.csv',
+     mime='text/csv',
+ )
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
