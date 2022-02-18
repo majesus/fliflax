@@ -25,7 +25,6 @@ nombres_set ={
     "teressa","theresa","tirso","valentin","valentina","vero","veronica","vicente","vicentes","victoria","vincent","vincente",
     "virginia","yolanda"    
 }
-
 masking_set ={
     'hotel', 'hotels',
     "air", "airb&b", "airbnb", "airbnbs", "b&b", "bnb",
@@ -55,14 +54,13 @@ model = init_retriever()
 datos = pd.read_csv("csv/proyecto.csv")
 
 with st.form(key='my_form'):
-    masking = st.radio("¿Masking?", (True,False))
+    masking = st.radio("¿masking?", (True,False))
     n_top = st.slider(label='número de frases a emplear por tipo de alojamiento:', value=10, max_value= len(datos))
     query = st.text_input(label='frase objetivo con que comparar similitudes [coseno]:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
-#masking = False
 #---------------------------------------------------------#
 # datos = pd.read_csv("csv/proyecto.csv")
-st.write(n_top)
+# st.write(n_top)
 datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
@@ -100,6 +98,8 @@ query_emb = model.encode(query)
 sims = util.cos_sim(query_emb, emb)
 sims = [(float(s),i) for i, s in enumerate(sims[0])]
 sims.sort(reverse=True)
+
+st.markdown("#----#")
 
 """
 Resultados:
