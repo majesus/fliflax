@@ -57,10 +57,9 @@ def init_retriever():
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
 model = init_retriever()
 #---------------------------------------------------------#
-# Decide si se enmascaran palabras o no
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
-
+#---------------------------------------------------------#
 with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
     material = st.radio("¿material?", ("frases","revisiones"))
@@ -68,8 +67,6 @@ with st.sidebar.form(key='my_form'):
     text = st.text_input(label='query a comparar su similitud [coseno] con dataset:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
-# datos = pd.read_csv("csv/proyecto.csv")
-# st.write(n_top)
 datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, random_state=123)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
@@ -106,12 +103,9 @@ else:
     airbnb_sents = split_sentences_join(airbnb)
     hotel_sents = split_sentences_join(hotel)
 #---------------------------------------------------------#
-#st.write("Codificando todas las frases...")
-text = airbnb_sents + hotel_sents
-labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
+text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
+labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
 emb = model.encode(text)   
-#---------------------------------------------------------#
-#st.table(datos.head())
 #---------------------------------------------------------#
 query_emb = model.encode(text)
     
