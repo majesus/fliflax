@@ -1,5 +1,12 @@
+from sentence_transformers import SentenceTransformer, util
+import streamlit as st
 
 
+#-----------------------------------------------------------------------------#
+import pickle
+with open('drive/MyDrive/Colab Notebooks/Fermin/model.pkl', 'rb') as f:
+    model = pickle.load(f)
+#-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
 n_top = 2000
@@ -50,6 +57,6 @@ else:
     labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
     emb = model.encode(text)
     print("Done")
-    
+ #-----------------------------------------------------------------------------#
     
     
