@@ -101,7 +101,7 @@ sims.sort(reverse=True)
 
 st.markdown("""---""")
 
-st.write("*Resultados:*")
+st.write("### Resultados:")
 
 st.markdown("""---""")
 
