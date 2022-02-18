@@ -21,11 +21,12 @@ masking = False
 datos = pd.read_csv("csv/proyecto.csv")
 
 with st.form(key='my_form'):
-    n_top = st.slider(label='número de frases a emplear', value=10, max_value= len(datos))
-    query = st.text_input(label='frase objetivo', value = "enduring relationship")
+    n_top = st.slider(label='número de frases a emplear por tipo de alojamiento:', value=10, max_value= len(datos))
+    query = st.text_input(label='frase objetivo con que comparar similitudes [coseno]:', value = "enduring relationship")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
 # datos = pd.read_csv("csv/proyecto.csv")
+st.write(n_top)
 datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
@@ -67,5 +68,6 @@ sims.sort(reverse=True)
 for s, i in sims[:10]:
     st.write(str(s)+"\t"+labs[i]+": "+ text[i])
 
+st.write("Proporción de frases [100] por tipo de alojamiento ordenadas de mayor a menor similitud:")
 st.write(Counter(labs[i] for _,i in sims[:100]))
 #---------------------------------------------------------#
