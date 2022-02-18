@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 #-----------------------------------------------------------------------------#
 @st.cache
-emb = pd.read_csv("model/emb.csv")
+emb = pd.read_csv("./model/emb.csv")
 #-----------------------------------------------------------------------------#
 
 # None para usar todas => ¡Tarda mucho!
