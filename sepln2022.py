@@ -14,7 +14,10 @@ st.write("cargado")
 # Cargamos los datos de nuevos
 
 # None para usar todas => ¡Tarda mucho!
-n_top = 2000
+
+n_top = st.text_input("número de frases", default_value_goes_here)
+query = st.text_input("frase objetivo", default_value_goes_here)
+
 # Decide si se enmascaran palabras o no
 masking = False
 
@@ -44,28 +47,29 @@ airbnb_sents = split_sentences(airbnb)
 hotel_sents = split_sentences(hotel)
 
 if n_top:
-    st.write("Encoding",n_top,"sentences...")
+    st.write("Codificando",n_top,"frases...")
     text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
     labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
     emb = model.encode(text)
     st.write("Done")
 else:
-    st.write("Encoding all sentences...")
+    st.write("Codificando todas las frases...")
     text = airbnb_sents + hotel_sents
     labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
     emb = model.encode(text)
     st.write("Done")
     
  
-st.table(datos.head())
+#st.table(datos.head())
 
+user_input = st.text_input("label goes here", default_value_goes_here)
 
-query_emb = model.encode('joy')
+query_emb = model.encode(query)
 
 sims = util.cos_sim(query_emb, emb)
 sims = [(float(s),i) for i, s in enumerate(sims[0])]
 sims.sort(reverse=True)
-for s, i in sims[:20]:
+for s, i in sims[:10]:
     st.write(str(s)+"\t"+labs[i]+": "+ text[i])
     
 Counter(labs[i] for _,i in sims[:100])
