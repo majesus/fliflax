@@ -148,7 +148,7 @@ g = alt.Chart(df).transform_density(
     'type:N',
     columns=1
 )
-st.altair_chart(g, use_container_width = False)
+st.altair_chart(g, use_container_width = True)
 #---------------------------------------------------------#
 st.markdown("""---""")
 #---------------------------------------------------------#
