@@ -52,10 +52,15 @@ from sentence_transformers import SentenceTransformer, util
 #model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
 #st.write("cargado")
 
-@st.cache(suppress_st_warning=False, allow_output_mutation=False)
+@st.cache(suppress_st_warning=False, allow_output_mutation=True)
 def init_retriever():
     # initialize retriever model
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
+
+mutable_object = init_retriever()
+if st.button("Clear history cache"):
+    mutable_object.clear()
+
 model = init_retriever()
 #---------------------------------------------------------#
 #---------------------------------------------------------#
