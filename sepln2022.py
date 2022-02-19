@@ -103,7 +103,7 @@ def mask(s):
         res = []
         for w in re.split(r"\b", s):
             if w.lower() in masking_set:
-                w = "HMKD"
+                w = "[mask]"
             res.append(w.strip())
         return ' '.join(res)
     elif masking == False:
