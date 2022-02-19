@@ -57,8 +57,13 @@ from sentence_transformers import SentenceTransformer, util
 def init_retriever():
     # initialize retriever model
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
+model = init_retriever()
 
 st.markdown("""---""")
+
+if st.button("Borrar caché"):
+    #init_retriever.clear()
+    st.experimental_memo.clear()
 #---------------------------------------------------------#
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
@@ -71,13 +76,7 @@ with st.sidebar.form(key='my_form'):
     n_top = st.slider(label='número de revisiones a emplear por tipo de alojamiento:', value=10, max_value= 1000, min_value = 1)
     n_res = st.slider(label='número de resultados a mostrar:', value=7, max_value= 20, min_value = 1)
     target = st.text_input(label='query a comparar su similitud [coseno] con material:', value = "I am satisfied with this stay.")
-    submit = st.form_submit_button(label='Calcular')
-         
-if submit:
-    model = init_retriever()
-if st.button("Borrar caché"):
-    #init_retriever.clear()
-    st.experimental_memo.clear()
+    form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
 datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = False, random_state=123)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
