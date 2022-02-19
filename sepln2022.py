@@ -13,8 +13,8 @@ st.write("En estos experimentos usamos un modelo que sirve para hacer retrieval:
          "con respecto a las dimensiones elegidas.")
 st.write("J.A. Troyano / Fermín Cruz / Manuel J. Sánchez-Franco, Universidad de Sevilla")
 
-st.warning("Precisamos que aún no hemos determinado la valencia de la simlitud, es decir, "
-           "el embedding no detecta de modo sensible la diferencia entre satisfacción e insatisfacción, por ejemplo")
+st.success("Precisamos que aún no hemos determinado la valencia de la simlitud, es decir, "
+           "el embedding no detecta de modo sensible la diferencia entre satisfacción e insatisfacción, por ejemplo.")
 #---------------------------------------------------------#
 nombres_set ={
     "abraham","africa","agustin","alba","alberto","albertos","alejandro","alex","alfonso","alfredo","alicia","alvaro",
@@ -137,7 +137,7 @@ for s, i in sims:
     L.append(dat)
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
 
-st.success("Materiales ordenador de mayor a menor similitud con el texto con que comparamos:")
+st.success("Materiales ordenador de mayor a menor similitud con la query con que comparamos:")
 df1 = df.copy()
 df1.set_index('type', inplace=True)
 st.write(target)
