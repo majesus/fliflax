@@ -136,14 +136,14 @@ st.markdown("""---""")
 L = []
 #for s, i in sims[:n_top*2]:   
 for s, i in sims:
-    dat= [str(s), labs[i], text[i]]
+    dat= [(s), labs[i], text[i]]
     L.append(dat)
 df = pd.DataFrame(L, columns = ['similitud', 'tipo', 'material'])
 
 st.success("Material ordenado de mayor a menor similitud con la query con que comparamos:")
 df1 = df.copy()
 df1.set_index('tipo', inplace=True)
-df1.similitud = round(int(df1.similitud), 4)
+df1['similitud'].round(decimals = 3)
 st.write(target)
 st.table(df1.head())
     
