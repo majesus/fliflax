@@ -76,6 +76,7 @@ datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = False,
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
+@st.experimental_memo
 def split_sentences(reviews):
     res = []
     for r in reviews:
@@ -83,6 +84,7 @@ def split_sentences(reviews):
         res+= sts
     return res
 
+@st.experimental_memo
 def split_sentences_join(reviews):
     res = []
     for r in reviews:
@@ -90,6 +92,7 @@ def split_sentences_join(reviews):
         res.append('. '.join(sts))
     return res
 
+@st.experimental_memo
 def mask(s):
     if masking:
         res = []
