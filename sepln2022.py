@@ -143,6 +143,7 @@ df = pd.DataFrame(L, columns = ['similitud', 'tipo', 'material'])
 st.success("Material ordenado de mayor a menor similitud con la query con que comparamos:")
 df1 = df.copy()
 df1.set_index('tipo', inplace=True)
+df1.similitud = round(int(df1.similitud), 4)
 st.write(target)
 st.table(df1.head())
     
