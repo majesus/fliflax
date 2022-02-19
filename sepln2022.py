@@ -74,6 +74,7 @@ with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
     material = st.radio("¿material?", ("oraciones","revisiones"))
     n_top = st.slider(label='número de revisiones a emplear por tipo de alojamiento:', value=10, max_value= 1000, min_value = 1)
+    n_res = st.slider(label='número de resultados a mostrar:', value=7, max_value= 20, min_value = 1)
     target = st.text_input(label='query a comparar su similitud [coseno] con material:', value = "I am satisfied with this stay.")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
@@ -160,7 +161,7 @@ df2 = (
     )
 )
 del df2['sentiment']
-st.table(df2.head(10))
+st.table(df2.head(n_res))
 
 #---------------------------------------------------------#
 
