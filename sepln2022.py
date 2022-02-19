@@ -137,13 +137,14 @@ st.markdown("""---""")
 #---------------------------------------------------------#
 import altair as alt
 g = alt.Chart(df).transform_density(
-    'cosine',
-    as_=['cosine', 'density'],
+         'cosine',
+         groupby=['type'],
+         as_=['cosine', 'density'],
 ).mark_area().encode(
-    x="cosine:Q",
-    y='density:Q',
+         x="cosine:Q",
+         y='density:Q',
 )
-st.altair_chart(g)
+st.altair_chart(g, use_container_width = True)
 #---------------------------------------------------------#
 st.markdown("""---""")
 #---------------------------------------------------------#
