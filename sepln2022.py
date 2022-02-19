@@ -142,7 +142,7 @@ df = pd.DataFrame(L, columns = ['similitud', 'tipo', 'material'])
 
 st.success("Material ordenado de mayor a menor similitud con la query con que comparamos:")
 df1 = df.copy()
-df1.set_index('type', inplace=True)
+df1.set_index('tipo', inplace=True)
 df1['similitud'].apply(np.ceil)
 st.write(target)
 st.table(df1.head())
@@ -158,12 +158,12 @@ st.write("#### Plot de densidad de la similitud:")
 
 import altair as alt
 g = alt.Chart(df).transform_density(
-         'cosine',
-         groupby=['type'],
-         as_=['cosine', 'density'],
+         'similitud',
+         groupby=['tipo'],
+         as_=['similitud', 'density'],
          extent=[0, 1],
 ).mark_area().encode(
-         x="cosine:Q",
+         x="similitud:Q",
          y='density:Q',
 ).facet(
     'type:N',
