@@ -2,6 +2,7 @@ import streamlit as st
 
 from collections import Counter
 import pandas as pd
+import numpy as np
 import re
 #---------------------------------------------------------#
 st.title('Estimación de la similitud mediante queries:')
@@ -137,11 +138,12 @@ L = []
 for s, i in sims:
     dat= [str(s), labs[i], text[i]]
     L.append(dat)
-df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
+df = pd.DataFrame(L, columns = ['similitud', 'tipo', 'material'])
 
-st.success("Strings ordenadas de mayor a menor similitud con la query con que comparamos:")
+st.success("Material ordenado de mayor a menor similitud con la query con que comparamos:")
 df1 = df.copy()
 df1.set_index('type', inplace=True)
+df1['cosine'].apply(np.ceil)
 st.write(target)
 st.table(df1.head())
     
