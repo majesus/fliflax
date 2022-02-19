@@ -149,7 +149,7 @@ st.write(target)
 
 from transformers import pipeline
 classifier = pipeline("sentiment-analysis")
-df2 = df1.head().copy()
+df2 = df1.head(7).copy()
 
 df2 = (
     df2
