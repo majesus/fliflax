@@ -120,7 +120,7 @@ st.write("### Resultados:")
 st.markdown("""---""")
 
 L = []
-for s, i in sims[:100]:    
+for s, i in sims[:5]:    
     dat= [str(s), labs[i], text[i]]
     L.append(dat)
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
@@ -131,7 +131,7 @@ st.table(df.head())
 st.markdown("""---""")
 
 st.write("Proporción de frases [n:100] por tipo de alojamiento:")
-st.success(Counter(labs[i] for _,i in sims[:100]))
+st.success(Counter(labs[i] for _,i in sims[:n_top]))
 
 st.markdown("""---""")
 #---------------------------------------------------------#
