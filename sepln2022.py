@@ -67,7 +67,7 @@ datos = pd.read_csv("csv/proyecto.csv")
 #---------------------------------------------------------#
 with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
-    material = st.radio("¿material?", ("frases","revisiones"))
+    material = st.radio("¿material?", ("oraciones","revisiones"))
     n_top = st.slider(label='número de materiales a emplear por tipo de alojamiento:', value=10, max_value= 1000, min_value = 1)
     target = st.text_input(label='query a comparar su similitud [coseno] con material:', value = "I am satisfied with this stay.")
     form1 = st.form_submit_button(label='Calcular')
@@ -146,6 +146,8 @@ st.success(Counter(labs[i] for _,i in sims))
 #---------------------------------------------------------#
 st.markdown("""---""")
 #---------------------------------------------------------#
+st.write("#### Plot de densidad de la similitud:")
+
 import altair as alt
 g = alt.Chart(df).transform_density(
          'cosine',
