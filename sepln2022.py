@@ -70,7 +70,7 @@ if st.button("Borrar caché"):
 datos = pd.read_csv("csv/proyecto.csv")
 #---------------------------------------------------------#
 with st.sidebar.form(key='my_form'):
-    masking = st.radio("¿masking?", (True,False))
+    masking = st.radio("¿masking?", ("Sí","No"))
     material = st.radio("¿material?", ("oraciones","revisiones"))
     n_top = st.slider(label='número de revisiones a emplear por tipo de alojamiento:', value=10, max_value= 1000, min_value = 1)
     target = st.text_input(label='query a comparar su similitud [coseno] con material:', value = "I am satisfied with this stay.")
@@ -79,6 +79,11 @@ with st.sidebar.form(key='my_form'):
 datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = False, random_state=123)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
+#---------------------------------------------------------#
+If masking = True:
+         masking = True
+else:
+         masking = False
 #---------------------------------------------------------#
 @st.experimental_memo
 def split_sentences(reviews):
