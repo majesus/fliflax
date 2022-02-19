@@ -132,9 +132,20 @@ st.markdown("""---""")
 
 st.write("Frases por tipo de alojamiento:")
 st.success(Counter(labs[i] for _,i in sims))
-
+#---------------------------------------------------------#
 st.markdown("""---""")
 #---------------------------------------------------------#
+import altair as alt
+g = alt.Chart(df).transform_density(
+    'IMDB_Rating',
+    as_=['cosine', 'density'],
+).mark_area().encode(
+    x="cosine:Q",
+    y='density:Q',
+)
+st.altair_chart(g, use_container_width = True)
+#---------------------------------------------------------#
+st.markdown("""---""")
 #---------------------------------------------------------#
 import streamlit as st
 from transformers import pipeline
