@@ -49,7 +49,7 @@ masking_set ={
 #---------------------------------------------------------#
 from sentence_transformers import SentenceTransformer, util
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=False)
+#@st.cache(suppress_st_warning=True, allow_output_mutation=False)
 @st.experimental_memo
 def init_retriever():
     # initialize retriever model
