@@ -103,8 +103,8 @@ else:
     airbnb_sents = split_sentences_join(airbnb)
     hotel_sents = split_sentences_join(hotel)
 #---------------------------------------------------------#
-text = airbnb_sents[:n_top//2] + hotel_sents[:n_top//2]
-labs = ['airbnb']*(n_top//2)+['hotel']*(n_top//2)
+text = airbnb_sents[:n_top] + hotel_sents[:n_top]
+labs = ['airbnb']*(n_top)+['hotel']*(n_top)
 emb = model.encode(text)   
 #---------------------------------------------------------#
 query_emb = model.encode(target)
@@ -131,7 +131,7 @@ st.table(df.head())
 st.markdown("""---""")
 
 st.write("Proporción de frases por tipo de alojamiento:")
-st.success(Counter(labs[i] for _,i in sims[:n_top**2]))
+st.success(Counter(labs[i] for _,i in sims[:n_top*2]))
 
 st.markdown("""---""")
 #---------------------------------------------------------#
