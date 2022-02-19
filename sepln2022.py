@@ -58,9 +58,9 @@ def init_retriever():
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
 model = init_retriever()
 
-mutable_object = init_retriever()
+# model = init_retriever()
 if st.button("Clear history cache"):
-    mutable_object.clear()
+    model.clear()
 #---------------------------------------------------------#
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
