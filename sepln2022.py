@@ -206,14 +206,15 @@ if submit:
 from transformers import pipeline
 classifier = pipeline("sentiment-analysis")
 df2 = df1.copy()
+
 df2 = (
     df2
     .assign(sentiment = lambda x: x['material'].apply(lambda s: classifier(s)))
     .assign(
-         label = lambda x: x['sentiment'].apply(lambda s: (s[0]['valencia'])),
+         label = lambda x: x['sentiment'].apply(lambda s: (s[0]['label'])),
          score = lambda x: x['sentiment'].apply(lambda s: (s[0]['score']))
     )
 )
-#del df2['sentiment']
+del df2['sentiment']
 st.table(df2)
 #---------------------------------------------------------#
