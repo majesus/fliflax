@@ -143,6 +143,9 @@ g = alt.Chart(df).transform_density(
 ).mark_area().encode(
          x="cosine:Q",
          y='density:Q',
+).facet(
+         'type:N',
+         columns=2
 )
 st.altair_chart(g, use_container_width = True)
 #---------------------------------------------------------#
