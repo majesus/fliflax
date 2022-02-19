@@ -47,9 +47,10 @@ masking_set ={
     'lobby'
 } | nombres_set
 #---------------------------------------------------------#
+from sentence_transformers import SentenceTransformer, util
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=False)
-#@st.experimental_memo
+@st.experimental_memo
 def init_retriever():
     # initialize retriever model
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
