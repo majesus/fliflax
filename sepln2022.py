@@ -158,7 +158,7 @@ df2 = (
          score = lambda x: x['sentiment'].apply(lambda s: (s[0]['score']))
     )
 )
-del df['sentiment']
+del df2['sentiment']
 st.table(df2)
 #---------------------------------------------------------#
 
