@@ -11,7 +11,10 @@ st.write("En estos experimentos usamos un modelo que sirve para hacer retrieval:
          "Podría servir para definir una serie de queries relacionadas con las dimensiones SATISFACCIÓN, CONFIANZA y COMPROMISO, "
          "o con otros conceptos que nos parezcan interesantes. Y permitiría también hacer representaciones de las fuentes (airbnb/hotel) "
          "con respecto a las dimensiones elegidas.")
-st.write("J.A. Troyano / Fermín Cruz, Universidad de Sevilla")
+st.write("J.A. Troyano / Fermín Cruz / Manuel J. Sánchez-Franco, Universidad de Sevilla")
+
+st.warning("Precisamos que aún no hemos determinado la valencia de la simlitud, es decir, "
+           "el embedding no detecta de modo sensible la diferencia entre satisfacción e insatisfacción, por ejemplo")
 #---------------------------------------------------------#
 nombres_set ={
     "abraham","africa","agustin","alba","alberto","albertos","alejandro","alex","alfonso","alfredo","alicia","alvaro",
