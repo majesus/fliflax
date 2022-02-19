@@ -8,8 +8,9 @@ st.title('Estimación de la similitud mediante queries:')
 st.write("En estos experimentos usamos un modelo que sirve para hacer retrieval: mandas una query, te devuelve la oración que mejor responde a la query. "
          "Se trata de búsquedas semánticas, en las que la query puede ser una palabra, una pregunta, o cualquier enunciado. "
          "El modelo que usamos sirve para búsquedas asimétricas (la query es mucho más corta que los documentos). "
-         "Podría servir para definir una serie de queries relacionadas con las dimensiones SATISFACCIÓN, CONFIANZA y COMPROMISO (esto tiene que ayudar Manolo), "
-         "o con otros conceptos que nos parezcan interesantes. Y podríamos hacer representaciones de las fuentes (airbnb/hotel) con respecto a las dimensiones escogidas. ")
+         "Podría servir para definir una serie de queries relacionadas con las dimensiones SATISFACCIÓN, CONFIANZA y COMPROMISO, "
+         "o con otros conceptos que nos parezcan interesantes. Y permitiría también hacer representaciones de las fuentes (airbnb/hotel) "
+         "con respecto a las dimensiones elegidas.")
 st.write("J.A. Troyano / Fermín Cruz, Universidad de Sevilla")
 #---------------------------------------------------------#
 nombres_set ={
