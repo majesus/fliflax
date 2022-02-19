@@ -48,15 +48,8 @@ masking_set ={
 } | nombres_set
 #---------------------------------------------------------#
 
-from streamlit import caching
-caching.clear_cache()
-
-from sentence_transformers import SentenceTransformer, util
-#@st.cache
-#model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
-#st.write("cargado")
-
-@st.cache(suppress_st_warning=True, allow_output_mutation=False)
+#@st.cache(suppress_st_warning=True, allow_output_mutation=False)
+@st.experimental_memo
 def init_retriever():
     # initialize retriever model
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
