@@ -47,6 +47,10 @@ masking_set ={
     'lobby'
 } | nombres_set
 #---------------------------------------------------------#
+
+from streamlit import caching
+caching.clear_cache()
+
 from sentence_transformers import SentenceTransformer, util
 #@st.cache
 #model = SentenceTransformer('msmarco-MiniLM-L-12-v3')
@@ -161,9 +165,6 @@ from transformers import pipeline
 
 st.title('Estimación de sentimientos:')
 st.write('Esta app-streamlit emplea Hugging Face Transformers [sentiment analyser] para clasificar el texto como positivo o negativo.')
-
-from streamlit import caching
-caching.clear_cache()
 
 form = st.form(key='sentiment-form')
 phrase = form.text_area('texto', value = df.string[0])
