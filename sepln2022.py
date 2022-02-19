@@ -196,8 +196,9 @@ if submit:
     else:
         st.error(f'{label} sentiment (score: {score})')
 #---------------------------------------------------------#
+df2 = df1.copy()
 df2 = (
-    df1
+    df2
     .assign(sentiment = lambda x: x['material'].apply(lambda s: classifier(s)))
     .assign(
          label = lambda x: x['sentiment'].apply(lambda s: (s[0]['label'])),
