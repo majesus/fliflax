@@ -58,7 +58,7 @@ model = init_retriever()
 
 st.markdown("""---""")
 
-if st.button("Clear Square"):
+if st.button("Borrar caché"):
     #init_retriever.clear()
     st.experimental_memo.clear()
 #---------------------------------------------------------#
