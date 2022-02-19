@@ -137,7 +137,7 @@ st.markdown("""---""")
 #---------------------------------------------------------#
 import altair as alt
 g = alt.Chart(df).transform_density(
-    'IMDB_Rating',
+    'cosine',
     as_=['cosine', 'density'],
 ).mark_area().encode(
     x="cosine:Q",
