@@ -61,7 +61,7 @@ model = init_retriever()
 # model = init_retriever()
 from streamlit import caching
 if st.button("Clear history cache"):
-    model.clear()
+    model.clear_cache()
 #---------------------------------------------------------#
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
