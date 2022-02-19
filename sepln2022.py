@@ -69,6 +69,7 @@ if st.button("Borrar caché"):
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
 #---------------------------------------------------------#
+masking == False
 with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", ("Sí","No"))
     material = st.radio("¿material?", ("oraciones","revisiones"))
@@ -80,7 +81,6 @@ datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = False,
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
-masking = None
 If masking == "Sí":
          masking = True
 else:
