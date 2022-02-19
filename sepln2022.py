@@ -179,18 +179,4 @@ if submit:
     else:
         st.error(f'{label} sentiment (score: {score})')
 #---------------------------------------------------------#
-st.markdown("""---""")
-
-st.title('Reconocimiento de entidades:')
-st.write('Esta app-streamlit emplea Hugging Face Transformers para reconocer entidades.')
-
-if submit:
-         # NER pipeline
-         ner = pipeline("ner")
-         # phrase
-         phrase = phrase
-         # NER tarea
-         ner_result = ner(phrase)
-         # Print result
-         st.success(ner_result)
 #---------------------------------------------------------#
