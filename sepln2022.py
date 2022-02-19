@@ -64,11 +64,11 @@ datos = pd.read_csv("csv/proyecto.csv")
 with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
     material = st.radio("¿material?", ("frases","revisiones"))
-    n_top = st.slider(label='número de materiales a emplear por tipo de alojamiento:', value=10, max_value= len(datos)//2, min_value = 1)
+    n_top = st.slider(label='número de materiales a emplear por tipo de alojamiento:', value=10, max_value= 1000, min_value = 1)
     target = st.text_input(label='query a comparar su similitud [coseno] con dataset:', value = "I am satisfied with this stay.")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
-datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, random_state=123)).reset_index(drop = True)
+datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = False, random_state=123)).reset_index(drop = True)
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
