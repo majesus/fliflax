@@ -55,6 +55,12 @@ def init_retriever():
     # initialize retriever model
     return SentenceTransformer('msmarco-MiniLM-L-12-v3')
 model = init_retriever()
+
+st.markdown("""---""")
+
+if st.button("Clear Square"):
+    #init_retriever.clear()
+    st.experimental_memo.clear()
 #---------------------------------------------------------#
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
