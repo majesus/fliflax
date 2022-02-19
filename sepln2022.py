@@ -80,6 +80,7 @@ datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = False,
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
+masking = None
 If masking == "Sí":
          masking = True
 else:
