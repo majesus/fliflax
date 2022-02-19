@@ -121,7 +121,8 @@ st.write("### Resultados:")
 st.markdown("""---""")
 
 L = []
-for s, i in sims[:n_top*2]:    
+#for s, i in sims[:n_top*2]:   
+for s, i in sims[:n_top*2]:
     dat= [str(s), labs[i], text[i]]
     L.append(dat)
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
