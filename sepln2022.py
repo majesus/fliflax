@@ -130,8 +130,9 @@ st.table(df.head())
     
 st.markdown("""---""")
 
-st.write("Proporción de frases por tipo de alojamiento:")
+st.write("Frases por tipo de alojamiento:")
 st.success(Counter(labs[i] for _,i in sims))
+st.success(Counter(str(s) > 0.4 for _,i in sims))
 
 st.markdown("""---""")
 #---------------------------------------------------------#
