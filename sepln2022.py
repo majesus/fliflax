@@ -136,7 +136,7 @@ st.markdown("""---""")
 L = []
 #for s, i in sims[:n_top*2]:   
 for s, i in sims:
-    dat= [(round(s,10)), labs[i], text[i]]
+    dat= [str(s), labs[i], text[i]]
     L.append(dat)
 df = pd.DataFrame(L, columns = ['similitud', 'tipo', 'material'])
 
