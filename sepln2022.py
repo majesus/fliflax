@@ -156,19 +156,21 @@ st.altair_chart(g, use_container_width = True)
 #---------------------------------------------------------#
 st.markdown("""---""")
 #---------------------------------------------------------#
-import streamlit as st
+# import streamlit as st
 from transformers import pipeline
 
 st.title('Estimación de sentimientos:')
-st.write('Esta app-streamlit emplea Hugging Face Transformers [sentiment analyser](https://huggingface.co/course/chapter1/3?fw=tf) para clasificar el texto como positivo o negativo.')
+st.write('Esta app-streamlit emplea Hugging Face Transformers [sentiment analyser] para clasificar el texto como positivo o negativo.')
 
 form = st.form(key='sentiment-form')
-user_input = form.text_area('texto', value = df.string[0])
+phrase = form.text_area('texto', value = df.string[0])
 submit = form.form_submit_button('enviar')
+
+st.markdown("""---""")
 
 if submit:
     classifier = pipeline("sentiment-analysis")
-    result = classifier(user_input)[0]
+    result = classifier(phrase)[0]
     label = result['label']
     score = result['score']
 
@@ -176,4 +178,17 @@ if submit:
         st.success(f'{label} sentiment (score: {score})')
     else:
         st.error(f'{label} sentiment (score: {score})')
+#---------------------------------------------------------#
+st.title('Reconocimiento de entidades:')
+st.write('Esta app-streamlit emplea Hugging Face Transformers para reconocer entidades.')
+
+if submit:
+         # NER pipeline
+         ner = pipeline("ner")
+         # phrase
+         phrase = phrase
+         # NER tarea
+         ner_result = ner(phrase)
+         # Print result
+         print(ner_result)
 #---------------------------------------------------------#
