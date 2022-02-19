@@ -69,7 +69,7 @@ if st.button("Borrar caché"):
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
 #---------------------------------------------------------#
-masking = False
+masking = "No"
 with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", ("Sí","No"))
     material = st.radio("¿material?", ("oraciones","revisiones"))
