@@ -71,7 +71,7 @@ datos = pd.read_csv("csv/proyecto.csv")
 with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
     material = st.radio("¿material?", ("oraciones","revisiones"))
-    n_top = st.slider(label='número de materiales a emplear por tipo de alojamiento:', value=10, max_value= 1000, min_value = 1)
+    n_top = st.slider(label='número de revisiones a emplear por tipo de alojamiento:', value=10, max_value= 1000, min_value = 1)
     target = st.text_input(label='query a comparar su similitud [coseno] con material:', value = "I am satisfied with this stay.")
     form1 = st.form_submit_button(label='Calcular')
 #---------------------------------------------------------#
@@ -114,8 +114,10 @@ else:
     airbnb_sents = split_sentences_join(airbnb)
     hotel_sents = split_sentences_join(hotel)
 #---------------------------------------------------------#
-text = airbnb_sents[:n_top] + hotel_sents[:n_top]
-labs = ['airbnb']*(n_top)+['hotel']*(n_top)
+#text = airbnb_sents[:n_top] + hotel_sents[:n_top]
+#labs = ['airbnb']*(n_top)+['hotel']*(n_top)
+text = airbnb_sents + hotel_sents
+labs = ['airbnb']*len(airbnb_sents]+['hotel']*len(hotel_sents]
 emb = model.encode(text)   
 #---------------------------------------------------------#
 query_emb = model.encode(target)
@@ -137,7 +139,7 @@ for s, i in sims:
     L.append(dat)
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
 
-st.success("Materiales ordenador de mayor a menor similitud con la query con que comparamos:")
+st.success("Strings ordenadas de mayor a menor similitud con la query con que comparamos:")
 df1 = df.copy()
 df1.set_index('type', inplace=True)
 st.write(target)
@@ -145,7 +147,7 @@ st.table(df1.head())
     
 st.markdown("""---""")
 
-st.write("Frases por tipo de alojamiento:")
+st.write("Materiales por tipo de alojamiento:")
 st.success(Counter(labs[i] for _,i in sims))
 #---------------------------------------------------------#
 st.markdown("""---""")
