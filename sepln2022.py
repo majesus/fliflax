@@ -126,7 +126,7 @@ for s, i in sims[:n_top*2]:
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
 
 st.success("Materiales ordenador de mayor a menor similitud con el texto con que comparamos:")
-df1 = df
+df1 = df.copy()
 df1.set_index('type', inplace=True)
 st.table(df1.head())
     
