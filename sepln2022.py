@@ -145,12 +145,11 @@ df1 = df.copy()
 df1.set_index('tipo', inplace=True)
 df1['similitud'].round(decimals = 3)
 st.write(target)
-#st.table(df1.head())
 #---------------------------------------------------------#
 
 from transformers import pipeline
 classifier = pipeline("sentiment-analysis")
-df2 = df1.copy()
+df2 = df1.head().copy()
 
 df2 = (
     df2
