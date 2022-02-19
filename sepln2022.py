@@ -190,5 +190,5 @@ if submit:
          # NER tarea
          ner_result = ner(phrase)
          # Print result
-         print(ner_result)
+         st.success(ner_result)
 #---------------------------------------------------------#
