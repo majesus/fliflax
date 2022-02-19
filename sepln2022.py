@@ -145,8 +145,23 @@ df1 = df.copy()
 df1.set_index('tipo', inplace=True)
 df1['similitud'].round(decimals = 3)
 st.write(target)
-st.table(df1.head())
-    
+#st.table(df1.head())
+#---------------------------------------------------------#
+from transformers import pipeline
+classifier = pipeline("sentiment-analysis")
+df2 = df1.copy()
+df2 = (
+    df2
+    .assign(sentiment = lambda x: x['material'].apply(lambda s: classifier(s)))
+    .assign(
+         label = lambda x: x['sentiment'].apply(lambda s: (s[0]['valencia'])),
+         score = lambda x: x['sentiment'].apply(lambda s: (s[0]['score']))
+    )
+)
+del df['sentiment']
+st.table(df2)
+#---------------------------------------------------------#
+
 st.markdown("""---""")
 
 st.write("Materiales por tipo de alojamiento:")
@@ -196,15 +211,4 @@ if submit:
     else:
         st.error(f'{label} sentiment (score: {score})')
 #---------------------------------------------------------#
-classifier = pipeline("sentiment-analysis")
-df2 = df1.copy()
-df2 = (
-    df2
-    .assign(sentiment = lambda x: x['material'].apply(lambda s: classifier(s)))
-    .assign(
-         label = lambda x: x['sentiment'].apply(lambda s: (s[0]['label'])),
-         score = lambda x: x['sentiment'].apply(lambda s: (s[0]['score']))
-    )
-)
-st.table(df2)
-#---------------------------------------------------------#
+
