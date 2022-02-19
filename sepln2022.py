@@ -180,8 +180,8 @@ st.title('Estimación de sentimientos:')
 st.write('Esta app-streamlit emplea Hugging Face Transformers [sentiment analyser] para clasificar el texto como positivo o negativo.')
 
 form = st.form(key='sentiment-form')
-phrase = form.text_area('texto', value = df.string[0])
-submit = form.form_submit_button('enviar')
+phrase = form.text_area('texto', value = df.material[0])
+submit = form.form_submit_button('Calcular')
 
 st.markdown("""---""")
 
