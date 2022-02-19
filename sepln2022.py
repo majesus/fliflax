@@ -102,7 +102,7 @@ def split_sentences_join(reviews):
 
 @st.experimental_memo
 def mask(s):
-    if masking:
+    if masking == True:
         res = []
         for w in re.split(r"\b", s):
             if w.lower() in masking_set:
