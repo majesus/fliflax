@@ -107,7 +107,7 @@ def mask(s):
     else:
         return s
 #---------------------------------------------------------#
-if material == "frases":
+if material == "oraciones":
     airbnb_sents = split_sentences(airbnb)
     hotel_sents = split_sentences(hotel)
 else:
