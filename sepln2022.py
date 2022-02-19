@@ -117,7 +117,7 @@ else:
 #text = airbnb_sents[:n_top] + hotel_sents[:n_top]
 #labs = ['airbnb']*(n_top)+['hotel']*(n_top)
 text = airbnb_sents + hotel_sents
-labs = ['airbnb']*len(airbnb_sents) + ['hotel']*len(hotel_sents]
+labs = ['airbnb']*len(airbnb_sents)+['hotel']*len(hotel_sents)
 emb = model.encode(text)   
 #---------------------------------------------------------#
 query_emb = model.encode(target)
