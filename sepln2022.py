@@ -2,7 +2,6 @@ import streamlit as st
 
 from collections import Counter
 import pandas as pd
-import numpy as np
 import re
 #---------------------------------------------------------#
 st.title('Estimación de la similitud mediante queries:')
@@ -109,7 +108,7 @@ def mask(s):
                 w = "HMKD"
             res.append(w.strip())
         return ' '.join(res)
-    else:
+    elif masking == False:
         return s
 #---------------------------------------------------------#
 if material == "oraciones":
