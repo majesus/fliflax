@@ -196,6 +196,7 @@ if submit:
     else:
         st.error(f'{label} sentiment (score: {score})')
 #---------------------------------------------------------#
+classifier = pipeline("sentiment-analysis")
 df2 = df1.copy()
 df2 = (
     df2
