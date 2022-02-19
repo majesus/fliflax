@@ -165,7 +165,7 @@ g = alt.Chart(df).transform_density(
          x="similitud:Q",
          y='density:Q',
 ).facet(
-    'type:N',
+    'tipo:N',
     columns=1
 )
 st.altair_chart(g, use_container_width = True)
