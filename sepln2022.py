@@ -148,9 +148,20 @@ st.write(target)
 #st.table(df1.head())
 #---------------------------------------------------------#
 
+from transformers import pipeline
+classifier = pipeline("sentiment-analysis")
+df2 = df1.copy()
 
-
-
+df2 = (
+    df2
+    .assign(sentiment = lambda x: x['material'].apply(lambda s: classifier(s)))
+    .assign(
+         label = lambda x: x['sentiment'].apply(lambda s: (s[0]['label'])),
+         score = lambda x: x['sentiment'].apply(lambda s: (s[0]['score']))
+    )
+)
+del df2['sentiment']
+st.table(df2)
 
 #---------------------------------------------------------#
 
@@ -203,18 +214,5 @@ if submit:
     else:
         st.error(f'{label} sentiment (score: {score})')
 #---------------------------------------------------------#
-from transformers import pipeline
-classifier = pipeline("sentiment-analysis")
-df2 = df1.copy()
 
-df2 = (
-    df2
-    .assign(sentiment = lambda x: x['material'].apply(lambda s: classifier(s)))
-    .assign(
-         label = lambda x: x['sentiment'].apply(lambda s: (s[0]['label'])),
-         score = lambda x: x['sentiment'].apply(lambda s: (s[0]['score']))
-    )
-)
-del df2['sentiment']
-st.table(df2)
 #---------------------------------------------------------#
