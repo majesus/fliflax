@@ -179,6 +179,8 @@ if submit:
     else:
         st.error(f'{label} sentiment (score: {score})')
 #---------------------------------------------------------#
+st.markdown("""---""")
+
 st.title('Reconocimiento de entidades:')
 st.write('Esta app-streamlit emplea Hugging Face Transformers para reconocer entidades.')
 
