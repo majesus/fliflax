@@ -162,6 +162,9 @@ from transformers import pipeline
 st.title('Estimación de sentimientos:')
 st.write('Esta app-streamlit emplea Hugging Face Transformers [sentiment analyser] para clasificar el texto como positivo o negativo.')
 
+from streamlit import caching
+caching.clear_cache()
+
 form = st.form(key='sentiment-form')
 phrase = form.text_area('texto', value = df.string[0])
 submit = form.form_submit_button('enviar')
