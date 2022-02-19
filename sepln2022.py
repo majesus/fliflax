@@ -70,7 +70,7 @@ if st.button("Borrar caché"):
 datos = pd.read_csv("csv/proyecto.csv")
 #---------------------------------------------------------#
 # Decide si se enmascaran palabras o no
-masking = True
+
 with st.sidebar.form(key='my_form'):
     masking = st.radio("¿masking?", (True,False))
     material = st.radio("¿material?", ("oraciones","revisiones"))
@@ -82,6 +82,7 @@ datos = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = False,
 airbnb = datos[datos.type=="airbnb"].description1 
 hotel = datos[datos.type=="hotel"].description1 
 #---------------------------------------------------------#
+masking = False
 #---------------------------------------------------------#
 @st.experimental_memo
 def split_sentences(reviews):
