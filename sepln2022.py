@@ -126,8 +126,9 @@ for s, i in sims[:n_top*2]:
 df = pd.DataFrame(L, columns = ['cosine', 'type', 'string'])
 
 st.success("Materiales ordenador de mayor a menor similitud con el texto con que comparamos:")
-df.set_index('cosine', inplace=True)
-st.table(df.head())
+df1 = df
+df1.set_index('airbnb', inplace=True)
+st.table(df1.head())
     
 st.markdown("""---""")
 
