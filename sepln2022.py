@@ -83,7 +83,6 @@ hotel = datos[datos.type=="hotel"].description1
 #---------------------------------------------------------#
 #masking = False
 #---------------------------------------------------------#
-@st.experimental_memo
 def split_sentences(reviews):
     res = []
     for r in reviews:
@@ -91,7 +90,6 @@ def split_sentences(reviews):
         res+= sts
     return res
 
-@st.experimental_memo
 def split_sentences_join(reviews):
     res = []
     for r in reviews:
@@ -99,7 +97,6 @@ def split_sentences_join(reviews):
         res.append('. '.join(sts))
     return res
 
-@st.experimental_memo
 def mask(s):
     if masking == True:
         res = []
