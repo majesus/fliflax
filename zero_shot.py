@@ -22,6 +22,8 @@ st.markdown("""---""")
 candidate_labels = ["location", "price"]
 candidate_results = [0, 0]
 
+classifier = pipeline("zero-shot-classification", device=0)
+
 for sent in datos_zero['description1'].values:
     # To do multi-class classification, simply pass multi_class=True.
     # In this case, the scores will be independent, but each will fall between 0 and 1.
@@ -39,12 +41,12 @@ for sent in datos_zero['description1'].values:
         candidate_results[1] = candidate_results[1] + 1
     
     if res['scores'][0] > 0.5:
-        print(sent)
-        print(res['labels'])
-        print(res['scores'])
-        print()
+        st.write(sent)
+        st.write(res['labels'])
+        st.write(res['scores'])
+        st.write()
 
-st.wirte(candidate_results)
+st.write(candidate_results)
 #---------------------------------------------------------#
 
 
