@@ -19,16 +19,12 @@ datos_zero = datos.groupby('type').apply(lambda x: x.sample(n=n_top, replace = F
 #---------------------------------------------------------#
 st.markdown("""---""")
 #---------------------------------------------------------#
-candidate_labels = ["location", "price"]
-candidate_results = [0, 0]
+candidate_labels = ["satisfaction", "trust","enduring relationship"]
+candidate_results = [0, 0, 0]
 
 st.markdown("""---""")
 
 classifier = pipeline("zero-shot-classification")
-
-if st.button("Borrar caché"):
-    #init_retriever.clear()
-    st.experimental_memo.clear()
 
 for sent in datos_zero['description1'].values:
     # To do multi-class classification, simply pass multi_class=True.
@@ -45,6 +41,8 @@ for sent in datos_zero['description1'].values:
         candidate_results[0] = candidate_results[0] + 1
     if predicted_class == 'price' and predicted_score > 0.5:
         candidate_results[1] = candidate_results[1] + 1
+    if predicted_class == 'enduring relationship' and predicted_score > 0.5:
+        candidate_results[2] = candidate_results[2] + 1
     
     if res['scores'][0] > 0.5:
         st.write(sent)
@@ -52,6 +50,9 @@ for sent in datos_zero['description1'].values:
         st.write(res['scores'])
         st.write()
 
+datos = {'labels': candidate_labels,'scores': candidate_results}
+df_chart = pd.DataFrame(datos, columns=['labels','scores'])
+st.table(df_chart.head(10))
 st.write(candidate_results)
 #---------------------------------------------------------#
 
