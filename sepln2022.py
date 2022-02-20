@@ -216,8 +216,8 @@ if submit:
 #---------------------------------------------------------#
 st.markdown("""---""")
 #---------------------------------------------------------#
-submit = form.form_submit_button('Calcular')
-if submit:
+submit_zero = form.form_submit_button('Calcular')
+if submit_zero:
     classifier = pipeline("zero-shot-classification")
 
 candidate_labels = ["location", "price", "relationship", "trust", "recommendation", "satisfaction"]
