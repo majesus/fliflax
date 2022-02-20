@@ -41,9 +41,9 @@ for sent in datos_zero['description1'].values:
     predicted_class = CLASSES[BEST_INDEX]
     predicted_score = SCORES[BEST_INDEX]
 
-    if predicted_class == 'renewable' and predicted_score > 0.5:
+    if predicted_class == 'location' and predicted_score > 0.5:
         candidate_results[0] = candidate_results[0] + 1
-    if predicted_class == 'politics' and predicted_score > 0.5:
+    if predicted_class == 'price' and predicted_score > 0.5:
         candidate_results[1] = candidate_results[1] + 1
     
     if res['scores'][0] > 0.5:
