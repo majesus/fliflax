@@ -24,6 +24,8 @@ candidate_results = [0, 0]
 
 st.markdown("""---""")
 
+classifier = pipeline("zero-shot-classification")
+
 if st.button("Borrar caché"):
     #init_retriever.clear()
     st.experimental_memo.clear()
