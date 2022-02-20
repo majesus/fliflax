@@ -22,7 +22,11 @@ st.markdown("""---""")
 candidate_labels = ["location", "price"]
 candidate_results = [0, 0]
 
-classifier = pipeline("zero-shot-classification", device=0)
+st.markdown("""---""")
+
+if st.button("Borrar caché"):
+    #init_retriever.clear()
+    st.experimental_memo.clear()
 
 for sent in datos_zero['description1'].values:
     # To do multi-class classification, simply pass multi_class=True.
