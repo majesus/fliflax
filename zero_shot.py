@@ -2,7 +2,7 @@ import streamlit as st
 
 from collections import Counter
 import pandas as pd
-import re
+from numpy import argmax
 from transformers import pipeline
 #---------------------------------------------------------#
 datos = pd.read_csv("csv/proyecto.csv")
