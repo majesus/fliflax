@@ -214,9 +214,11 @@ if submit:
     else:
         st.error(f'{label} sentiment (score: {score})')
 #---------------------------------------------------------#
-
+st.markdown("""---""")
 #---------------------------------------------------------#
-classifier = pipeline("zero-shot-classification", device=0)
+submit = form.form_submit_button('Calcular')
+if submit:
+    classifier = pipeline("zero-shot-classification")
 
 candidate_labels = ["location", "price", "relationship", "trust", "recommendation", "satisfaction"]
 res = classifier(sent, candidate_labels)
