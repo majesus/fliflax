@@ -231,7 +231,7 @@ if submit_zero:
 
         SCORES = res["scores"]
         CLASSES = res["labels"]
-            BEST_INDEX = argmax(SCORES)
+        BEST_INDEX = argmax(SCORES)
         predicted_class = CLASSES[BEST_INDEX]
         predicted_score = SCORES[BEST_INDEX]
 
