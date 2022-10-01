@@ -53,6 +53,9 @@ with st.sidebar.form("my_form"):
     dic2 = dict(zip(options2, values2))
     replies = st.radio('¿Quieres descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets_2", disabled = True)
 
+    output_csv = st.radio(‘¿Grabar como CSV?’, [‘Yes’, ‘No’])
+    file_name = st.text_input(‘Nombre del CSV:’)
+      
     submitted = st.form_submit_button(label = "Descargar")
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
