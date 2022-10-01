@@ -53,7 +53,7 @@ with st.sidebar.form("my_form"):
     dic2 = dict(zip(options2, values2))
     replies = st.radio('¿Quieres descargar los replies?',  options2, format_func=lambda x: dic2[x], key = "retweets_2", disabled = True)
 
-    submitted = st.form_submit_button("Descargar")
+    submitted = st.form_submit_button(label = "Descargar")
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
 
