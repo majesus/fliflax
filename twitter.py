@@ -78,9 +78,8 @@ tweets_df2 = pd.DataFrame(tweets_list2)
 st.table(tweets_df2)
 
 @st.cache
-def convert_df(tweets_df2):
+def convert_df(df):
    return df.to_csv().encode('utf-8')
-
 
 csv = convert_df(tweets_df2)
 
