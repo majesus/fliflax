@@ -37,7 +37,7 @@ with st.sidebar.form("my_form"):
     tipo = st.radio("¿Qué deseas descargar?", ('Usuario', 'Tema'), key = "type")
     username = st.text_input(label="Indica el numbre del usuario, o las palabras clave:", value = "BMWEspana")
     count = st.slider("Hasta un máximo de ...", min_value=1, max_value=100, value=2, step=10)
-    desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
+    desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now() - 30, key ="date_min")
     hasta_fecha = st.date_input('¿Hasta qué fecha?',value = dt.datetime.now(), key ="date_max")
     
     st.markdown("----")
