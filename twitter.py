@@ -71,10 +71,11 @@ tweets_list2 = []
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()):
     if i>count:
         break
-    tweets_list2.append([tweet.date, tweet.id, tweet.content, tweet.url, tweet.username])
+    tweets_list2.append([tweet.date, tweet.content, tweet.username])
     
 # Creating a dataframe from the tweets list above
 tweets_df2 = pd.DataFrame(tweets_list2)
+tweets_df2.append([tweet.date, tweet.content, tweet.user.username])
 st.table(tweets_df2)
 
 @st.cache
