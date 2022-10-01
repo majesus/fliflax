@@ -76,6 +76,21 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper(username).get_items()):
 # Creating a dataframe from the tweets list above
 tweets_df2 = pd.DataFrame(tweets_list2)
 st.table(tweets_df2)
+
+@st.cache
+def convert_df(tweets_df2):
+   return df.to_csv().encode('utf-8')
+
+
+csv = convert_df(tweets_df2)
+
+st.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
 #-----------------------------------------------------------------#
 
 # IMPORTANTE: https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
