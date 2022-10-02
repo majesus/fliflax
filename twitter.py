@@ -38,30 +38,20 @@ sentiments = []
 # customize form
 with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "deporte")
-    limit = st.slider('How many tweets do you want to get?', 0, 100, step=20)
+    limit = st.slider('How many tweets do you want to get?', 20, 100, step=20)
     
     output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
     file_name = st.text_input('Name the CSV file:', value = search_term)
     submit_button = st.form_submit_button(label='Search')
 
 if submit_button:
-  # configure twint
   c = twint.Config()
-  c.Since = '2020-09-01'
-  c.Search = search_term
-
+  c.Username = search_term
+  c.Limit = limit
   c.Store_csv = True
-  c.Store_csv = output_csv
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
-  c.Output = f'{file_name}.csv'
-  c.Output = 'a.csv'
-    
-  twint.run.Search(c)
-    
-  data = pd.read_csv(f'{file_name}.csv')
-    
-  len_df = len(data.index)
-  st.write('CSV ', output_csv)
-  st.write('Number of rows ', len_df)
-  st.write('Limit ', limit)
-  st.table(data)
+  c.Output = "twitter.csv"
+  twint.Search(c)
+  
+  
+  
