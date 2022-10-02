@@ -60,8 +60,6 @@ if submit_button:
   st.write('Number of rows ', len_df)
   st.write('Limit ', limit)
   
-  st.table(Tweets_df)
-  
   @st.cache
   def convert_df(df):
     return df.to_csv(sep="|").encode('utf-8')
@@ -73,6 +71,8 @@ if submit_button:
      "text/csv",
      key='download-csv'
   )
+  
+    st.table(Tweets_df)
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
 st.markdown('''
