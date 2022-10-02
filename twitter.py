@@ -56,6 +56,7 @@ if submit_button:
   twint.run.Search(c)
   
   # Tweets_df  = twint.storage.panda.Tweets_df
+  Tweets_df = pd.DataFrame()
   Tweets_df = pd.read_csv('twitter.csv')
   
   len_df = len(Tweets_df.index)
