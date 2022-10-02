@@ -34,7 +34,7 @@ st.markdown("----")
 import datetime as dt
 #-----------------------------------------------------------------#
 with st.form(key='Twitter_form'):
-  search_term = st.text_input('What do you want to search for?')
+  search_term = st.text_input('What do you want to search for?', value = 'zara_es)
   limit = st.slider('How many tweets do you want to get?', min_value=1, max_value=100, value=2, step=10)
   output_csv = st.radio('Save a CSV file?', ['Yes', 'No'])
   file_name = st.text_input('Name the CSV file:')
@@ -43,7 +43,7 @@ if submit_button:
   # Configure
   c = twint.Config()
   c.Limit = 1
-  c.Username = "narendramodi"
+  c.Username = search_term
 
   # Run
   twint.run.Search(c)
