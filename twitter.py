@@ -45,6 +45,7 @@ with st.sidebar.form(key='Twitter_form'):
     submit_button = st.form_submit_button(label='Search')
     
 st.write('CSV ', output_csv)
+st.write('Limit ', limit)
 
 if submit_button:
   # configure twint
