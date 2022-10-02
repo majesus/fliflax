@@ -55,7 +55,8 @@ with st.form(key='Twitter_form'):
 
         if c.Store_csv:
             c.Output = f'{file_name}.csv'
-
+        
+        c.Pandas = True
         twint.run.Search(c)
 
         #data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
