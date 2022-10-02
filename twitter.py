@@ -44,23 +44,22 @@ with st.sidebar.form(key='Twitter_form'):
     file_name = st.text_input('Name the CSV file:')
     submit_button = st.form_submit_button(label='Search')
 
-    if submit_button:
-        # configure twint
-        c = twint.Config()
-        c.Since = '2020-09-01'
-        c.Search = search_term
-        c.Limit = limit
+if submit_button:
+  # configure twint
+  c = twint.Config()
+  c.Since = '2020-09-01'
+  c.Search = search_term
+  c.Limit = limit
+  c.Pandas = True
+  twint.run.Search(c)
 
-        c.Store_csv = True
-        if c.Store_csv:
-            c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
-            c.Output = f'{file_name}.csv'
-        
-        c.Pandas = True
-        twint.run.Search(c)
+  c.Store_csv = True
+  if c.Store_csv:
+    # c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
+    c.Output = f'{file_name}.csv'
 
-        data = pd.read_csv(f'{file_name}.csv', usecols = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
-        Tweets_df = twint.storage.panda.Tweets_df
-        #Tweets_df_ = Tweets_df[['date', 'tweet', 'replies_count']]
+    data = pd.read_csv(f'{file_name}.csv', usecols = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
+    Tweets_df = twint.storage.panda.Tweets_df
+    #Tweets_df_ = Tweets_df[['date', 'tweet', 'replies_count']]
         
-        st.table(data)
+    st.table(data)
