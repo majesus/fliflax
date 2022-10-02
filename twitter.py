@@ -60,7 +60,7 @@ with st.form(key='Twitter_form'):
 
         twint.run.Search(c)
 
-        data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
+        data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet'])
 
         st.table(data)
 
