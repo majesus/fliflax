@@ -50,32 +50,17 @@ if submit_button:
   c.Since = '2020-09-01'
   c.Search = search_term
 
-  if output_csv  == 'Si': 
-    c.Store_csv = True
-    c.Store_csv = output_csv
-    c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
-    c.Output = f'{file_name}.csv'
+  c.Store_csv = True
+  c.Store_csv = output_csv
+  c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
+  c.Output = f'{file_name}.csv'
     
-    twint.run.Search(c)
+  twint.run.Search(c)
     
-    data = pd.read_csv(f'{file_name}.csv')
+  data = pd.read_csv(f'{file_name}.csv')
     
-    len_df = len(data.index)
-    st.write('CSV ', output_csv)
-    st.write('Number of rows ', len_df)
-    st.write('Limit ', limit)
-    #st.table(data)
-    
-  elif output_csv == 'No':
-   
-    twint.run.Search(c)
-    c.Pandas = True
-    data = pd.DataFrame()
-    data = twint.storage.panda.Tweets_df
-    
-    len_df = len(data.index)
-    st.write('CSV ', output_csv)
-    st.write('Number of rows ', len_df)
-    st.write('Limit ', limit)
-    st.table(data)
-    
+  len_df = len(data.index)
+  st.write('CSV ', output_csv)
+  st.write('Number of rows ', len_df)
+  st.write('Limit ', limit)
+  st.table(data)
