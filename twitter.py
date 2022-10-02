@@ -50,13 +50,14 @@ if submit_button:
   c.Since = '2020-09-01'
   c.Search = search_term
 
-  if output_csv  == True:
-    twint.run.Search(c)
+  if output_csv  == True: 
     c.Store_csv = True
     c.Store_csv = output_csv
-  
     c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
     c.Output = f'{file_name}.csv'
+    
+    twint.run.Search(c)
+    
     data = pd.read_csv(f'{file_name}.csv')
     
     len_df = len(data.index)
@@ -64,9 +65,11 @@ if submit_button:
     st.write('Number of rows ', len_df)
     st.write('Limit ', limit)
     #st.table(data)
+    
   else:
-    twint.run.Search(c)
     c.Pandas = True
+    
+    twint.run.Search(c)
     
     data = pd.DataFrame()
     data = twint.storage.panda.Tweets_df
