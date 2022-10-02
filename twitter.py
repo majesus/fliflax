@@ -59,26 +59,6 @@ with st.form(key='Twitter_form'):
 
         data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet'])
 
-        for x in data['tweet']:
-            # Get language of the tweet
-            lang = comprehend.detect_dominant_language(Text=x)['Languages'][0]['LanguageCode']
-            languages.append(lang)
-            print(f'Language detected: {lang}')
-        data['languages']=languages
-
-            # Get the sentiment of the tweet
-        for x in range(len(data['tweet'])):
-            try:
-                sent = comprehend.detect_sentiment(
-                                                    Text=data['tweet'][x],
-                                                    LanguageCode= data['languages'][x]
-                                                    )['Sentiment']
-                sentiments.append(sent)
-                print(f'Sentiment detected:{sent}')
-            except botocore.exceptions.ClientError as error:
-                print(f'Error: {error}')
-                sentiments.append(error)
-        data['sentiment']= sentiments
         st.table(data)
 
 
