@@ -55,7 +55,7 @@ if submit_button:
   c.Pandas = True
   twint.run.Search(c)
 
-  if c.Store_csv != output_csv:
+  if c.Store_csv == output_csv:
     c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
     c.Output = f'{file_name}.csv'
     data = pd.read_csv(f'{file_name}.csv')
@@ -63,7 +63,7 @@ if submit_button:
     st.write('CSV ', output_csv)
     st.write('Number of rows ', len_df)
     #st.table(data)
-  elif c.Store_csv == output_csv:
+  elif c.Store_csv != output_csv:
     data = pd.DataFrame()
     data = twint.storage.panda.Tweets_df
     st.write('CSV ', output_csv)
