@@ -60,6 +60,7 @@ if submit_button:
   # Tweets_df  = twint.storage.panda.Tweets_df
   Tweets_df = pd.DataFrame()
   
+  from pandas.errors import EmptyDataError 
   try:
     Tweets_df = pd.read_csv(f'{file_name}.csv')
     Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
