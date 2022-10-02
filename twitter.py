@@ -36,7 +36,7 @@ languages = []
 sentiments = []
 
 # customize form
-with st.form(key='Twitter_form'):
+with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "deporte")
     limit = st.slider('How many tweets do you want to get?', 0, 100, step=20)
     
