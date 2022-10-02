@@ -65,6 +65,7 @@ if submit_button:
     len_df = len(data.index)
     st.write('CSV ', output_csv)
     st.write('Number of rows ', len_df)
+    st.write('Limit ', limit)
     #st.table(data)
   else:
     c.Pandas = True
@@ -73,6 +74,9 @@ if submit_button:
     
     data = pd.DataFrame()
     data = twint.storage.panda.Tweets_df
+    len_df = len(data.index)
     st.write('CSV ', output_csv)
+    st.write('Number of rows ', len_df)
+    st.write('Limit ', limit)
     st.table(data)
     
