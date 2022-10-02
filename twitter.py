@@ -31,9 +31,6 @@ st.markdown("----")
 #-----------------------------------------------------------------#
 
 #-----------------------------------------------------------------#
-
-Tweets_df = pd.Dataframe()
-
 # customize form
 with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "deporte")
