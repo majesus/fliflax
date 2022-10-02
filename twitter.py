@@ -33,16 +33,16 @@ st.markdown("----")
 #-----------------------------------------------------------------#
 # customize form
 with st.sidebar.form(key='Twitter_form'):
-    search_term = st.text_input('What do you want to search for?', value = "unisevilla")
-    limit = st.slider('How many tweets do you want to get?', 5, 100, step=5)
+    search_term = st.text_input('¿Qué deseas buscar?', value = "unisevilla")
+    limit = st.slider('¿Cuántos tweets deseas descargar?', 5, 100, step=5)
     
     #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
     #desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
     
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
-    file_name = st.text_input('Name the CSV file:', value = file_name)
+    file_name = st.text_input('Nombre del CSV:', value = file_name)
 
-    submit_button = st.form_submit_button(label='Search')
+    submit_button = st.form_submit_button(label='Buscar tweets')
 
 if submit_button:
   c = twint.Config()
