@@ -44,7 +44,7 @@ with st.sidebar.form(key='Twitter_form'):
     file_name = st.text_input('Name the CSV file:', value = search_term)
     submit_button = st.form_submit_button(label='Search')
     
-st.write(f'{output_csv})
+st.write('CSV ', output_csv)
 
 if submit_button:
   # configure twint
