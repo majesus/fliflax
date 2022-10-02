@@ -55,8 +55,8 @@ if submit_button:
 
   c.Store_csv = True
   if c.Store_csv:
-    #c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
-    #c.Output = f'{file_name}.csv'
+    c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
+    c.Output = f'{file_name}.csv'
     data = pd.read_csv(f'{file_name}.csv')
     Tweets_df = twint.storage.panda.Tweets_df
 
