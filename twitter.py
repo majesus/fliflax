@@ -61,6 +61,6 @@ with st.form(key='Twitter_form'):
 
         #data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
         Tweets_df = twint.storage.panda.Tweets_df
-        Tweets_df = Tweets_df[['date', 'tweet']]
+        Tweets_df = Tweets_df[['date', 'tweet', 'replies_count']]
         
         st.table(Tweets_df)
