@@ -53,8 +53,8 @@ with st.form(key='Twitter_form'):
 
         c.Store_csv = True
         if c.Store_csv:
-            c.Output = f'{file_name}.csv'
             c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
+            c.Output = f'{file_name}.csv'
         
         c.Pandas = True
         twint.run.Search(c)
