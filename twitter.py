@@ -33,7 +33,7 @@ st.markdown("----")
 #-----------------------------------------------------------------#
 # customize form
 with st.sidebar.form(key='Twitter_form'):
-    search_term = st.text_input('What do you want to search for?', value = "deporte")
+    search_term = st.text_input('What do you want to search for?', value = "unisevilla")
     limit = st.slider('How many tweets do you want to get?', 20, 100, step=20)
     
     #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
