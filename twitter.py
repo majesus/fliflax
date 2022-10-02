@@ -37,6 +37,7 @@ with st.sidebar.form(key='Twitter_form'):
     limit = st.slider('How many tweets do you want to get?', 20, 100, step=20)
     
     #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
+    desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
     file_name = st.text_input('Name the CSV file:', value = search_term)
     submit_button = st.form_submit_button(label='Search')
 
@@ -45,6 +46,7 @@ if submit_button:
   #c.Username = search_term
   c.Search = search_term
   c.Limit = limit
+  C.Since = desde_fecha
   c.Store_csv = True
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
   c.Output = f'{file_name}.csv'
@@ -57,8 +59,8 @@ if submit_button:
   Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
   
   len_df = len(Tweets_df.index)
-  st.write('Number of rows ', len_df)
-  st.write('Limit ', limit)
+  st.write('Número de tweets ', len_df)
+  #st.write('Limit ', limit)
   
   @st.cache
   def convert_df(df):
