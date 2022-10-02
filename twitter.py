@@ -43,9 +43,6 @@ with st.sidebar.form(key='Twitter_form'):
     output_csv = st.radio('Save a CSV file?', [True, False])
     file_name = st.text_input('Name the CSV file:', value = search_term)
     submit_button = st.form_submit_button(label='Search')
-    
-st.write('CSV ', output_csv)
-st.write('Limit ', limit)
 
 if submit_button:
   # configure twint
