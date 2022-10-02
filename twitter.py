@@ -51,7 +51,7 @@ if submit_button:
   c.Limit = limit
   #c.Since = desde_fecha
   c.Store_csv = True
-  c.Store_object = False
+  c.Store_object = True
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
   c.Output = f'{file_name}.csv'
   
@@ -64,7 +64,7 @@ if submit_button:
   
   len_df = len(Tweets_df.index)
   st.write('Número de tweets ', len_df)
-  #st.write('Limit ', limit)
+  st.write('Limit ', limit)
   
   @st.cache
   def convert_df(df):
