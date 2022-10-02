@@ -51,7 +51,7 @@ if submit_button:
   c.Store_csv = True
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
   c.Output = f'{file_name}.csv'
-  twint.Search(c)
+  twint.run.Search(c)
   data = pd.read_csv(f'{file_name}.csv')
   len_df = len(data.index)
   st.write('CSV ', output_csv)
