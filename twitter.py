@@ -34,7 +34,7 @@ st.markdown("----")
 # customize form
 with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('¿Qué deseas buscar?', value = "unisevilla")
-    limit = st.slider('¿Cuántos tweets deseas descargar?', 1, 100, step=1)
+    limit = st.slider('¿Cuántos tweets deseas descargar?', 1, 200, step=20)
     
     #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
     #desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
