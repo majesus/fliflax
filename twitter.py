@@ -66,9 +66,13 @@ if submit_button:
   
   st.table(Tweets_df)
   
+@st.cache
+def convert_df(df):
+   return df.to_csv(sep="|").encode('utf-8')
+csv = convert_df(Tweets_df)
 st.download_button(
    "Press to Download",
-   f'{file_name}.csv',
+   csv,
    "file.csv",
    "text/csv",
    key='download-csv'
