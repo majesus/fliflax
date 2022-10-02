@@ -7,8 +7,6 @@ import string
 
 import twint
 
-from streamlit import caching
-caching.clear_cache()
 #-----------------------------------------------------------------#
 from PIL import Image
 img=Image.open('img/fliflax-logo.jpg')
