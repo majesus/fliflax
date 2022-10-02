@@ -62,15 +62,15 @@ with st.sidebar.form("my_form"):
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
 with st.form(key=’Twitter_form’):
-      search_term = st.text_input(‘What do you want to search for?’)
-      limit = st.slider(‘How many tweets do you want to get?’, 
+      search_term = st.text_input('What do you want to search for?')
+      limit = st.slider('How many tweets do you want to get?', 
                          min, 
                          max, 
                          step=int)
-      output_csv = st.radio(‘Save a CSV file?’, 
-                             [‘Yes’, ‘No’])
-      file_name = st.text_input(‘Name the CSV file:’)
-      submit_button = st.form_submit_button(label=’Search’)
+      output_csv = st.radio('Save a CSV file?', 
+                             ['Yes', 'No'])
+      file_name = st.text_input('Name the CSV file:')
+      submit_button = st.form_submit_button(label='Search')
 if submit_button:
         c = twint.Config()
         c.Search = search_term
