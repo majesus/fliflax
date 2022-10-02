@@ -41,12 +41,19 @@ with st.form(key='Twitter_form'):
   submit_button = st.form_submit_button(label='Search')
 if submit_button:
   c = twint.Config()
+  #c.Search = search_term
+  #c.Limit = limit
+  #c.Store_csv = True
+  #if c.Store_csv:
+    #c.Output = f'{file_name}.csv'
+  #twint.run.Search(c)
   c.Search = search_term
+
+  c.Store_object = True
   c.Limit = limit
-  c.Store_csv = True
-  if c.Store_csv:
-    c.Output = f'{file_name}.csv'
   twint.run.Search(c)
+  tlist = t.search_tweet_list
+  
 data = pd.read_csv(f'{file_name}.csv', usecols=['date','tweet'])
 st.table(data)
 #-----------------------------------------------------------------#
