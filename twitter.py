@@ -59,7 +59,9 @@ if submit_button:
     c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
     c.Output = f'{file_name}.csv'
     data = pd.read_csv(f'{file_name}.csv')
+    len_df = len(data.index)
     st.write('CSV ', output_csv)
+    st.write('Number of rows ', len_df)
     #st.table(data)
   elif c.Store_csv == output_csv:
     data = pd.DataFrame()
