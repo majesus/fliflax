@@ -54,12 +54,12 @@ if submit_button:
   c.Output = 'twitter.csv'
   twint.run.Search(c)
   
-  data = twint.storage.panda.Tweets_df
+  Tweets_df  = twint.storage.panda.Tweets_df
   
-  len_df = len(data.index)
+  len_df = len(Tweets_df.index)
   st.write('CSV ', output_csv)
   st.write('Number of rows ', len_df)
   st.write('Limit ', limit)
   
-  st.table(data)
+  st.table(Tweets_df )
   
