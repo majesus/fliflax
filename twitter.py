@@ -67,10 +67,9 @@ if submit_button:
     #st.table(data)
     
   else:
-    c.Pandas = True
-    
+   
     twint.run.Search(c)
-    
+    c.Pandas = True
     data = pd.DataFrame()
     data = twint.storage.panda.Tweets_df
     
