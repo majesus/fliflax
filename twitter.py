@@ -32,8 +32,7 @@ st.markdown("----")
 
 #-----------------------------------------------------------------#
 
-languages = []
-sentiments = []
+Tweets_df = pd.Dataframe()
 
 # customize form
 with st.sidebar.form(key='Twitter_form'):
@@ -77,3 +76,13 @@ st.download_button(
    "text/csv",
    key='download-csv'
 )
+#-----------------------------------------------------------------#
+#-----------------------------------------------------------------#
+st.markdown('''
+## Contáctame con cualqueir duda:
+- [LinkedIn](https://www.linkedin.com/in/.../)
+- [Mail](https://mail.google.com/mail/u/0/...) 
+- [GitHub](https://github.com/...) (Source code will be updated soon)
+''', unsafe_allow_html=False)
+#-----------------------------------------------------------------#
+#-----------------------------------------------------------------#
