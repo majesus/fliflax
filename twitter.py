@@ -50,7 +50,7 @@ if submit_button:
   c.Since = '2020-09-01'
   c.Search = search_term
 
-  if c.Store_csv = output_csv:
+  if c.Store_csv == output_csv:
     twint.run.Search(c)
     c.Store_csv = output_csv
   
