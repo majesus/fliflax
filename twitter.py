@@ -61,4 +61,4 @@ if submit_button:
     Tweets_df = twint.storage.panda.Tweets_df
     
 #Tweets_df_ = Tweets_df[['date', 'tweet', 'replies_count']]
-st.table(data)
+st.table(Tweets_df)
