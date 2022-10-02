@@ -65,7 +65,7 @@ if submit_button:
     st.write('Limit ', limit)
     #st.table(data)
   else:
-    c.Store_csv = False
+    twint.run.Search(c)
     c.Pandas = True
     twint.run.Search(c)
     
