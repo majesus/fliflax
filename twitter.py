@@ -50,7 +50,8 @@ if submit_button:
   c.Since = '2020-09-01'
   c.Search = search_term
 
-  if c.Store_csv == output_csv:
+  if output_csv  == True:
+    c.Store_csv = True
     twint.run.Search(c)
     c.Store_csv = output_csv
   
@@ -63,6 +64,7 @@ if submit_button:
     st.write('Limit ', limit)
     #st.table(data)
   else:
+    c.Store_csv = False
     c.Pandas = True
     twint.run.Search(c)
     c.Store_csv = output_csv
