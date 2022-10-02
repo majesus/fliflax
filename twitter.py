@@ -60,7 +60,7 @@ if submit_button:
     c.Output = f'{file_name}.csv'
     data = pd.read_csv(f'{file_name}.csv')
     st.table(data)
-  else:
+  elif:
     data = pd.DataFrame()
     data = twint.storage.panda.Tweets_df
     st.write('CSV ', output_csv)
