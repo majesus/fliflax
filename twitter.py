@@ -62,7 +62,14 @@ with st.form(key='Twitter_form'):
         st.table(data)
 
 
-try:
-    st.download_button(label='Download results', data=convert_df(data), file_name = f'{file_name}.csv', mime='text/csv')
-except:
-    pass
+@st.cache
+def convert_df(df):
+   return df.to_csv(sep="|").encode('utf-8')
+csv = convert_df(data)
+st.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
