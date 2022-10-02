@@ -39,8 +39,6 @@ sentiments = []
 with st.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "deporte")
     limit = st.slider('How many tweets do you want to get?', 0, 100, step=5)
-    desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
-    hasta_fecha = st.date_input('¿Hasta qué fecha?',value = dt.datetime.now(), key ="date_max")
     
     output_csv = st.radio('Save a CSV file?', ['Yes', 'No'])
     file_name = st.text_input('Name the CSV file:')
@@ -63,3 +61,17 @@ with st.form(key='Twitter_form'):
         data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
 
         st.table(data)
+
+
+
+@st.cache
+def convert_df(df):
+   return df.to_csv(sep="|").encode('utf-8')
+csv = convert_df(data)
+st.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
