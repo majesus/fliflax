@@ -53,7 +53,6 @@ if submit_button:
   c.Since = '2020-09-01'
   c.Search = search_term
   c.Limit = limit
-  c.Pandas = True
 
   if c.Store_csv:
     twint.run.Search(c)
@@ -67,8 +66,10 @@ if submit_button:
     st.write('Number of rows ', len_df)
     #st.table(data)
   else:
+    c.Pandas = True
     twint.run.Search(c)
-
+    c.Store_csv = output_csv
+    
     data = pd.DataFrame()
     data = twint.storage.panda.Tweets_df
     st.write('CSV ', output_csv)
