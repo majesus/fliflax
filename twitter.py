@@ -40,8 +40,7 @@ with st.sidebar.form(key='Twitter_form'):
     
     #file_name = ''.join(random.choices(string.ascii_uppercase, k = 8))  
     file_name = st.text_input('Name the CSV file:', value = search_term)
-    
-    st.write('filename',file_name)
+
     submit_button = st.form_submit_button(label='Search')
 
 if submit_button:
