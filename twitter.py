@@ -63,4 +63,6 @@ if submit_button:
   else:
     Tweets_df = pd.DataFrame()
     Tweets_df = twint.storage.panda.Tweets_df
+    st.write('CSV ', output_csv)
     st.table(Tweets_df)
+    
