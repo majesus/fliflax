@@ -61,4 +61,4 @@ if submit_button:
 
     st.table(data)
   else:
-    st.table(Tweets_df)
+    st.write("Tweets_df")
