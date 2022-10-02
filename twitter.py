@@ -61,8 +61,8 @@ if submit_button:
     data = pd.read_csv(f'{file_name}.csv')
     st.table(data)
   else:
-    Tweets_df = pd.DataFrame()
-    Tweets_df = twint.storage.panda.Tweets_df
+    data = pd.DataFrame()
+    data = twint.storage.panda.Tweets_df
     st.write('CSV ', output_csv)
-    st.table(Tweets_df)
+    st.table(data)
     
