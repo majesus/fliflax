@@ -53,7 +53,7 @@ if submit_button:
   c.Output = 'twitter.csv'
   twint.run.Search(c)
   
-  data = pd.read_csv(f'{file_name}.csv')
+  data = pd.read_csv('twitter.csv')
   len_df = len(data.index)
   st.write('CSV ', output_csv)
   st.write('Number of rows ', len_df)
