@@ -46,7 +46,8 @@ with st.sidebar.form(key='Twitter_form'):
 
 if submit_button:
   c = twint.Config()
-  c.Username = search_term
+  #c.Username = search_term
+  c.Search = search_term
   c.Limit = limit
   c.Store_csv = True
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
