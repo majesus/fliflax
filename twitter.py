@@ -61,3 +61,5 @@ if submit_button:
     Tweets_df = twint.storage.panda.Tweets_df
 
     st.table(data)
+  else:
+    st.table(Tweets_df)
