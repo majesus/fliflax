@@ -46,7 +46,7 @@ if submit_button:
   #c.Username = search_term
   c.Search = search_term
   c.Limit = limit
-  C.Since = desde_fecha
+  c.Since = desde_fecha
   c.Store_csv = True
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
   c.Output = f'{file_name}.csv'
