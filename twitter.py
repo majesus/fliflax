@@ -34,7 +34,7 @@ st.markdown("----")
 # customize form
 with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "unisevilla")
-    limit = st.slider('How many tweets do you want to get?', 20, 100, step=20)
+    limit = st.slider('How many tweets do you want to get?', 5, 100, step=5)
     
     #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
     #desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
