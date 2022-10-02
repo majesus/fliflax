@@ -52,6 +52,10 @@ if submit_button:
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
   c.Output = "twitter.csv"
   twint.Search(c)
-  
+  data = pd.read_csv(f'{file_name}.csv')
+  len_df = len(data.index)
+  st.write('CSV ', output_csv)
+  st.write('Number of rows ', len_df)
+  st.write('Limit ', limit)
   
   
