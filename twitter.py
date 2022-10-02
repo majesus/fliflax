@@ -49,7 +49,6 @@ if submit_button:
   c = twint.Config()
   c.Since = '2020-09-01'
   c.Search = search_term
-  c.Limit = limit
 
   if c.Store_csv:
     c.Limit = limit // 2
@@ -65,6 +64,7 @@ if submit_button:
     st.write('Limit ', limit)
     #st.table(data)
   else:
+    c.Limit = limit
     c.Pandas = True
     twint.run.Search(c)
     c.Store_csv = output_csv
