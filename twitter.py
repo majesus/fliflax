@@ -52,7 +52,6 @@ with st.form(key='Twitter_form'):
         c.Limit = limit
 
         c.Store_csv = True
-
         if c.Store_csv:
             c.Output = f'{file_name}.csv'
         
