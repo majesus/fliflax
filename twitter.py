@@ -38,7 +38,7 @@ sentiments = []
 # customize form
 with st.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "deporte")
-    limit = st.slider('How many tweets do you want to get?', 0, 100, step=5)
+    limit = st.slider('How many tweets do you want to get?', 5, 100, step=5)
     
     output_csv = st.radio('Save a CSV file?', ['Yes', 'No'])
     file_name = st.text_input('Name the CSV file:')
