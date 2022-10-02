@@ -64,7 +64,7 @@ if submit_button:
   try:
     Tweets_df = pd.read_csv(f'{file_name}.csv')
     Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
-   except pd.errors.EmptyDataError:
+   except EmptyDataError:
     st.write('Note: filename.csv was empty. Skipping.')
   
   #Tweets_df = pd.read_csv(f'{file_name}.csv')
