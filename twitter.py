@@ -59,16 +59,8 @@ if submit_button:
   
   # Tweets_df  = twint.storage.panda.Tweets_df
   Tweets_df = pd.DataFrame()
-  
-  from pandas.errors import EmptyDataError 
-  try:
-    Tweets_df = pd.read_csv(f'{file_name}.csv')
-    Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
-   except EmptyDataError:
-    st.write('Note: filename.csv was empty. Skipping.')
-  
-  #Tweets_df = pd.read_csv(f'{file_name}.csv')
-  #Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
+  Tweets_df = pd.read_csv(f'{file_name}.csv')
+  Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
   #Tweets_df = Tweets_df.iloc[0:limit] 
   
   len_df = len(Tweets_df.index)
