@@ -40,7 +40,7 @@ with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "deporte")
     limit = st.slider('How many tweets do you want to get?', 0, 100, step=20)
     
-    output_csv = st.radio('Save a CSV file?', ['Yes', 'No'])
+    output_csv = st.radio('Save a CSV file?', ['No', 'Si'])
     file_name = st.text_input('Name the CSV file:')
     submit_button = st.form_submit_button(label='Search')
 
