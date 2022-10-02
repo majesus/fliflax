@@ -39,6 +39,11 @@ with st.sidebar.form(key='Twitter_form'):
     #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
     #desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
     file_name = st.text_input('Name the CSV file:', value = search_term)
+    
+    import random
+    # Random string of length 5
+    file_name = ''.join((random.choice('abcdefghijklmnopkrstuvwxyz') for i in range(5)))
+    
     submit_button = st.form_submit_button(label='Search')
 
 if submit_button:
