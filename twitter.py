@@ -44,11 +44,9 @@ if submit_button:
   c = twint.Config()
   c.Limit = 1
   c.Username = search_term
-
+  c.Pandas = True
   # Run
   twint.run.Search(c)
-  
-  c.Pandas = True
   Tweets_df = twint.storage.panda.Tweets_df
   st.table(Tweets_df)
   
