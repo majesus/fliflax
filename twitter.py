@@ -61,7 +61,6 @@ if submit_button:
   Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
   
   len_df = len(Tweets_df.index)
-  st.write('CSV ', output_csv)
   st.write('Number of rows ', len_df)
   st.write('Limit ', limit)
   
