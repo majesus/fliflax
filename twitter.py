@@ -54,6 +54,7 @@ if submit_button:
   c.Store_csv = output_csv
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
   c.Output = f'{file_name}.csv'
+  c.Output = 'a.csv'
     
   twint.run.Search(c)
     
