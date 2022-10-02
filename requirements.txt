@@ -8,10 +8,7 @@ numpy >= 1.18.5
 scipy >= 1.6.1
 
 tweepy
-twint
+git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 snscrape >= 0.3.4
 
 datetime
-sentence-transformers
-
-transformers
