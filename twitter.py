@@ -60,19 +60,6 @@ with st.form(key='Twitter_form'):
 
         twint.run.Search(c)
 
-        data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet'])
+        data = pd.read_csv(f'{file_name}.csv', usecols=['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
 
         st.table(data)
-
-
-@st.cache
-def convert_df(df):
-   return df.to_csv(sep="|").encode('utf-8')
-csv = convert_df(data)
-st.download_button(
-   "Press to Download",
-   csv,
-   "file.csv",
-   "text/csv",
-   key='download-csv'
-)
