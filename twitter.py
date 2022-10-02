@@ -55,7 +55,7 @@ if submit_button:
   c.Limit = limit
 
   if c.Store_csv:
-      c.Limit = limit / 2
+    c.Limit = limit // 2
     twint.run.Search(c)
     c.Store_csv = output_csv
   
