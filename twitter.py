@@ -62,8 +62,8 @@ with st.sidebar.form("my_form"):
 
 # IMPORTANTE: https://github.com/JustAnotherArchivist/snscrape/blob/master/snscrape/modules/twitter.py
 
-sd = desde_fecha.strftime("%Y-%m-%d")
-st.write(sd)
+# sd = desde_fecha.strftime("%Y-%m-%d")
+# st.write(sd)
 
 # Creating list to append tweet data to
 tweets_list2 = []
