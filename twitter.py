@@ -40,7 +40,7 @@ with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('What do you want to search for?', value = "deporte")
     limit = st.slider('How many tweets do you want to get?', 0, 100, step=20)
     
-    output_csv = st.radio('Save a CSV file?', [True, False])
+    output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
     file_name = st.text_input('Name the CSV file:', value = search_term)
     submit_button = st.form_submit_button(label='Search')
 
@@ -50,7 +50,7 @@ if submit_button:
   c.Since = '2020-09-01'
   c.Search = search_term
 
-  if output_csv  == True: 
+  if output_csv  == 'Si': 
     c.Store_csv = True
     c.Store_csv = output_csv
     c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
@@ -66,7 +66,7 @@ if submit_button:
     st.write('Limit ', limit)
     #st.table(data)
     
-  else:
+  elif output_csv == 'No':
    
     twint.run.Search(c)
     c.Pandas = True
