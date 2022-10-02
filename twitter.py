@@ -57,6 +57,7 @@ if submit_button:
   Tweets_df = pd.DataFrame()
   Tweets_df = pd.read_csv(f'{file_name}.csv')
   Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
+  Tweets_df = Tweets_df.iloc[0:limit-1] 
   
   len_df = len(Tweets_df.index)
   st.write('Número de tweets ', len_df)
@@ -67,7 +68,7 @@ if submit_button:
     return df.to_csv(sep="|").encode('utf-8')
   csv = convert_df(Tweets_df)
   st.download_button(
-     "Press to Download",
+     "Descargar CSV",
      csv,
      "file.csv",
      "text/csv",
