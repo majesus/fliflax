@@ -54,7 +54,8 @@ if submit_button:
   twint.run.Search(c)
   tlist = t.search_tweet_list
   
-data = pd.read_csv(f'{file_name}.csv', usecols=['date','tweet'])
+#data = pd.read_csv(f'{file_name}.csv', usecols=['date','tweet'])
+data = pd.DataFrame(tlist)
 st.table(data)
 #-----------------------------------------------------------------#
 
