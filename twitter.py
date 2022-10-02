@@ -50,7 +50,8 @@ if submit_button:
   
   c.Pandas = True
   Tweets_df = twint.storage.panda.Tweets_df
+  st.table(Tweets_df)
   
-st.table(Tweets_df)
+
 #-----------------------------------------------------------------#
 
