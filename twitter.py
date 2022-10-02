@@ -79,10 +79,10 @@ if submit_button:
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
 st.markdown('''
-## Contáctame con cualqueir duda:
-- [LinkedIn](https://www.linkedin.com/in/.../)
-- [Mail](https://mail.google.com/mail/u/0/...) 
-- [GitHub](https://github.com/...) (Source code will be updated soon)
+## Contáctame con cualquier duda:
+- [LinkedIn](https://www.linkedin.com/in/.../) (la cuenta será actualizada en breve)
+- [Mail](https://mail.google.com/mail/u/0/...) (el correo será actualizado en breve)
+- [GitHub](https://github.com/...) (el código será actualizado en breve)
 ''', unsafe_allow_html=False)
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
