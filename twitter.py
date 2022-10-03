@@ -6,6 +6,7 @@ import random
 import string
 
 import datetime
+from datetime import datetime, timedelta
 import twint
 
 #-----------------------------------------------------------------#
@@ -38,7 +39,6 @@ with st.sidebar.form(key='Twitter_form'):
     search_term = st.selectbox("¿Qué deseas buscar?", ('JoeBiden','RealBetis','SevillaFC','zara_es'))
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
-    from datetime import datetime, timedelta
     start_date = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now(), key ="date_min")
     end_date = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now() - timedelta(days=7), key ="date_max")
     
