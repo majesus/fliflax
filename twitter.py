@@ -43,7 +43,7 @@ with st.sidebar.form(key='Twitter_form'):
     #desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
     
     start_str = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now(), key ="date_min")
-    end_str = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now(), key ="date_min")
+    end_str = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now(), key ="date_max")
     
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
     file_name = st.text_input('Nombre del CSV:', value = file_name)
