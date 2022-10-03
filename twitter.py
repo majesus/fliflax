@@ -60,8 +60,8 @@ if submit_button:
   #c.Lang = 'en'
   c.Links = "exclude"
   
-  #c.UserName = search_term
-  c.Search = search_term
+  c.UserName = search_term
+  #c.Search = search_term
   c.Limit = limit
   c.Store_csv = True
   c.Store_object = True
