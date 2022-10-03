@@ -40,7 +40,8 @@ with st.sidebar.form(key='Twitter_form'):
     
     last_24_date_time = st.date_input('¿Desde qué fecha?',value = datetime.now() - timedelta(days = 7), key ="date_min")
     #last_24_date_time = datetime.now() - timedelta(days = 7)
-    today = last_24_date_time.strftime('%Y-%m-%d')
+    #today = last_24_date_time.strftime('%Y-%m-%d')
+    today = last_24_date_time.strftime('%d-%m-%Y')
     date = str(today)
         
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
