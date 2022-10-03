@@ -40,6 +40,8 @@ with st.sidebar.form(key='Twitter_form'):
     
     desde_fecha = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now(), key ="date_min")
     hasta_fecha = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now(), key ="date_max")
+    start_date = pd.to_datetime(start_str, format='%Y-%m-%d', errors='ignore')
+    end_date = pd.to_datetime(end_str, format='%Y-%m-%d', errors='ignore')
     
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
     file_name = st.text_input('Nombre del CSV:', value = file_name)
@@ -50,7 +52,7 @@ if submit_button:
   c = twint.Config()
   
   c.Since = datetime.strftime(start_date, format='%Y-%m-%d')
-  c.Until = datetime.strftime(hasta_fecha, format='%Y-%m-%d')
+  c.Until = datetime.strftime(end_date, format='%Y-%m-%d')
    
   c.Verified = True
   c.Retweets = False
