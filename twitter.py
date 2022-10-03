@@ -41,8 +41,8 @@ with st.sidebar.form(key='Twitter_form'):
     #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
     #desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
     
-    start_str = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
-    end_str = st.date_input('¿Hasta qué fecha?',value = dt.datetime.now(), key ="date_min")
+    start_str = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now(), key ="date_min")
+    end_str = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now(), key ="date_min")
     #start_str = "2020-04-01"
     #end_str = "2020-06-25"
     start_date = pd.to_datetime(start_str, format='%Y-%m-%d', errors='ignore')
