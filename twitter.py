@@ -48,8 +48,6 @@ if submit_button:
     
   c.Verified = True
   c.Retweets = False
-  c.Filter_retweets = False 
-  #c.Hide_output = False
   
   c.Username = search_term
   #c.Search = search_term
