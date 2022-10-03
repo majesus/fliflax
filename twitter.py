@@ -38,12 +38,6 @@ with st.sidebar.form(key='Twitter_form'):
     search_term = st.selectbox("¿Qué deseas buscar?", ('zara_es','RealBetis','SevillaFC','JoeBiden'))
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
-    #output_csv = st.radio('Save a CSV file?', ['Si', 'No'])
-    #desde_fecha = st.date_input('¿Desde qué fecha?',value = dt.datetime.now(), key ="date_min")
-    
-    start_str = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now(), key ="date_min")
-    end_str = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now(), key ="date_max")
-    
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
     file_name = st.text_input('Nombre del CSV:', value = file_name)
 
@@ -59,13 +53,9 @@ if submit_button:
   c.Links = "exclude"
   c.Format = "{tweet}"
   
-  #c.Since = start_str
-  #c.Until = end_str
-  
   c.Username = search_term
   #c.Search = search_term
   c.Limit = limit
-  #c.Since = desde_fecha
   c.Store_csv = True
   c.Store_object = True
   c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
