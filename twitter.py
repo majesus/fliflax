@@ -59,8 +59,8 @@ if submit_button:
   c.Links = "exclude"
   c.Format = "{tweet}"
   
-  c.Since = start_str
-  c.Until = end_str
+  #c.Since = start_str
+  3c.Until = end_str
   
   c.Username = search_term
   #c.Search = search_term
