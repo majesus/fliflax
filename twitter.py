@@ -44,10 +44,6 @@ with st.sidebar.form(key='Twitter_form'):
     
     start_str = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now(), key ="date_min")
     end_str = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now(), key ="date_min")
-    #start_str = "2020-04-01"
-    #end_str = "2020-06-25"
-    start_date = pd.to_datetime(start_str, format='%Y-%m-%d', errors='ignore')
-    end_date = pd.to_datetime(end_str, format='%Y-%m-%d', errors='ignore')
     
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
     file_name = st.text_input('Nombre del CSV:', value = file_name)
@@ -64,8 +60,8 @@ if submit_button:
   c.Links = "exclude"
   c.Format = "{tweet}"
   
-  c.Since = datetime.strftime(start_date, format='%Y-%m-%d')
-  c.Until = datetime.strftime(start_date + timedelta(days=1), format='%Y-%m-%d')
+  c.Since = datetime.strftime(start_str, format='%Y-%m-%d')
+  c.Until = datetime.strftime(end_str + timedelta(days=1), format='%Y-%m-%d')
   
   c.Username = search_term
   #c.Search = search_term
