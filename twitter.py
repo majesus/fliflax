@@ -51,7 +51,6 @@ if submit_button:
   c.Filter_retweets = False 
   c.Hide_output = False
   c.Links = "exclude"
-  c.Format = "{tweet}"
   
   c.Username = search_term
   #c.Search = search_term
