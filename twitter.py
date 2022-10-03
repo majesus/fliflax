@@ -49,8 +49,8 @@ with st.sidebar.form(key='Twitter_form'):
 if submit_button:
   c = twint.Config()
   
-  c.Since = datetime.strftime(start_date, format='%Y-%m-%d')
-  c.Until = datetime.strftime(end_date, format='%Y-%m-%d')
+  c.Since = start_date
+  c.Until = end_date
    
   c.Verified = True
   c.Retweets = False
