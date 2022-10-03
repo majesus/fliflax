@@ -39,8 +39,8 @@ with st.sidebar.form(key='Twitter_form'):
     search_term = st.selectbox("¿Qué deseas buscar?", ('JoeBiden','RealBetis','SevillaFC','zara_es'))
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
-    start_date = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now(), key ="date_min")
-    end_date = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now() - timedelta(days=7), key ="date_max")
+    start_date = st.date_input('¿Desde qué fecha?',value = datetime.datetime.now() - timedelta(days=7), key ="date_min")
+    end_date = st.date_input('¿Hasta qué fecha?',value = datetime.datetime.now(), key ="date_max")
     
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
     file_name = st.text_input('Nombre del CSV:', value = file_name)
