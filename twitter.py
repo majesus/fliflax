@@ -35,7 +35,7 @@ st.markdown("----")
 # customize form
 with st.sidebar.form(key='Twitter_form'):
     #search_term = st.text_input('¿Qué deseas buscar?', value = "JoeBiden")
-    search_term = st.selectbox("¿Qué deseas buscar?", ('@JoeBiden','@RealBetis','@SevillaFC','@PSOE','@populares','@UnidasPodemos_','@vox_es'))
+    search_term = st.selectbox("¿Qué deseas buscar?", ('JoeBiden','RealBetis','SevillaFC','PSOE','populares','UnidasPodemos_','vox_es'))
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
     last_24_date_time = st.date_input('¿Desde qué fecha?',value = datetime.now() - timedelta(days = 7), key ="date_min")
@@ -60,8 +60,8 @@ if submit_button:
   #c.Lang = 'en'
   c.Links = "exclude"
   
-  c.UserName = search_term
-  #c.Search = search_term
+  #c.UserName = search_term
+  c.Search = search_term
   c.Limit = limit
   c.Store_csv = True
   c.Store_object = True
