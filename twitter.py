@@ -38,7 +38,8 @@ with st.sidebar.form(key='Twitter_form'):
     search_term = st.selectbox("¿Qué deseas buscar?", ('JoeBiden','RealBetis','SevillaFC','zara_es'))
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
-    last_24_date_time = datetime.now() - timedelta(hours = 24)
+    last_24_date_time = st.date_input('¿Desde qué fecha?',value = dt.datetime.now() - timedelta(days = 7), key ="date_min")
+    #last_24_date_time = datetime.now() - timedelta(hours = 24)
     today = last_24_date_time.strftime('%Y-%m-%d')
     date = str(today)
     
