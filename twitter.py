@@ -35,7 +35,7 @@ st.markdown("----")
 # customize form
 with st.sidebar.form(key='Twitter_form'):
     #search_term = st.text_input('¿Qué deseas buscar?', value = "JoeBiden")
-    search_term = st.selectbox("¿Qué deseas buscar?", ('zara_es','RealBetis','SevillaFC','JoeBiden'))
+    search_term = st.selectbox("¿Qué deseas buscar?", ('JoeBiden','RealBetis','SevillaFC','zara_es'))
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
