@@ -59,8 +59,8 @@ if submit_button:
   c.Links = "exclude"
   c.Format = "{tweet}"
   
-  c.Since = datetime.strftime(start_str, format='%Y-%m-%d')
-  c.Until = datetime.strftime(end_str + timedelta(days=1), format='%Y-%m-%d')
+  c.Since = start_str
+  c.Until = end_str
   
   c.Username = search_term
   #c.Search = search_term
