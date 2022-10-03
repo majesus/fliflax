@@ -45,7 +45,12 @@ with st.sidebar.form(key='Twitter_form'):
 
 if submit_button:
   c = twint.Config()
-
+    
+  c.Verified = True
+  c.Retweets = False
+  c.Filter_retweets = False 
+  #c.Hide_output = False
+  c.Links = "exclude"
   
   c.Username = search_term
   #c.Search = search_term
