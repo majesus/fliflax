@@ -101,7 +101,7 @@ if submit_button:
   @st.cache
   def convert_df(df):
     return df.to_csv(sep="|").encode('utf-8')
-  csv = convert_df(Tweets_df)
+  csv = convert_df(Tweets_df_)
   st.download_button(
      "Descargar CSV",
      f'{file_name}.csv',
@@ -110,7 +110,7 @@ if submit_button:
      key='download-csv'
   )
   
-  st.table(Tweets_df)
+  st.table(Tweets_df_)
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
 st.markdown('''
