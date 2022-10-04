@@ -91,7 +91,7 @@ if submit_button:
     Tweets_df = pd.DataFrame(columns = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
     #continue
   
-  #Tweets_df = pd.read_csv(f'{file_name}.csv')
+  #Tweets_df = pd.read_csv(f'{file_name}.csv', encoding='utf8')
   Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
   
   len_df = len(Tweets_df.index)
