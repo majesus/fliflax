@@ -34,10 +34,8 @@ st.markdown("----")
 #-----------------------------------------------------------------#
 # customize form
 with st.sidebar.form(key='Twitter_form'):
-    #search_term = st.text_input('¿Qué deseas buscar?', value = "JoeBiden")
     #search_term = st.selectbox("¿Qué deseas buscar?", ('NetflixES','PlayStationES','adidas_ES','NintendoES','VideojuegosGAME','Iberia','Ubisoft_Spain'))
-    
-    search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "PSOE")
+    search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "BarackObama")
     
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
@@ -45,7 +43,6 @@ with st.sidebar.form(key='Twitter_form'):
     verified = st.radio('¿Deseas descargar tweets verificados?', [False, True])
     
     last_24_date_time = st.date_input('¿Desde qué fecha?',value = datetime.now() - timedelta(days = 7), key ="date_min")
-    #last_24_date_time = datetime.now() - timedelta(days = 7)
     today = last_24_date_time.strftime('%Y-%m-%d')
     date = str(today)
         
@@ -91,7 +88,6 @@ if submit_button:
     Tweets_df_ = pd.DataFrame(columns = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
     #continue
   
-  #Tweets_df = pd.read_csv(f'{file_name}.csv', encoding='ISO-8859-1')
   Tweets_df_ = Tweets_df_[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
   
   len_df = len(Tweets_df_.index)
@@ -99,9 +95,6 @@ if submit_button:
   st.write('Limit ', limit)
   
   @st.cache
-  def convert_df(df):
-    return df.to_csv(sep="|")
-  csv = convert_df(Tweets_df_).encode('utf8')
   csv = Tweets_df_.to_csv(sep="|")
   st.download_button(
      "Descargar CSV",
