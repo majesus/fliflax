@@ -65,7 +65,11 @@ if submit_button:
   #c.Lang = 'es'
   #c.Links = "exclude"
   
-  c.Username = search_term
+  try:
+    c.Username = search_term
+  except:
+    search_term = 'BarackObama'
+    
   #c.Search = search_term
   c.Limit = limit
   c.Store_csv = True
