@@ -38,8 +38,8 @@ with st.sidebar.form(key='Twitter_form'):
     #search_term = st.selectbox("¿Qué deseas buscar?", ('NetflixES','PlayStationES','adidas_ES','NintendoES','VideojuegosGAME','Iberia','Ubisoft_Spain'))
     
     search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "")
-     while search_term == '':
-        search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "")
+    while search_term == '':
+      search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "")
     
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
