@@ -72,7 +72,16 @@ if submit_button:
   
   #Tweets_df  = twint.storage.panda.Tweets_df
   Tweets_df = pd.DataFrame()
-  Tweets_df = pd.read_csv(f'{file_name}.csv')
+  
+  for i in range(0,len(file_paths)):
+   try:
+    Tweets_df = pd.read_csv(f'{file_name}.csv')
+    ### Do Some Stuff
+   except:
+    Tweets_df = pd.DataFrame(columns = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
+    #continue
+  
+  #Tweets_df = pd.read_csv(f'{file_name}.csv')
   Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
   
   len_df = len(Tweets_df.index)
