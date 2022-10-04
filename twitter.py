@@ -102,7 +102,7 @@ if submit_button:
   def convert_df(df):
     return df.to_csv(sep="|")
   csv = convert_df(Tweets_df_).encode('utf8')
-  csv = Tweets_df_.to_csv(encoding = "utf8")
+  csv = Tweets_df_.to_csv(encoding = "ISO-8859-1")
   st.download_button(
      "Descargar CSV",
      csv,
@@ -110,11 +110,8 @@ if submit_button:
      "text/csv",
      key='download-csv'
   )
-      
-  prueba = pd.read_csv(file.csv)
-  st.table(prueba)
 
-  #st.table(Tweets_df_)
+  st.table(Tweets_df_)
 
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
