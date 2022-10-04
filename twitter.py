@@ -65,9 +65,9 @@ if submit_button:
   #c.Lang = 'es'
   #c.Links = "exclude"
   
-  try:
+  if search_term != '':
     c.Username = search_term
-  except:
+  else:
     c.Username = 'BarackObama'
     
   #c.Search = search_term
