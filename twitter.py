@@ -100,7 +100,7 @@ if submit_button:
   
   @st.cache
   def convert_df(df):
-    return df.to_csv(sep="|").encode('latin1')
+    return df.to_csv(sep="|")
   csv = convert_df(Tweets_df_)
   st.download_button(
      "Descargar CSV",
