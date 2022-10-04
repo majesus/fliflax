@@ -68,7 +68,7 @@ if submit_button:
   try:
     c.Username = search_term
   except:
-    search_term = 'BarackObama'
+    c.Username = 'BarackObama'
     
   #c.Search = search_term
   c.Limit = limit
