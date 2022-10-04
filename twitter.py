@@ -110,8 +110,11 @@ if submit_button:
      "text/csv",
      key='download-csv'
   )
+
+  #st.table(Tweets_df_)
   
-  st.table(Tweets_df_)
+prueba = pd.read_csv(file.csv)
+st.table(prueba)
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
 st.markdown('''
