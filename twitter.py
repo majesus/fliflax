@@ -85,7 +85,7 @@ if submit_button:
   
   for i in range(0,len(f'{file_name}.csv')):
    try:
-    Tweets_df = pd.read_csv(f'{file_name}.csv', encoding='ISO-8859-1'')
+    Tweets_df = pd.read_csv(f'{file_name}.csv', encoding='ISO-8859-1')
     ### Do Some Stuff
    except:
     Tweets_df = pd.DataFrame(columns = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
