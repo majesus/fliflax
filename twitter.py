@@ -85,16 +85,16 @@ if submit_button:
   
   for i in range(0,len(f'{file_name}.csv')):
    try:
-    Tweets_df = pd.read_csv(f'{file_name}.csv', encoding='ISO-8859-1')
+    Tweets_df_ = pd.read_csv(f'{file_name}.csv', encoding='utf-8')
     ### Do Some Stuff
    except:
-    Tweets_df = pd.DataFrame(columns = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
+    Tweets_df_ = pd.DataFrame(columns = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
     #continue
   
   #Tweets_df = pd.read_csv(f'{file_name}.csv', encoding='ISO-8859-1')
-  Tweets_df = Tweets_df[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
+  Tweets_df_ = Tweets_df_[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']]
   
-  len_df = len(Tweets_df.index)
+  len_df = len(Tweets_df_.index)
   st.write('Número de tweets ', len_df)
   st.write('Limit ', limit)
   
@@ -104,7 +104,7 @@ if submit_button:
   csv = convert_df(Tweets_df)
   st.download_button(
      "Descargar CSV",
-     csv,
+     f'{file_name}.csv',
      "file.csv",
      "text/csv",
      key='download-csv'
