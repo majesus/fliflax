@@ -101,8 +101,8 @@ if submit_button:
   @st.cache
   def convert_df(df):
     return df.to_csv(sep="|")
-  csv = convert_df(Tweets_df_).encode('utf-8')
-  csv = Tweets_df_.to_csv(encoding = "utf-8")
+  csv = convert_df(Tweets_df_).encode('utf8')
+  csv = Tweets_df_.to_csv(encoding = "utf8")
   st.download_button(
      "Descargar CSV",
      csv,
