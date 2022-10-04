@@ -73,7 +73,7 @@ if submit_button:
   #Tweets_df  = twint.storage.panda.Tweets_df
   Tweets_df = pd.DataFrame()
   
-  for i in range(0,len(file_paths)):
+  for i in range(0,len(f'{file_name}.csv')):
    try:
     Tweets_df = pd.read_csv(f'{file_name}.csv')
     ### Do Some Stuff
