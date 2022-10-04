@@ -37,7 +37,7 @@ with st.sidebar.form(key='Twitter_form'):
     #search_term = st.text_input('¿Qué deseas buscar?', value = "JoeBiden")
     #search_term = st.selectbox("¿Qué deseas buscar?", ('NetflixES','PlayStationES','adidas_ES','NintendoES','VideojuegosGAME','Iberia','Ubisoft_Spain'))
     
-    search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "BarackObama")
+    search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "PSOE")
     
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
