@@ -98,6 +98,9 @@ if submit_button:
   st.write('Número de tweets ', len_df)
   st.write('Limit ', limit)
   
+  prueba = pd.read_csv(file.csv)
+  st.table(prueba)
+  
   @st.cache
   def convert_df(df):
     return df.to_csv(sep="|")
@@ -112,9 +115,7 @@ if submit_button:
   )
 
   #st.table(Tweets_df_)
-  
-prueba = pd.read_csv(file.csv)
-st.table(prueba)
+
 #-----------------------------------------------------------------#
 #-----------------------------------------------------------------#
 st.markdown('''
