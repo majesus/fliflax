@@ -60,8 +60,8 @@ if submit_button:
   c.Retweets = retweets
   c.Filter_retweets = False 
   c.Hide_output = False
-  c.Lang = 'es'
-  c.Links = "exclude"
+  #c.Lang = 'es'
+  #c.Links = "exclude"
   
   c.Username = search_term
   #c.Search = search_term
