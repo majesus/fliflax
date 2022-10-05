@@ -105,7 +105,7 @@ if submit_button:
      "Descargar CSV",
      csv,
      #"file.txt",
-     f'{file_name}.csv',
+     f'{file_name}.txt',
      "text/csv",
      key='download-csv'
   )
