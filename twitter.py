@@ -95,7 +95,12 @@ if submit_button:
   st.write('Limit ', limit)
   
   @st.cache
-  csv = Tweets_df_.to_csv(sep="|")
+  def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv(sep="|").encode('utf-8')
+  csv = convert_df(my_large_df)
+  
+  #csv = Tweets_df_.to_csv(sep="|")
   st.download_button(
      "Descargar CSV",
      csv,
