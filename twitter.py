@@ -104,7 +104,8 @@ if submit_button:
   st.download_button(
      "Descargar CSV",
      csv,
-     "file.txt",
+     #"file.txt",
+     f'{file_name}.csv',
      "text/csv",
      key='download-csv'
   )
