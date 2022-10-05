@@ -98,7 +98,7 @@ if submit_button:
   def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv(sep="|").encode('utf-8')
-  csv = convert_df(my_large_df)
+  csv = convert_df(Tweets_df_)
   
   #csv = Tweets_df_.to_csv(sep="|")
   st.download_button(
