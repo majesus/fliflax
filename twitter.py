@@ -97,8 +97,8 @@ if submit_button:
   len_df = len(Tweets_df_.index)
   st.write('Número de tweets descargados: ', len_df)
   st.write('Limite: ', limit)
-  st.write('Retweets: ', retweets)
-  st.write('Verificado: ', verified)
+  #st.write('Retweets: ', retweets)
+  #st.write('Verificado: ', verified)
   
   @st.cache
   def convert_df(df):
