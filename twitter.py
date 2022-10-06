@@ -35,7 +35,7 @@ st.markdown("----")
 # customize form
 with st.sidebar.form(key='Twitter_form'):
     #search_term = st.selectbox("¿Qué deseas buscar?", ('NetflixES','PlayStationES','adidas_ES','NintendoES','VideojuegosGAME','Iberia','Ubisoft_Spain'))
-    search_term = st.text_input('¿Qué deseas buscar? Indica una cuenta de Twitter', value = "BarackObama")
+    search_term = st.text_input('¿Qué deseas buscar?', value = "universidad")
     
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     
@@ -64,9 +64,11 @@ if submit_button:
   #c.Links = "exclude"
   
   if search_term != '':
-    c.Username = search_term
+    #c.Username = search_term
+    c.Search = search_term
   else:
-    c.Username = 'BarackObama'
+    #c.Username = 'BarackObama'
+    c.Search = 'universidad'
     
   #c.Search = search_term
   c.Limit = limit
