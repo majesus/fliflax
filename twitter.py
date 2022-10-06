@@ -58,7 +58,7 @@ if submit_button:
    
   c.Verified = verified
   c.Retweets = retweets
-  c.Filter_retweets = True 
+  #c.Filter_retweets = True 
   c.Hide_output = False
   #c.Lang = 'es'
   #c.Links = "exclude"
@@ -74,7 +74,7 @@ if submit_button:
   c.Limit = limit
   c.Store_csv = True
   c.Store_object = True
-  c.Custom_csv = ['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count']
+  c.Custom_csv = ['date', 'username', 'tweet', 'replies_count', 'retweets_count', 'likes_count', 'retweet']
   c.Output = f'{file_name}.csv'
   
   twint.run.Search(c)
@@ -87,10 +87,10 @@ if submit_button:
     Tweets_df_ = pd.read_csv(f'{file_name}.csv', encoding='utf-8')
     ### Do Some Stuff
    except:
-    Tweets_df_ = pd.DataFrame(columns = ['date', 'screen_name', 'tweet', 'replies_count', 'retweets_count', 'likes_count'])
+    Tweets_df_ = pd.DataFrame(columns = ['date', 'username', 'tweet', 'replies_count', 'retweets_count', 'likes_count', 'retweet'])
     #continue
   
-  Tweets_df_ = Tweets_df_[['date', 'tweet', 'replies_count', 'retweets_count', 'likes_count', 'retweet']]
+  Tweets_df_ = Tweets_df_[['date', 'username', 'tweet', 'replies_count', 'retweets_count', 'likes_count', 'retweet']]
   
   len_df = len(Tweets_df_.index)
   st.write('Número de tweets descargados: ', len_df)
