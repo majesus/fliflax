@@ -38,7 +38,7 @@ with st.sidebar.form(key='Twitter_form'):
     search_term = st.text_input('¿Qué deseas buscar?', value = "universidad")
     
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
-    Min_likes = st.text_input('¿Deseas un mínimo de Likes?', value = 5)
+    Min_likes = st.text_input('¿Deseas un mínimo de Likes?', value = 0)
         
     #retweets = st.radio('¿Deseas descargar los retweets?', [False, True])
     #verified = st.radio('¿Deseas descargar tweets verificados?', [False, True])
