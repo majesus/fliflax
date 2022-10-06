@@ -58,7 +58,7 @@ if submit_button:
    
   c.Verified = verified
   c.Retweets = retweets
-  c.Filter_retweets = False 
+  c.Filter_retweets = True 
   c.Hide_output = False
   #c.Lang = 'es'
   #c.Links = "exclude"
