@@ -50,7 +50,7 @@ with st.sidebar.form(key='Twitter_form'):
     date = str(today)
         
     file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
-    file_name = st.text_input('Nombre del CSV:', value = file_name)
+    #file_name = st.text_input('Nombre del CSV:', value = file_name)
 
     submit_button = st.form_submit_button(label='Buscar tweets')
 
