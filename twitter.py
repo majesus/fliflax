@@ -39,8 +39,10 @@ with st.sidebar.form(key='Twitter_form'):
     
     limit = st.slider('¿Cuántos tweets deseas descargar?', 20, 200, step=20)
     Min_likes = st.text_input('¿Deseas un mínimo de Likes?', value = 0)
+    Min_replies = st.text_input('¿Deseas un mínimo de Replies?', value = 0)
+    Min_retweets = st.text_input('¿Deseas un mínimo de Retweets?', value = 0)
         
-    #retweets = st.radio('¿Deseas filtrar los retweets?', [False, True])
+    retweets = st.radio('¿Deseas filtrar los retweets?', [False, True])
     #verified = st.radio('¿Deseas descargar tweets verificados?', [False, True])
     
     last_24_date_time = st.date_input('¿Desde qué fecha?',value = datetime.now() - timedelta(days = 7), key ="date_min")
@@ -59,8 +61,10 @@ if submit_button:
    
   #c.Verified = verified
   #c.Retweets = retweets
-  #c.Filter_retweets = retweets 
+  c.Filter_retweets = retweets 
   c.Min_likes = Min_likes
+  c.Min_retweets = Min_retweets
+  c.Min_replies = Min_replies
   c.Hide_output = False
   #c.Lang = 'es'
   #c.Links = "exclude"
