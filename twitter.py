@@ -33,6 +33,7 @@ st.markdown("----")
 
 #-----------------------------------------------------------------#
 # customize form
+file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
 with st.sidebar.form(key='Twitter_form'):
     #search_term = st.selectbox("¿Qué deseas buscar?", ('NetflixES','PlayStationES','adidas_ES','NintendoES','VideojuegosGAME','Iberia','Ubisoft_Spain'))
     search_term = st.text_input('¿Qué deseas buscar?', value = "universidad")
@@ -49,8 +50,7 @@ with st.sidebar.form(key='Twitter_form'):
     today = last_24_date_time.strftime('%Y-%m-%d')
     date = str(today)
         
-    file_name = ''.join(random.choices(string.ascii_uppercase, k = 10))  
-    #file_name = st.text_input('Nombre del CSV:', value = file_name)
+    file_name = st.text_input('Nombre del CSV:', value = file_name)
 
     submit_button = st.form_submit_button(label='Buscar tweets')
 
