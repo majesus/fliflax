@@ -115,7 +115,7 @@ def obtener_info_perfil(url):
     area_div = soup.find("div", class_="area")
     area = area_div.text.strip() if area_div else "No disponible"
 
-    departamento_div = soup.find("div", class_="departamento")
+    departamento_div = soup.find("div", class_="field field--name-field-departamento")
     departamento = departamento_div.text.strip() if departamento_div else "No disponible"
 
     return nombre, categoria, area, departamento
