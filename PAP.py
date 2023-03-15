@@ -58,9 +58,30 @@ if csv_url:
         st.markdown("### Vista previa de los datos")
         st.write(data.head())
 
-        # ... el resto del código sigue igual
+        # Selecciona la columna para filtrar
+        st.markdown("### Selecciona la columna para filtrar")
+        column_to_filter = st.selectbox("Columna", data.columns)
 
+        # Ingresa el valor para filtrar
+        st.markdown(f"### Ingresa el valor para filtrar en la columna '{column_to_filter}'")
+        value_to_filter = st.text_input("Valor")
+
+        # Filtra el DataFrame
+        filtered_data = data[data[column_to_filter] == value_to_filter]
+
+        # Muestra la tabla filtrada de manera elegante
+        if not filtered_data.empty:
+            st.markdown("### Datos filtrados")
+            st.write(px.bar(filtered_data, x=filtered_data.columns[0], y=filtered_data.columns[1:]).update_layout(showlegend=False))
+        else:
+            st.warning("No hay datos que coincidan con el filtro")
+
+        
+        
     except pd.errors.ParserError:
         st.error("No se pudo leer el archivo CSV desde la URL proporcionada. Asegúrate de que la URL sea válida y accesible.")
 else:
     st.warning("Por favor, ingresa la URL de un archivo CSV")
+    
+    
+    
