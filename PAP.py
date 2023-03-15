@@ -92,37 +92,3 @@ else:
     
 #----------------------------#
 
-import streamlit as st
-import requests
-from bs4 import BeautifulSoup
-
-st.title("Web Scraping de la página de perfil")
-
-url = "https://www.us.es/trabaja-en-la-us/directorio/manuel-jesus-sanchez-franco"
-st.write(f"Extrayendo información básica del perfil de: {url}")
-
-def obtener_info_perfil(url):
-    response = requests.get(url)
-    content = response.content
-    soup = BeautifulSoup(content, "html.parser")
-
-    nombre_div = soup.find("div", class_="nombre")
-    nombre = nombre_div.text.strip() if nombre_div else "No disponible"
-
-    categoria_div = soup.find("div", class_="categoria")
-    categoria = categoria_div.text.strip() if categoria_div else "No disponible"
-
-    area_div = soup.find("div", class_="area")
-    area = area_div.text.strip() if area_div else "No disponible"
-
-    departamento_div = soup.find("div", class_="field field--name-field-departamento")
-    departamento = departamento_div.text.strip() if departamento_div else "No disponible"
-
-    return nombre, categoria, area, departamento
-
-nombre, categoria, area, departamento = obtener_info_perfil(url)
-
-st.write("Nombre:", nombre)
-st.write("Categoría:", categoria)
-st.write("Área:", area)
-st.write("Departamento:", departamento)
