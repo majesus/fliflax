@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+import requests
+
 # Título de la aplicación
 st.title("Aplicación Streamlit para leer, filtrar y visualizar datos CSV")
 
@@ -37,3 +39,28 @@ if uploaded_file is not None:
 
 else:
     st.warning("Por favor, sube un archivo CSV")
+
+    
+    
+#------------------------------------------#
+    
+    
+# Carga el archivo CSV
+csv_url = st.text_input("Ingresa la URL del archivo CSV")
+
+if csv_url:
+    try:
+        # Lee el archivo CSV desde la URL y lo convierte en un DataFrame de Pandas
+        data = pd.read_csv(csv_url)
+        st.markdown("### Datos cargados correctamente")
+
+        # Muestra las primeras filas del DataFrame
+        st.markdown("### Vista previa de los datos")
+        st.write(data.head())
+
+        # ... el resto del código sigue igual
+
+    except pd.errors.ParserError:
+        st.error("No se pudo leer el archivo CSV desde la URL proporcionada. Asegúrate de que la URL sea válida y accesible.")
+else:
+    st.warning("Por favor, ingresa la URL de un archivo CSV")
