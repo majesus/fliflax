@@ -105,18 +105,18 @@ st.write("Aquí puedes incluir un breve resumen sobre el departamento, sus objet
 
 # Cargar y mostrar los datos del profesorado
 st.markdown("## Profesorado")
-profesorado_url = "URL_DE_CSV_PROFESORADO"
-profesorado_data = pd.read_csv(uploaded_file)
+profesorado_url = "https://raw.githubusercontent.com/majesus/fliflax/master/csv/libro_pap1.csv"
+profesorado_data = pd.read_csv(profesorado_url)
 st.write(profesorado_data.head(5))  # Muestra solo los primeros 5 registros
 
 # Cargar y mostrar los datos de los títulos en que participamos
 st.markdown("## Títulos en que participamos")
-titulos_url = "URL_DE_CSV_TITULOS"
-titulos_data = pd.read_csv(uploaded_file)
+titulos_url = "https://raw.githubusercontent.com/majesus/fliflax/master/csv/libro_pap1.csv"
+titulos_data = pd.read_csv(titulos_url)
 st.write(titulos_data.head(5))  # Muestra solo los primeros 5 registros
 
 # Cargar y mostrar los datos de los centros
 st.markdown("## Datos de los centros")
-centros_url = "URL_DE_CSV_CENTROS"
-centros_data = pd.read_csv(uploaded_file)
+centros_url = "https://raw.githubusercontent.com/majesus/fliflax/master/csv/libro_pap1.csv"
+centros_data = pd.read_csv(centros_url)
 st.write(centros_data.head(5))  # Muestra solo los primeros 5 registros
