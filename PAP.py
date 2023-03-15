@@ -120,3 +120,32 @@ st.markdown("## Datos de los centros")
 centros_url = "https://raw.githubusercontent.com/majesus/fliflax/master/csv/libro_pap1.csv"
 centros_data = pd.read_csv(centros_url)
 st.write(centros_data.head(5))  # Muestra solo los primeros 5 registros
+
+#--------------------------------
+
+import streamlit as st
+import requests
+from bs4 import BeautifulSoup
+
+st.title("Web Scraping de la página del investigador")
+
+url = "https://bibliometria.us.es/prisma/investigador/14"
+st.write(f"Extrayendo información del Departamento y Área de Conocimiento de: {url}")
+
+def obtener_info_investigador(url):
+    response = requests.get(url)
+    content = response.content
+    soup = BeautifulSoup(content, "html.parser")
+
+    departamento_div = soup.find("div", id="departamento")
+    departamento = departamento_div.text.strip() if departamento_div else "No disponible"
+
+    area_div = soup.find("div", id="area")
+    area = area_div.text.strip() if area_div else "No disponible"
+
+    return departamento, area
+
+departamento, area = obtener_info_investigador(url)
+
+st.write("Departamento:", departamento)
+st.write("Área de Conocimiento:", area)
