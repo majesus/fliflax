@@ -92,3 +92,31 @@ else:
     
 #----------------------------#
 
+import streamlit as st
+import pandas as pd
+
+# Cabecera corporativa con imagen
+st.markdown("# Título del Departamento")
+st.markdown("![Imagen Corporativa](URL_DE_IMAGEN)")
+
+# Breve resumen del departamento
+st.markdown("## Resumen del departamento")
+st.write("Aquí puedes incluir un breve resumen sobre el departamento, sus objetivos, áreas de investigación, etc.")
+
+# Cargar y mostrar los datos del profesorado
+st.markdown("## Profesorado")
+profesorado_url = "URL_DE_CSV_PROFESORADO"
+profesorado_data = pd.read_csv(profesorado_url)
+st.write(profesorado_data.head(5))  # Muestra solo los primeros 5 registros
+
+# Cargar y mostrar los datos de los títulos en que participamos
+st.markdown("## Títulos en que participamos")
+titulos_url = "URL_DE_CSV_TITULOS"
+titulos_data = pd.read_csv(titulos_url)
+st.write(titulos_data.head(5))  # Muestra solo los primeros 5 registros
+
+# Cargar y mostrar los datos de los centros
+st.markdown("## Datos de los centros")
+centros_url = "URL_DE_CSV_CENTROS"
+centros_data = pd.read_csv(centros_url)
+st.write(centros_data.head(5))  # Muestra solo los primeros 5 registros
