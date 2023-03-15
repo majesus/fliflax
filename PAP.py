@@ -25,7 +25,10 @@ if uploaded_file is not None:
 
     # Ingresa el valor para filtrar
     st.markdown(f"### Ingresa el valor para filtrar en la columna '{column_to_filter}'")
-    value_to_filter = st.text_input("Valor")
+    # Obtén los valores únicos de la columna seleccionada
+    unique_values = data[column_to_filter].unique()
+    # Crea un desplegable con los valores únicos de la columna
+    value_to_filter = st.selectbox("Valor", unique_values)
 
     # Filtra el DataFrame
     filtered_data = data[data[column_to_filter] == value_to_filter]
@@ -64,7 +67,10 @@ if csv_url:
 
         # Ingresa el valor para filtrar
         st.markdown(f"### Ingresa el valor para filtrar en la columna '{column_to_filter}'")
-        value_to_filter = st.text_input("Valor")
+        # Obtén los valores únicos de la columna seleccionada
+        unique_values = data[column_to_filter].unique()
+        # Crea un desplegable con los valores únicos de la columna
+        value_to_filter = st.selectbox("Valor", unique_values)
 
         # Filtra el DataFrame
         filtered_data = data[data[column_to_filter] == value_to_filter]
