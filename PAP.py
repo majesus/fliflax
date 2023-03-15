@@ -106,17 +106,17 @@ st.write("Aquí puedes incluir un breve resumen sobre el departamento, sus objet
 # Cargar y mostrar los datos del profesorado
 st.markdown("## Profesorado")
 profesorado_url = "URL_DE_CSV_PROFESORADO"
-profesorado_data = pd.read_csv(csv_url)
+profesorado_data = pd.read_csv(uploaded_file)
 st.write(profesorado_data.head(5))  # Muestra solo los primeros 5 registros
 
 # Cargar y mostrar los datos de los títulos en que participamos
 st.markdown("## Títulos en que participamos")
 titulos_url = "URL_DE_CSV_TITULOS"
-titulos_data = pd.read_csv(csv_url)
+titulos_data = pd.read_csv(uploaded_file)
 st.write(titulos_data.head(5))  # Muestra solo los primeros 5 registros
 
 # Cargar y mostrar los datos de los centros
 st.markdown("## Datos de los centros")
 centros_url = "URL_DE_CSV_CENTROS"
-centros_data = pd.read_csv(csv_url)
+centros_data = pd.read_csv(uploaded_file)
 st.write(centros_data.head(5))  # Muestra solo los primeros 5 registros
