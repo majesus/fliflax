@@ -137,10 +137,10 @@ def obtener_info_investigador(url):
     content = response.content
     soup = BeautifulSoup(content, "html.parser")
 
-    departamento_div = soup.find("div", id="departamento")
+    departamento_div = soup.find("div", id="email")
     departamento = departamento_div.text.strip() if departamento_div else "No disponible"
 
-    area_div = soup.find("div", id="area")
+    area_div = soup.find("div", id="categoria")
     area = area_div.text.strip() if area_div else "No disponible"
 
     return departamento, area
