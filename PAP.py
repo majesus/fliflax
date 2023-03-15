@@ -106,10 +106,17 @@ def obtener_info_perfil(url):
     content = response.content
     soup = BeautifulSoup(content, "html.parser")
 
-    nombre = soup.find("div", class_="nombre").text.strip()
-    categoria = soup.find("div", class_="categoria").text.strip()
-    area = soup.find("div", class_="area").text.strip()
-    departamento = soup.find("div", class_="departamento").text.strip()
+    nombre_div = soup.find("div", class_="nombre")
+    nombre = nombre_div.text.strip() if nombre_div else "No disponible"
+
+    categoria_div = soup.find("div", class_="categoria")
+    categoria = categoria_div.text.strip() if categoria_div else "No disponible"
+
+    area_div = soup.find("div", class_="area")
+    area = area_div.text.strip() if area_div else "No disponible"
+
+    departamento_div = soup.find("div", class_="departamento")
+    departamento = departamento_div.text.strip() if departamento_div else "No disponible"
 
     return nombre, categoria, area, departamento
 
