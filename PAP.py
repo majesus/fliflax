@@ -33,7 +33,7 @@ if uploaded_file is not None:
     # Muestra la tabla filtrada de manera elegante
     if not filtered_data.empty:
         st.markdown("### Datos filtrados")
-        st.write(px.bar(filtered_data, x=filtered_data.columns[0], y=filtered_data.columns[1:]).update_layout(showlegend=False))
+        st.dataframe(filtered_data)
     else:
         st.warning("No hay datos que coincidan con el filtro")
 
@@ -72,7 +72,7 @@ if csv_url:
         # Muestra la tabla filtrada de manera elegante
         if not filtered_data.empty:
             st.markdown("### Datos filtrados")
-            st.write(px.bar(filtered_data, x=filtered_data.columns[0], y=filtered_data.columns[1:]).update_layout(showlegend=False))
+            st.dataframe(filtered_data)
         else:
             st.warning("No hay datos que coincidan con el filtro")
 
