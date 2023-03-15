@@ -90,4 +90,32 @@ else:
     st.warning("Por favor, ingresa la URL de un archivo CSV")
     
     
-    
+#----------------------------#
+
+import streamlit as st
+import requests
+from bs4 import BeautifulSoup
+
+st.title("Web Scraping de la página de perfil")
+
+url = "https://www.us.es/trabaja-en-la-us/directorio/manuel-jesus-sanchez-franco"
+st.write(f"Extrayendo información básica del perfil de: {url}")
+
+def obtener_info_perfil(url):
+    response = requests.get(url)
+    content = response.content
+    soup = BeautifulSoup(content, "html.parser")
+
+    nombre = soup.find("div", class_="nombre").text.strip()
+    categoria = soup.find("div", class_="categoria").text.strip()
+    area = soup.find("div", class_="area").text.strip()
+    departamento = soup.find("div", class_="departamento").text.strip()
+
+    return nombre, categoria, area, departamento
+
+nombre, categoria, area, departamento = obtener_info_perfil(url)
+
+st.write("Nombre:", nombre)
+st.write("Categoría:", categoria)
+st.write("Área:", area)
+st.write("Departamento:", departamento)
