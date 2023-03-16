@@ -21,7 +21,7 @@ def obtener_info_departamento(url):
 
     return sede, direccion, email
 
-url = "https://www.example.com"  # Reemplaza esto con la URL de la página que deseas extraer
+url = "https://www.us.es/centros/departamentos/administracion-de-empresas-y-marketing"  # Reemplaza esto con la URL de la página que deseas extraer
 sede, direccion, email = obtener_info_departamento(url)
 
 st.write("Sede:", sede)
