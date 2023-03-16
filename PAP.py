@@ -130,9 +130,6 @@ from bs4 import BeautifulSoup
 
 st.title("Web Scraping de la página del investigador")
 
-url = "https://bibliometria.us.es/prisma/investigador/14"
-st.write(f"Extrayendo información del Departamento y Área de Conocimiento de: {url}")
-
 def obtener_info_investigador(url):
     response = requests.get(url)
     content = response.content
