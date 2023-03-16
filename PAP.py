@@ -125,6 +125,7 @@ st.write(centros_data.head(5))  # Muestra solo los primeros 5 registros
 
 import streamlit as st
 import requests
+import pandas as pd
 from bs4 import BeautifulSoup
 
 st.title("Web Scraping de la página del investigador")
@@ -137,15 +138,24 @@ def obtener_info_investigador(url):
     content = response.content
     soup = BeautifulSoup(content, "html.parser")
 
-    departamento_div = soup.find("div", id="email")
-    departamento = departamento_div.text.strip() if departamento_div else "No disponible"
+    nombre_div = soup.find("div", id="nombre")
+    nombre = nombre_div.text.strip() if nombre_div else "No disponible"
 
-    area_div = soup.find("div", id="categoria")
-    area = area_div.text.strip() if area_div else "No disponible"
+    categoria_div = soup.find("div", id="categoría")
+    categoria = categoria_div.text.strip() if categoria_div else "No disponible"
 
-    return departamento, area
+    email_div = soup.find("div", id="email")
+    email = email_div.text.strip() if email_div else "No disponible"
 
-departamento, area = obtener_info_investigador(url)
+    return nombre, categoria, email
 
-st.write("Departamento:", departamento)
-st.write("Área de Conocimiento:", area)
+nombre, categoria, email = obtener_info_investigador(url)
+
+data = {
+    "Nombre": [nombre],
+    "Categoría": [categoria],
+    "Email": [email],
+}
+
+df = pd.DataFrame(data)
+st.write(df)
