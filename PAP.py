@@ -155,7 +155,7 @@ def leer_urls_desde_csv(archivo_csv):
     urls = df["url"].tolist()
     return urls
 
-archivo_csv = "csv/csv_profesorado.csv"
+archivo_csv = "csv/urls.csv"  # Modifica la ruta del archivo aquí
 urls = leer_urls_desde_csv(archivo_csv)
 
 data = {
