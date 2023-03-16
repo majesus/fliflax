@@ -147,14 +147,20 @@ def obtener_info_investigador(url):
     email_div = soup.find("div", id="email")
     email = email_div.text.strip() if email_div else "No disponible"
 
-    return nombre, categoria, email
+    area_conocimiento = soup.find("span", string="Área de conocimiento: ").find_next("span").text.strip() if soup.find("span", string="Área de conocimiento: ") else "No disponible"
 
-nombre, categoria, email = obtener_info_investigador(url)
+    departamento = soup.find("span", string="Departamento: ").find_next("a").text.strip() if soup.find("span", string="Departamento: ") else "No disponible"
+
+    return nombre, categoria, email, area_conocimiento, departamento
+
+nombre, categoria, email, area_conocimiento, departamento = obtener_info_investigador(url)
 
 data = {
     "Nombre": [nombre],
     "Categoría": [categoria],
     "Email": [email],
+    "Área de Conocimiento": [area_conocimiento],
+    "Departamento": [departamento],
 }
 
 df = pd.DataFrame(data)
