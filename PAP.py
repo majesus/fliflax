@@ -1,4 +1,37 @@
 import streamlit as st
+import requests
+import pandas as pd
+from bs4 import BeautifulSoup
+
+st.title("Web Scraping de la página del investigador")
+
+def obtener_info_departamento(url):
+    response = requests.get(url)
+    content = response.content
+    soup = BeautifulSoup(content, "html.parser")
+
+    sede_div = soup.find("div", class_="field--name-field-centro")
+    sede = sede_div.find("a").text.strip() if sede_div else "No disponible"
+
+    direccion_div = soup.find("div", class_="field--name-field-direccion")
+    direccion = direccion_div.text.strip() if direccion_div else "No disponible"
+
+    email_div = soup.find("div", class_="field--name-field-correo-electronico")
+    email = email_div.text.strip() if email_div else "No disponible"
+
+    return sede, direccion, email
+
+url = "https://www.example.com"  # Reemplaza esto con la URL de la página que deseas extraer
+sede, direccion, email = obtener_info_departamento(url)
+
+st.write("Sede:", sede)
+st.write("Dirección:", direccion)
+st.write("Correo electrónico:", email)
+
+#-------------------------------#
+
+
+import streamlit as st
 import pandas as pd
 import plotly.express as px
 
