@@ -155,7 +155,7 @@ def leer_urls_desde_csv(archivo_csv):
     urls = df["url"].tolist()
     return urls
 
-archivo_csv = "csv/urls.csv"  # Modifica la ruta del archivo aquí
+archivo_csv = "csv/urls.csv"
 urls = leer_urls_desde_csv(archivo_csv)
 
 data = {
@@ -164,6 +164,7 @@ data = {
     "Email": [],
     "Área de Conocimiento": [],
     "Departamento": [],
+    "URL": [],
 }
 
 for url in urls:
@@ -175,6 +176,12 @@ for url in urls:
     data["Email"].append(email)
     data["Área de Conocimiento"].append(area_conocimiento)
     data["Departamento"].append(departamento)
+    data["URL"].append(url)
 
 df = pd.DataFrame(data)
-st.write(df)
+
+# Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
+df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+
+# Muestra el DataFrame en Streamlit como una tabla HTML
+st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
