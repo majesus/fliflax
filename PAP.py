@@ -138,7 +138,7 @@ def obtener_info_investigador(url):
     content = response.content
     soup = BeautifulSoup(content, "html.parser")
 
-    nombre_div = soup.find("div", id="nombre")
+    nombre_div = soup.find("h1", id="nombre")
     nombre = nombre_div.text.strip() if nombre_div else "No disponible"
 
     categoria_div = soup.find("div", id="categoría")
