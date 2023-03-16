@@ -141,7 +141,7 @@ def obtener_info_investigador(url):
     nombre_h1 = soup.find("h1", id="nombre")
     nombre = nombre_h1.text.strip() if nombre_h1 else "No disponible"
 
-    categoria_div = soup.find("div", id="categoría")
+    categoria_div = soup.find("div", id="categoria")
     categoria = categoria_div.text.strip() if categoria_div else "No disponible"
 
     email_div = soup.find("div", id="email")
