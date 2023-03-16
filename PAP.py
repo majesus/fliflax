@@ -153,15 +153,31 @@ def obtener_info_investigador(url):
 
     return nombre, categoria, email, area_conocimiento, departamento
 
-nombre, categoria, email, area_conocimiento, departamento = obtener_info_investigador(url)
+def leer_urls_desde_csv(archivo_csv):
+    df = pd.read_csv(archivo_csv)
+    urls = df["url"].tolist()
+    return urls
+
+archivo_csv = "csv_profesorado.csv"
+urls = leer_urls_desde_csv(archivo_csv)
 
 data = {
-    "Nombre": [nombre],
-    "Categoría": [categoria],
-    "Email": [email],
-    "Área de Conocimiento": [area_conocimiento],
-    "Departamento": [departamento],
+    "Nombre": [],
+    "Categoría": [],
+    "Email": [],
+    "Área de Conocimiento": [],
+    "Departamento": [],
 }
+
+for url in urls:
+    st.write(f"Extrayendo información del Departamento y Área de Conocimiento de: {url}")
+    nombre, categoria, email, area_conocimiento, departamento = obtener_info_investigador(url)
+    
+    data["Nombre"].append(nombre)
+    data["Categoría"].append(categoria)
+    data["Email"].append(email)
+    data["Área de Conocimiento"].append(area_conocimiento)
+    data["Departamento"].append(departamento)
 
 df = pd.DataFrame(data)
 st.write(df)
