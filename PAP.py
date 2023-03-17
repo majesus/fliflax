@@ -213,7 +213,17 @@ for url in urls:
 df = pd.DataFrame(data)
 
 # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+import base64
+from io import BytesIO
 
-# Muestra el DataFrame en Streamlit como una tabla HTML
-st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+def to_csv_download_link(df, filename):
+    csv_buffer = BytesIO()
+    df.to_csv(csv_buffer, index=False)
+    csv_b64 = base64.b64encode(csv_buffer.getvalue()).decode()
+    href = f'<a href="data:file/csv;base64,{csv_b64}" download="{filename}" target="_blank">Descargar CSV</a>'
+    return href
+
+filename = "investigadores.csv"
+st.markdown("## Tabla de Investigadores")
+st.write(df)
+st.markdown(to_csv_download_link(df, filename), unsafe_allow_html=True)
