@@ -1,34 +1,4 @@
-import streamlit as st
-import requests
-import pandas as pd
-from bs4 import BeautifulSoup
 
-st.title("URLs de investigadores")
-
-url = 'https://bibliometria.us.es/prisma/investigador/buscar/departamento/I0G7'
-response = requests.get(url)
-content = response.content
-soup = BeautifulSoup(content, "html.parser")
-
-investigadores = soup.find_all("div", class_="col-md-4 col-sm-6 col-xs-12 grid-item")
-urls_investigadores = []
-
-for investigador in investigadores:
-    enlace = investigador.find("a")
-    if enlace:
-        urls_investigadores.append(enlace["href"])
-
-data = {
-    "Dominio": [],
-    "URL Relativa": [],
-}
-
-for url_investigador in urls_investigadores:
-    data["Dominio"].append("https://bibliometria.us.es")
-    data["URL Relativa"].append(url_investigador)
-
-df = pd.DataFrame(data)
-st.write(df)
 
 #-----------------------------
 
