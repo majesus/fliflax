@@ -166,10 +166,29 @@ from io import BytesIO
 st.title("Web Scraping de la página del investigador")
 
 def obtener_info_investigador(url):
-    # El resto del código de la función permanece igual
+    response = requests.get(url)
+    content = response.content
+    soup = BeautifulSoup(content, "html.parser")
+
+    nombre_h1 = soup.find("h1", id="nombre")
+    nombre = nombre_h1.text.strip() if nombre_h1 else "No disponible"
+
+    categoria_div = soup.find("div", id="categoria")
+    categoria = categoria_div.text.strip() if categoria_div else "No disponible"
+
+    email_div = soup.find("div", id="email")
+    email = email_div.text.strip() if email_div else "No disponible"
+
+    area_conocimiento = soup.find("span", string="Área de conocimiento: ").find_next("span").text.strip() if soup.find("span", string="Área de conocimiento: ") else "No disponible"
+
+    departamento = soup.find("span", string="Departamento: ").find_next("a").text.strip() if soup.find("span", string="Departamento: ") else "No disponible"
+
+    return nombre, categoria, email, area_conocimiento, departamento
 
 def leer_urls_desde_csv(archivo_csv):
-    # El resto del código de la función permanece igual
+    df = pd.read_csv(archivo_csv)
+    urls = df["url"].tolist()
+    return urls
 
 archivo_csv = "csv/urls.csv"
 urls = leer_urls_desde_csv(archivo_csv)
