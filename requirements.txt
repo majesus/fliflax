@@ -18,3 +18,4 @@ plotly.express
 
 requests 
 beautifulsoup4
+base64
