@@ -218,7 +218,7 @@ from io import BytesIO
 
 def to_csv_download_link(df, filename):
     csv_buffer = BytesIO()
-    df.to_csv(csv_buffer, index=False)
+    df.to_csv(csv_buffer, index=False, encoding='utf-8-sig')
     csv_b64 = base64.b64encode(csv_buffer.getvalue()).decode()
     href = f'<a href="data:file/csv;base64,{csv_b64}" download="{filename}" target="_blank">Descargar CSV</a>'
     return href
