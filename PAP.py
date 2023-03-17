@@ -156,36 +156,20 @@ st.write(centros_data.head(5))  # Muestra solo los primeros 5 registros
 
 #--------------------------------
 
+import streamlit as st
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
+import base64
+from io import BytesIO
 
 st.title("Web Scraping de la página del investigador")
 
 def obtener_info_investigador(url):
-    response = requests.get(url)
-    content = response.content
-    soup = BeautifulSoup(content, "html.parser")
-
-    nombre_h1 = soup.find("h1", id="nombre")
-    nombre = nombre_h1.text.strip() if nombre_h1 else "No disponible"
-
-    categoria_div = soup.find("div", id="categoria")
-    categoria = categoria_div.text.strip() if categoria_div else "No disponible"
-
-    email_div = soup.find("div", id="email")
-    email = email_div.text.strip() if email_div else "No disponible"
-
-    area_conocimiento = soup.find("span", string="Área de conocimiento: ").find_next("span").text.strip() if soup.find("span", string="Área de conocimiento: ") else "No disponible"
-
-    departamento = soup.find("span", string="Departamento: ").find_next("a").text.strip() if soup.find("span", string="Departamento: ") else "No disponible"
-
-    return nombre, categoria, email, area_conocimiento, departamento
+    # El resto del código de la función permanece igual
 
 def leer_urls_desde_csv(archivo_csv):
-    df = pd.read_csv(archivo_csv)
-    urls = df["url"].tolist()
-    return urls
+    # El resto del código de la función permanece igual
 
 archivo_csv = "csv/urls.csv"
 urls = leer_urls_desde_csv(archivo_csv)
@@ -212,10 +196,16 @@ for url in urls:
 
 df = pd.DataFrame(data)
 
-# Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-import base64
-from io import BytesIO
+# Realiza la copia del DataFrame sin enlaces HTML
+df_csv = df.copy()
 
+# Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
+df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+
+# Muestra el DataFrame en Streamlit como una tabla HTML
+st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+
+# Función para descargar el DataFrame como un archivo CSV
 def to_csv_download_link(df, filename):
     csv_buffer = BytesIO()
     df.to_csv(csv_buffer, index=False, encoding='utf-8-sig')
@@ -223,7 +213,5 @@ def to_csv_download_link(df, filename):
     href = f'<a href="data:file/csv;base64,{csv_b64}" download="{filename}" target="_blank">Descargar CSV</a>'
     return href
 
-filename = "investigadores.csv"
-st.markdown("## Tabla de Investigadores")
-st.write(df)
-st.markdown(to_csv_download_link(df, filename), unsafe_allow_html=True)
+# Ofrece la opción de descargar el DataFrame como un archivo CSV
+st.markdown(to_csv_download_link(df_csv, "investigadores.csv"), unsafe_allow_html=True)
