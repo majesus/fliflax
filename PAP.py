@@ -1,5 +1,29 @@
 import streamlit as st
 import requests
+from bs4 import BeautifulSoup
+
+url = 'https://www.us.es/centros/departamentos/administracion-de-empresas-y-marketing'  # Reemplaza esto con la URL de la página que contiene el código fuente que proporcionaste
+
+response = requests.get(url)
+content = response.content
+soup = BeautifulSoup(content, "html.parser")
+
+table = soup.find("table", class_="cifrasUS")
+rows = table.find_all("tr")
+
+director_row = rows[1]
+secretario_row = rows[2]
+
+director = director_row.find_all("td")[1].text.strip()
+secretario = secretario_row.find_all("td")[1].text.strip()
+
+st.write(f"Director/a: {director}")
+st.write(f"Secretario: {secretario}")
+
+#------------------------------#
+
+import streamlit as st
+import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
