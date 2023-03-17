@@ -162,13 +162,6 @@ from bs4 import BeautifulSoup
 
 st.title("Web Scraping de la página del investigador")
 
-# Función para codificar el archivo CSV para la descarga
-def download_csv_link(df, filename):
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  
-    href = f'<a href="data:file/csv;base64,{b64}" download="{filename}" target="_blank">Descargar CSV</a>'
-    return href
-
 def obtener_info_investigador(url):
     response = requests.get(url)
     content = response.content
@@ -222,8 +215,5 @@ df = pd.DataFrame(data)
 # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
 df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
 
-# Con esta nueva parte
-st.markdown("## Tabla de Investigadores")
-st.write(df)
-filename = "investigadores.csv"
-st.markdown(download_csv_link(df, filename), unsafe_allow_html=True)
+# Muestra el DataFrame en Streamlit como una tabla HTML
+st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
