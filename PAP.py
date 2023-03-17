@@ -160,17 +160,14 @@ import streamlit as st
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
-import base64
 
 st.title("Web Scraping de la página del investigador")
 
 # Función para codificar el archivo CSV para la descarga
-def filedownload(df):
-    buffer = io.StringIO()
-    df.to_csv(buffer, index=False, encoding="utf-8-sig")
-    buffer.seek(0)
-    b64 = base64.b64encode(buffer.getvalue().encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="investigadores.csv">Descargar archivo CSV</a>'
+def download_csv_link(df, filename):
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()  
+    href = f'<a href="data:file/csv;base64,{b64}" download="{filename}" target="_blank">Descargar CSV</a>'
     return href
 
 # Función para obtener info del investigador
@@ -228,9 +225,8 @@ df = pd.DataFrame(data)
 df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
 
 # Muestra el DataFrame en Streamlit como una tabla HTML
-st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
-
-df = pd.DataFrame(data)
-
-# Agregar botón de descarga CSV
-st.markdown(filedownload(df), unsafe_allow_html=True)
+# Descarga
+st.markdown("## Tabla de Investigadores")
+st.write(df)
+filename = "investigadores.csv"
+st.markdown(download_csv_link(df, filename), unsafe_allow_html=True)
