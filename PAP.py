@@ -166,8 +166,10 @@ st.title("Web Scraping de la página del investigador")
 
 # Función para codificar el archivo CSV para la descarga
 def filedownload(df):
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # Se requiere algunas conversiones para que funcione
+    buffer = io.StringIO()
+    df.to_csv(buffer, index=False, encoding="utf-8-sig")
+    buffer.seek(0)
+    b64 = base64.b64encode(buffer.getvalue().encode()).decode()
     href = f'<a href="data:file/csv;base64,{b64}" download="investigadores.csv">Descargar archivo CSV</a>'
     return href
 
