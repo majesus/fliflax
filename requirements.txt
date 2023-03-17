@@ -20,3 +20,4 @@ requests
 beautifulsoup4
 io
 codecs
+base64
