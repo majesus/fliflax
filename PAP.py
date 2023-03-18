@@ -33,6 +33,24 @@ secretario = secretario_row.find_all("td")[1].text.strip()
 st.write(f"Director/a: {director}")
 st.write(f"Secretario: {secretario}")
 
+#----------------------------------------------------#
+col1, col2 = st.columns([5,5])
+with col1:
+    st.metric(label="Profesores", value = "105")
+with col2:
+    st.metric(label="Títulos", value = "25")
+col1, col2 = st.columns([5,5])
+with col1:
+    st.metric(label="Centros", value = "15")
+with col2:
+    st.metric(label="Áreas", value = "2")
+col1, col2 = st.columns([5,5])
+with col1:
+    st.metric(label="Másteres", value = "28")
+with col2:
+    st.metric(label="Doctorados", value = "10")  
+#----------------------------------------------------#
+
 #------------------------------#
 
 import streamlit as st
