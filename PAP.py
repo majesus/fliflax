@@ -1,3 +1,28 @@
+import streamlit as st
+#----------------------------------------------------#
+from PIL import Image
+img=Image.open('img/fliflax-logo.jpg')
+st.set_page_config(#layout="centered",
+                   #theme="light",
+                   layout="wide",
+                   page_title="Fliflax",
+                   page_icon=img,
+                   initial_sidebar_state='expanded'
+                   )
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; }
+        #footer {visibility: hidden;}
+        </style>
+        """
+#st.markdown(hide_menu_style, unsafe_allow_html=True)
+#----------------------------------------------------#
+st.markdown(
+  """ 
+<style> 
+.font {font-size:50px ; #font-family: 'sans-serif'; color: #ffffff;} 
+</style>
+""", unsafe_allow_html=True)
 #----------------------------------------------------#
 from PIL import Image
 img=Image.open('img/fliflax-logo.jpg')
