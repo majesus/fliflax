@@ -45,6 +45,7 @@ st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias 
 st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el _sidebar_ de la izquierda una **calculadora de la Frecuencia efectiva mínima**. "
         "También abajo hemos incluido un breve **glosario** que puede ayudarte.")
 #----------------------------------------------------#
+import pandas as pd
 
 # Coordenadas de la Facultad de Estudios
 latitude = 36.7277394
