@@ -9,12 +9,6 @@ hide_menu_style = """
         """
 #st.markdown(hide_menu_style, unsafe_allow_html=True)
 #----------------------------------------------------#
-st.markdown(
-  """ 
-<style> 
-.font {font-size:50px ; #font-family: 'sans-serif'; color: #ffffff;} 
-</style>
-""", unsafe_allow_html=True)
 #----------------------------------------------------#
 st.image('img/fliflax-logo.jpg',width=200)
 st.title("Fliflax: Una plataforma de apoyo al estudio")
