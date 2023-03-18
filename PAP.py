@@ -46,6 +46,17 @@ st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el 
         "También abajo hemos incluido un breve **glosario** que puede ayudarte.")
 #----------------------------------------------------#
 
+# Coordenadas de la Facultad de Estudios
+latitude = 36.7277394
+longitude = -4.41775599241557
+
+# Crear un DataFrame de Pandas con las coordenadas
+data = pd.DataFrame({"lat": [latitude], "lon": [longitude]})
+
+# Mostrar el mapa en Streamlit con las coordenadas proporcionadas
+st.map(data)
+#----------------------------------------------------#
+
 import streamlit as st
 # Crear una columna lateral
 st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
