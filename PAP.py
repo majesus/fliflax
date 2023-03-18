@@ -1,13 +1,43 @@
-import streamlit as st
+#----------------------------------------------------#
 from PIL import Image
+img=Image.open('img/fliflax-logo.jpg')
+st.set_page_config(#layout="centered",
+                   #theme="light",
+                   layout="wide",
+                   page_title="Fliflax",
+                   page_icon=img,
+                   initial_sidebar_state='expanded'
+                   )
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; }
+        #footer {visibility: hidden;}
+        </style>
+        """
+#st.markdown(hide_menu_style, unsafe_allow_html=True)
+#----------------------------------------------------#
+st.markdown(
+  """ 
+<style> 
+.font {font-size:50px ; #font-family: 'sans-serif'; color: #ffffff;} 
+</style>
+""", unsafe_allow_html=True)
+#----------------------------------------------------#
+st.image('img/fliflax-logo.jpg',width=200)
+st.title("Fliflax: Una plataforma de apoyo al estudio")
+st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
+st.write("En **Fliflax** creamos contenidos para que tu estudio de las materias de Comportamiento y Comunicacion "
+         "no dependan del lugar en que te encuentras. Nuestra obsesión es la ubicuidad, o **u-learning**, "
+         "es decir, queremos ofrecerte una enseñanza en cualquier momento y lugar siempre que "
+         "tengas entre tus manos un teléfono móvil o una tablet.")
+st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el _sidebar_ de la izquierda una **calculadora de la Frecuencia efectiva mínima**. "
+        "También abajo hemos incluido un breve **glosario** que puede ayudarte.")
+#----------------------------------------------------#
 
-# Cargar la imagen del logo desde la carpeta 'img'
-logo_path = "img/logo_us.jpeg"
-logo = Image.open(logo_path)
-
+import streamlit as st
 # Crear una columna lateral y mostrar el logo en ella
 sidebar = st.sidebar
-sidebar.image(logo, use_column_width=True)
+#sidebar.image(logo, use_column_width=True)
 
 #-----------------------------
 
