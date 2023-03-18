@@ -47,9 +47,8 @@ st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el 
 #----------------------------------------------------#
 
 import streamlit as st
-# Crear una columna lateral y mostrar el logo en ella
-sidebar = st.sidebar
-#sidebar.image(logo, use_column_width=True)
+# Crear una columna lateral
+st.sidebar.write("## En **Fliflax** te hemos construido una calculadora de la **frecuencia efectiva mínima**.")
 
 #-----------------------------
 
