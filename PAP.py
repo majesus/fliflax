@@ -1,4 +1,15 @@
+import requests
+from PIL import Image
 
+# Cambia la URL a la URL de la imagen del logo
+logo_url = "https://www.example.com/logo.png"
+
+response = requests.get(logo_url, stream=True)
+response.raise_for_status()
+logo_image = Image.open(response.raw)
+
+# Muestra la imagen del logo en la columna lateral
+st.sidebar.image(logo_image, use_column_width=True)
 
 #-----------------------------
 
