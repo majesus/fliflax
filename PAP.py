@@ -1,15 +1,13 @@
-import requests
+import streamlit as st
 from PIL import Image
 
-# Cambia la URL a la URL de la imagen del logo
-logo_url = "https://www.example.com/logo.png"
+# Cargar la imagen del logo desde la carpeta 'img'
+logo_path = "img/logo_us.jpeg"
+logo = Image.open(logo_path)
 
-response = requests.get(logo_url, stream=True)
-response.raise_for_status()
-logo_image = Image.open(response.raw)
-
-# Muestra la imagen del logo en la columna lateral
-st.sidebar.image(logo_image, use_column_width=True)
+# Crear una columna lateral y mostrar el logo en ella
+sidebar = st.sidebar
+sidebar.image(logo, use_column_width=True)
 
 #-----------------------------
 
