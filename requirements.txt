@@ -1,7 +1,9 @@
 streamlit >= 1.4.0
-pip iunstall
 streamlit-option-menu
 streamlit-tags
+
+streamlit-echarts
+pyecharts
 
 pandas >= 1.0.5
 numpy >= 1.18.5
