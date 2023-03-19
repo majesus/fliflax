@@ -52,6 +52,8 @@ st.write("Invitamos a los interesados a unirse a nuestra comunidad académica, d
          "aprendizaje y crecimiento, apoyado por **profesionales dedicados a la enseñanza y la investigación**.")
 #----------------------------------------------------#
 
+import streamlit as st
+from streamlit_echarts import st_echarts
 from pyecharts.charts import Pie
 from pyecharts import options as opts
 
