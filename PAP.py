@@ -38,13 +38,14 @@ hide_menu_style = """
 st.image('img/fliflax-logo.jpg',width=200)
 st.title("Fliflax: Una plataforma de apoyo al estudio")
 st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
-st.write("Bienvenidos al **Departamento de Administración de Empresas y Marketing** de __*la Universidad de Sevilla*__. Nuestro equipo" está compuesto "por 105 docentes y 2 profesionales de administración, comprometidos con la formación" 
+st.write("Bienvenidos al **Departamento de Administración de Empresas y Marketing** de __*la Universidad de Sevilla*__."
+         "Nuestro equipo está compuesto por **105 docentes y 2 profesionales de administración**, comprometidos con la formación " 
          "académica y el desarrollo integral de nuestros estudiantes."
-         "Impartimos docencia en más de **25 títulos de grado**, **10 títulos de máster** y participamos en **2 programas de**"
-         "doctorado. Nuestro enfoque pedagógico se basa en metodologías avanzadas y adaptadas a las necesidades de los"
+         "Impartimos docencia en más de **25 títulos de grado**, **10 títulos de máster** y participamos en **2 programas de** "
+         "doctorado. Nuestro enfoque pedagógico se basa en metodologías avanzadas y adaptadas a las necesidades de los "
          "estudiantes, garantizando una educación de calidad."
          
-         "La investigación es un pilar fundamental en nuestro departamento. Participamos en más de **10 proyectos**"
+         "La investigación es un pilar fundamental en nuestro departamento. Participamos en más de **10 proyectos** "
          "competitivos y nuestras publicaciones cuentan con un alto nivel de impacto en el ámbito académico."
          
          "Invitamos a los interesados a unirse a nuestra comunidad académica, donde encontrarán un entorno de "
