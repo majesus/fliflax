@@ -43,7 +43,7 @@ st.write("Bienvenidos al **Departamento de Administración de Empresas y Marketi
          "académica y el desarrollo integral de nuestros estudiantes."
          "Impartimos docencia en más de **25 títulos de grado**, **10 títulos de máster** y participamos en **2 programas de** "
          "doctorado. Nuestro enfoque pedagógico se basa en metodologías avanzadas y adaptadas a las necesidades de los "
-         "estudiantes, garantizando una educación de calidad."
+         "estudiantes, garantizando una educación de calidad.")
          
 st.write("La investigación es un pilar fundamental en nuestro departamento. Participamos en más de **10 proyectos** "
          "competitivos y nuestras publicaciones cuentan con un alto nivel de impacto en el ámbito académico.")
