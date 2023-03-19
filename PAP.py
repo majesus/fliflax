@@ -45,13 +45,11 @@ st.write("Bienvenidos al **Departamento de Administración de Empresas y Marketi
          "doctorado. Nuestro enfoque pedagógico se basa en metodologías avanzadas y adaptadas a las necesidades de los "
          "estudiantes, garantizando una educación de calidad."
          
-         "La investigación es un pilar fundamental en nuestro departamento. Participamos en más de **10 proyectos** "
-         "competitivos y nuestras publicaciones cuentan con un alto nivel de impacto en el ámbito académico."
+st.write("La investigación es un pilar fundamental en nuestro departamento. Participamos en más de **10 proyectos** "
+         "competitivos y nuestras publicaciones cuentan con un alto nivel de impacto en el ámbito académico.")
          
-         "Invitamos a los interesados a unirse a nuestra comunidad académica, donde encontrarán un entorno de "
+st.write("Invitamos a los interesados a unirse a nuestra comunidad académica, donde encontrarán un entorno de "
          "aprendizaje y crecimiento, apoyado por **profesionales dedicados a la enseñanza y la investigación**.")
-st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el _sidebar_ de la izquierda una **calculadora de la Frecuencia efectiva mínima**. "
-        "También abajo hemos incluido un breve **glosario** que puede ayudarte.")
 #----------------------------------------------------#
 import pandas as pd
 
