@@ -54,8 +54,6 @@ st.write("Invitamos a los interesados a unirse a nuestra comunidad académica, d
 
 import streamlit as st
 from streamlit_echarts import st_echarts
-from pyecharts.charts import Pie
-from pyecharts import options as opts
 
 def create_donut_chart(data, values):
     chart = (
