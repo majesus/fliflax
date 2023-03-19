@@ -47,15 +47,30 @@ st.write("Abajo te mostramos, por ejemplo, el **modelo Beta-Binomial**, y en el 
 #----------------------------------------------------#
 import pandas as pd
 
+st.markdown("""
+<style>
+.container {
+    width: 800px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Coordenadas de la Facultad de Estudios
 latitude = 36.7277394
 longitude = -4.41775599241557
 
 # Crear un DataFrame de Pandas con las coordenadas
-data = pd.DataFrame({"lat": [latitude], "lon": [longitude]})
+data = pd.DataFrame({
+    "lat": [37.377777777778, 37.378888888889, 37.405277777778],
+    "lon": [-5.9743055555556, -5.9733611111111, -6.0030555555556],
+    "Facultad": ["Ciencias Económicas y Empresariales", "Turismo y Finanzas", "Comunicación"]
+})
 
 # Mostrar el mapa en Streamlit con las coordenadas proporcionadas
-st.map(data)
+container = st.container()
+with container:
+    st.write(data)
+    st.map(data, use_container_width=True)
 #----------------------------------------------------#
 
 import streamlit as st
