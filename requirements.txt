@@ -3,8 +3,6 @@ pip iunstall
 streamlit-option-menu
 streamlit-tags
 
-pyecharts
-
 pandas >= 1.0.5
 numpy >= 1.18.5
 scipy >= 1.6.1
