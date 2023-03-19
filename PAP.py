@@ -51,6 +51,7 @@ st.markdown("""
 <style>
 .container {
     width: 800px !important;
+    height: 600px !important;
 }
 </style>
 """, unsafe_allow_html=True)
