@@ -101,43 +101,6 @@ pie.add("", [list(z) for z in zip([1, 2, 3, 4, 5], ["A", "B", "C", "D", "E"])],
 st.components.v1.html(pie.render_embed())
 
 #----------------------------------------------------#
-import streamlit as st
-from streamlit_echarts import st_pyecharts
-from pyecharts import options as opts
-from pyecharts.charts import Pie
-
-
-def pie_chart_rounded_edges():
-    # Datos de ejemplo
-    data_pairs = [("Frutas", 30), ("Verduras", 20), ("Cereales", 15), ("Lácteos", 10), ("Proteínas", 25)]
-
-    # Crea el gráfico de pastel y establece opciones
-    chart = (
-        Pie()
-        .add(
-            "",
-            data_pairs,
-            radius=["40%", "75%"],
-            itemstyle_opts=opts.ItemStyleOpts(border_width=1, border_color="white"),
-            label_opts=opts.LabelOpts(formatter="{b}: {c}%"),
-            round_cap=True, # Establece esquinas redondeadas
-        )
-        .set_global_opts(
-            title_opts=opts.TitleOpts(title="Distribución de alimentos"),
-            legend_opts=opts.LegendOpts(orient="vertical", pos_top="15%", pos_left="2%"),
-        )
-    )
-    return chart
-
-
-def main():
-    st.set_page_config(page_title="Gráfico de pastel con esquinas redondeadas", layout="wide")
-    st.title("Gráfico de pastel con esquinas redondeadas")
-
-    # Genera y muestra el gráfico de pastel
-    chart = pie_chart_rounded_edges()
-    st_pyecharts(chart)
-#----------------------------------------------------#
 
 import pandas as pd
 
