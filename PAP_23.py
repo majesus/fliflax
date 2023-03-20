@@ -37,6 +37,9 @@ elif menu == "Personal":
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
     dfg = pd.read_csv('csv/investigadores.csv', sep=",")
+    
+    st.table(selected_rows.drop(['Departamento', 'URL'], axis=1).head())
+    
     dfg1 = dfg.set_index('Área de Conocimiento')
     selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index.unique())
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
