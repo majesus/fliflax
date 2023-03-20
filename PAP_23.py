@@ -3,7 +3,7 @@ import pandas as pd
 
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
-st.image("img/fliflax-logo.jpg", width=200)
+#st.image("img/fliflax-logo.jpg", width=200)
 st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
