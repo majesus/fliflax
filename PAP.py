@@ -85,6 +85,7 @@ b = (
 st_pyecharts(b)
 #----------------------------------------------------#
 import streamlit as st
+from streamlit_echarts import st_echarts
 from pyecharts.charts import Pie
 from pyecharts import options as opts
 
@@ -98,7 +99,8 @@ pie.add("", [list(z) for z in zip([1, 2, 3, 4, 5], ["A", "B", "C", "D", "E"])],
         radius=["50%"], center=["50%", "50%"],
         rosetype="radius", label_opts=opts.LabelOpts(is_show=False))
 
-st.components.v1.html(pie.render_embed())
+st_echarts(pie)
+
 
 #----------------------------------------------------#
 
