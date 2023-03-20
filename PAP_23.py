@@ -39,7 +39,8 @@ elif menu == "Personal":
     def cargar_datos():
         df = pd.read_csv("csv/investigadores.csv")
         return df
-
+    
+    df = cargar_datos()
     # Realiza la copia del DataFrame sin enlaces HTML
     df_csv = df.copy()
 
