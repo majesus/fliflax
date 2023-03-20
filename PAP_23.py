@@ -36,6 +36,14 @@ elif menu == "Personal":
     st.subheader("Personal")
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
+    def custom_style(row):
+        if row["Área de Conocimiento"].startswith("O"):
+            return 'background-color: lightgreen'
+        elif row["Área de Conocimiento"].startswith("C"):
+            return 'background-color: lightsalmon'
+        else:
+            return ''
+    
     dfg = pd.read_csv('csv/investigadores.csv', sep=",")
 
     dfg1 = dfg.set_index('Área de Conocimiento')
@@ -49,8 +57,13 @@ elif menu == "Personal":
         selected_rows["Nombre"] = selected_rows.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
         # Muestra el DataFrame en Streamlit como una tabla HTML
         selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
-        #st.write(selected_rows.to_html(escape=False, index=False), unsafe_allow_html=True)
-        st.write(f'<div style="font-size: 10px;">{selected_rows.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
+        
+        # Aplica el estilo personalizado a las filas según el área de conocimiento
+            styled_table = selected_rows.style.applymap(custom_style).set_table_styles([
+                {"selector": "th, td", "props": [("font-size", "10px")]},
+            ]).hide_index()
+        
+        st.write(f'<div style="font-size: 11px;">{selected_rows.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
     else:
         st.write("Selecciona al menos un área de conocimiento para ver la tabla.")
 
