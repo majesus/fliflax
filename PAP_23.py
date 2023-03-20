@@ -56,7 +56,7 @@ elif menu == "Personal":
 
     df = cargar_datos()
     # Elimina las columnas "Departamento" y "url"
-    df = df.drop(columns=["Departamento", "url"])
+    df = df.drop(columns=["Departamento", "URL"])
 
     st.title("Investigadores")
     mostrar_datos(df)
