@@ -40,7 +40,7 @@ elif menu == "Personal":
     dfg1 = dfg.set_index('Área de Conocimiento')
     selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index.unique())
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
-    selected_rows = dfg1.loc[selected_indices, ['Nombre', 'Email', 'Área de Conocimiento']]
+    selected_rows = dfg1.loc[selected_indices]
     st.table(selected_rows)
 
 # Contacto
