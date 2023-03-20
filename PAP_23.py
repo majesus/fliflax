@@ -40,11 +40,7 @@ elif menu == "Personal":
         df = pd.read_csv("investigadores.csv")
         return df
 
-    def filtrar_datos(df, categorias, areas_conocimiento):
-        df_filtrado = df[df['categoría'].isin(categorias) & df['area_conocimiento'].isin(areas_conocimiento)]
-        return df_filtrado
-
-    def crear_tabla(df):
+    def mostrar_datos(df):
         for index, row in df.iterrows():
             color = ""
             if row["area_conocimiento"] == "Organización de Empresas":
@@ -54,49 +50,14 @@ elif menu == "Personal":
 
             with st.container():
                 st.markdown(
-                    f'<p style="background-color:{color}; padding:10px;"><a href="{row["url"]}" target="_blank">{row["nombre"]}</a> - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]} - {row["departamento"]}</p>',
+                    f'<p style="background-color:{color}; padding:10px;">{row["nombre"]} - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]} - {row["departamento"]} - {row["url"]}</p>',
                     unsafe_allow_html=True,
                 )
 
     st.title("Investigadores")
 
     df = cargar_datos()
-
-    categorias = [
-        "Catedrática de Escuela Universitaria",
-        "Catedrática de Universidad",
-        "Catedrático de Universidad",
-        "Posdoctoral Marie Curie",
-        "Predoctoral PIF VI Plan Propio",
-        "Profesor Asociado",
-        "Profesor Ayudante Doctor",
-        "Profesor Contratado Doctor",
-        "Profesor Sustituto Interino",
-        "Profesor Titular de Universidad",
-        "Profesor Titular Escuela Universitaria",
-        "Profesora Asociada",
-        "Profesora Ayudante Doctora",
-        "Profesora Colaboradora",
-        "Profesora Contratada Doctora",
-        "Profesora Sustituta Interina",
-        "Profesora Titular de Universidad",
-        "Profesora Titular Escuela Universitaria",
-    ]
-
-    areas_conocimiento = [
-        "Comercialización e Investigación de Mercados",
-        "Organización de Empresas",
-    ]
-
-    categorias_seleccionadas = st.multiselect("Selecciona categorías", categorias)
-    areas_seleccionadas = st.multiselect("Selecciona áreas de conocimiento", areas_conocimiento)
-
-    if categorias_seleccionadas and areas_seleccionadas:
-        df_filtrado = filtrar_datos(df, categorias_seleccionadas, areas_seleccionadas)
-        crear_tabla(df_filtrado)
-    else:
-        st.warning("Por favor, selecciona al menos una categoría y un área de conocimiento.")
-
+    mostrar_datos(df)
 
 # Contacto
 elif menu == "Contacto":
