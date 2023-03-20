@@ -37,13 +37,11 @@ elif menu == "Personal":
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
     dfg = pd.read_csv('csv/investigadores.csv', sep=",")
-    
-    st.table(dfg.drop(['Departamento', 'URL'], axis=1).head())
-    
+  
     dfg1 = dfg.set_index('Área de Conocimiento')
     selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index.unique())
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
-    selected_rows = dfg1.loc[selected_indices]
+    selected_rows = dfg1.loc[selected_indices].head()
 
     # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
     selected_rows["Nombre"] = selected_rows.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
