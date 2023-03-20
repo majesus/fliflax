@@ -68,28 +68,6 @@ st_echarts(options=options)
 from pyecharts.charts import Pie
 from pyecharts import options as opts
 
-def create_donut_chart(data, values):
-    chart = (
-        Pie(init_opts=opts.InitOpts(width="720px", height="320px"))
-        .add(
-            "",
-            [list(z) for z in zip(data, values)],
-            radius=["40%", "70%"],
-            label_opts=opts.LabelOpts(
-                position="inner",
-                font_size=14,
-                formatter="{b}\n{d}%"
-            ),
-        )
-        .set_global_opts(
-            title_opts=opts.TitleOpts(title="Gráfico de rosquilla con esquinas redondeadas"),
-            legend_opts=opts.LegendOpts(
-                orient="vertical", pos_left="left", formatter="{name}",
-            ),
-        )
-    )
-    return chart
-
 data = ['A', 'B', 'C']
 values = [5, 2, 9]
 
