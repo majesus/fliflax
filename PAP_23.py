@@ -39,16 +39,27 @@ elif menu == "Personal":
     def cargar_datos():
         df = pd.read_csv("csv/investigadores.csv")
         return df
-    
+
+    def mostrar_datos(df):
+        for index, row in df.iterrows():
+            color = ""
+            if row["area_conocimiento"].startswith("O"):
+                color = "lightgreen"
+            elif row["area_conocimiento"].startswith("C"):
+                color = "lightsalmon"
+
+            with st.container():
+                st.markdown(
+                    f'<p style="background-color:{color}; padding:10px; font-size:10px;"><a href="{row["url"]}" target="_blank">{row["nombre"]}</a> - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]}</p>',
+                    unsafe_allow_html=True,
+                )
+
     df = cargar_datos()
-    # Realiza la copia del DataFrame sin enlaces HTML
-    df_csv = df.copy()
+    # Elimina las columnas "Departamento" y "url"
+    df = df.drop(columns=["Departamento", "url"])
 
-    # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-    df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
-
-    # Muestra el DataFrame en Streamlit como una tabla HTML
-    st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+    st.title("Investigadores")
+    mostrar_datos(df)
     
 # Contacto
 elif menu == "Contacto":
