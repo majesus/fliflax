@@ -13,7 +13,7 @@ menu = st.sidebar.selectbox("Menú de navegación", ("Inicio", "Acerca de", "Inv
 if menu == "Inicio":
     st.subheader("Bienvenidos")
     st.markdown("Texto de bienvenida y descripción del departamento.")
-    st.image("path/to/featured-image.jpg", caption="Imagen destacada")
+    st.image("img/fliflax-logo.jpg", caption="Imagen destacada")
 
 # Acerca de
 elif menu == "Acerca de":
