@@ -37,7 +37,7 @@ elif menu == "Personal":
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
     def cargar_datos():
-        df = pd.read_csv("investigadores.csv")
+        df = pd.read_csv("csv/investigadores.csv")
         return df
 
     st.title("Investigadores")
