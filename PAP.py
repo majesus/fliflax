@@ -84,8 +84,20 @@ b = (
 )
 st_pyecharts(b)
 #----------------------------------------------------#
+pie = echarts.Pie()
 
+pie.set_global_opts(title_opts=opts.TitleOpts(title="Pie Chart"),
+                    legend_opts=opts.LegendOpts(is_show=False),
+                    toolbox_opts=opts.ToolboxOpts())
 
+pie.add("", [list(z) for z in zip([1,2,3,4,5], ["A", "B", "C", "D", "E"])],
+        radius=["50%"], center=["50%", "50%"],
+        rosetype="radius", label_opts=opts.LabelOpts(is_show=False))
+
+pie.render_notebook()
+
+st.components.v1.html(pie.render_embed())
+#----------------------------------------------------#
 
 import pandas as pd
 
