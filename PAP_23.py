@@ -40,24 +40,10 @@ elif menu == "Personal":
         df = pd.read_csv("investigadores.csv")
         return df
 
-    def mostrar_datos(df):
-        for index, row in df.iterrows():
-            color = ""
-            if row["area_conocimiento"] == "Organización de Empresas":
-                color = "lightgreen"
-            elif row["area_conocimiento"] == "Comercialización e Investigación de Mercados":
-                color = "lightsalmon"
-
-            with st.container():
-                st.markdown(
-                    f'<p style="background-color:{color}; padding:10px;">{row["nombre"]} - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]} - {row["departamento"]} - {row["url"]}</p>',
-                    unsafe_allow_html=True,
-                )
-
     st.title("Investigadores")
 
     df = cargar_datos()
-    mostrar_datos(df)
+    st.dataframe(df)
 
 # Contacto
 elif menu == "Contacto":
