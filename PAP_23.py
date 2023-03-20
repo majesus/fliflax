@@ -40,10 +40,18 @@ elif menu == "Personal":
         df = pd.read_csv("csv/investigadores.csv")
         return df
 
+    def mostrar_datos(df):
+        for index, row in df.iterrows():
+            with st.container():
+                st.markdown(
+                    f'<p><a href="{row["url"]}" target="_blank">{row["nombre"]}</a> - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]}</p>',
+                    unsafe_allow_html=True,
+                )
+
     st.title("Investigadores")
 
     df = cargar_datos()
-    st.dataframe(df)
+    mostrar_datos(df)
     
 # Contacto
 elif menu == "Contacto":
