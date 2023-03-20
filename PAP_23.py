@@ -36,22 +36,44 @@ elif menu == "Personal":
     st.subheader("Personal")
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
-    def cargar_datos():
-        df = pd.read_csv("csv/investigadores.csv")
-        return df
+    def leer_urls_desde_csv(archivo_csv):
+        df = pd.read_csv(archivo_csv)
+        urls = df["url"].tolist()
+        return urls
 
-    def mostrar_datos(df):
-        for index, row in df.iterrows():
-            with st.container():
-                st.markdown(
-                    f'<p><a href="{row["url"]}" target="_blank">{row["nombre"]}</a> - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]}</p>',
-                    unsafe_allow_html=True,
-                )
+    archivo_csv = "csv/urls.csv"
+    urls = leer_urls_desde_csv(archivo_csv)
 
-    st.title("Investigadores")
+    data = {
+        "Nombre": [],
+        "Categoría": [],
+        "Email": [],
+        "Área de Conocimiento": [],
+        "Departamento": [],
+        "URL": [],
+    }
 
-    df = cargar_datos()
-    mostrar_datos(df)
+    for url in urls:
+        st.write(f"Extrayendo información del Departamento y Área de Conocimiento de: {url}")
+        nombre, categoria, email, area_conocimiento, departamento = obtener_info_investigador(url)
+
+        data["Nombre"].append(nombre)
+        data["Categoría"].append(categoria)
+        data["Email"].append(email)
+        data["Área de Conocimiento"].append(area_conocimiento)
+        data["Departamento"].append(departamento)
+        data["URL"].append(url)
+
+    df = pd.DataFrame(data)
+
+    # Realiza la copia del DataFrame sin enlaces HTML
+    df_csv = df.copy()
+
+    # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
+    df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+
+    # Muestra el DataFrame en Streamlit como una tabla HTML
+    st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
     
 # Contacto
 elif menu == "Contacto":
