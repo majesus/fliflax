@@ -24,16 +24,7 @@ st.markdown(
 </style>
 """, unsafe_allow_html=True)
 #----------------------------------------------------#
-from PIL import Image
-img=Image.open('img/fliflax-logo.jpg')
-hide_menu_style = """
-        <style>
-        #MainMenu {visibility: hidden; }
-        #footer {visibility: hidden;}
-        </style>
-        """
-#st.markdown(hide_menu_style, unsafe_allow_html=True)
-#----------------------------------------------------#
+
 
 
 
