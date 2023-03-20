@@ -40,36 +40,19 @@ elif menu == "Personal":
         df = pd.read_csv("csv/investigadores.csv")
         return df
 
-    def aplicar_estilos(df):
-        # Define la función para asignar colores de fondo a las filas
-        def asignar_color(row):
-            if row["Área de Conocimiento"].startswith("O"):
-                return "background-color: lightgreen"
-            elif row["Área de Conocimiento"].startswith("C"):
-                return "background-color: lightsalmon"
-            else:
-                return ""
-
-        # Aplica los estilos al DataFrame
-        estilos = df.style.set_table_styles([
-            {"selector": "th, td", "props": [("font-size", "10px")]},
-        ]).applymap(asignar_color)
-
-        # Añade enlaces a los nombres de los investigadores
-        estilos = estilos.format({"Nombre": '<a href="{}" target="_blank">{}</a>'.format("{URL}", "{Nombre}")})
-        return estilos
-
-    df = cargar_datos()
-    # Elimina las columnas "Departamento" y "URL"
-    df = df.drop(columns=["Departamento", "URL"])
+    def mostrar_datos(df):
+        for index, row in df.iterrows():
+            with st.container():
+                st.markdown(
+                    f'<p><a href="{row["url"]}" target="_blank">{row["nombre"]}</a> - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]}</p>',
+                    unsafe_allow_html=True,
+                )
 
     st.title("Investigadores")
 
-    # Aplica los estilos al DataFrame y muestra la tabla HTML
-    tabla_con_estilos = aplicar_estilos(df)
-    st.write(tabla_con_estilos.to_html(escape=False), unsafe_allow_html=True)
+    df = cargar_datos()
+    mostrar_datos(df)
 
-    
 # Contacto
 elif menu == "Contacto":
     st.subheader("Contacto")
