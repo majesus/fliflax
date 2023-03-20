@@ -60,6 +60,7 @@ elif menu == "Personal":
 
     st.title("Investigadores")
     mostrar_datos(df)
+
     
 # Contacto
 elif menu == "Contacto":
