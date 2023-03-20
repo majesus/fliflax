@@ -41,16 +41,16 @@ elif menu == "Personal":
         return df
 
     def mostrar_datos(df):
-        for index, row in df.iterrows():
+        for index, _ in df.iterrows():
             color = ""
-            if row["Área de Conocimiento"].startswith("O"):
+            if df.at[index, "Área de Conocimiento"].startswith("O"):
                 color = "lightgreen"
-            elif row["Área de Conocimiento"].startswith("C"):
+            elif df.at[index, "Área de Conocimiento"].startswith("C"):
                 color = "lightsalmon"
 
             with st.container():
                 st.markdown(
-                    f'<p style="background-color:{color}; padding:10px; font-size:10px;"><a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a> - {row["Categoría"]} - {row["Email"]} - {row["Área de Conocimiento"]}</p>',
+                    f'<p style="background-color:{color}; padding:10px; font-size:10px;"><a href="{df.at[index, "URL"]}" target="_blank">{df.at[index, "Nombre"]}</a> - {df.at[index, "Categoría"]} - {df.at[index, "Email"]} - {df.at[index, "Área de Conocimiento"]}</p>',
                     unsafe_allow_html=True,
                 )
 
@@ -60,7 +60,6 @@ elif menu == "Personal":
 
     st.title("Investigadores")
     mostrar_datos(df)
-
     
 # Contacto
 elif menu == "Contacto":
