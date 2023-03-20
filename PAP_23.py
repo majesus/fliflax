@@ -36,22 +36,12 @@ elif menu == "Personal":
     st.subheader("Personal")
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
-    def cargar_datos():
-        df = pd.read_csv("csv/investigadores.csv")
-        return df
-
-    def mostrar_datos(df):
-        for index, row in df.iterrows():
-            with st.container():
-                st.markdown(
-                    f'<p><a href="{row["url"]}" target="_blank">{row["nombre"]}</a> - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]}</p>',
-                    unsafe_allow_html=True,
-                )
-
-    st.title("Investigadores")
-
-    df = cargar_datos()
-    mostrar_datos(df)
+    dfg = pd.read_csv('csv/investigadores', sep=",")
+    dfg1 = dfg.set_index('Área de Conocimiento')
+    selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index)
+    selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
+    selected_rows = dfg1.loc[selected_indices]
+    st.table(selected_rows.Nombre)
 
 # Contacto
 elif menu == "Contacto":
