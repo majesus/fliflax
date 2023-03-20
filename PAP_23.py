@@ -59,9 +59,9 @@ elif menu == "Personal":
         selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
         
         # Aplica el estilo personalizado a las filas según el área de conocimiento
-            styled_table = selected_rows.style.applymap(custom_style).set_table_styles([
-                {"selector": "th, td", "props": [("font-size", "10px")]},
-            ]).hide_index()
+        styled_table = selected_rows.style.applymap(custom_style).set_table_styles([
+            {"selector": "th, td", "props": [("font-size", "10px")]},
+        ]).hide_index()
         
         st.write(f'<div style="font-size: 11px;">{selected_rows.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
     else:
