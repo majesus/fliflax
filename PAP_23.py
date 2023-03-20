@@ -43,9 +43,9 @@ elif menu == "Personal":
     def mostrar_datos(df):
         for index, row in df.iterrows():
             color = ""
-            if row["area_conocimiento"].startswith("O"):
+            if row["Área de Conocimiento"].startswith("O"):
                 color = "lightgreen"
-            elif row["area_conocimiento"].startswith("C"):
+            elif row["Área de Conocimiento"].startswith("C"):
                 color = "lightsalmon"
 
             with st.container():
