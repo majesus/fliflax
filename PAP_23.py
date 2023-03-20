@@ -50,12 +50,12 @@ elif menu == "Personal":
 
             with st.container():
                 st.markdown(
-                    f'<p style="background-color:{color}; padding:10px; font-size:10px;"><a href="{row["url"]}" target="_blank">{row["nombre"]}</a> - {row["categoría"]} - {row["email"]} - {row["area_conocimiento"]}</p>',
+                    f'<p style="background-color:{color}; padding:10px; font-size:10px;"><a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a> - {row["Categoría"]} - {row["Email"]} - {row["Área de Conocimiento"]}</p>',
                     unsafe_allow_html=True,
                 )
 
     df = cargar_datos()
-    # Elimina las columnas "Departamento" y "url"
+    # Elimina las columnas "Departamento" y "URL"
     df = df.drop(columns=["Departamento", "URL"])
 
     st.title("Investigadores")
