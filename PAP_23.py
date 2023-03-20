@@ -41,8 +41,14 @@ elif menu == "Personal":
     selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index.unique())
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
     selected_rows = dfg1.loc[selected_indices]
+     
+    def make_link(row):
+        return f'<a href="{row.URL}">{row.Nombre}</a>'
+
+    selected_rows['Nombre'] = selected_rows.apply(make_link, axis=1)
     selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
     st.table(selected_rows)
+
 
 # Contacto
 elif menu == "Contacto":
