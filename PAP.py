@@ -83,24 +83,6 @@ b = (
     )
 )
 st_pyecharts(b)
-#----------------------------------------------------#
-import streamlit as st
-from streamlit_echarts import st_echarts
-from pyecharts.charts import Pie
-from pyecharts import options as opts
-
-pie = Pie()
-
-pie.set_global_opts(title_opts=opts.TitleOpts(title="Pie Chart"),
-                    legend_opts=opts.LegendOpts(is_show=False),
-                    toolbox_opts=opts.ToolboxOpts())
-
-pie.add("", [list(z) for z in zip([1, 2, 3, 4, 5], ["A", "B", "C", "D", "E"])],
-        radius=["50%"], center=["50%", "50%"],
-        rosetype="radius", label_opts=opts.LabelOpts(is_show=False))
-
-st_echarts(pie)
-
 
 #----------------------------------------------------#
 
