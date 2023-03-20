@@ -36,35 +36,9 @@ elif menu == "Personal":
     st.subheader("Personal")
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
-    def leer_urls_desde_csv(archivo_csv):
-        df = pd.read_csv(archivo_csv)
-        urls = df["url"].tolist()
-        return urls
-
-    archivo_csv = "csv/urls.csv"
-    urls = leer_urls_desde_csv(archivo_csv)
-
-    data = {
-        "Nombre": [],
-        "Categoría": [],
-        "Email": [],
-        "Área de Conocimiento": [],
-        "Departamento": [],
-        "URL": [],
-    }
-
-    for url in urls:
-        st.write(f"Extrayendo información del Departamento y Área de Conocimiento de: {url}")
-        nombre, categoria, email, area_conocimiento, departamento = obtener_info_investigador(url)
-
-        data["Nombre"].append(nombre)
-        data["Categoría"].append(categoria)
-        data["Email"].append(email)
-        data["Área de Conocimiento"].append(area_conocimiento)
-        data["Departamento"].append(departamento)
-        data["URL"].append(url)
-
-    df = pd.DataFrame(data)
+    def cargar_datos():
+    df = pd.read_csv("csv/investigadores.csv")
+    return df
 
     # Realiza la copia del DataFrame sin enlaces HTML
     df_csv = df.copy()
