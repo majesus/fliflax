@@ -47,8 +47,12 @@ elif menu == "Personal":
 
     selected_rows['Nombre'] = selected_rows.apply(make_link, axis=1)
     selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
-    st.table(selected_rows, unsafe_allow_html=True)
-
+    #st.table(selected_rows, unsafe_allow_html=True)
+    
+    # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
+    selected_rows["Nombre"] = selected_rows.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+    # Muestra el DataFrame en Streamlit como una tabla HTML
+    st.write(selected_rows.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # Contacto
 elif menu == "Contacto":
