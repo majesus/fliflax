@@ -38,10 +38,10 @@ elif menu == "Personal":
 
     dfg = pd.read_csv('csv/investigadores.csv', sep=",")
     dfg1 = dfg.set_index('Área de Conocimiento')
-    selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index)
+    selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1['Área de Conocimiento'].unique())
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
-    selected_rows = dfg1.loc[selected_indices]
-    st.table(selected_rows.Nombre)
+    selected_rows = dfg1.loc[selected_indices, ['Nombre', 'Email', 'Área de Conocimiento']]
+    st.table(selected_rows)
 
 # Contacto
 elif menu == "Contacto":
