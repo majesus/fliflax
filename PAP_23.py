@@ -47,7 +47,7 @@ elif menu == "Personal":
 
     selected_rows['Nombre'] = selected_rows.apply(make_link, axis=1)
     selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
-    st.table(selected_rows)
+    st.table(selected_rows, unsafe_allow_html=True)
 
 
 # Contacto
