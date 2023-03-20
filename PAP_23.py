@@ -41,7 +41,7 @@ elif menu == "Personal":
     dfg1 = dfg.set_index('Área de Conocimiento')
     selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index.unique())
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
-    selected_rows = dfg1.loc[selected_indices].head()
+    selected_rows = dfg1.loc[selected_indices]
 
     # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
     selected_rows["Nombre"] = selected_rows.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
