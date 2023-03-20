@@ -41,17 +41,11 @@ elif menu == "Personal":
     selected_indices = st.multiselect('Selecciona el área de conocimiento:', dfg1.index.unique())
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
     selected_rows = dfg1.loc[selected_indices]
-     
-    def make_link(row):
-        return f'<a href="{row.URL}">{row.Nombre}</a>'
 
-    selected_rows['Nombre'] = selected_rows.apply(make_link, axis=1)
-    selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
-    #st.table(selected_rows, unsafe_allow_html=True)
-    
     # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
     selected_rows["Nombre"] = selected_rows.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
     # Muestra el DataFrame en Streamlit como una tabla HTML
+    selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
     st.write(selected_rows.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # Contacto
