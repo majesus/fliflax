@@ -2,7 +2,7 @@ import streamlit as st
 
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
-st.image("path/to/university-logo.png", width=200)
+st.image("img/fliflax-logo.jpg", width=200)
 st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
