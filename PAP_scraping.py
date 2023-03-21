@@ -23,7 +23,7 @@ for profesor in profesores:
     url = link["href"]
     url_abs = url_base + url
 
-    data.append({"Nombre del profesor": nombre, "URL": url, "URL_abs": url_abs})
+    data.append({"Nombre": nombre, "URL": url, "URL_abs": url_abs})
 
 df = pd.DataFrame(data)
 
@@ -31,7 +31,7 @@ df = pd.DataFrame(data)
 df_csv = df.copy()
 
 # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL_abs"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
 
 # Muestra el DataFrame en Streamlit como una tabla HTML
 st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
