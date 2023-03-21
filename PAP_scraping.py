@@ -32,8 +32,8 @@ df = pd.DataFrame(data)
 # Realiza la copia del DataFrame sin enlaces HTML
 df_csv = df.copy()
 
-# Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-df_csv["Nombre"] = df.apply(lambda row: f'<a href="{row["URL_abs"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+# Muestra el DataFrame en Streamlit como una tabla HTML
+df_csv = df_csv.drop(['URL'], axis=1)
 # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
 df_csv["Nombre"] = df_csv.apply(lambda row: f'<a href="{row["URL_abs"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
 # Muestra el DataFrame en Streamlit como una tabla HTML
