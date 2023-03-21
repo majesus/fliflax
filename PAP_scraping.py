@@ -1,7 +1,9 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
 import streamlit as st
+import requests
+import pandas as pd
+from bs4 import BeautifulSoup
+import base64
+from io import BytesIO
 
 url_base = "http://alojawebapps.us.es/"
 url_pagina = "http://alojawebapps.us.es/centrosdptos/departamentos/listpdi.php?dpto=I0G7"
