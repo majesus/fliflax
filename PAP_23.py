@@ -54,6 +54,9 @@ elif menu == "Investigación":
 
     # Diseño de la aplicación de Streamlit
     st.title("Ficha del profesor")
+    
+    # Lectura de la tabla con los datos de perfil:
+    df_result = pd.read_csv('csv/profesores_perfil.csv', sep=",")
 
     # Selector de profesores
     selected_professor = st.selectbox("Selecciona un profesor:", df_result["Nombre"])
