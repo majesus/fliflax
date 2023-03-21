@@ -32,6 +32,8 @@ st.title("Profesores y sus URLs")
 st.write(df)
 
 # Función para descargar el DataFrame como un archivo CSV
+# Realiza la copia del DataFrame sin enlaces HTML
+df_csv = df.copy()
 def to_csv_download_link(df, filename):
     csv_buffer = BytesIO()
     df.to_csv(csv_buffer, index=False, encoding='utf-8-sig')
