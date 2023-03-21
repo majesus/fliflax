@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import streamlit as st
 
-url_base = "http://alojawebapps.us.es/centrosdptos/departamentos/listpdi.php?dpto=I0G7"
+url_base = "http://alojawebapps.us.es/"
 url_pagina = "http://alojawebapps.us.es/centrosdptos/departamentos/listpdi.php?dpto=I0G7"
 
 # Obtener contenido HTML con requests
