@@ -49,3 +49,54 @@ def to_csv_download_link(df, filename):
 
 # Ofrece la opción de descargar el DataFrame como un archivo CSV
 st.markdown(to_csv_download_link(df_csv, "profesores.csv"), unsafe_allow_html=True)
+
+#----------------------------------------------#
+
+import pandas as pd
+from bs4 import BeautifulSoup
+import streamlit as st
+import requests
+import time
+
+# Asumiendo que ya tienes un DataFrame llamado df_csv con una columna llamada URL_abs
+
+# La función para extraer la información de una URL
+def extract_info_from_url(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # Extrae la información requerida como antes
+    nombre = soup.h2.text.strip()
+    categoria = soup.find("h3", text="Categoría:").find_next("p").text.strip()
+    perfil_prisma = soup.find("h3", text="Perfil de PRISMA:").find_next("a")["href"]
+    telefono = soup.find("h4", text="Teléfono:").find_next("p").text.strip()
+    email = soup.find("h4", text="Correo electrónico personal:").find_next("p").text.strip()
+    departamento = soup.find("h3", text="Departamento:").find_next("a").text.strip()
+    area_conocimiento = soup.find("h3", text="Area de Conocimiento:").find_next("p").text.strip()
+    centros = [centro.text.strip() for centro in soup.find("h3", text="Centro(s):").find_next("ul").find_all("a")]
+    asignaturas = [asignatura.text.strip() for asignatura in soup.find("h3", text="Asignaturas:").find_next("ul").find_all("a")]
+
+    return {
+        "Nombre": nombre,
+        "Categoría": categoria,
+        "Perfil de Prisma": perfil_prisma,
+        "Teléfono": telefono,
+        "Email": email,
+        "Departamento": departamento,
+        "Área de Conocimiento": area_conocimiento,
+        "Centros": ", ".join(centros),
+        "Asignaturas": ", ".join(asignaturas)
+    }
+
+# Crea un data frame vacío para almacenar los resultados
+df_result = pd.DataFrame(columns=["Nombre", "Categoría", "Perfil de Prisma", "Teléfono", "Email", "Departamento", "Área de Conocimiento", "Centros", "Asignaturas"])
+
+# Itera sobre las URL en df_csv y extrae la información de cada una
+for url in df_csv["URL_abs"]:
+    info = extract_info_from_url(url)
+    df_result = df_result.append(info, ignore_index=True)
+    time.sleep(1)
+
+# Muestra la tabla en Streamlit
+st.title("Información extraída")
+st.write(df_result)
