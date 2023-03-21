@@ -100,3 +100,14 @@ for url in df_csv["URL_abs"]:
 # Muestra la tabla en Streamlit
 st.title("Información extraída")
 st.write(df_result)
+
+# Función para descargar el DataFrame como un archivo CSV
+def to_csv_download_link(df, filename):
+    csv_buffer = BytesIO()
+    df.to_csv(csv_buffer, index=False, encoding='utf-8-sig')
+    csv_b64 = base64.b64encode(csv_buffer.getvalue()).decode()
+    href = f'<a href="data:file/csv;base64,{csv_b64}" download="{filename}" target="_blank">Descargar CSV</a>'
+    return href
+
+# Ofrece la opción de descargar el DataFrame como un archivo CSV
+st.markdown(to_csv_download_link(df_result, "profesores_perfil.csv"), unsafe_allow_html=True)
