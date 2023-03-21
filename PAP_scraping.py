@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 
 url_base = "http://alojawebapps.us.es/centrosdptos/departamentos/listpdi.php?dpto=I0G7"
-url_pagina = "URL de la página aquí"
+url_pagina = "http://alojawebapps.us.es/centrosdptos/departamentos/listpdi.php?dpto=I0G7"
 
 # Obtener contenido HTML con requests
 response = requests.get(url_pagina)
