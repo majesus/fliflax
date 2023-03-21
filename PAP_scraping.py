@@ -33,10 +33,10 @@ df = pd.DataFrame(data)
 df_csv = df.copy()
 
 # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL_abs"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
-
+df_csv["Nombre"] = df.apply(lambda row: f'<a href="{row["URL_abs"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+# Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
+df_csv["Nombre"] = df_csv.apply(lambda row: f'<a href="{row["URL_abs"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
 # Muestra el DataFrame en Streamlit como una tabla HTML
-# st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
 st.write(f'<div style="font-size: 12px;">{df_csv.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
 
 # Función para descargar el DataFrame como un archivo CSV
