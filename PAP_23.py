@@ -40,6 +40,28 @@ elif menu == "Investigación":
 elif menu == "Docencia":
     st.subheader("Docencia")
     st.markdown("Programas académicos, cursos, horarios y recursos para estudiantes.")
+    
+    # Diseño de la aplicación de Streamlit
+    st.title("Ficha del profesor")
+    
+    # Lectura de la tabla con los datos de perfil:
+    df_result = pd.read_csv('csv/profesores_perfil.csv', sep=",")
+
+    # Selector de profesores
+    selected_professor = st.selectbox("Selecciona un profesor:", df_result["Nombre"])
+
+    # Muestra la ficha del profesor seleccionado
+    professor_data = df_result[df_result["Nombre"] == selected_professor].squeeze()
+
+    st.header(professor_data["Nombre"])
+    st.write(f"**Categoría:** {professor_data['Categoría']}")
+    st.write(f"**Perfil de Prisma:** [{professor_data['Perfil de Prisma']}]({professor_data['Perfil de Prisma']})")
+    st.write(f"**Teléfono:** {professor_data['Teléfono']}")
+    st.write(f"**Email:** {professor_data['Email']}")
+    st.write(f"**Departamento:** {professor_data['Departamento']}")
+    st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
+    st.write(f"**Centros:** {professor_data['Centros']}")
+    st.write(f"**Asignaturas:** {professor_data['Asignaturas']}")
 
 # Personal
 elif menu == "Personal":
