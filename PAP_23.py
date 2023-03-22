@@ -30,6 +30,7 @@ if menu == "Inicio":
     'Miembros_3': [35, 24, 18, 9, 5, 5, 4, 1, 1, 1, 1, 1],
     }
     
+    df = pd.DataFrame(data)
     st.title('Principales datos')
     st.write(df)
 
