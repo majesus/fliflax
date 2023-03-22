@@ -75,6 +75,9 @@ try:
 except Exception as e:
     st.write(f"Error: {e}")
 
+for column, values in data.items():
+    print(f"{column}: {len(values)}")
+
 try:
     df = pd.DataFrame(data)
 except Exception as e:
