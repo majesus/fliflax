@@ -3,7 +3,12 @@ import streamlit as st
 import pandas as pd
 
 # Encabezado
-st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
+# st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
+
+st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:", layout="wide")
+st.header("Custom tab component for on-hover navigation bar")
+st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
+
 #st.image("img/fliflax-logo.jpg", width=200)
 st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
