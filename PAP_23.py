@@ -15,16 +15,12 @@ if menu == "Inicio":
     st.subheader("Bienvenidos")
     st.markdown("Texto de bienvenida y descripción del departamento.")
     
-    st.write("Bienvenidos al **Departamento de Administración de Empresas y Marketing** de __*la Universidad de Sevilla*__."
-             "Nuestro equipo está compuesto por **105 docentes y 2 profesionales de administración**, comprometidos con la formación " 
-             "académica y el desarrollo integral de nuestros estudiantes."
-             "Impartimos docencia en más de **25 títulos de grado**, **10 títulos de máster** y participamos en **2 programas de** "
-             "doctorado. Nuestro enfoque pedagógico se basa en metodologías avanzadas y adaptadas a las necesidades de los "
-             "estudiantes, garantizando una educación de calidad.")
-    st.write("La investigación es un pilar fundamental en nuestro departamento. Participamos en más de **10 proyectos** "
-             "competitivos y nuestras publicaciones cuentan con un alto nivel de impacto en el ámbito académico.")
-    st.write("Invitamos a los interesados a unirse a nuestra comunidad académica, donde encontrarán un entorno de "
-             "aprendizaje y crecimiento, apoyado por **profesionales dedicados a la enseñanza y la investigación**.")
+    st.write("El Departamento de Administración de Empresas y Marketing es una destacada entidad académica dedicada a la excelencia en la enseñanza y la investigación. Con más de 100 miembros especializados en diversas áreas de conocimiento, nuestro departamento es un referente en el campo de la administración y el marketing.")
+    st.write("El departamento se organiza en dos áreas principales: Organización de Empresas, con 69 expertos, y Comercialización e Investigación de Mercados, con 35 especialistas. Además, contamos con un miembro en un área de conocimiento interdisciplinaria, lo que evidencia nuestra diversidad y versatilidad académica.")
+    st.write("Nuestra presencia se distribuye en cinco facultades, siendo la Facultad de Ciencias Económicas y Empresariales la que alberga la mayoría de nuestros miembros. También colaboramos con la Facultad de Turismo y Finanzas, la Facultad de Ciencias del Trabajo, la Facultad de Comunicación y la Facultad de Ciencias de la Educación, lo que refleja nuestra capacidad para contribuir en diversos campos académicos.")
+    st.write("El departamento está conformado por profesionales de distintas categorías, incluyendo profesores titulares de universidad, catedráticos de universidad, profesores sustitutos interinos, profesores titulares de escuela universitaria, profesores contratados doctores, profesores asociados, profesores ayudantes doctores, miembros del programa PAIDI, profesores colaboradores, predoctorales PIF VI Plan Propio, posdoctorales Marie Curie y catedráticos de escuela universitaria.")
+    st.write("El Departamento de Administración de Empresas y Marketing está comprometido con la formación de profesionales altamente cualificados y líderes en sus campos. Nuestros docentes e investigadores trabajan para transmitir conocimientos y habilidades a nuestros estudiantes y contribuir al avance científico en sus áreas de especialización.")
+    st.write("Le invitamos a explorar nuestra página web y conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
 
 # Acerca de
 elif menu == "Acerca de":
