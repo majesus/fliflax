@@ -49,6 +49,7 @@ elif menu == "Investigación":
     # Muestra la ficha del profesor seleccionado
     selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
     professor_data = df_result.loc[selected_indices]
+    st.write(professor_data)
 
     st.header(professor_data["Nombre"])
     st.write(f"**Categoría:** {professor_data['Categoría']}")
