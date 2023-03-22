@@ -13,15 +13,14 @@ menu = st.sidebar.selectbox("Menú de navegación", ("Inicio", "Acerca de", "Inv
 # Inicio
 if menu == "Inicio":
     st.subheader("Bienvenidos")
-    st.markdown("Texto de bienvenida y descripción del departamento.")
     
-    st.write("El Departamento de Administración de Empresas y Marketing es una destacada entidad académica dedicada a la excelencia en la enseñanza y la investigación. Con más de 100 miembros especializados en diversas áreas de conocimiento, nuestro departamento es un referente en el campo de la administración y el marketing.")
-    st.write("El departamento se organiza en dos áreas principales: Organización de Empresas, con 69 expertos, y Comercialización e Investigación de Mercados, con 35 especialistas. Además, contamos con un miembro en un área de conocimiento interdisciplinaria, lo que evidencia nuestra diversidad y versatilidad académica.")
-    st.write("Nuestra presencia se distribuye en cinco facultades, siendo la Facultad de Ciencias Económicas y Empresariales la que alberga la mayoría de nuestros miembros. También colaboramos con la Facultad de Turismo y Finanzas, la Facultad de Ciencias del Trabajo, la Facultad de Comunicación y la Facultad de Ciencias de la Educación, lo que refleja nuestra capacidad para contribuir en diversos campos académicos.")
-    st.write("El departamento está conformado por profesionales de distintas categorías, incluyendo profesores titulares de universidad, catedráticos de universidad, profesores sustitutos interinos, profesores titulares de escuela universitaria, profesores contratados doctores, profesores asociados, profesores ayudantes doctores, miembros del programa PAIDI, profesores colaboradores, predoctorales PIF VI Plan Propio, posdoctorales Marie Curie y catedráticos de escuela universitaria.")
+    st.write("El Departamento de Administración de Empresas y Marketing es una destacada entidad académica dedicada a la enseñanza y la investigación universitaria. Con más de 100 miembros especializados en diversas áreas de conocimiento, nuestro departamento es un referente en el campo de la organización de empresas y el marketing.")
     st.write("El Departamento de Administración de Empresas y Marketing está comprometido con la formación de profesionales altamente cualificados y líderes en sus campos. Nuestros docentes e investigadores trabajan para transmitir conocimientos y habilidades a nuestros estudiantes y contribuir al avance científico en sus áreas de especialización.")
+    st.write("El departamento se organiza en dos áreas principales: Organización de Empresas, con 69 profesores, y Comercialización e Investigación de Mercados, con 35, lo que evidencia nuestra diversidad y versatilidad académica.")
+    st.write("Nuestra presencia se distribuye en cinco facultades, la Facultad de Ciencias Económicas y Empresariales, la Facultad de Turismo y Finanzas, la Facultad de Ciencias del Trabajo, la Facultad de Comunicación y la Facultad de Ciencias de la Educación. Ello refleja nuestra capacidad para contribuir en diversos campos académicos y audiencias.")
+    st.write("El departamento está conformado por profesionales de distintas categorías, incluyendo catedráticos de universidad, profesores titulares de universidad, profesores titulares de escuela universitaria y catedra´ticos de escuela universitaria, profesores contratados doctores, profesores colaboradores, profesores ayudantes doctores, profesores asociados, profesores sustitutos interinos, miembros del programa PAIDI, predoctorales PIF VI Plan Propio, posdoctorales Marie Curie.")
     st.write("Le invitamos a explorar nuestra página web y conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
-
+    
 # Acerca de
 elif menu == "Acerca de":
     st.subheader("Acerca de")
