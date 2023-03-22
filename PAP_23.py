@@ -182,6 +182,9 @@ elif menu == "Contacto":
     st.write("Horario de atención al público:")
     st.write("Lunes – Viernes: 12 a 14 horas")
     
+    st.write("Buzón de quejas y sugerencias")
+    st.write("+ Enlace a Expón@US")
+    
     st.markdown("""
     <style>
     .container {
