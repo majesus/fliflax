@@ -54,7 +54,7 @@ data = {
     "Grupo": [],
     "Instituto de Inv.": [],
     "Prog. Doctorado": [],
-    #"URL": [],
+    "URL": [],
 }
 
 for url in urls:
@@ -69,6 +69,7 @@ for url in urls:
     data["Grupo"].append(grupo)
     data["Instituto de Inv."].append(instituto_inv)
     data["Prog. Doctorado"].append(prog_doctorado)
+    data["URL"].append(url)  # Agrega la URL correspondiente a la lista de la columna "URL"
 
 try:
     st.write(data)
@@ -88,7 +89,7 @@ except Exception as e:
 df_csv = df.copy()
 
 # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-#df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
 
 # Muestra el DataFrame en Streamlit como una tabla HTML
 st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
