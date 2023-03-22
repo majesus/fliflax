@@ -49,7 +49,8 @@ elif menu == "Investigación":
 
     # Muestra la ficha del profesor seleccionado
     selected_professor = map(lambda selected_professor:selected_professor, selected_professor)
-    professor_data = df_result.loc[selected_professor]
+    #professor_data = df_result.loc[selected_professor]
+    professor_data = df_result[df_result["Nombre"] == selected_professor].squeeze()
 
     st.header(professor_data["Nombre"])
     st.write(f"**Categoría:** {professor_data['Categoría']}")
