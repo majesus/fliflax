@@ -8,7 +8,16 @@ st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
 # Menú de navegación
-menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"))
+menu = option_menu(None, ["Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+    styles={
+        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        "icon": {"color": "orange", "font-size": "25px"}, 
+        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "green"},
+    }
+)
 
 # Inicio
 if menu == "Acerca de":
