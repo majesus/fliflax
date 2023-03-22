@@ -75,7 +75,10 @@ try:
 except Exception as e:
     st.write(f"Error: {e}")
 
-df = pd.DataFrame(data)
+try:
+    df = pd.DataFrame(data)
+except Exception as e:
+    st.write(f"Error: {e}")
 
 # Realiza la copia del DataFrame sin enlaces HTML
 df_csv = df.copy()
