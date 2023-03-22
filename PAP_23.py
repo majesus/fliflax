@@ -47,7 +47,7 @@ elif menu == "Investigación":
         """
         <style>
             h2.custom-header {
-                color: lightblue;
+                color: red;
             }
         </style>
         """,
