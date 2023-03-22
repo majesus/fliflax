@@ -56,7 +56,7 @@ elif menu == "Docencia":
     
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
-    selected_indices = st.selectbox('Selecciona el nombre del profesor:', df_result.index.unique())
+    selected_indices = st.multiselect('Selecciona el nombre del profesor:', df_result.index.unique())
 
     if selected_indices:
         # Muestra la ficha del profesor seleccionado
