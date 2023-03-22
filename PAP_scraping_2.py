@@ -80,6 +80,7 @@ for column, values in data.items():
 
 try:
     df = pd.DataFrame(data)
+    st.write(df)
 except Exception as e:
     st.write(f"Error: {e}")
 
@@ -87,10 +88,10 @@ except Exception as e:
 df_csv = df.copy()
 
 # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-df_csv["Nombre"] = df_csv.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+df["Nombre"] = df.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
 
 # Muestra el DataFrame en Streamlit como una tabla HTML
-st.write(df_csv.to_html(escape=False, index=False), unsafe_allow_html=True)
+st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # Función para descargar el DataFrame como un archivo CSV
 def to_csv_download_link(df, filename):
