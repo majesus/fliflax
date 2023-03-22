@@ -60,7 +60,7 @@ elif menu == "Investigación":
 
             st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
             st.write(f"**Categoría:** {professor_data['Categoría']}")
-            st.write(f"**Email:** [{professor_data['Email']}]({professor_data['Email']})")
+            st.write(f"**Email:** {professor_data['Email']}")
             st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
             st.write(f"**Departamento:** {professor_data['Departamento']}")
             st.write(f"**Grupo:** {professor_data['Grupo']}")
