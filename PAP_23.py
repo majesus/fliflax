@@ -64,8 +64,8 @@ elif menu == "Investigación":
     selected_professor = st.multiselect('Selecciona el nombre del profesor:', df_result.index.unique())
 
     # Muestra la ficha del profesor seleccionado
-    selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
-    professor_data = df_result.loc[selected_indices]
+    selected_professor = map(lambda selected_professor:selected_professor, selected_professor)
+    professor_data = df_result.loc[selected_professor]
 
     st.markdown(f"<div class='card'><h2>{professor_data['Nombre']}</h2>", unsafe_allow_html=True)
     st.markdown(f"**Categoría:** {professor_data['Categoría']}")
