@@ -85,32 +85,32 @@ elif menu == "Investigación":
 
     if selected_indices:
     # Muestra la ficha del profesor seleccionado
-    for index in selected_indices:
-        professor_data = df_result.loc[index]
+        for index in selected_indices:
+            professor_data = df_result.loc[index]
 
-        st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
-        st.write(f"**Categoría:** {professor_data['Categoría']}")
-        st.write(f"**Email:** {professor_data['Email']}")
+            st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
+            st.write(f"**Categoría:** {professor_data['Categoría']}")
+            st.write(f"**Email:** {professor_data['Email']}")
 
-        if professor_data['Área de Conocimiento'] != "No disponible":
-            st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
+            if professor_data['Área de Conocimiento'] != "No disponible":
+                st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
 
-        if professor_data['Departamento'] != "No disponible":
-            st.write(f"**Departamento:** {professor_data['Departamento']}")
+            if professor_data['Departamento'] != "No disponible":
+                st.write(f"**Departamento:** {professor_data['Departamento']}")
 
-        if professor_data['Grupo'] != "No disponible":
-            st.write(f"**Grupo:** {professor_data['Grupo']}")
+            if professor_data['Grupo'] != "No disponible":
+                st.write(f"**Grupo:** {professor_data['Grupo']}")
 
-        if professor_data['Instituto de Inv.'] != "No disponible":
-            st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
+            if professor_data['Instituto de Inv.'] != "No disponible":
+                st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
 
-        if professor_data['Prog. Doctorado'] != "No disponible":
-            st.write(f"**Prog. Doctorado:** {professor_data['Prog. Doctorado']}")
+            if professor_data['Prog. Doctorado'] != "No disponible":
+                st.write(f"**Prog. Doctorado:** {professor_data['Prog. Doctorado']}")
 
-        if professor_data['URL'] != "No disponible":
-            st.write(f"**URL:** [{professor_data['URL']}]({professor_data['URL']})")
-    else:
-        st.write("Selecciona un/a investigador/a.")
+            if professor_data['URL'] != "No disponible":
+                st.write(f"**URL:** [{professor_data['URL']}]({professor_data['URL']})")
+        else:
+            st.write("Selecciona un/a investigador/a.")
  
 # Docencia
 elif menu == "Docencia":
