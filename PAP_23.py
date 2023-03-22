@@ -21,6 +21,21 @@ if menu == "Inicio":
     st.write("El departamento está conformado por profesionales de distintas categorías, incluyendo catedráticos de universidad, profesores titulares de universidad, profesores titulares de escuela universitaria y catedra´ticos de escuela universitaria, profesores contratados doctores, profesores colaboradores, profesores ayudantes doctores, profesores asociados, profesores sustitutos interinos, miembros del programa PAIDI, predoctorales PIF VI Plan Propio, posdoctorales Marie Curie.")
     st.write("Le invitamos a explorar nuestra página web y conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
     
+    data = {
+    'Áreas de conocimiento': ['Organización de Empresas', 'Comercialización e Investigación de Mercados', 'Sin área de conocimiento'],
+    'Miembros': [69, 35, 1],
+    'Centros': ['Facultad de CC. Económ. y Empresariales', 'Facultad de Turismo y Finanzas', 'Facultad de Ciencias del Trabajo', 'Facultad de Ciencias de la Educación', 'Facultad de Comunicación'],
+    'Miembros_2': [74, 18, 11, 1, 1],
+    'Categorías profesionales': ['Profesor Titular de Universidad', 'Catedrático de Universidad', 'Profesor Sustituto Interino', 'Profesor Titular Escuela Universitaria', 'Profesor Contratado Doctor', 'Profesor Asociado', 'Profesor Ayudante Doctor', 'PAIDI', 'Profesor Colaborador', 'Predoctoral PIF VI Plan Propio', 'Posdoctoral Marie Curie', 'Catedrático de Escuela Universitaria'],
+    'Miembros_3': [35, 24, 18, 9, 5, 5, 4, 1, 1, 1, 1, 1],
+    }
+    
+    st.title('Principales datos')
+    st.write(df)
+
+df = pd.DataFrame(data)
+
+    
 # Acerca de
 elif menu == "Acerca de":
     st.subheader("Acerca de")
