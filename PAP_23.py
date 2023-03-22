@@ -83,6 +83,7 @@ elif menu == "Investigación":
     df_result = df_result0.set_index('Nombre')
     selected_indices = st.multiselect('Selecciona el nombre del investigador/a:', df_result.index.unique())
 
+    import re
     if selected_indices:
         # Muestra la ficha del profesor seleccionado
         for index in selected_indices:
@@ -93,15 +94,14 @@ elif menu == "Investigación":
             st.write(f"**Email:** {professor_data['Email']}")
             st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
             st.write(f"**Departamento:** {professor_data['Departamento']}")
-            
+
             # Comprueba si el valor de 'Grupo' no coincide con el patrón de números y guiones
-            if not re.fullmatch(r'\d+-\d+', professor_data['Grupo']):
+            if not re.fullmatch(r'\d+-\d+', str(professor_data['Grupo'])):
                 st.write(f"**Grupo:** {professor_data['Grupo']}")
-                
+
             st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
             st.write(f"**Prog. Doctorado:** {professor_data['Prog. Doctorado']}")
             st.write(f"**URL:** [{professor_data['URL']}]({professor_data['URL']})")
-
     else:
         st.write("Selecciona un/a investigador/a.")
  
