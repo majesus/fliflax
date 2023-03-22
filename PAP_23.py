@@ -125,5 +125,33 @@ elif menu == "Personal":
 # Contacto
 elif menu == "Contacto":
     st.subheader("Contacto")
-    st.markdown("Información de contacto del departamento.")
-    st.markdown("Formulario de contacto (puedes usar el componente `st.form` para crear un formulario).")
+    st.markdown("Dirección: AVDA. RAMÓN Y CAJAL, 1, CP41018.")
+    st.write("Localidad: SEVILLA")
+    st.write("Teléfono: 95.455.75.75")
+    st.write("Correo electrónico: empresa@us.es")
+    #st.markdown("Formulario de contacto (puedes usar el componente `st.form` para crear un formulario).")
+
+    st.markdown("""
+    <style>
+    .container {
+        width: 800px !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Coordenadas de la Facultad de Estudios
+    latitude = 36.7277394
+    longitude = -4.41775599241557
+
+    # Crear un DataFrame de Pandas con las coordenadas
+    data = pd.DataFrame({
+        "lat": [37.377777777778, 37.378888888889, 37.405277777778],
+        "lon": [-5.9743055555556, -5.9733611111111, -6.0030555555556],
+        "Facultad": ["Ciencias Económicas y Empresariales", "Turismo y Finanzas", "Comunicación"]
+    })
+
+    # Mostrar el mapa en Streamlit con las coordenadas proporcionadas
+    container = st.container()
+    with container:
+        st.write(data)
+        st.map(data, use_container_width=True)                                      
