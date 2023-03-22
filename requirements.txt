@@ -1,6 +1,7 @@
 streamlit >= 1.4.0
 streamlit-option-menu
 streamlit-tags
+streamlit-on-Hover-tabs
 
 streamlit-echarts
 pyecharts
