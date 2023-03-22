@@ -45,7 +45,8 @@ elif menu == "Investigación":
     # Selector de profesores
     # selected_professor = st.selectbox("Selecciona un profesor:", df_result["Nombre"])
     # df_result = df_result.set_index('Nombre')
-    selected_professor = st.multiselect('Selecciona el nombre del profesor:', df_result.index.unique())
+    options = df_result['Nombre'].unique().tolist()
+    selected_professor = st.multiselect('Selecciona el nombre del profesor:', options)
 
     # Muestra la ficha del profesor seleccionado
     professor_data = df_result[df_result["Nombre"].isin(selected_professor)]
