@@ -8,7 +8,7 @@ st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
 # Menú de navegación
-menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Investigación", "Docencia", "Contacto"))
+menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"))
 
 # Inicio
 if menu == "Acerca de":
@@ -51,6 +51,11 @@ if menu == "Acerca de":
     st.header('Categorías profesionales')
     st.write(categorias_df)
 
+# Estudiantes
+elif menu == "Estudiantes":
+    st.subheader("Estudiantes")
+    st.markdown("")
+    
 # Investigación
 elif menu == "Investigación":
     st.subheader("Investigación")
