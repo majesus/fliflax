@@ -66,7 +66,7 @@ elif menu == "Investigación":
             st.write(f"**Grupo:** {professor_data['Grupo']}")
             st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
             st.write(f"**Prog. Doctorado:** {professor_data['Prog. Doctorado']}")
-            #st.write(f"**URL:** [{professor_data['URL']}]({professor_data['URL']})")
+            st.write(f"**URL:** [{professor_data['URL']}]({professor_data['URL']})")
 
     else:
         st.write("Selecciona un/a investigador/a.")
