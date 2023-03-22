@@ -35,6 +35,7 @@ def obtener_info_investigador(url):
 
 def leer_urls_desde_csv(archivo_csv):
     df = pd.read_csv(archivo_csv)
+    print(df)  # Imprime el DataFrame leído desde el archivo CSV
     urls = df["url"].tolist()
     return urls
 
