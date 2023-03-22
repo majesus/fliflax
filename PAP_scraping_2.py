@@ -66,10 +66,11 @@ for url in urls:
     data["Email"].append(email)
     data["Área de Conocimiento"].append(area_conocimiento)
     data["Departamento"].append(departamento)
-    #data["Grupo"].append(grupo)
-    #data["Instituto de Inv."].append(instituto_inv)
-    #data["Prog. Doctorado"].append(prog_doctorado)
+    data["Grupo"].append(grupo)
+    data["Instituto de Inv."].append(instituto_inv)
+    data["Prog. Doctorado"].append(prog_doctorado)
 
+st.write(data)
 df = pd.DataFrame(data)
 
 # Realiza la copia del DataFrame sin enlaces HTML
