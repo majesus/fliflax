@@ -96,7 +96,8 @@ elif menu == "Investigación":
             st.write(f"**Departamento:** {professor_data['Departamento']}")
 
             # Comprueba si el valor de 'Grupo' no coincide con el patrón de números y guiones
-            if not re.fullmatch(r'\d+-\d+', str(professor_data['Grupo'])):
+            grupo_str = str(professor_data['Grupo'])
+            if not re.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}', grupo_str):
                 st.write(f"**Grupo:** {professor_data['Grupo']}")
 
             st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
@@ -104,6 +105,7 @@ elif menu == "Investigación":
             st.write(f"**URL:** [{professor_data['URL']}]({professor_data['URL']})")
     else:
         st.write("Selecciona un/a investigador/a.")
+
  
 # Docencia
 elif menu == "Docencia":
