@@ -176,7 +176,7 @@ elif menu == "Contacto":
     st.write("Localidad: SEVILLA, ESPAÑA")
     #st.markdown("Formulario de contacto (puedes usar el componente `st.form` para crear un formulario).")
 
-    st.markdown("Secretaría del Departamento")
+    st.subheader("Secretaría del Departamento")
     st.write("Teléfono: 954557575")
     st.write("Correo electrónico: empresa@us.es")
     st.write("Horario de atención al público:")
