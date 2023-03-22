@@ -1,3 +1,4 @@
+from st_on_hover_tabs import on_hover_tabs
 import streamlit as st
 import pandas as pd
 
@@ -8,7 +9,10 @@ st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
 # Menú de navegación
-menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"))
+# menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"))
+with st.sidebar:
+    menu = on_hover_tabs(tabName=["Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"], 
+                         iconName=['dashboard', 'money', 'economy', 'money', 'economy'], default_choice=0)
 
 # Inicio
 if menu == "Acerca de":
