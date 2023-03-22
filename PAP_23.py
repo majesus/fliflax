@@ -59,7 +59,9 @@ elif menu == "Investigación":
     df_result = pd.read_csv('csv/profesores_perfil.csv', sep=",")
 
     # Selector de profesores
-    selected_professor = st.selectbox("Selecciona un profesor:", df_result["Nombre"])
+    # selected_professor = st.selectbox("Selecciona un profesor:", df_result["Nombre"])
+    df_result = df_result.set_index('Nombre del profesor')
+    selected_professor = st.multiselect('Selecciona el nombre del profesor:', df_result.index.unique())
 
     # Muestra la ficha del profesor seleccionado
     professor_data = df_result[df_result["Nombre"] == selected_professor].squeeze()
