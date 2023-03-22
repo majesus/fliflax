@@ -34,9 +34,6 @@ if menu == "Inicio":
     st.title('Principales datos')
     st.write(df)
 
-df = pd.DataFrame(data)
-
-    
 # Acerca de
 elif menu == "Acerca de":
     st.subheader("Acerca de")
