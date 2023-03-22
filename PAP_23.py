@@ -121,7 +121,7 @@ elif menu == "Personal":
         # Muestra el DataFrame en Streamlit como una tabla HTML
         selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
         #st.write(selected_rows.to_html(escape=False, index=False), unsafe_allow_html=True)
-        st.write(f'<div style="font-size: 11px;">{selected_rows.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
+        st.write(f'<div style="font-size: 12px;">{selected_rows.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
     else:
         st.write("Selecciona al menos un área de conocimiento para ver la tabla.")
    
