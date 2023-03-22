@@ -8,7 +8,7 @@ st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
 # Menú de navegación
-menu = st.sidebar.selectbox("Menú de navegación", ("Inicio", "Acerca de", "Investigación", "Docencia", "Personal", "Contacto"))
+menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Investigación", "Docencia", "Contacto"))
 
 # Inicio
 if menu == "Acerca de":
