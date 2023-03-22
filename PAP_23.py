@@ -29,7 +29,7 @@ if menu == "Inicio":
     'Categorías profesionales': ['Profesor Titular de Universidad', 'Catedrático de Universidad', 'Profesor Sustituto Interino', 'Profesor Titular Escuela Universitaria', 'Profesor Contratado Doctor', 'Profesor Asociado', 'Profesor Ayudante Doctor', 'PAIDI', 'Profesor Colaborador', 'Predoctoral PIF VI Plan Propio', 'Posdoctoral Marie Curie', 'Catedrático de Escuela Universitaria'],
     'Miembros_3': [35, 24, 18, 9, 5, 5, 4, 1, 1, 1, 1, 1],
     }
-    
+    st.write(data)
     df = pd.DataFrame(data)
     st.title('Principales datos')
     st.write(df)
