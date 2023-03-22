@@ -35,22 +35,6 @@ elif menu == "Acerca de":
 elif menu == "Investigación":
     st.subheader("Investigación")
     st.markdown("Áreas de investigación, proyectos, publicaciones y colaboraciones.")
-    
-    # Estilos CSS personalizados
-    st.markdown(
-        """
-        <style>
-            .card {
-                padding: 20px;
-                margin: 20px 0;
-                border-radius: 4px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                background-color: #f8f9fa;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
 
     # Diseño de la aplicación de Streamlit
     st.title("Ficha del profesor")
@@ -67,16 +51,15 @@ elif menu == "Investigación":
     selected_professor = map(lambda selected_professor:selected_professor, selected_professor)
     professor_data = df_result.loc[selected_professor]
 
-    st.markdown(f"<div class='card'><h2>{professor_data['Nombre']}</h2>", unsafe_allow_html=True)
-    st.markdown(f"**Categoría:** {professor_data['Categoría']}")
-    st.markdown(f"**Perfil de Prisma:** [{professor_data['Perfil de Prisma']}]({professor_data['Perfil de Prisma']})")
-    st.markdown(f"**Teléfono:** {professor_data['Teléfono']}")
-    st.markdown(f"**Email:** {professor_data['Email']}")
-    st.markdown(f"**Departamento:** {professor_data['Departamento']}")
-    st.markdown(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
-    st.markdown(f"**Centros:** {professor_data['Centros']}")
-    st.markdown(f"**Asignaturas:** {professor_data['Asignaturas']}")
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.header(professor_data["Nombre"])
+    st.write(f"**Categoría:** {professor_data['Categoría']}")
+    st.write(f"**Perfil de Prisma:** [{professor_data['Perfil de Prisma']}]({professor_data['Perfil de Prisma']})")
+    st.write(f"**Teléfono:** {professor_data['Teléfono']}")
+    st.write(f"**Email:** {professor_data['Email']}")
+    st.write(f"**Departamento:** {professor_data['Departamento']}")
+    st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
+    st.write(f"**Centros:** {professor_data['Centros']}")
+    st.write(f"**Asignaturas:** {professor_data['Asignaturas']}")
 
 # Docencia
 elif menu == "Docencia":
