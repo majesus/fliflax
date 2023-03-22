@@ -60,13 +60,13 @@ elif menu == "Investigación":
 
             st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
             st.write(f"**Categoría:** {professor_data['Categoría']}")
-            st.write(f"**Email:** [{professor_data['Email']}]({professor_data['Perfil de Prisma']})")
+            st.write(f"**Email:** [{professor_data['Email']}]({professor_data['Email']})")
             st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
             st.write(f"**Departamento:** {professor_data['Departamento']}")
             st.write(f"**Grupo:** {professor_data['Grupo']}")
             st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
             st.write(f"**Prog. Doctorado:** {professor_data['Prog. Doctorado']}")
-            st.write(f"**URL:** {professor_data['URL']}")
+            st.write(f"**URL:** [{professor_data['URL']}]({professor_data['URL']})")
 
     else:
         st.write("Selecciona un/a investigador/a.")
