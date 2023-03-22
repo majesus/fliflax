@@ -8,6 +8,8 @@ st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
 # Menú de navegación
+import streamlit as st
+from streamlit_option_menu import option_menu
 menu = option_menu(None, ["Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"], 
     icons=['house', 'cloud-upload', "list-task", 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
