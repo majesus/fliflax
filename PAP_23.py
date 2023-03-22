@@ -125,9 +125,9 @@ elif menu == "Personal":
 # Contacto
 elif menu == "Contacto":
     st.subheader("Contacto")
-    st.markdown("Dirección: AVDA. RAMÓN Y CAJAL, 1, CP41018.")
-    st.write("Localidad: SEVILLA")
-    st.write("Teléfono: 95.455.75.75")
+    st.markdown("Dirección: AVDA. RAMÓN Y CAJAL, 1, CP: 41018.")
+    st.write("Localidad: SEVILLA, ESPAÑA")
+    st.write("Teléfono: 954557575")
     st.write("Correo electrónico: empresa@us.es")
     #st.markdown("Formulario de contacto (puedes usar el componente `st.form` para crear un formulario).")
 
@@ -153,5 +153,5 @@ elif menu == "Contacto":
     # Mostrar el mapa en Streamlit con las coordenadas proporcionadas
     container = st.container()
     with container:
-        st.write(data)
+        #st.write(data)
         st.map(data, use_container_width=True)                                      
