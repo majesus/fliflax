@@ -25,13 +25,13 @@ def obtener_info_investigador(url):
 
     departamento = soup.find("span", string="Departamento: ").find_next("a").text.strip() if soup.find("span", string="Departamento: ") else "No disponible"
 
-    grupo = soup.find("span", string="Grupo: ").find_next("a").text.strip() if soup.find("span", string="Grupo: ") else "No disponible"
+    #grupo = soup.find("span", string="Grupo: ").find_next("a").text.strip() if soup.find("span", string="Grupo: ") else "No disponible"
 
-    instituto_inv = soup.find("span", string="Instituto de Inv.: ").find_next("a").text.strip() if soup.find("span", string="Instituto de Inv.: ") else "No disponible"
+    #instituto_inv = soup.find("span", string="Instituto de Inv.: ").find_next("a").text.strip() if soup.find("span", string="Instituto de Inv.: ") else "No disponible"
 
-    prog_doctorado = soup.find("span", string="Prog. doctorado: ").find_next("a").text.strip() if soup.find("span", string="Prog. doctorado: ") else "No disponible"
+    #prog_doctorado = soup.find("span", string="Prog. doctorado: ").find_next("a").text.strip() if soup.find("span", string="Prog. doctorado: ") else "No disponible"
 
-    return nombre, categoria, email, area_conocimiento, departamento, grupo, instituto_inv, prog_doctorado
+    return nombre, categoria, email, area_conocimiento, departamento
 
 def leer_urls_desde_csv(archivo_csv):
     df = pd.read_csv(archivo_csv)
@@ -51,24 +51,24 @@ data = {
     "Email": [],
     "Área de Conocimiento": [],
     "Departamento": [],
-    "Grupo": [],
-    "Instituto de Inv.": [],
-    "Prog. Doctorado": [],
+    #"Grupo": [],
+    #"Instituto de Inv.": [],
+    #"Prog. Doctorado": [],
     "URL": [],
 }
 
 for url in urls:
     st.write(f"Extrayendo información del Departamento y Área de Conocimiento de: {url}")
-    nombre, categoria, email, area_conocimiento, departamento, grupo, instituto_inv, prog_doctorado = obtener_info_investigador(url)
+    nombre, categoria, email, area_conocimiento, departamento = obtener_info_investigador(url)
     
     data["Nombre"].append(nombre)
     data["Categoría"].append(categoria)
     data["Email"].append(email)
     data["Área de Conocimiento"].append(area_conocimiento)
     data["Departamento"].append(departamento)
-    data["Grupo"].append(grupo)
-    data["Instituto de Inv."].append(instituto_inv)
-    data["Prog. Doctorado"].append(prog_doctorado)
+    #data["Grupo"].append(grupo)
+    #data["Instituto de Inv."].append(instituto_inv)
+    #data["Prog. Doctorado"].append(prog_doctorado)
 
 try:
     st.write(data)
