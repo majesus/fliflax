@@ -31,24 +31,46 @@ elif menu == "Investigación":
     st.subheader("Investigación")
     st.markdown("Áreas de investigación, proyectos, publicaciones y colaboraciones.")
 
-    dfg = pd.read_csv('csv/investigadores.csv', sep=",")
-
-    dfg1 = dfg.set_index('Área de Conocimiento')
-    selected_indices = st.multiselect('Selecciona al menos un área de conocimiento:', dfg1.index.unique())
+    # Diseño de la aplicación de Streamlit
+    st.title("Ficha del investigador/a")
+    
+    # Lectura de la tabla con los datos de perfil:
+    df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
+    
+    # Estilos CSS personalizados
+    st.markdown(
+        """
+        <style>
+            h2.custom-header {
+                color: steelblue;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+    # Selector de profesores
+    df_result = df_result0.set_index('Nombre')
+    selected_indices = st.multiselect('Selecciona el nombre del investigador/a:', df_result.index.unique())
 
     if selected_indices:
-        selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
-        selected_rows = dfg1.loc[selected_indices]
+        # Muestra la ficha del profesor seleccionado
+        for index in selected_indices:
+            professor_data = df_result.loc[index]
 
-        # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
-        selected_rows["Nombre"] = selected_rows.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
-        # Muestra el DataFrame en Streamlit como una tabla HTML
-        selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
-        #st.write(selected_rows.to_html(escape=False, index=False), unsafe_allow_html=True)
-        st.write(f'<div style="font-size: 12px;">{selected_rows.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
+            st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
+            st.write(f"**Categoría:** {professor_data['Categoría']}")
+            st.write(f"**Email:** [{professor_data['Email']}]({professor_data['Perfil de Prisma']})")
+            st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
+            st.write(f"**Departamento:** {professor_data['Departamento']}")
+            st.write(f"**Grupo:** {professor_data['Grupo']}")
+            st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
+            st.write(f"**Prog. Doctorado:** {professor_data['Prog. Doctorado']}")
+            st.write(f"**URL:** {professor_data['URL']}")
+
     else:
-        st.write("Selecciona al menos un área de conocimiento para ver sus componentes.")
-    
+        st.write("Selecciona un/a investigador/a.")
+ 
 # Docencia
 elif menu == "Docencia":
     st.subheader("Docencia")
@@ -74,7 +96,7 @@ elif menu == "Docencia":
     
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
-    selected_indices = st.multiselect('Selecciona el nombre del profesor:', df_result.index.unique())
+    selected_indices = st.multiselect('Selecciona el nombre del docente:', df_result.index.unique())
 
     if selected_indices:
         # Muestra la ficha del profesor seleccionado
@@ -92,13 +114,31 @@ elif menu == "Docencia":
             st.write(f"**Asignaturas:** {professor_data['Asignaturas']}")
 
     else:
-        st.write("Selecciona al menos un área de conocimiento para ver la tabla.")
+        st.write("Selecciona al menos un docente.")
 
 # Personal
 elif menu == "Personal":
     st.subheader("Personal")
     st.markdown("Lista del personal académico y administrativo, roles y áreas de especialización.")
 
+    dfg = pd.read_csv('csv/investigadores.csv', sep=",")
+
+    dfg1 = dfg.set_index('Área de Conocimiento')
+    selected_indices = st.multiselect('Selecciona al menos un área de conocimiento:', dfg1.index.unique())
+
+    if selected_indices:
+        selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
+        selected_rows = dfg1.loc[selected_indices]
+
+        # Convierte el nombre en un enlace HTML que apunta a la URL correspondiente
+        selected_rows["Nombre"] = selected_rows.apply(lambda row: f'<a href="{row["URL"]}" target="_blank">{row["Nombre"]}</a>', axis=1)
+        # Muestra el DataFrame en Streamlit como una tabla HTML
+        selected_rows = selected_rows.drop(['Departamento', 'URL'], axis=1)
+        #st.write(selected_rows.to_html(escape=False, index=False), unsafe_allow_html=True)
+        st.write(f'<div style="font-size: 12px;">{selected_rows.to_html(escape=False, index=False)}</div>', unsafe_allow_html=True)
+    else:
+        st.write("Selecciona al menos un área de conocimiento para ver sus componentes.")
+    
 # Contacto
 elif menu == "Contacto":
     st.subheader("Contacto")
