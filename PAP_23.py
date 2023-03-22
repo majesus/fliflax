@@ -40,16 +40,15 @@ elif menu == "Investigación":
     st.title("Ficha del profesor")
     
     # Lectura de la tabla con los datos de perfil:
-    df_result = pd.read_csv('csv/profesores_perfil.csv', sep=",")
+    df_result0 = pd.read_csv('csv/profesores_perfil.csv', sep=",")
 
     # Selector de profesores
-    # selected_professor = st.selectbox("Selecciona un profesor:", df_result["Nombre"])
-    # df_result = df_result.set_index('Nombre')
-    options = df_result['Nombre'].unique().tolist()
-    selected_professor = st.multiselect('Selecciona el nombre del profesor:', options)
+    df_result = df_result0.set_index('Nombre')
+    selected_indices = st.multiselect('Selecciona el nombre del profesor:', df_result.index.unique())
 
     # Muestra la ficha del profesor seleccionado
-    professor_data = df_result[df_result["Nombre"].isin(selected_professor)]
+    selected_indices = map(lambda selected_indices:selected_indices, selected_indices)
+    professor_data = df_result.loc[selected_indices]
 
     st.header(professor_data["Nombre"])
     st.write(f"**Categoría:** {professor_data['Categoría']}")
