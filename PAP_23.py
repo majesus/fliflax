@@ -1,23 +1,14 @@
-from st_on_hover_tabs import on_hover_tabs
 import streamlit as st
 import pandas as pd
 
 # Encabezado
-# st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
-
-st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:", layout="wide")
-st.header("Custom tab component for on-hover navigation bar")
-st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
-
+st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
 #st.image("img/fliflax-logo.jpg", width=200)
 st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
 # Menú de navegación
-# menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"))
-with st.sidebar:
-    menu = on_hover_tabs(tabName=["Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"], 
-                         iconName=['dashboard', 'money', 'economy', 'money', 'economy'], default_choice=0)
+menu = st.sidebar.selectbox("Menú de navegación", ("Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"))
 
 # Inicio
 if menu == "Acerca de":
