@@ -70,7 +70,11 @@ for url in urls:
     data["Instituto de Inv."].append(instituto_inv)
     data["Prog. Doctorado"].append(prog_doctorado)
 
-st.write(data)
+try:
+    st.write(data)
+except Exception as e:
+    st.write(f"Error: {e}")
+
 df = pd.DataFrame(data)
 
 # Realiza la copia del DataFrame sin enlaces HTML
