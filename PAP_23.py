@@ -51,7 +51,7 @@ elif menu == "Investigación":
     professor_data = df_result.loc[selected_indices]
     st.write(professor_data)
 
-    st.header(professor_data["Nombre"])
+    #st.header(professor_data["Nombre"])
     st.write(f"**Categoría:** {professor_data['Categoría']}")
     st.write(f"**Perfil de Prisma:** [{professor_data['Perfil de Prisma']}]({professor_data['Perfil de Prisma']})")
     st.write(f"**Teléfono:** {professor_data['Teléfono']}")
