@@ -11,7 +11,7 @@ st.markdown("---")
 menu = st.sidebar.selectbox("Menú de navegación", ("Inicio", "Acerca de", "Investigación", "Docencia", "Personal", "Contacto"))
 
 # Inicio
-if menu == "Inicio":
+if menu == "Acerca de":
     st.subheader("Bienvenidos")
     
     st.write("El Departamento de Administración de Empresas y Marketing es una destacada entidad académica dedicada a la enseñanza y la investigación universitaria. Con más de 100 miembros especializados en diversas áreas de conocimiento, nuestro departamento es un referente en el campo de la organización de empresas y el marketing.")
@@ -21,23 +21,35 @@ if menu == "Inicio":
     st.write("El departamento está conformado por profesionales de distintas categorías, incluyendo catedráticos de universidad, profesores titulares de universidad, profesores titulares de escuela universitaria y catedra´ticos de escuela universitaria, profesores contratados doctores, profesores colaboradores, profesores ayudantes doctores, profesores asociados, profesores sustitutos interinos, miembros del programa PAIDI, predoctorales PIF VI Plan Propio, posdoctorales Marie Curie.")
     st.write("Le invitamos a explorar nuestra página web y conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
     
-    data = {
+    areas_data = {
     'Áreas de conocimiento': ['Organización de Empresas', 'Comercialización e Investigación de Mercados', 'Sin área de conocimiento'],
     'Miembros': [69, 35, 1],
-    'Centros': ['Facultad de CC. Económ. y Empresariales', 'Facultad de Turismo y Finanzas', 'Facultad de Ciencias del Trabajo', 'Facultad de Ciencias de la Educación', 'Facultad de Comunicación'],
-    'Miembros_2': [74, 18, 11, 1, 1],
-    'Categorías profesionales': ['Profesor Titular de Universidad', 'Catedrático de Universidad', 'Profesor Sustituto Interino', 'Profesor Titular Escuela Universitaria', 'Profesor Contratado Doctor', 'Profesor Asociado', 'Profesor Ayudante Doctor', 'PAIDI', 'Profesor Colaborador', 'Predoctoral PIF VI Plan Propio', 'Posdoctoral Marie Curie', 'Catedrático de Escuela Universitaria'],
-    'Miembros_3': [35, 24, 18, 9, 5, 5, 4, 1, 1, 1, 1, 1],
     }
-    st.write(data)
-    df = pd.DataFrame(data)
-    st.title('Principales datos')
-    st.write(df)
 
-# Acerca de
-elif menu == "Acerca de":
-    st.subheader("Acerca de")
-    st.markdown("Historia, misión y objetivos del departamento.")
+    centros_data = {
+    'Centros': ['Facultad de CC. Económ. y Empresariales', 'Facultad de Turismo y Finanzas', 'Facultad de Ciencias del Trabajo', 'Facultad de Ciencias de la Educación', 'Facultad de Comunicación'],
+    'Miembros': [74, 18, 11, 1, 1],
+    }
+
+    categorias_data = {
+    'Categorías profesionales': ['Profesor Titular de Universidad', 'Catedrático de Universidad', 'Profesor Sustituto Interino', 'Profesor Titular Escuela Universitaria', 'Profesor Contratado Doctor', 'Profesor Asociado', 'Profesor Ayudante Doctor', 'PAIDI', 'Profesor Colaborador', 'Predoctoral PIF VI Plan Propio', 'Posdoctoral Marie Curie', 'Catedrático de Escuela Universitaria'],
+    'Miembros': [35, 24, 18, 9, 5, 5, 4, 1, 1, 1, 1, 1],
+    }
+ 
+    areas_df = pd.DataFrame(areas_data)
+    centros_df = pd.DataFrame(centros_data)
+    categorias_df = pd.DataFrame(categorias_data)
+    
+    st.title('Tabla de Datos')
+
+    st.header('Áreas de conocimiento')
+    st.write(areas_df)
+
+    st.header('Centros')
+    st.write(centros_df)
+
+    st.header('Categorías profesionales')
+    st.write(categorias_df)
 
 # Investigación
 elif menu == "Investigación":
