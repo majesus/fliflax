@@ -41,7 +41,19 @@ elif menu == "Investigación":
     
     # Lectura de la tabla con los datos de perfil:
     df_result0 = pd.read_csv('csv/profesores_perfil.csv', sep=",")
-
+    
+    # Estilos CSS personalizados
+    st.markdown(
+        """
+        <style>
+            h2.custom-header {
+                color: lightblue;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
     selected_indices = st.multiselect('Selecciona el nombre del profesor:', df_result.index.unique())
@@ -51,7 +63,7 @@ elif menu == "Investigación":
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
-            st.header(index)
+            st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
             st.write(f"**Categoría:** {professor_data['Categoría']}")
             st.write(f"**Perfil de Prisma:** [{professor_data['Perfil de Prisma']}]({professor_data['Perfil de Prisma']})")
             st.write(f"**Teléfono:** {professor_data['Teléfono']}")
