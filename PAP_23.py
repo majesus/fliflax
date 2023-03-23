@@ -69,6 +69,25 @@ elif menu == "Investigación":
     st.subheader("Investigación")
     st.markdown("Áreas de investigación, proyectos, publicaciones y colaboraciones.")
 
+    # Lista de titulares
+    titulares = [
+        "Turismo y sostenibilidad",
+        "Transformación digital y tecnologías de la información",
+        "Marketing digital y redes sociales",
+        "Big data y aprendizaje automático (machine learning)",
+        "Innovación y emprendimiento",
+        "Comportamiento del consumidor y valor en instituciones",
+        "Estudio de demanda con incertidumbre",
+    ]
+
+    # Título de la aplicación
+    st.title("Líneas de investigación en el área científica de marketing")
+
+    # Mostrar titulares como una lista
+    st.subheader("Principales categorías:")
+    for i, titular in enumerate(titulares, 1):
+        st.write(f"{i}. {titular}")
+    
     # Diseño de la aplicación de Streamlit
     st.title("Ficha del investigador/a")
     
