@@ -85,10 +85,10 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.markdown("Líneas de investigación en el área científica de Marketing")
+    st.subheader("Líneas de investigación en el área científica de Marketing")
 
     # Mostrar titulares como una lista
-    st.subheader("Principales categorías:")
+    st.markdown("Principales categorías:")
     for i, titular in enumerate(titulares, 1):
         st.write(f"{i}. {titular}")
     
@@ -106,10 +106,10 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.markdown("Líneas de investigación en el área científica de Organización de Empresas")
+    st.subheader("Líneas de investigación en el área científica de Organización de Empresas")
 
     # Mostrar titulares como una lista
-    st.subheader("Principales categorías:")
+    st.markdown("Principales categorías:")
     for i, titular in enumerate(titulares, 1):
         st.write(f"{i}. {titular}")
     
