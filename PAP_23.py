@@ -91,8 +91,8 @@ elif menu == "Investigación":
     st.subheader("Principales categorías:")
     for i, titular in enumerate(titulares, 1):
         st.write(f"{i}. {titular}")
-        if i != len(titulares):
-            separador("#4f8bf9")  # Cambia el color según prefieras
+    
+    separador("#4f8bf9")
     
     # Lista de titulares
     titulares = [
@@ -112,8 +112,8 @@ elif menu == "Investigación":
     st.subheader("Principales categorías:")
     for i, titular in enumerate(titulares, 1):
         st.write(f"{i}. {titular}")
-        if i != len(titulares):
-            separador("#4f8bf9")  # Cambia el color según prefieras
+    
+    separador("#4f8bf9")
     
     # Ficha del investigador
     st.subheader("Ficha del investigador/a")
