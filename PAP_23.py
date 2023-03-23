@@ -187,17 +187,15 @@ elif menu == "Personal":
 elif menu == "Contacto":
     st.subheader("Dirección")
     st.markdown("AVDA. RAMÓN Y CAJAL, 1, 41018.")
-    st.write("SEVILLA, ESPAÑA", font_size=11)
+    st.markdown("SEVILLA, ESPAÑA", unsafe_allow_html=True)
 
     st.subheader("Secretaría")
-    st.write("Teléfono: 954557575", font_size=11)
-    st.write("Correo electrónico: empresa@us.es", font_size=11)
-    st.write("Horario de atención al público:", font_size=11)
-    st.write("Lunes – Viernes: 12 a 14 horas", font_size=11)
-
-    st.write("Buzón de quejas y sugerencias: [Expón@US](https://www.us.es/expon-us)", font_size=14)
-
-    
+    st.markdown("<p style='font-size: 14px;'>Teléfono: 954557575</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px;'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px;'>Horario de atención al público:</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px;'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px;'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
+   
     st.markdown("""
     <style>
     .container {
