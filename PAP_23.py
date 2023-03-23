@@ -192,10 +192,10 @@ elif menu == "Contacto":
     st.markdown("SEVILLA, ESPAÑA", unsafe_allow_html=True)
 
     st.subheader("Secretaría")
-    st.markdown("<p style='font-size: 14px; line-height: 1.2;'>Teléfono: 954557575</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size: 14px; line-height: 1.2;'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size: 14px; line-height: 1.2;'>Horario de atención al público:</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size: 14px; line-height: 1.2;'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px; line-height: 1;'>Teléfono: 954557575</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px; line-height: 1;'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px; line-height: 1;'>Horario de atención al público:</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px; line-height: 1;'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
 
     st.markdown("<p style='font-size: 14px; line-height: 1.2;'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
 
