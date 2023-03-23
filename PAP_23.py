@@ -88,7 +88,6 @@ elif menu == "Investigación":
     st.subheader("Líneas de investigación en el área científica de Marketing")
 
     # Mostrar titulares como una lista con interlineado ajustado
-    st.subheader("Principales categorías:")
     st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
     for i, titular in enumerate(titulares, 1):
         st.markdown(f"<li>{i}. {titular}</li>", unsafe_allow_html=True)
@@ -110,10 +109,11 @@ elif menu == "Investigación":
     # Título de la aplicación
     st.subheader("Líneas de investigación en el área científica de Organización de Empresas")
 
-    # Mostrar titulares como una lista
-    st.markdown("Principales categorías:")
+    # Mostrar titulares como una lista con interlineado ajustado
+    st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
     for i, titular in enumerate(titulares, 1):
-        st.write(f"{i}. {titular}")
+        st.markdown(f"<li>{i}. {titular}</li>", unsafe_allow_html=True)
+    st.markdown("</ul>", unsafe_allow_html=True)
     
     separador("#4f8bf9")
     
