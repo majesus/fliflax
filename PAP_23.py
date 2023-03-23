@@ -81,7 +81,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.title("Líneas de investigación en el área científica de marketing")
+    st.subheader("Líneas de investigación en el área científica de marketing")
 
     # Mostrar titulares como una lista
     st.subheader("Principales categorías:")
@@ -89,7 +89,7 @@ elif menu == "Investigación":
         st.write(f"{i}. {titular}")
     
     # Diseño de la aplicación de Streamlit
-    st.title("Ficha del investigador/a")
+    st.subheader("Ficha del investigador/a")
     
     # Lectura de la tabla con los datos de perfil:
     df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
@@ -140,7 +140,7 @@ elif menu == "Docencia":
     st.markdown("Programas académicos, cursos, horarios y recursos para estudiantes.")
     
     # Diseño de la aplicación de Streamlit
-    st.title("Ficha del docente")
+    st.subheader("Ficha del docente")
     
     # Lectura de la tabla con los datos de perfil:
     df_result0 = pd.read_csv('csv/profesores_perfil.csv', sep=",")
