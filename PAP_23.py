@@ -88,7 +88,26 @@ elif menu == "Investigación":
     for i, titular in enumerate(titulares, 1):
         st.write(f"{i}. {titular}")
     
-    # Diseño de la aplicación de Streamlit
+    # Lista de titulares
+    titulares = [
+        "Emprendimiento y creación de empresas",
+        "Comunicación y periodismo",
+        "Cultura organizacional y cambio cultural",
+        "Gestión de la calidad e innovación",
+        "Análisis de redes sociales y comunidades virtuales",
+        "Estrategia y dirección internacional de empresas",
+        "Coaching y desarrollo personal",
+    ]
+
+    # Título de la aplicación
+    st.title("Líneas de investigación en el área científica de Organización de Empresas")
+
+    # Mostrar titulares como una lista
+    st.subheader("Principales categorías:")
+    for i, titular in enumerate(titulares, 1):
+        st.write(f"{i}. {titular}")
+    
+    # Ficha del investigador
     st.subheader("Ficha del investigador/a")
     
     # Lectura de la tabla con los datos de perfil:
