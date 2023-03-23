@@ -16,7 +16,7 @@ menu = option_menu(None, ["Acerca de", "Estudiantes", "Investigación", "Docenci
     styles={
         "container": {"padding": "0!important", "background-color": "#fafafa"},
         "icon": {"color": "orange", "font-size": "12px"}, 
-        "nav-link": {"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link": {"font-size": "11px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
         "nav-link-selected": {"background-color": "green"},
     }
 )
