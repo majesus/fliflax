@@ -7,6 +7,12 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 st.title("Departamento de Administración de Empresas y Marketing")
 st.markdown("---")
 
+# Separador estético personalizado
+def separador(color):
+    st.markdown(
+        f'<hr style="border: 1px solid {color};">', unsafe_allow_html=True
+    )
+
 # Menú de navegación
 import streamlit as st
 from streamlit_option_menu import option_menu
@@ -29,6 +35,7 @@ if menu == "Acerca de":
     st.write("Nos organizamos en dos áreas principales: Organización de Empresas (69 profesores) y Comercialización e Investigación de Mercados (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en cinco facultades, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.")
     st.write("Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
     
+    separador("#4f8bf9")
 
     # Título de la aplicación
     st.subheader("Datos de interés")
@@ -86,12 +93,6 @@ elif menu == "Estudiantes":
     
 # Investigación
 elif menu == "Investigación":
-
-    # Separador estético personalizado
-    def separador(color):
-        st.markdown(
-            f'<hr style="border: 1px solid {color};">', unsafe_allow_html=True
-        )
     
     # Lista de titulares
     titulares = [
