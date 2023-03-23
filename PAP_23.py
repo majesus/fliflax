@@ -197,7 +197,7 @@ elif menu == "Contacto":
     st.write("Lunes – Viernes: 12 a 14 horas")
     
     st.write("Buzón de quejas y sugerencias")
-    st.write("st.write("[Expón@US](https://www.us.es/expon-us)")")
+    st.write("[Expón@US](https://www.us.es/expon-us)")
     
     st.markdown("""
     <style>
