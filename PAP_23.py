@@ -29,35 +29,55 @@ if menu == "Acerca de":
     st.write("Nos organizamos en dos áreas principales: Organización de Empresas (69 profesores) y Comercialización e Investigación de Mercados (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en cinco facultades, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.")
     st.write("Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
     
-    areas_data = {
-    'Áreas de conocimiento': ['Organización de Empresas', 'Comercialización e Investigación de Mercados', 'Sin área de conocimiento'],
-    'Miembros': [69, 35, 1],
-    }
 
-    centros_data = {
-    'Centros': ['Facultad de CC. Económ. y Empresariales', 'Facultad de Turismo y Finanzas', 'Facultad de Ciencias del Trabajo', 'Facultad de Ciencias de la Educación', 'Facultad de Comunicación'],
-    'Miembros': [74, 18, 11, 1, 1],
-    }
+    # Título de la aplicación
+    st.subheader("Datos de interés")
 
-    categorias_data = {
-    'Categorías profesionales': ['Profesor Titular de Universidad', 'Catedrático de Universidad', 'Profesor Sustituto Interino', 'Profesor Titular Escuela Universitaria', 'Profesor Contratado Doctor', 'Profesor Asociado', 'Profesor Ayudante Doctor', 'PAIDI', 'Profesor Colaborador', 'Predoctoral PIF VI Plan Propio', 'Posdoctoral Marie Curie', 'Catedrático de Escuela Universitaria'],
-    'Miembros': [35, 24, 18, 9, 5, 5, 4, 1, 1, 1, 1, 1],
-    }
- 
-    areas_df = pd.DataFrame(areas_data)
-    centros_df = pd.DataFrame(centros_data)
-    categorias_df = pd.DataFrame(categorias_data)
-    
-    st.title('Tabla de Datos')
+    # Lista de elementos
+    equipo_directivo = [
+        "Director: Sánchez Franco, Manuel Jesús",
+        "Secretario: Calvo de Mora Schmidt, Arturo",
+    ]
 
-    st.header('Áreas de conocimiento')
-    st.write(areas_df)
+    areas_conocimiento = [
+        "Organización de Empresas",
+        "Comercialización e Investigación de Mercados",
+    ]
 
-    st.header('Centros')
-    st.write(centros_df)
+    centros_docencia = [
+        "Escuela Internacional de Posgrado (EIP)",
+        "Escuela Técnica Superior de Ingeniería de Edificación",
+        "Escuela Técnica Superior de Ingeniería Informática",
+        "Facultad de Ciencias de la Educación",
+        "Facultad de Ciencias del Trabajo",
+        "Facultad de Ciencias Económicas y Empresariales",
+        "Facultad de Comunicación",
+        "Facultad de Derecho",
+        "Facultad de Enfermería, Fisioterapia y Podología",
+        "Facultad de Farmacia",
+        "Facultad de Filosofía",
+        "Facultad de Medicina",
+        "Facultad de Turismo y Finanzas",
+    ]
 
-    st.header('Categorías profesionales')
-    st.write(categorias_df)
+    # Mostrar elementos como listas con interlineado ajustado
+    st.subheader("Equipo directivo")
+    st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
+    for item in equipo_directivo:
+        st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
+    st.markdown("</ul>", unsafe_allow_html=True)
+
+    st.subheader("Áreas de conocimiento")
+    st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
+    for item in areas_conocimiento:
+        st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
+    st.markdown("</ul>", unsafe_allow_html=True)
+
+    st.subheader("Centros en los que se imparte la docencia")
+    st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
+    for item in centros_docencia:
+        st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
+    st.markdown("</ul>", unsafe_allow_html=True)
 
 # Estudiantes
 elif menu == "Estudiantes":
