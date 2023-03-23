@@ -100,7 +100,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.title("Líneas de investigación en el área científica de Organización de Empresas")
+    st.subheader("Líneas de investigación en el área científica de Organización de Empresas")
 
     # Mostrar titulares como una lista
     st.subheader("Principales categorías:")
