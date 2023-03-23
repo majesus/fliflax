@@ -185,19 +185,19 @@ elif menu == "Personal":
     
 # Contacto
 elif menu == "Contacto":
-    st.subheader("Contacto")
-    st.markdown("Dirección: AVDA. RAMÓN Y CAJAL, 1, CP: 41018.")
-    st.write("Localidad: SEVILLA, ESPAÑA")
+    st.subheader("Dirección")
+    st.markdown("AVDA. RAMÓN Y CAJAL, 1, 41018.")
+    st.write("SEVILLA, ESPAÑA")
     #st.markdown("Formulario de contacto (puedes usar el componente `st.form` para crear un formulario).")
 
-    st.subheader("Secretaría del Departamento")
+    st.subheader("Secretaría")
     st.write("Teléfono: 954557575")
     st.write("Correo electrónico: empresa@us.es")
     st.write("Horario de atención al público:")
     st.write("Lunes – Viernes: 12 a 14 horas")
     
     st.write("Buzón de quejas y sugerencias")
-    st.write("+ Enlace a Expón@US")
+    st.write("st.write("[Expón@US](https://www.us.es/expon-us)")")
     
     st.markdown("""
     <style>
