@@ -66,9 +66,13 @@ elif menu == "Estudiantes":
     
 # Investigación
 elif menu == "Investigación":
-    st.subheader("Investigación")
-    st.markdown("Áreas de investigación, proyectos, publicaciones y colaboraciones.")
 
+    # Separador estético personalizado
+    def separador(color):
+        st.markdown(
+            f'<hr style="border: 1px solid {color};">', unsafe_allow_html=True
+        )
+    
     # Lista de titulares
     titulares = [
         "Turismo y sostenibilidad",
@@ -81,12 +85,14 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.subheader("Líneas de investigación en el área científica de marketing")
+    st.subheader("Líneas de investigación en el área científica de Marketing")
 
     # Mostrar titulares como una lista
     st.subheader("Principales categorías:")
     for i, titular in enumerate(titulares, 1):
         st.write(f"{i}. {titular}")
+        if i != len(titulares):
+            separador("#4f8bf9")  # Cambia el color según prefieras
     
     # Lista de titulares
     titulares = [
@@ -106,6 +112,8 @@ elif menu == "Investigación":
     st.subheader("Principales categorías:")
     for i, titular in enumerate(titulares, 1):
         st.write(f"{i}. {titular}")
+        if i != len(titulares):
+            separador("#4f8bf9")  # Cambia el color según prefieras
     
     # Ficha del investigador
     st.subheader("Ficha del investigador/a")
