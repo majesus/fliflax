@@ -85,7 +85,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.subheader("Líneas de investigación en el área científica de Marketing")
+    st.markdown("Líneas de investigación en el área científica de Marketing")
 
     # Mostrar titulares como una lista
     st.subheader("Principales categorías:")
@@ -106,7 +106,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.subheader("Líneas de investigación en el área científica de Organización de Empresas")
+    st.markdown("Líneas de investigación en el área científica de Organización de Empresas")
 
     # Mostrar titulares como una lista
     st.subheader("Principales categorías:")
