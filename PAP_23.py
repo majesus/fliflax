@@ -99,7 +99,7 @@ if menu == "Inicio":
 
     st.subheader("Áreas de conocimiento")
     # Establecer estilos personalizados para los elementos de la lista
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1;"
+    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     # Crear una lista utilizando la etiqueta <p>
     for item in equipo_directivo:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
