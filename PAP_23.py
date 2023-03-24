@@ -112,16 +112,16 @@ if menu == "Inicio":
 
     # Mostrar elementos como listas con interlineado ajustado
     st.subheader("Equipo directivo")
-    st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
+    st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
     for item in equipo_directivo:
         st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
-    st.markdown("</ul>", unsafe_allow_html=True)
+    st.markdown("</ul></div>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
-    st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
+    st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
     for item in areas_conocimiento:
         st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
-    st.markdown("</ul>", unsafe_allow_html=True)
+    st.markdown("</ul></div>", unsafe_allow_html=True)
 
     st.subheader("Centros en los que se imparte la docencia")
     st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
