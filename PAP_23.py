@@ -1,7 +1,30 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
+#----------------------------------------#
+import httpagentparser
+import requests
 
+@st.cache(allow_output_mutation=True)
+def get_user_agent():
+    ip_address = requests.get("https://api64.ipify.org").text
+    headers = {
+        "User-Agent": st.session_state.userAgent,
+        "X-Forwarded-For": ip_address,
+    }
+    return headers
+
+def is_mobile():
+    headers = get_user_agent()
+    user_agent_string = headers["User-Agent"]
+    user_agent = httpagentparser.detect(user_agent_string)
+    return "mobile" in user_agent["platform"]["name"].lower()
+
+if is_mobile():
+    st.write("Accediendo desde un dispositivo móvil")
+else:
+    st.write("Accediendo desde un PC")
+#----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
 #st.image("img/fliflax-logo.jpg", width=200)
