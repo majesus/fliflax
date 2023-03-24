@@ -22,7 +22,7 @@ col1, col2 = st.beta_columns([1, 3])  # La primera columna tendrá un ancho prop
 # Añadir imagen en la primera columna
 col1.image(imagen, width=150)
 # Añadir título en la segunda columna
-col2.title("Departamento de Administración de Empresas y Marketing")
+col2.title("Administración de Empresas y Marketing")
 
 #----------------------------------------#
 
