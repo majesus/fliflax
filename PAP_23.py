@@ -22,7 +22,7 @@ imagen = cargar_imagen(url_imagen)
 # Crear dos columnas
 col1, col2 = st.beta_columns(2)
 # Añadir imagen en la primera columna
-col1.image(imagen, width=300)
+col1.image(imagen, width=150)
 # Añadir título en la segunda columna
 with col2:
     st.title("Departamento de Administración de Empresas y Marketing")
