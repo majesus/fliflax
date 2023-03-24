@@ -12,7 +12,7 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 def cargar_imagen(url):
     #response = requests.get(url, stream=True)
     #response.raise_for_status()
-    image = Image.open(response.raw)
+    image = Image.open(url_imagen)
     return image
 
 # URL de la imagen
