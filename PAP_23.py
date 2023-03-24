@@ -8,18 +8,6 @@ from PIL import Image
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
 #st.image("img/fliflax-logo.jpg", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
-
-# Añade estilos CSS personalizados
-st.markdown("""
-<style>
-.custom-list {
-    font-family: Arial, sans-serif;
-    font-size: 10px;
-    padding-left: 20px;
-    line-height: 1;
-}
-</style>
-""", unsafe_allow_html=True)
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
@@ -39,15 +27,14 @@ col1.image(imagen, width=150)
 col2.title("Administración de Empresas y Marketing")
 
 #----------------------------------------#
-
 st.markdown("---")
-
+#----------------------------------------#
 # Separador estético personalizado
 def separador(color):
     st.markdown(
         f'<hr style="border: 1px solid {color};">', unsafe_allow_html=True
     )
-
+#----------------------------------------#
 # Menú de navegación
 import streamlit as st
 from streamlit_option_menu import option_menu
@@ -110,12 +97,13 @@ if menu == "Inicio":
         "Facultad de Turismo y Finanzas",
     ]
 
+    custom_style = "font-family: Arial, sans-serif; font-size: 12px; padding-left: 20px; line-height: 1;"
     # Mostrar elementos como listas con interlineado ajustado
     st.subheader("Equipo directivo")
-    st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
+    st.markdown(f"<ul style='{custom_style}'>", unsafe_allow_html=True)
     for item in equipo_directivo:
         st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
-    st.markdown("</ul></div>", unsafe_allow_html=True)
+    st.markdown("</ul>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
     st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
