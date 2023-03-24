@@ -71,6 +71,8 @@ if menu == "Acerca de":
     equipo_directivo = [
         "Director: Sánchez Franco, Manuel Jesús",
         "Secretario: Calvo de Mora Schmidt, Arturo",
+        "Gestora: Martínez Medina, Silvia,
+        "Administrativa: Fernández Delgado, Ana"
     ]
 
     areas_conocimiento = [
