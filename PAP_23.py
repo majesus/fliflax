@@ -51,7 +51,10 @@ menu = option_menu(None, ["Acerca de", "Estudiantes", "Investigación", "Docenci
 # Inicio
 if menu == "Acerca de":
     # Insertar imagen
-    image = Image.open('img/uni_about.png')
+    # URL de la imagen
+    url_imagen = "img/uni_about.png"
+    # Descargar imagen
+    imagen = cargar_imagen(url_imagen)
     st.image(image, caption='')
     
     st.subheader("Bienvenidos")
