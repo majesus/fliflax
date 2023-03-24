@@ -58,8 +58,8 @@ if menu == "Acerca de":
     
     st.subheader("Bienvenidos")
     
-    st.write("El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
-    st.write("Nos organizamos en dos áreas principales: Organización de Empresas (69 profesores) y Comercialización e Investigación de Mercados (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en cinco facultades, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.")
+    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
+    st.write("Nos organizamos en dos áreas principales: **Organización de Empresas** (69 profesores) y **Comercialización e Investigación de Mercados (Marketing)** (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en **trece facultades**, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.")
     st.write("Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
     
     separador("#8DB4ED")
