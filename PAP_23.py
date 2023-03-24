@@ -93,11 +93,18 @@ if menu == "Acerca de":
 
 # Estudiantes
 elif menu == "Estudiantes":
+    # Insertar imagen
+    image = Image.open('img/uni_student.png')
+    st.image(image, caption='')
+    
     st.subheader("Estudiantes")
     st.markdown("")
     
 # Investigación
 elif menu == "Investigación":
+    # Insertar imagen
+    image = Image.open('img/uni_research.png')
+    st.image(image, caption='')
     
     # Lista de titulares
     titulares = [
@@ -191,6 +198,10 @@ elif menu == "Investigación":
  
 # Docencia
 elif menu == "Docencia":
+    # Insertar imagen
+    image = Image.open('img/uni_teacher.png')
+    st.image(image, caption='')
+    
     st.subheader("Docencia")
     st.markdown("Programas académicos, cursos, horarios y recursos para estudiantes.")
     
@@ -259,6 +270,10 @@ elif menu == "Personal":
     
 # Contacto
 elif menu == "Contacto":
+    # Insertar imagen
+    image = Image.open('img/uni_contact.png')
+    st.image(image, caption='')
+    
     import streamlit as st
 
     st.subheader("Dirección")
