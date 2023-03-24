@@ -365,28 +365,24 @@ elif menu == "Noticias":
     
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     
-    # Carga las noticias desde un archivo CSV
-    def cargar_noticias():
-        noticias = pd.read_csv("csv/noticias.csv")
-        return noticias
+    # Leer el archivo CSV
+    noticias = pd.read_csv("csv/noticias.csv")
 
-    # Mostrar una noticia en la aplicación
-    def mostrar_noticia(noticia):
+    # Mostrar título de la sección
+    st.title("Sección de noticias - Departamento universitario")
+
+    # Iterar sobre las noticias y mostrarlas
+    for _, noticia in noticias.iterrows():
         st.subheader(noticia["titulo"])
         st.write(noticia["fecha"])
         st.write(f"Autor: {noticia['autor']}")
         st.write(noticia["resumen"])
         st.write("---")
 
-    # Función para mostrar la sección de noticias
-    def mostrar_seccion_noticias():
-        st.title("Sección de noticias - Departamento universitario")
-        st.header("Noticias recientes")
+            noticias = cargar_noticias()
 
-        noticias = cargar_noticias()
+            for _, noticia in noticias.iterrows():
+                mostrar_noticia(noticia)
 
-        for _, noticia in noticias.iterrows():
-            mostrar_noticia(noticia)
-            
-    mostrar_seccion_noticias()
-            
+        mostrar_seccion_noticias()
+
