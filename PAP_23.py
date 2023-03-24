@@ -39,7 +39,7 @@ def separador(color):
 # Menú de navegación
 import streamlit as st
 from streamlit_option_menu import option_menu
-menu = option_menu(None, ["Inicio", "Estudiar", "Investigar", "Enseñar", "Contactar", "Noticias"], 
+menu = option_menu(None, ["Inicio", "Investigar", "Enseñar", "Contactar", "Noticias"], 
     icons=['house', 'person-video', 'person-plus', "person-plus-fill", 'mailbox'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
@@ -361,13 +361,13 @@ elif menu == "Noticias":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.subheader("Enseñar")
+    st.subheader("Noticias")
     
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     
     # Carga las noticias desde un archivo CSV
     def cargar_noticias():
-        noticias = pd.read_csv("csv/noticias.csv")
+        noticias = pd.read_csv("noticias.csv")
         return noticias
 
     # Mostrar una noticia en la aplicación
@@ -378,8 +378,8 @@ elif menu == "Noticias":
         st.write(noticia["resumen"])
         st.write("---")
 
-    # Principal
-    def main():
+    # Función para mostrar la sección de noticias
+    def mostrar_seccion_noticias():
         st.title("Sección de noticias - Departamento universitario")
         st.header("Noticias recientes")
 
@@ -387,3 +387,6 @@ elif menu == "Noticias":
 
         for _, noticia in noticias.iterrows():
             mostrar_noticia(noticia)
+            
+    mostrar_seccion_noticias()
+            
