@@ -98,10 +98,11 @@ if menu == "Inicio":
     ]
 
     st.subheader("Áreas de conocimiento")
-    st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
-    for item in areas_conocimiento:
-        st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
-    st.markdown("</ul></div>", unsafe_allow_html=True)
+    # Establecer estilos personalizados para los elementos de la lista
+    custom_style = "font-family: Arial, sans-serif; font-size: 14px; line-height: 1;"
+    # Crear una lista utilizando la etiqueta <p>
+    for item in equipo_directivo:
+        st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
     st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
