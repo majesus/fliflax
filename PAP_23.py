@@ -366,7 +366,7 @@ elif menu == "Noticias":
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     
     # Leer el archivo CSV
-    noticias = pd.read_csv("noticias.csv")
+    noticias = pd.read_csv("csv/noticias.csv")
 
     # Mostrar título de la sección
     st.title("Sección de noticias - Departamento universitario")
