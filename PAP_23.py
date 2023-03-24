@@ -369,7 +369,7 @@ elif menu == "Noticias":
     noticias = pd.read_csv("csv/noticias.csv")
 
     # Mostrar título de la sección
-    st.title("Sección de noticias - Departamento universitario")
+    st.subheader("Principales noticias")
 
     # Iterar sobre las noticias y mostrarlas
     for _, noticia in noticias.iterrows():
