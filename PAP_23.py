@@ -39,7 +39,7 @@ def separador(color):
 # Menú de navegación
 import streamlit as st
 from streamlit_option_menu import option_menu
-menu = option_menu(None, ["Acerca de", "Estudiantes", "Investigación", "Docencia", "Contacto"], 
+menu = option_menu(None, ["Acerca", "Estudiantes", "Investigación", "Docencia", "Contacto"], 
     icons=['house', 'person-video', 'person-plus', "person-plus-fill", 'mailbox'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
@@ -51,7 +51,7 @@ menu = option_menu(None, ["Acerca de", "Estudiantes", "Investigación", "Docenci
 )
 
 # Inicio
-if menu == "Acerca de":
+if menu == "Acerca":
     # URL de la imagen
     url_imagen = "img/uni_about.png"
     # Insertar imagen
