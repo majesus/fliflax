@@ -39,7 +39,7 @@ def separador(color):
 # Menú de navegación
 import streamlit as st
 from streamlit_option_menu import option_menu
-menu = option_menu(None, ["Inicio", "Estudiar", "Investigar", "Enseñar", "Contactar"], 
+menu = option_menu(None, ["Inicio", "Estudiar", "Investigar", "Enseñar", "Contactar", "Noticias"], 
     icons=['house', 'person-video', 'person-plus', "person-plus-fill", 'mailbox'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
@@ -315,8 +315,6 @@ elif menu == "Contactar":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    import streamlit as st
-
     st.subheader("Dirección")
     st.markdown("AVDA. RAMÓN Y CAJAL, 1, 41018.")
     st.markdown("SEVILLA, ESPAÑA", unsafe_allow_html=True)
@@ -354,3 +352,38 @@ elif menu == "Contactar":
     with container:
         #st.write(data)
         st.map(data, use_container_width=True)                                      
+
+# Noticias
+elif menu == "Noticias":
+    # URL de la imagen
+    url_imagen = "img/uni_teacher.png"
+    # Insertar imagen
+    imagen = cargar_imagen(url_imagen)
+    st.image(imagen, caption='')
+    
+    st.subheader("Enseñar")
+    
+    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
+    
+    # Carga las noticias desde un archivo CSV
+    def cargar_noticias():
+        noticias = pd.read_csv("csv/noticias.csv")
+        return noticias
+
+    # Mostrar una noticia en la aplicación
+    def mostrar_noticia(noticia):
+        st.subheader(noticia["titulo"])
+        st.write(noticia["fecha"])
+        st.write(f"Autor: {noticia['autor']}")
+        st.write(noticia["resumen"])
+        st.write("---")
+
+    # Principal
+    def main():
+        st.title("Sección de noticias - Departamento universitario")
+        st.header("Noticias recientes")
+
+        noticias = cargar_noticias()
+
+        for _, noticia in noticias.iterrows():
+            mostrar_noticia(noticia)
