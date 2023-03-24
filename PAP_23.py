@@ -367,7 +367,7 @@ elif menu == "Noticias":
     
     # Carga las noticias desde un archivo CSV
     def cargar_noticias():
-        noticias = pd.read_csv("noticias.csv")
+        noticias = pd.read_csv("csv/noticias.csv")
         return noticias
 
     # Mostrar una noticia en la aplicación
