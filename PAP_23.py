@@ -39,7 +39,7 @@ def separador(color):
 # Menú de navegación
 import streamlit as st
 from streamlit_option_menu import option_menu
-menu = option_menu(None, ["Acerca", "Estudiantes", "Investigación", "Docencia", "Contacto"], 
+menu = option_menu(None, ["Inicio", "Estudiar", "Investigar", "Enseñar", "Contactar"], 
     icons=['house', 'person-video', 'person-plus', "person-plus-fill", 'mailbox'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
@@ -51,7 +51,7 @@ menu = option_menu(None, ["Acerca", "Estudiantes", "Investigación", "Docencia",
 )
 
 # Inicio
-if menu == "Acerca":
+if menu == "Inicio":
     # URL de la imagen
     url_imagen = "img/uni_about.png"
     # Insertar imagen
@@ -118,7 +118,7 @@ if menu == "Acerca":
     st.markdown("</ul>", unsafe_allow_html=True)
 
 # Estudiantes
-elif menu == "Estudiantes":
+elif menu == "Estudiar":
     # URL de la imagen
     url_imagen = "img/uni_student.png"
     # Insertar imagen
@@ -129,7 +129,7 @@ elif menu == "Estudiantes":
     st.markdown("")
     
 # Investigación
-elif menu == "Investigación":
+elif menu == "Investigar":
     # URL de la imagen
     url_imagen = "img/uni_research.png"
     # Insertar imagen
@@ -227,7 +227,7 @@ elif menu == "Investigación":
 
  
 # Docencia
-elif menu == "Docencia":
+elif menu == "Enseñar":
     # URL de la imagen
     url_imagen = "img/uni_teacher.png"
     # Insertar imagen
@@ -301,7 +301,7 @@ elif menu == "Personal":
         st.write("Selecciona al menos un área de conocimiento para ver sus componentes.")
     
 # Contacto
-elif menu == "Contacto":
+elif menu == "Contactar":
     # URL de la imagen
     url_imagen = "img/uni_contact.png"
     # Insertar imagen
