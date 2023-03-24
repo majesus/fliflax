@@ -5,7 +5,29 @@ from PIL import Image
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
 #st.image("img/fliflax-logo.jpg", width=200)
-st.title("Departamento de Administración de Empresas y Marketing")
+#st.title("Departamento de Administración de Empresas y Marketing")
+#----------------------------------------#
+# Función para descargar y almacenar imágenes en caché
+@st.cache
+def cargar_imagen(url):
+    response = requests.get(url, stream=True)
+    response.raise_for_status()
+    image = Image.open(response.raw)
+    return image
+
+# URL de la imagen
+url_imagen = "img/uni_logo_ademark.png"
+# Descargar imagen
+imagen = cargar_imagen(url_imagen)
+# Crear dos columnas
+col1, col2 = st.beta_columns(2)
+# Añadir imagen en la primera columna
+col1.image(imagen, width=600)
+# Añadir título en la segunda columna
+with col2:
+    st.title("Departamento de Administración de Empresas y Marketing")
+#----------------------------------------#
+
 st.markdown("---")
 
 # Separador estético personalizado
