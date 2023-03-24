@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 #----------------------------------------#
+
+#----------------------------------------#
+# Encabezado
+st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
+#st.image("img/fliflax-logo.jpg", width=200)
+#st.title("Departamento de Administración de Empresas y Marketing")
+
 # Añade estilos CSS personalizados
 st.markdown("""
 <style>
@@ -13,11 +20,6 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-#----------------------------------------#
-# Encabezado
-st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
-#st.image("img/fliflax-logo.jpg", width=200)
-#st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
