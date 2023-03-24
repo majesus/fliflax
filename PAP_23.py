@@ -125,7 +125,9 @@ elif menu == "Estudiar":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.subheader("Estudiantes")
+    st.subheader("Estudiar")
+    
+    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     st.markdown("")
     
 # Investigación
@@ -135,6 +137,10 @@ elif menu == "Investigar":
     # Insertar imagen
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
+    
+    st.subheader("Investigar")
+    
+    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     
     # Lista de titulares
     titulares = [
@@ -148,7 +154,7 @@ elif menu == "Investigar":
     ]
 
     # Título de la aplicación
-    st.subheader("Líneas de investigación en el área científica de Marketing")
+    st.subheader("Líneas de investigación en Marketing")
 
     # Mostrar titulares como una lista con interlineado ajustado
     st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
@@ -170,7 +176,7 @@ elif menu == "Investigar":
     ]
 
     # Título de la aplicación
-    st.subheader("Líneas de investigación en el área científica de Organización de Empresas")
+    st.subheader("Líneas de investigación en Organización de Empresas")
 
     # Mostrar titulares como una lista con interlineado ajustado
     st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
@@ -234,8 +240,9 @@ elif menu == "Enseñar":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.subheader("Docencia")
-    st.markdown("Programas académicos, cursos, horarios y recursos para estudiantes.")
+    st.subheader("Enseñar")
+    
+    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     
     # Diseño de la aplicación de Streamlit
     st.subheader("Ficha del docente")
