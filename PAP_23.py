@@ -99,11 +99,11 @@ if menu == "Inicio":
 
     custom_style = "font-family: Arial, sans-serif; font-size: 14px; padding-left: 20px; line-height: 1;"
     # Mostrar elementos como listas con interlineado ajustado
-    # Usar st.write() y html.escape() para mostrar la lista
-    st.write(f"<ul style='{custom_style}'>", unsafe_allow_html=True)
+    # Usar st.markdown() y html.escape() para mostrar la lista
+    st.markdown(f"<ul style='{custom_style}'>", unsafe_allow_html=True)
     for item in equipo_directivo:
-        st.write(f"<li>{html.escape(item)}</li>", unsafe_allow_html=True)
-    st.write("</ul>", unsafe_allow_html=True)
+        st.markdown(f"<li>{html.escape(item)}</li>", unsafe_allow_html=True)
+    st.markdown("</ul>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
     st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
