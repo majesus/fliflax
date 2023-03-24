@@ -97,12 +97,11 @@ if menu == "Inicio":
         "Facultad de Turismo y Finanzas",
     ]
 
-    custom_style = "font-family: Arial, sans-serif; font-size: 14px; padding-left: 20px; line-height: 1;"
-    # Utilizar una tabla en lugar de una lista
-    st.write(f"<table style='{custom_style}'>", unsafe_allow_html=True)
-    for item in equipo_directivo:
-        st.write(f"<tr><td style='padding-left: 20px;'>{item}</td></tr>", unsafe_allow_html=True)
-    st.write("</table>", unsafe_allow_html=True)
+    st.subheader("Áreas de conocimiento")
+    st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
+    for item in areas_conocimiento:
+        st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
+    st.markdown("</ul></div>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
     st.markdown("<div class='custom-list'><ul>", unsafe_allow_html=True)
