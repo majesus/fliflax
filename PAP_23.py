@@ -14,7 +14,7 @@ st.markdown("""
 <style>
 .custom-list {
     font-family: Arial, sans-serif;
-    font-size: 12px;
+    font-size: 10px;
     padding-left: 20px;
     line-height: 1;
 }
