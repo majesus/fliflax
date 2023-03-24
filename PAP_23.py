@@ -40,7 +40,7 @@ if menu == "Acerca de":
     st.write("Nos organizamos en dos áreas principales: Organización de Empresas (69 profesores) y Comercialización e Investigación de Mercados (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en cinco facultades, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.")
     st.write("Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
     
-    separador("#4f8bf9")
+    separador("#8DB4ED")
 
     # Título de la aplicación
     st.subheader("Datos de interés")
@@ -126,7 +126,7 @@ elif menu == "Investigación":
         st.markdown(f"<li>{i}. {titular}</li>", unsafe_allow_html=True)
     st.markdown("</ul>", unsafe_allow_html=True)
     
-    separador("#4f8bf9")
+    separador("#8DB4ED")
     
     # Lista de titulares
     titulares = [
@@ -148,7 +148,7 @@ elif menu == "Investigación":
         st.markdown(f"<li>{i}. {titular}</li>", unsafe_allow_html=True)
     st.markdown("</ul>", unsafe_allow_html=True)
     
-    separador("#4f8bf9")
+    separador("#8DB4ED")
     
     # Ficha del investigador
     st.subheader("Ficha del investigador/a")
