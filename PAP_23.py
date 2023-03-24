@@ -17,12 +17,14 @@ def cargar_imagen(url):
 url_imagen = "img/uni_logo_ademark.png"
 # Descargar imagen
 imagen = cargar_imagen(url_imagen)
-# Crear dos columnas
-col1, col2 = st.beta_columns(2)
-# Añadir imagen en la primera columna
-col1.image(imagen, width=150)
-# Añadir título en la segunda columna
-with col2:
+# Crear contenedores para la imagen y el título
+container_image = st.container()
+container_title = st.container()
+# Añadir imagen en el primer contenedor
+with container_image:
+    st.image(imagen, width=150)
+# Añadir título en el segundo contenedor
+with container_title:
     st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
 
