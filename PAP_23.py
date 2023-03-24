@@ -100,7 +100,7 @@ if menu == "Inicio":
 
     # Mostrar elementos como listas con interlineado ajustado
     st.subheader("Equipo directivo")
-    st.markdown("<p style='font-size: 14px; line-height: 1;'><ul style='padding-left: 20px; line-height: 1;'></p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 12px; line-height: 1;'><ul style='padding-left: 20px; line-height: 1;'></p>", unsafe_allow_html=True)
     for item in equipo_directivo:
         st.markdown(f"<li>{item}</li>", unsafe_allow_html=True)
     st.markdown("</ul>", unsafe_allow_html=True)
