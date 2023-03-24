@@ -105,12 +105,12 @@ if menu == "Inicio":
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1;"
+    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     st.subheader("Centros en los que se imparte la docencia")
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1;"
+    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
@@ -176,10 +176,9 @@ elif menu == "Investigar":
     st.subheader("Líneas de investigación en Organización de Empresas")
 
     # Mostrar titulares como una lista con interlineado ajustado
-    st.markdown("<ul style='padding-left: 20px; line-height: 1.5;'>", unsafe_allow_html=True)
-    for i, titular in enumerate(titulares, 1):
-        st.markdown(f"<li>{titular}</li>", unsafe_allow_html=True)
-    st.markdown("</ul>", unsafe_allow_html=True)
+    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
+    for titular in titulares:
+        st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
     
     separador("#8DB4ED")
     
