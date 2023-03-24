@@ -178,7 +178,7 @@ elif menu == "Investigar":
     # Mostrar titulares como una lista con interlineado ajustado
     custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     for titular in titulares:
-        st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'>{titular}</p>", unsafe_allow_html=True)
     
     separador("#8DB4ED")
     
