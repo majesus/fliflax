@@ -21,3 +21,4 @@ plotly.express
 
 requests 
 beautifulsoup4
+httpagentparser
