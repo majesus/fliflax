@@ -28,6 +28,8 @@ menu = option_menu(None, ["Acerca de", "Estudiantes", "Investigación", "Docenci
     }
 )
 
+@st.cache
+
 # Inicio
 if menu == "Acerca de":
     # Insertar imagen
