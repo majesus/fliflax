@@ -10,8 +10,6 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 # Función para descargar y almacenar imágenes en caché
 @st.cache
 def cargar_imagen(url):
-    #response = requests.get(url, stream=True)
-    #response.raise_for_status()
     image = Image.open(url_imagen)
     return image
 
