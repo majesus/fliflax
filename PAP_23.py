@@ -210,6 +210,7 @@ elif menu == "Investigar":
             st.markdown(f"<p style='{custom_style}'><b>Instituto de Inv.:</b> {professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Prog. Doctorado:</b> {professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['URL']}' target='_blank'>{professor_data['URL']}</a></p>", unsafe_allow_html=True)
+            separador("#B30A1B")
     else:
         st.write("")
 
@@ -222,27 +223,17 @@ elif menu == "Enseñar":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.subheader("Enseñar")
+    st.markdown(f"<p style='{custom_title}'>INVESTIGAR</p>", unsafe_allow_html=True)
     
-    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
+    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+
+    separador("#8DB4ED")
     
-    # Diseño de la aplicación de Streamlit
-    st.subheader("Ficha del docente")
+    # Ficha del docente
+    st.markdown(f"<p style='{custom_subtitle}'>Datos de nuestros/as docentes</p>", unsafe_allow_html=True)
     
     # Lectura de la tabla con los datos de perfil:
     df_result0 = pd.read_csv('csv/profesores_perfil.csv', sep=",")
-    
-    # Estilos CSS personalizados
-    st.markdown(
-        """
-        <style>
-            h2.custom-header {
-                color: steelblue;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
     
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
@@ -255,7 +246,7 @@ elif menu == "Enseñar":
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
-            st.markdown(f"<p style='{custom_style}'><h2 class='custom-header'>{index}</h2></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_subtitle}', color = '#8DB4ED'>{index}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Perfil de Prisma:</b> {professor_data['Perfil de Prisma']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
@@ -264,6 +255,7 @@ elif menu == "Enseñar":
             st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Centros:</b> {professor_data['Centros']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Asignaturas:</b> {professor_data['Asignaturas']}</p>", unsafe_allow_html=True)
+            separador("#B30A1B")
     else:
         st.write("")
 
