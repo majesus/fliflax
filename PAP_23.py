@@ -7,7 +7,17 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.image("img/fliflax-logo.jpg", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
+def custom_css(font_family):
+    st.markdown(f"""
+    <style>
+        /* Aplicar la fuente a elementos específicos de Streamlit */
+        .stApp {{
+            font-family: {font_family};
+        }}
+    </style>
+    """, unsafe_allow_html=True)
 
+custom_css("Bahnschrift Light")
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
