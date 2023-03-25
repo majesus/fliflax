@@ -235,20 +235,20 @@ elif menu == "Investigar":
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
-            st.markdown(f"<p style='{custom_style}'>{index}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'>{professor_data['Categoría']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'>{professor_data['Email']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'>{professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'>{professor_data['Departamento']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='<h2 class='custom-header'>{custom_style}</h2>'>{index}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='**Categoría:** {custom_style}'>{professor_data['Categoría']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='**Email:** {custom_style}'>{professor_data['Email']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='**Área de Conocimiento:** {custom_style}'>{professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='**Departamento:** {custom_style}'>{professor_data['Departamento']}</p>", unsafe_allow_html=True)
 
             # Comprueba si el valor de 'Grupo' no coincide con el patrón de números y guiones
             grupo_str = str(professor_data['Grupo'])
             if not re.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}', grupo_str):
-                st.write(f"<p style='{custom_style}'>{professor_data['Grupo']}</p>", unsafe_allow_html=True)
+                st.write(f"<p style='{custom_style}'>**Grupo:** {professor_data['Grupo']}</p>", unsafe_allow_html=True)
 
-            st.markdown(f"<p style='{custom_style}'>{professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'>{professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'>{professor_data['URL']}]({professor_data['URL']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'>**Instituto de Inv.:** {professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'>**Prog. Doctorado:** {professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'>**Publicaciones:** {professor_data['URL']}]({professor_data['URL']}</p>", unsafe_allow_html=True)
 
     else:
         st.write("")
