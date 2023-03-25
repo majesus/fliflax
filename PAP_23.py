@@ -2,7 +2,15 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 #----------------------------------------#
+rom streamlit.components.v1 import html
 
+def on_message_received(msg):
+    device_type = msg
+    st.write(f"El dispositivo es: {device_type}")
+
+html_path = "device_detector.html"
+html_code = open(html_path, "r").read()
+html(html_code, width=0, height=0, scrolling=False, on_message=on_message_received)
 #----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
