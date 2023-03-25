@@ -8,6 +8,7 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
 custom_title = "font-family: Bahnschrift Light; font-size: 20px; line-height: 1.5;"
+custom_subtitle = "font-family: Bahnschrift Light; font-size: 16px; line-height: 1.5;"
 custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
@@ -97,17 +98,17 @@ if menu == "Inicio":
         "Facultad de Turismo y Finanzas",
     ]
 
-    st.markdown(f"<p style='{custom_title}'><b>Dirección</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'><b>Dirección</b></p>", unsafe_allow_html=True)
     # Establecer estilos personalizados para los elementos de la lista
     # Crear una lista utilizando la etiqueta <p>
     for item in equipo_directivo:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_title}'><b>Áreas de conocimiento</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'><b>Áreas de conocimiento</b></p>", unsafe_allow_html=True)
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_title}'><b>Centros en los que imparte docencia</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'><b>Centros en los que imparte docencia</b></p>", unsafe_allow_html=True)
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
