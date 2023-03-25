@@ -248,7 +248,7 @@ elif menu == "Investigar":
 
             st.markdown(f"<p style='{custom_style}'>{professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'>{professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'>{professor_data['URL']}]({professor_data['URL']}</p>", unsafe_allow_html=True)
 
     else:
         st.write("")
