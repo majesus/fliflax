@@ -9,9 +9,10 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #----------------------------------------#
 def custom_css(font_family):
     st.markdown(f"""
+    <link href="https://fonts.googleapis.com/css?family={font_family.replace(' ', '+')}:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Aplicar la fuente a elementos específicos de Streamlit */
-        .stApp {{
+        /* Aplicar la fuente a elementos de Streamlit */
+        .css-2trqyj, .css-16e9ic5, .css-1v3j4io, .css-1jbc1sc, .css-8a0a9a {{
             font-family: {font_family};
         }}
     </style>
