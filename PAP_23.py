@@ -2,21 +2,26 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 #----------------------------------------#
-from streamlit.components.v1 import html
+import pyodide
 
-if 'device_type' not in st.session_state:
-    st.session_state.device_type = None
+js_code = """
+function detectDevice() {
+    const userAgent = navigator.userAgent;
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+    return isMobile ? 'mobile' : 'pc';
+}
+detectDevice();
+"""
 
-def on_message_received(msg):
-    st.session_state.device_type = msg
+def detect_device_type():
+    with pyodide.set_interrupt_buffer(allow_callbacks=True):
+        return pyodide.run_python(f"""
+from js import eval_js
+eval_js({js_code!r})
+""")
 
-if st.session_state.device_type is None:
-    html_path = "device_detector.html"
-    html_code = open(html_path, "r").read()
-    html(html_code, width=0, height=0, scrolling=False, on_message=on_message_received, key="device_detector")
-else:
-    st.write(f"El dispositivo es: {st.session_state.device_type}")
-
+device_type = detect_device_type()
+st.write(f"El dispositivo es: {device_type}")
 #----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
