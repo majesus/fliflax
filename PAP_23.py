@@ -9,7 +9,7 @@ def on_message_received(msg):
 
 html_path = "device_detector.html"
 html_code = open(html_path, "r").read()
-html(html_code, width=0, height=0, scrolling=False, on_message=on_message_received)
+html(html_code, width=0, height=0, scrolling=False, on_message=on_message_received, key="device_detector")
 #----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
