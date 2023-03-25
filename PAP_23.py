@@ -204,29 +204,6 @@ elif menu == "Investigar":
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
     selected_indices = st.multiselect('Selecciona el nombre del investigador/a:', df_result.index.unique())
-
-    import re
-    if selected_indices:
-        # Muestra la ficha del profesor seleccionado
-        for index in selected_indices:
-            professor_data = df_result.loc[index]
-
-            st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
-            st.write(f"**Categoría:** {professor_data['Categoría']}")
-            st.write(f"**Email:** {professor_data['Email']}")
-            st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
-            st.write(f"**Departamento:** {professor_data['Departamento']}")
-
-            # Comprueba si el valor de 'Grupo' no coincide con el patrón de números y guiones
-            grupo_str = str(professor_data['Grupo'])
-            if not re.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}', grupo_str):
-                st.write(f"**Grupo:** {professor_data['Grupo']}")
-
-            st.write(f"**Instituto de Inv.:** {professor_data['Instituto de Inv.']}")
-            st.write(f"**Prog. Doctorado:** {professor_data['Prog. Doctorado']}")
-            st.write(f"**Publicaciones:** [{professor_data['URL']}]({professor_data['URL']})")
-    else:
-        st.write("")
         
     import re
     if selected_indices:
@@ -249,7 +226,6 @@ elif menu == "Investigar":
             st.markdown(f"<p style='{custom_style}'><b>Instituto de Inv.:</b> {professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Prog. Doctorado:</b> {professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['URL']}' target='_blank'>{professor_data['URL']}</a></p>", unsafe_allow_html=True)
-
     else:
         st.write("")
 
@@ -305,6 +281,25 @@ elif menu == "Enseñar":
 
     else:
         st.write("Selecciona al menos un docente.")
+        
+    import re
+    if selected_indices:
+        # Muestra la ficha del profesor seleccionado
+        custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
+        for index in selected_indices:
+            professor_data = df_result.loc[index]
+
+            st.markdown(f"<p style='{custom_style}'><h2 class='custom-header'>{index}</h2></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Perfil de Prisma:</b> {professor_data['Perfil de Prisma']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Teléfono:</b> {professor_data['Teléfono']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Área de Conocimiento:</b> {professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Centros:</b> {professor_data['Centros']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Asignaturas:</b> {professor_data['Asignaturas']}</p>", unsafe_allow_html=True)
+     else:
+        st.write("")
 
 # Personal
 elif menu == "Personal":
