@@ -56,7 +56,7 @@ if menu == "Inicio":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    custom_title = "font-family: Bahnschrift Light; font-size: 16px; line-height: 1.5;"
+    custom_title = "font-family: Bahnschrift Light; font-size: 20px; line-height: 1.5;"
     st.markdown(f"<p style='{custom_title}'><b>Bienvenidos</b></p>", unsafe_allow_html=True)
     
     custom_style = "font-family: Bahnschrift Light; font-size: 14px; line-height: 1.5;"
