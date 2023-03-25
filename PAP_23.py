@@ -291,17 +291,15 @@ elif menu == "Contactar":
     st.image(imagen, caption='')
     
     st.markdown(f"<p style='{custom_title}'>CONTACTAR</p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='{custom_style}'>AVDA. RAMÓN Y CAJAL, 1, 41018, SEVILLA, ESPAÑA</p>", unsafe_allow_html=True)
-    
-    separador("#B30A1B")
 
-    st.subheader("Secretaría")
-    st.markdown("<p style='{custom_style}'>Teléfono: 954557575</p>", unsafe_allow_html=True)
-    st.markdown("<p style='{custom_style}'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
-    st.markdown("<p style='{custom_style}'>Horario de atención al público:</p>", unsafe_allow_html=True)
-    st.markdown("<p style='{custom_style}'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Secretaría</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>AVDA. Ramón y Cajal, n1, 41018, Sevilla, España</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Teléfono: 954557575</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Horario de atención al público:</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
 
-    st.markdown("<p style='{custom_style}'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
    
