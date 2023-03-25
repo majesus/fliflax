@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 #----------------------------------------#
+# Encabezado
+st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
+#st.image("img/fliflax-logo.jpg", width=200)
+#st.title("Departamento de Administración de Empresas y Marketing")
+#----------------------------------------#
 # Añadir CSS personalizado al encabezado de la página
 def custom_css(font_family):
     st.markdown(f"""
@@ -14,11 +19,6 @@ def custom_css(font_family):
 
 # Llamar a la función custom_css() y pasar el nombre de la fuente deseada
 custom_css("Roboto")
-#----------------------------------------#
-# Encabezado
-st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
-#st.image("img/fliflax-logo.jpg", width=200)
-#st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
