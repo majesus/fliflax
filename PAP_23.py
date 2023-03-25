@@ -278,7 +278,6 @@ elif menu == "Enseñar":
             st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
             st.write(f"**Centros:** {professor_data['Centros']}")
             st.write(f"**Asignaturas:** {professor_data['Asignaturas']}")
-
     else:
         st.write("Selecciona al menos un docente.")
         
@@ -298,7 +297,7 @@ elif menu == "Enseñar":
             st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Centros:</b> {professor_data['Centros']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Asignaturas:</b> {professor_data['Asignaturas']}</p>", unsafe_allow_html=True)
-     else:
+    else:
         st.write("")
 
 # Personal
