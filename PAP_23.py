@@ -315,10 +315,10 @@ elif menu == "Contactar":
     st.markdown(f"<p style='{custom_style}'>AVDA. RAMÓN Y CAJAL, 1, 41018, SEVILLA, ESPAÑA</p>", unsafe_allow_html=True)
 
     st.subheader("Secretaría")
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 14px; line-height: 1;'>Teléfono: 954557575</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 14px; line-height: 1;'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 14px; line-height: 1;'>Horario de atención al público:</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 14px; line-height: 1;'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Teléfono: 954557575</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Horario de atención al público:</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
 
     st.markdown("<p style='font-family: Arial, sans-serif; font-size: 14px; line-height: 1.2;'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
 
