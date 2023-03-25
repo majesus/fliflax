@@ -18,7 +18,7 @@ def custom_css(font_family):
     """, unsafe_allow_html=True)
 
 # Llamar a la función custom_css() y pasar el nombre de la fuente deseada
-custom_css("Roboto")
+custom_css("Times")
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
