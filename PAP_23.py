@@ -2,7 +2,18 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 #----------------------------------------#
+# Añadir CSS personalizado al encabezado de la página
+def custom_css(font_family):
+    st.markdown(f"""
+    <style>
+        body {{
+            font-family: {font_family};
+        }}
+    </style>
+    """, unsafe_allow_html=True)
 
+# Llamar a la función custom_css() y pasar el nombre de la fuente deseada
+custom_css("Roboto")
 #----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
@@ -25,7 +36,6 @@ col1, col2 = st.beta_columns([1, 3])  # La primera columna tendrá un ancho prop
 col1.image(imagen, width=150)
 # Añadir título en la segunda columna
 col2.title("Administración de Empresas y Marketing")
-
 #----------------------------------------#
 st.markdown("---")
 #----------------------------------------#
@@ -48,7 +58,7 @@ menu = option_menu(None, ["Inicio", "Investigar", "Enseñar", "Contactar", "Noti
         "nav-link-selected": {"background-color": "green"},
     }
 )
-
+#----------------------------------------#
 # Inicio
 if menu == "Inicio":
     # URL de la imagen
@@ -97,7 +107,7 @@ if menu == "Inicio":
         "Facultad de Turismo y Finanzas",
     ]
 
-    st.subheader("Áreas de conocimiento")
+    st.subheader("Dirección")
     # Establecer estilos personalizados para los elementos de la lista
     custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     # Crear una lista utilizando la etiqueta <p>
