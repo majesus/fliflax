@@ -358,8 +358,8 @@ elif menu == "Noticias":
         st.write(noticia["resumen"])
         st.write("---")
     for _, noticia in noticias.iterrows():
-        st.markdown(f"<p style='{custom_subtitle}'>{noticia["titulo"]}</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'>{noticia["fecha"]}</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'>{noticia['autor']}</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'>{noticia["resumen"]}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_subtitle}'>Título: {noticia['titulo']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'>Fecha: {noticia['fecha']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'>Autor: {noticia['autor']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'>Resumen: {noticia['resumen']}</p>", unsafe_allow_html=True)
         separador("#8DB4ED")
