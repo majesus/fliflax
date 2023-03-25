@@ -7,18 +7,17 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.image("img/fliflax-logo.jpg", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
-# Añadir CSS personalizado al encabezado de la página
 def custom_css(font_family):
     st.markdown(f"""
     <style>
-        body {{
+        /* Aplicar la fuente a elementos específicos de Streamlit */
+        .stApp {{
             font-family: {font_family};
         }}
     </style>
     """, unsafe_allow_html=True)
 
-# Llamar a la función custom_css() y pasar el nombre de la fuente deseada
-custom_css("Times")
+custom_css("Roboto")
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
