@@ -7,18 +7,6 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.image("img/fliflax-logo.jpg", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
-def custom_css(font_family):
-    st.markdown(f"""
-    <link href="https://fonts.googleapis.com/css?family={font_family.replace(' ', '+')}:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Aplicar la fuente a elementos de Streamlit */
-        .css-2trqyj, .css-16e9ic5, .css-1v3j4io, .css-1jbc1sc, .css-8a0a9a {{
-            font-family: {font_family};
-        }}
-    </style>
-    """, unsafe_allow_html=True)
-
-custom_css("Roboto")
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
@@ -109,18 +97,18 @@ if menu == "Inicio":
 
     st.subheader("Dirección")
     # Establecer estilos personalizados para los elementos de la lista
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
+    custom_style = "font-family: Roboto, Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     # Crear una lista utilizando la etiqueta <p>
     for item in equipo_directivo:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
+    custom_style = "font-family: Roboto, Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     st.subheader("Centros en los que se imparte la docencia")
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
+    custom_style = "font-family: Roboto, Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
