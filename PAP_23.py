@@ -263,23 +263,6 @@ elif menu == "Enseñar":
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
     selected_indices = st.multiselect('Selecciona el nombre del docente:', df_result.index.unique())
-
-    if selected_indices:
-        # Muestra la ficha del profesor seleccionado
-        for index in selected_indices:
-            professor_data = df_result.loc[index]
-
-            st.markdown(f"<h2 class='custom-header'>{index}</h2>", unsafe_allow_html=True)
-            st.write(f"**Categoría:** {professor_data['Categoría']}")
-            st.write(f"**Perfil de Prisma:** [{professor_data['Perfil de Prisma']}]({professor_data['Perfil de Prisma']})")
-            st.write(f"**Teléfono:** {professor_data['Teléfono']}")
-            st.write(f"**Email:** {professor_data['Email']}")
-            st.write(f"**Departamento:** {professor_data['Departamento']}")
-            st.write(f"**Área de Conocimiento:** {professor_data['Área de Conocimiento']}")
-            st.write(f"**Centros:** {professor_data['Centros']}")
-            st.write(f"**Asignaturas:** {professor_data['Asignaturas']}")
-    else:
-        st.write("Selecciona al menos un docente.")
         
     import re
     if selected_indices:
