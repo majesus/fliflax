@@ -7,7 +7,7 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.image("img/fliflax-logo.jpg", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
-custom_title = "font-family: Bahnschrift Light; font-size: 20px; line-height: 1.5;"
+custom_title = "font-family: Bahnschrift Light; font-size: 20px; line-height: 1.5; color: #B30A1B;"
 custom_subtitle = "font-family: Bahnschrift Light; font-size: 16px; line-height: 1.5;"
 custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
 #----------------------------------------#
@@ -57,14 +57,12 @@ if menu == "Inicio":
     # Insertar imagen
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
-    
-    st.markdown(f"<p style='{custom_title}'><b>Bienvenidos</b></p>", unsafe_allow_html=True)
-    
+        
     st.markdown(f"<p style='{custom_style}'>El Departamento de <b>Administración de Empresas y Marketing</b> es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'>Nos organizamos en dos áreas principales: <b>Organización de Empresas</b> (69 profesores) y <b>Comercialización e Investigación de Mercados (Marketing)</b> (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en <b>trece facultades</b>, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'>Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.</p>", unsafe_allow_html=True)
 
-    separador("#8DB4ED")
+    separador("#B30A1B")
 
     # Título de la aplicación
     st.markdown(f"<p style='{custom_title}'><b>Datos de interés</b></p>", unsafe_allow_html=True)
