@@ -67,7 +67,7 @@ if menu == "Inicio":
     separador("#B30A1B")
 
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_title}'><b>Datos de interés</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>Datos de interés</p>", unsafe_allow_html=True)
 
     # Lista de elementos
     equipo_directivo = [
@@ -104,11 +104,11 @@ if menu == "Inicio":
     for item in equipo_directivo:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_subtitle}'><b>Áreas de conocimiento</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Áreas de conocimiento</p>", unsafe_allow_html=True)
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_subtitle}'><b>Centros en los que imparte docencia</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Centros en los que imparte docencia</p>", unsafe_allow_html=True)
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
