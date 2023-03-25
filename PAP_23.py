@@ -17,7 +17,7 @@ def custom_css(font_family):
     </style>
     """, unsafe_allow_html=True)
 
-custom_css("Roboto")
+custom_css("Times")
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
