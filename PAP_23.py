@@ -223,7 +223,7 @@ elif menu == "Enseñar":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.markdown(f"<p style='{custom_title}'>INVESTIGAR</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>ENSEÑAR</p>", unsafe_allow_html=True)
     
     st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
 
@@ -237,12 +237,12 @@ elif menu == "Enseñar":
     
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
-    selected_indices = st.multiselect('Selecciona el nombre del docente:', df_result.index.unique())
+    st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
+    selected_indices = st.multiselect('', df_result.index.unique())
         
     import re
     if selected_indices:
         # Muestra la ficha del profesor seleccionado
-        custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
