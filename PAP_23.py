@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 #----------------------------------------#
-rom streamlit.components.v1 import html
-
+from streamlit.components.v1 import html
 def on_message_received(msg):
     device_type = msg
     st.write(f"El dispositivo es: {device_type}")
