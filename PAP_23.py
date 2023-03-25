@@ -135,7 +135,7 @@ elif menu == "Investigar":
     
     st.markdown(f"<p style='{custom_title}'>INVESTIGAR</p>", unsafe_allow_html=True)
     
-    st.markdown(f"<p style='{custom_style}'>El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
 
     separador("#8DB4ED")
     
@@ -184,22 +184,11 @@ elif menu == "Investigar":
     
     # Lectura de la tabla con los datos de perfil:
     df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
-    
-    # Estilos CSS personalizados
-    st.markdown(
-        """
-        <style>
-            h2.custom-header {
-                color: steelblue;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    
+
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
-    selected_indices = st.multiselect('Selecciona el nombre del investigador/a:', df_result.index.unique())
+    st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
+    selected_indices = st.multiselect('', df_result.index.unique())
         
     import re
     if selected_indices:
@@ -207,7 +196,7 @@ elif menu == "Investigar":
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
-            st.markdown(f"<p style='{custom_style}'><h2 class='custom-header'>{index}</h2></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>{index}</b></p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Área de Conocimiento:</b> {professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
