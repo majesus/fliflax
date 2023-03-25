@@ -210,7 +210,7 @@ elif menu == "Investigar":
             st.markdown(f"<p style='{custom_style}'><b>Instituto de Inv.:</b> {professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Prog. Doctorado:</b> {professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['URL']}' target='_blank'>{professor_data['URL']}</a></p>", unsafe_allow_html=True)
-            separador("#B30A1B")
+            separador("#8DB4ED")
     else:
         st.write("")
 
@@ -255,7 +255,7 @@ elif menu == "Enseñar":
             st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Centros:</b> {professor_data['Centros']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Asignaturas:</b> {professor_data['Asignaturas']}</p>", unsafe_allow_html=True)
-            separador("#B30A1B")
+            separador("#8DB4ED")
     else:
         st.write("")
 
@@ -290,18 +290,20 @@ elif menu == "Contactar":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.subheader("Dirección")
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
+    st.markdown(f"<p style='{custom_title}'>CONTACTAR</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'>AVDA. RAMÓN Y CAJAL, 1, 41018, SEVILLA, ESPAÑA</p>", unsafe_allow_html=True)
+    
+    separador("#8DB4ED")
 
     st.subheader("Secretaría")
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Teléfono: 954557575</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Horario de atención al público:</p>", unsafe_allow_html=True)
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
+    st.markdown("<p style='{custom_style}'>Teléfono: 954557575</p>", unsafe_allow_html=True)
+    st.markdown("<p style='{custom_style}'>Correo electrónico: empresa@us.es</p>", unsafe_allow_html=True)
+    st.markdown("<p style='{custom_style}'>Horario de atención al público:</p>", unsafe_allow_html=True)
+    st.markdown("<p style='{custom_style}'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
 
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.2;'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
-
+    st.markdown("<p style='{custom_style}'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
+    
+    separador("#8DB4ED")
    
     st.markdown("""
     <style>
@@ -336,15 +338,17 @@ elif menu == "Noticias":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.subheader("Noticias")
+    st.markdown(f"<p style='{custom_title}'>NOTICIAS</p>", unsafe_allow_html=True)
     
-    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
+    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+
+    separador("#8DB4ED")
     
     # Leer el archivo CSV
     noticias = pd.read_csv("csv/noticias.csv")
 
     # Mostrar título de la sección
-    st.subheader("Principales noticias")
+    st.markdown(f"<p style='{custom_subtitle}'>Principales noticias</p>", unsafe_allow_html=True)
 
     # Iterar sobre las noticias y mostrarlas
     for _, noticia in noticias.iterrows():
@@ -353,3 +357,9 @@ elif menu == "Noticias":
         st.write(f"Autor: {noticia['autor']}")
         st.write(noticia["resumen"])
         st.write("---")
+    for _, noticia in noticias.iterrows():
+        st.markdown(f"<p style='{custom_subtitle}'>{noticia["titulo"]}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'>{noticia["fecha"]}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'>{noticia['autor']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'>{noticia["resumen"]}</p>", unsafe_allow_html=True)
+        separador("#8DB4ED")
