@@ -2,26 +2,22 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 #----------------------------------------#
-import pyodide
-
-js_code = """
-function detectDevice() {
-    const userAgent = navigator.userAgent;
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-    return isMobile ? 'mobile' : 'pc';
-}
-detectDevice();
-"""
+import requests
 
 def detect_device_type():
-    with pyodide.set_interrupt_buffer(allow_callbacks=True):
-        return pyodide.run_python(f"""
-from js import eval_js
-eval_js({js_code!r})
-""")
+    try:
+        response = requests.get("https://extreme-ip-lookup.com/json/")
+        response.raise_for_status()
+        data = response.json()
+        device_type = "mobile" if "Mobile" in data["userAgent"] else "pc"
+        return device_type
+    except requests.exceptions.RequestException as e:
+        st.write(f"Error al obtener el tipo de dispositivo: {e}")
+        return None
 
 device_type = detect_device_type()
-st.write(f"El dispositivo es: {device_type}")
+if device_type is not None:
+    st.write(f"El dispositivo es: {device_type}")
 #----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
