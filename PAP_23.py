@@ -133,10 +133,10 @@ elif menu == "Investigar":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    st.subheader("Investigar")
+    st.markdown(f"<p style='{custom_title}'>INVESTIGAR</p>", unsafe_allow_html=True)
     
-    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
-    
+    st.markdown(f"<p style='{custom_style}'>El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+
     separador("#8DB4ED")
     
     # Lista de titulares
@@ -151,10 +151,9 @@ elif menu == "Investigar":
     ]
 
     # Título de la aplicación
-    st.subheader("Líneas de investigación en Marketing")
+    st.markdown(f"<p style='{custom_subtitle}'>Líneas de investigación en Marketing</p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     for titular in titulares:
         st.markdown(f"<p style='{custom_style}'>{titular}</p>", unsafe_allow_html=True)
     
@@ -172,17 +171,16 @@ elif menu == "Investigar":
     ]
 
     # Título de la aplicación
-    st.subheader("Líneas de investigación en Organización de Empresas")
+    st.markdown(f"<p style='{custom_subtitle}'>Líneas de investigación en Organización</p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
-    custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
     for titular in titulares:
         st.markdown(f"<p style='{custom_style}'>{titular}</p>", unsafe_allow_html=True)
     
     separador("#8DB4ED")
     
     # Ficha del investigador
-    st.subheader("Ficha del investigador/a")
+    st.markdown(f"<p style='{custom_subtitle}'>Datos de nuestros/as investigadores/as</p>", unsafe_allow_html=True)
     
     # Lectura de la tabla con los datos de perfil:
     df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
@@ -206,7 +204,6 @@ elif menu == "Investigar":
     import re
     if selected_indices:
         # Muestra la ficha del profesor seleccionado
-        custom_style = "font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;"
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
