@@ -8,7 +8,7 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
 custom_title = "font-family: Bahnschrift Light; font-size: 20px; line-height: 1.5; color: #B30A1B;"
-custom_subtitle = "font-family: Bahnschrift Light; font-size: 16px; line-height: 1.5;"
+custom_subtitle = "font-family: Bahnschrift Light; font-size: 16px; line-height: 1.5; color: #B30A1B;"
 custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
