@@ -7,7 +7,8 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.image("img/fliflax-logo.jpg", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
-
+custom_title = "font-family: Bahnschrift Light; font-size: 20px; line-height: 1.5;"
+custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
@@ -56,19 +57,16 @@ if menu == "Inicio":
     imagen = cargar_imagen(url_imagen)
     st.image(imagen, caption='')
     
-    custom_title = "font-family: Bahnschrift Light; font-size: 20px; line-height: 1.5;"
     st.markdown(f"<p style='{custom_title}'><b>Bienvenidos</b></p>", unsafe_allow_html=True)
     
-    custom_style = "font-family: Bahnschrift Light; font-size: 14px; line-height: 1.5;"
     st.markdown(f"<p style='{custom_style}'>El Departamento de <b>Administración de Empresas y Marketing</b> es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
-    #st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
-    st.write("Nos organizamos en dos áreas principales: **Organización de Empresas** (69 profesores) y **Comercialización e Investigación de Mercados (Marketing)** (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en **trece facultades**, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.")
-    st.write("Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.")
-    
+    st.markdown(f"<p style='{custom_style}'>Nos organizamos en dos áreas principales: <b>Organización de Empresas</b> (69 profesores) y <b>Comercialización e Investigación de Mercados (Marketing)</b> (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en <b>trece facultades</b>, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.</p>", unsafe_allow_html=True)
+
     separador("#8DB4ED")
 
     # Título de la aplicación
-    st.subheader("Datos de interés")
+    st.markdown(f"<p style='{custom_title}'><b>Datos de interés</b></p>", unsafe_allow_html=True)
 
     # Lista de elementos
     equipo_directivo = [
@@ -99,20 +97,17 @@ if menu == "Inicio":
         "Facultad de Turismo y Finanzas",
     ]
 
-    st.subheader("Dirección")
+    st.markdown(f"<p style='{custom_title}'><b>Dirección</b></p>", unsafe_allow_html=True)
     # Establecer estilos personalizados para los elementos de la lista
-    custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
     # Crear una lista utilizando la etiqueta <p>
     for item in equipo_directivo:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
-    st.subheader("Áreas de conocimiento")
-    custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
+    st.markdown(f"<p style='{custom_title}'><b>Áreas de conocimiento</b></p>", unsafe_allow_html=True)
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
-    st.subheader("Centros en los que se imparte la docencia")
-    custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
+    st.markdown(f"<p style='{custom_title}'><b>Centros en los que imparte docencia</b></p>", unsafe_allow_html=True)
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
