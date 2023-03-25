@@ -324,7 +324,7 @@ elif menu == "Contactar":
     st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Horario de atención al público:</p>", unsafe_allow_html=True)
     st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
 
-    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 14px; line-height: 1.2;'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-family: Arial, sans-serif; font-size: 12px; line-height: 1.2;'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
 
    
     st.markdown("""
