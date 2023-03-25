@@ -98,7 +98,7 @@ if menu == "Inicio":
         "Facultad de Turismo y Finanzas",
     ]
 
-    st.markdown(f"<p style='{custom_subtitle}'><b>Dirección</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Dirección</p>", unsafe_allow_html=True)
     # Establecer estilos personalizados para los elementos de la lista
     # Crear una lista utilizando la etiqueta <p>
     for item in equipo_directivo:
