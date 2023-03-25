@@ -98,18 +98,18 @@ if menu == "Inicio":
 
     st.subheader("Dirección")
     # Establecer estilos personalizados para los elementos de la lista
-    custom_style = "font-family: Roboto; font-size: 12px; line-height: 1.5;"
+    custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
     # Crear una lista utilizando la etiqueta <p>
     for item in equipo_directivo:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     st.subheader("Áreas de conocimiento")
-    custom_style = "font-family: Roboto; font-size: 12px; line-height: 1.5;"
+    custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     st.subheader("Centros en los que se imparte la docencia")
-    custom_style = "font-family: Roboto; font-size: 12px; line-height: 1.5;"
+    custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
