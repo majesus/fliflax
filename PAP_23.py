@@ -241,11 +241,20 @@ elif menu == "Enseñar":
     selected_indices = st.multiselect('', df_result.index.unique())
         
     import re
+    # Función para reemplazar "nan" por "No disponible"
+    def replace_nan(value):
+        if pd.isna(value):
+            return "No disponible"
+        return value
+
     if selected_indices:
-        # Muestra la ficha del profesor seleccionado
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
+            for key in professor_data.keys():
+                professor_data[key] = replace_nan(professor_data[key])
+
+            # El resto del código sigue igual
             st.markdown(f"<p style='{custom_subtitle}', color = '#8DB4ED'>{index}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['Perfil de Prisma']}' target='_blank'>{professor_data['Perfil de Prisma']}</a></p>", unsafe_allow_html=True)
