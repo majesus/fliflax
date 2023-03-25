@@ -346,6 +346,7 @@ elif menu == "Noticias":
     
     # Leer el archivo CSV
     noticias = pd.read_csv("csv/noticias.csv")
+    noticias = noticias.head(n = 10)
 
     # Mostrar título de la sección
     st.markdown(f"<p style='{custom_subtitle}'>Principales noticias</p>", unsafe_allow_html=True)
