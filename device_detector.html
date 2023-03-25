@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Detector</title>
+    <script>
+        function detectDevice() {
+            const userAgent = navigator.userAgent;
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+            return isMobile ? 'mobile' : 'pc';
+        }
+
+        // Sends the device type to the Python script
+        function sendMessage() {
+            window.parent.postMessage({type: 'streamlit', value: detectDevice()}, '*');
+        }
+    </script>
+</head>
+<body onload="sendMessage();">
+</body>
+</html>
