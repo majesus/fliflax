@@ -196,7 +196,7 @@ elif menu == "Investigar":
         for index in selected_indices:
             professor_data = df_result.loc[index]
 
-            st.markdown(f"<p style='{custom_style}'><b>{index}</b></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_subtitle}', color = '#8DB4ED'><b>{index}</b></p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Área de Conocimiento:</b> {professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
