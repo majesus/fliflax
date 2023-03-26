@@ -189,15 +189,16 @@ elif menu == "Investigar":
     separador("#B30A1B")
     
     # Lectura de la tabla con los datos de perfil:
+    import re
     df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
-
-    # Crear una lista de tuplas con el nombre del grupo y su URL correspondiente
-    grupos = list(df_result0[['Grupo', 'URL_grupo']].drop_duplicates().itertuples(index=False))
-
+    # Filtramos los grupos que no tienen la estructura deseada y eliminamos duplicados
+    grupos = df_result0.loc[~df_result0['Grupo'].str.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}'), ['Grupo', 'URL_grupo']].drop_duplicates()
+    # Convertir los nombres de los grupos en mayúsculas
+    grupos['Grupo'] = grupos['Grupo'].str.upper()
     st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
-    # Crear una lista utilizando la etiqueta <p>
-    for grupo, url_grupo in grupos:
-        st.markdown(f"<p style='{custom_style}'><a href='{url_grupo}' target='_blank'>{grupo}</a></p>", unsafe_allow_html=True)
+    # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
+    for index, row in grupos.iterrows():
+        st.markdown(f"<p style='{custom_style}'><a href='{row['URL_grupo']}' target='_blank'>{row['Grupo']}</a></p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
