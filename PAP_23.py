@@ -37,18 +37,24 @@ def separador(color):
     )
 #----------------------------------------#
 # Menú de navegación
-import streamlit as st
-from streamlit_option_menu import option_menu
-menu = option_menu(None, ["Inicio", "Investigar", "Enseñar", "Contactar", "Noticias"], 
-    icons=['house', 'person-video', 'person-plus', "person-plus-fill", 'mailbox'], 
-    menu_icon="cast", default_index=0, orientation="horizontal",
-    styles={
-        "container": {"padding": "0!important", "background-color": "#fafafa"},
-        "icon": {"color": "orange", "font-size": "12px"}, 
-        "nav-link": {"font-size": "11px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "green"},
-    }
-)
+custom_selectbox_style = """
+    <style>
+        .selectbox-container select {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #B30A1B;
+            background-color: #F5F5F5;
+            border: 1px solid #B30A1B;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+    </style>
+"""
+
+st.markdown(custom_selectbox_style, unsafe_allow_html=True)
+options = ["Inicio", "Investigar", "Enseñar", "Contactar", "Noticias"]
+selected_option = st.selectbox("Menú:", options, key="custom_selectbox", on_change=st.experimental_rerun)
 #----------------------------------------#
 # Inicio
 if menu == "Inicio":
