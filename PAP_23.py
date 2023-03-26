@@ -40,10 +40,10 @@ def separador(color):
 custom_selectbox_style = """
     <style>
         .selectbox-container select {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Bahnschrift Light', sans-serif;
             font-size: 16px;
             color: #B30A1B;
-            background-color: #F5F5F5;
+            background-color: #FFFFFF;
             border: 1px solid #B30A1B;
             border-radius: 5px;
             padding: 5px;
@@ -51,10 +51,10 @@ custom_selectbox_style = """
         }
     </style>
 """
-
+separador("#B30A1B")
 st.markdown(custom_selectbox_style, unsafe_allow_html=True)
 options = ["Inicio", "Investigar", "Enseñar", "Contactar", "Noticias"]
-menu = st.selectbox("Menú:", options, key="custom_selectbox")
+menu = st.selectbox("", options, key="custom_selectbox")
 separador("#B30A1B")
 #----------------------------------------#
 # Inicio
