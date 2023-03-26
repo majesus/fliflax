@@ -56,7 +56,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 options = ["Inicio", "Enseñar", "Investigar", "Contactar", "Noticias"]
-menu = st.selectbox("", options, key="custom_selectbox")
+menu = st.selectbox("", label='Menú', options, key="custom_selectbox")
 separador("#B30A1B")
 #----------------------------------------#
 # Inicio
