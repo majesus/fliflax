@@ -37,6 +37,16 @@ def separador(color):
     )
 #----------------------------------------#
 # Menú de navegación
+st.markdown(
+    """
+    <style>
+    [data-baseweb="select"] {
+        margin-top: -50px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 options = ["Inicio", "Enseñar", "Investigar", "Contactar", "Noticias"]
 menu = st.selectbox("", options, key="custom_selectbox")
 separador("#B30A1B")
