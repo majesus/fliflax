@@ -128,10 +128,10 @@ elif menu == "Estudiar":
 # Investigación
 elif menu == "Investigar":
     # URL de la imagen
-    url_imagen = "img/uni_research.png"
+    # url_imagen = "img/uni_research.png"
     # Insertar imagen
-    imagen = cargar_imagen(url_imagen)
-    st.image(imagen, caption='')
+    # imagen = cargar_imagen(url_imagen)
+    # st.image(imagen, caption='')
     
     st.markdown(f"<p style='{custom_title}'>INVESTIGAR</p>", unsafe_allow_html=True)
     
