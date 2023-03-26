@@ -51,7 +51,6 @@ custom_selectbox_style = """
         }
     </style>
 """
-separador("#B30A1B")
 st.markdown(custom_selectbox_style, unsafe_allow_html=True)
 options = ["Inicio", "Investigar", "Enseñar", "Contactar", "Noticias"]
 menu = st.selectbox("", options, key="custom_selectbox")
