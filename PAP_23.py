@@ -188,11 +188,11 @@ elif menu == "Investigar":
     
     separador("#B30A1B")
     
-    # Lectura de la tabla con los datos de perfil:
+    # Lectura de la tabla de Grupos con los datos de perfil:
     import re
     df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
-    # Filtramos los grupos que no tienen la estructura deseada y eliminamos duplicados
-    grupos = df_result0.loc[~df_result0['Grupo'].str.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}'), ['Grupo', 'URL_grupo']].drop_duplicates()
+    # Filtramos los grupos que finalizan con un paréntesis y un código alfanumérico y eliminamos duplicados
+    grupos = df_result0.loc[df_result0['Grupo'].str.contains(r'\([A-Z0-9]+\)$', regex=True), ['Grupo', 'URL_grupo']].drop_duplicates()
     # Convertir los nombres de los grupos en mayúsculas
     grupos['Grupo'] = grupos['Grupo'].str.upper()
     st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
