@@ -37,22 +37,7 @@ def separador(color):
     )
 #----------------------------------------#
 # Menú de navegación
-custom_selectbox_style = """
-    <style>
-        .selectbox-container select {
-            font-family: 'Bahnschrift Light', sans-serif;
-            font-size: 16px;
-            color: #B30A1B;
-            background-color: #FFFFFF;
-            border: 1px solid #B30A1B;
-            border-radius: 5px;
-            padding: 5px;
-            margin: 5px 0;
-        }
-    </style>
-"""
-st.markdown(custom_selectbox_style, unsafe_allow_html=True)
-options = ["Inicio", "Investigar", "Enseñar", "Contactar", "Noticias"]
+options = ["Inicio", "Enseñar", "Investigar", "Contactar", "Noticias"]
 menu = st.selectbox("", options, key="custom_selectbox")
 separador("#B30A1B")
 #----------------------------------------#
