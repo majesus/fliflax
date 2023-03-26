@@ -42,6 +42,14 @@ st.markdown(
     <style>
     [data-baseweb="select"] {
         margin-top: -50px;
+        font-family: 'Bahnschrift Light', sans-serif;
+        font-size: 16px;
+        color: #B30A1B;
+        background-color: #FFFFFF;
+        border: 1px solid #B30A1B;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 5px 0;
     }
     </style>
     """,
