@@ -54,7 +54,7 @@ custom_selectbox_style = """
 
 st.markdown(custom_selectbox_style, unsafe_allow_html=True)
 options = ["Inicio", "Investigar", "Enseñar", "Contactar", "Noticias"]
-selected_option = st.selectbox("Menú:", options, key="custom_selectbox", on_change=st.experimental_rerun)
+menu = st.selectbox("Menú:", options, key="custom_selectbox", on_change=st.experimental_rerun)
 #----------------------------------------#
 # Inicio
 if menu == "Inicio":
