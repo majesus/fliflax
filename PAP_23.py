@@ -214,7 +214,7 @@ elif menu == "Investigar":
             # Comprueba si el valor de 'Grupo' no coincide con el patrón de números y guiones
             grupo_str = str(professor_data['Grupo'])
             if not re.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}', grupo_str):
-                st.write(f"<p style='{custom_style}'><b>Grupo:</b> {professor_data['Grupo']}</p>", unsafe_allow_html=True)
+                st.write(f"<p style='{custom_style}'><b>Grupo:</b> <a href='{professor_data['URL_grupo']}' target='_blank'>{professor_data['Grupo']}</a></p>", unsafe_allow_html=True)
 
             st.markdown(f"<p style='{custom_style}'><b>Instituto de Inv.:</b> {professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='{custom_style}'><b>Prog. Doctorado:</b> {professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
