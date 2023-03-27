@@ -133,8 +133,7 @@ elif menu == "Estudiantes":
     
     st.markdown(f"<p style='{custom_title}'>ESTUDIANTES</p>", unsafe_allow_html=True)
 
-    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
-    st.markdown("") 
+    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
@@ -430,8 +429,7 @@ elif menu == "Oferta académica":
     
     st.markdown(f"<p style='{custom_title}'>OFERTA ACADÉMICA</p>", unsafe_allow_html=True)
 
-    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
-    st.markdown("") 
+    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
