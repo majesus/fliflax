@@ -146,6 +146,11 @@ elif menu == "Estudiantes":
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/15Acuerdo10.1.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa de Prácticas Académicas Externas de la Universidad de Sevilla (BOUS 3/2017, de 14 de junio)</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2017-09-27-Acuerdo4.1-CG-20-7-17.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa sobre Trabajos Fin de Estudios (BOUS 5/2017, de 27 de septiembre)</a></p>", unsafe_allow_html=True)
 
+    # Normativa_estudiantes
+    st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
+    with st.expander("Ver normativa"):
+        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta</a></p>", unsafe_allow_html=True)
+    
     separador("#B30A1B")
     
     # Leer el archivo CSV
