@@ -139,7 +139,7 @@ elif menu == "Estudiantes":
     
     # Normativa_estudiantes
     st.markdown(f"<p style='{custom_title}'>Normativa estudiantes</p>", unsafe_allow_html=True)
-    with st.expander(""):
+    with st.expander(f"<p style='{custom_subtitle}'>Ver normativa</p>", unsafe_allow_html=True):
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Reglamento General de Estudiantes (BOUS 4/2009, de 1 de abril)</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/Reglamento_General_Defensor_Universitario.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Reglamento General del Defensor Universitario (Acuerdo 1.2/CU 22-11-04)</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/norma_evaluac_calif_asig.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa reguladora de la evaluación y calificación de las asignaturas (texto consolidado; BOUS 2/2010, de 18 de marzo)</a></p>", unsafe_allow_html=True)
