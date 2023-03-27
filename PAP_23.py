@@ -211,6 +211,9 @@ elif menu == "Investigar":
     
     st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
 
+    imagen = 'img/uni_departamento_research.png'
+    st.image(imagen, width=1200)
+    
     separador("#B30A1B")
     
     # Lista de titulares
@@ -461,82 +464,4 @@ elif menu == "Noticias":
 
 
     separador("#B30A1B")
-        
-        
-    import networkx as nx
-    import streamlit as st
-    import matplotlib.pyplot as plt
-
-    def create_graph_from_titles(file_path):
-        with open(file_path, 'r') as file:
-            titles = file.readlines()
-
-        G = nx.Graph()
-
-        for title in titles:
-            title = title.strip()
-            tokens = title.split()
-
-            for token in tokens:
-                if token not in G:
-                    G.add_node(token)
-
-            for i in range(len(tokens) - 1):
-                G.add_edge(tokens[i], tokens[i + 1])
-
-        return G
-
-    def draw_graph(G):
-        pos = nx.spring_layout(G, seed=42)
-        plt.figure(figsize=(12, 8))
-        nx.draw(G, pos, with_labels=True, node_color="skyblue", font_size=10, font_weight="bold")
-        plt.title("Grafo de Tokens de Títulos")
-        st.pyplot(plt.gcf())  # Agrega esta línea para mostrar el grafo en Streamlit
-        
-    import networkx as nx
-    import streamlit as st
-    import matplotlib.pyplot as plt
-
-    def create_graph_from_titles(file_path):
-        with open(file_path, 'r') as file:
-            titles = file.readlines()
-
-        G = nx.Graph()
-
-        for title in titles:
-            title = title.strip()
-            tokens = title.split()
-
-            for token in tokens:
-                if token not in G:
-                    G.add_node(token)
-
-            for i in range(len(tokens) - 1):
-                G.add_edge(tokens[i], tokens[i + 1])
-
-        return G
-
-    def draw_graph(G):
-        pos = nx.spring_layout(G, seed=42)
-        plt.figure(figsize=(12, 8))
-        nx.draw(G, pos, with_labels=True, node_color="skyblue", font_size=10, font_weight="bold")
-        plt.title("Grafo de Tokens de Títulos")
-        st.pyplot(plt.gcf())  # Agrega esta línea para mostrar el grafo en Streamlit
-
-    def main():
-        st.title("Visualizador de Grafo de Tokens de Títulos")
-
-        uploaded_file = st.file_uploader("Carga un archivo TXT con los títulos de los artículos", type=["txt"])
-
-        if uploaded_file is not None:
-            file_details = {"filename": uploaded_file.name, "filetype": uploaded_file.type, "filesize": uploaded_file.size}
-            st.write(file_details)
-
-            with open("temp_titles.txt", "wb") as f:
-                f.write(uploaded_file.getvalue())
-
-            G = create_graph_from_titles("temp_titles.txt")
-            draw_graph(G)
-
-    if __name__ == "__main__":
-        main()
+ 
