@@ -24,4 +24,4 @@ beautifulsoup4
 httpagentparser
 
 networkx 
-spacy
+matplotlib
