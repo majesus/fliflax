@@ -120,6 +120,8 @@ if menu == "Inicio":
     st.markdown(f"<p style='{custom_subtitle}'>Centros en los que imparte docencia</p>", unsafe_allow_html=True)
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
+        
+    separador("#B30A1B")
 
 # Estudiantes
 elif menu == "Estudiar":
@@ -195,6 +197,7 @@ elif menu == "Estudiar":
 
         st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
 
+    separador("#B30A1B")
     
 # Investigación
 elif menu == "Investigar":
@@ -299,7 +302,8 @@ elif menu == "Investigar":
     else:
         st.write("")
 
- 
+    separador("#B30A1B")
+    
 # Docencia
 elif menu == "Docentes":
     # URL de la imagen
@@ -352,6 +356,8 @@ elif menu == "Docentes":
             separador("#B30A1B")
     else:
         st.write("")
+
+    separador("#B30A1B")
 
 # Personal
 elif menu == "Personal":
@@ -421,6 +427,8 @@ elif menu == "Contactar":
     with container:
         #st.write(data)
         st.map(data, use_container_width=True)                                      
+
+    separador("#B30A1B")
 
 # Noticias
 elif menu == "Noticias":
