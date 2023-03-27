@@ -143,15 +143,14 @@ elif menu == "Estudiar":
     noticias = noticias.head(n = 3)
 
     # Mostrar título de la sección
-    st.markdown(f"<p style='{custom_subtitle}'>Avisos</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>Avisos</p>", unsafe_allow_html=True)
 
     # Iterar sobre las noticias y mostrarlas
     for _, noticia in noticias.iterrows():
-        st.markdown(f"<p style='{custom_subtitle}'><b>Título:</b> {noticia['titulo']}</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><b>Fecha:</b> {noticia['fecha']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_subtitle}'><b>Título:</b> {noticia['titulo']} ({noticia['fecha']})</p>", unsafe_allow_html=True)
+        #st.markdown(f"<p style='{custom_style}'><b>Fecha:</b> {noticia['fecha']}</p>", unsafe_allow_html=True)
         #st.markdown(f"<p style='{custom_style}'><b>Autor:</b> {noticia['autor']}</p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'><b>Resumen:</b> {noticia['resumen']}</p>", unsafe_allow_html=True)
-        separador("#B30A1B")
     
     separador("#B30A1B")
     
