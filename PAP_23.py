@@ -129,7 +129,7 @@ elif menu == "Estudiar":
     # imagen = cargar_imagen(url_imagen)
     # st.image(imagen, caption='')
     
-    st.subheader("Estudiar")
+    st.markdown(f"<p style='{custom_title}'>ESTUDIAR</p>", unsafe_allow_html=True)
 
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     st.markdown("")
