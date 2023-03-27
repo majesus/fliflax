@@ -146,7 +146,7 @@ elif menu == "Estudiantes":
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/15Acuerdo10.1.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa de Prácticas Académicas Externas de la Universidad de Sevilla (BOUS 3/2017, de 14 de junio)</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2017-09-27-Acuerdo4.1-CG-20-7-17.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa sobre Trabajos Fin de Estudios (BOUS 5/2017, de 27 de septiembre)</a></p>", unsafe_allow_html=True)
 
-    # Normativa_estudiantes
+    # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
     with st.expander("Ver normativa"):
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta</a></p>", unsafe_allow_html=True)
@@ -302,6 +302,11 @@ elif menu == "Profesorado":
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2019-06-07-Acuerdo6.5-CG-30-5-19.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Reglamento para la elaboración de los Planes de Asignación de Profesorado a los Planes de Organización Docente (BOUS 8/2019, de 7 de junio)</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2022-07-06-Acuerdo6.1-CG-24-5-22.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa de dedicación académica del profesorado (BOUS 5/2022, de 6 de julio)</a></p>", unsafe_allow_html=True)
 
+    # Documentos_interés
+    st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
+    with st.expander("Ver normativa"):
+        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta</a></p>", unsafe_allow_html=True)
+    
     separador("#B30A1B")
     
     # Ficha del docente
