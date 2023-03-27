@@ -491,3 +491,34 @@ elif menu == "Noticias":
         plt.figure(figsize=(12, 8))
         nx.draw(G, pos, with_labels=True, node_color="skyblue", font_size=10, font_weight="bold")
         plt.title("Grafo de Tokens de Títulos")
+        st.pyplot(plt.gcf())  # Agrega esta línea para mostrar el grafo en Streamlit
+        
+    import networkx as nx
+import streamlit as st
+import matplotlib.pyplot as plt
+
+def create_graph_from_titles(file_path):
+    with open(file_path, 'r') as file:
+        titles = file.readlines()
+
+    G = nx.Graph()
+
+    for title in titles:
+        title = title.strip()
+        tokens = title.split()
+
+        for token in tokens:
+            if token not in G:
+                G.add_node(token)
+
+        for i in range(len(tokens) - 1):
+            G.add_edge(tokens[i], tokens[i + 1])
+
+    return G
+
+    def draw_graph(G):
+        pos = nx.spring_layout(G, seed=42)
+        plt.figure(figsize=(12, 8))
+        nx.draw(G, pos, with_labels=True, node_color="skyblue", font_size=10, font_weight="bold")
+        plt.title("Grafo de Tokens de Títulos")
+        st.pyplot(plt.gcf())  # Agrega esta línea para mostrar el grafo en Streamlit
