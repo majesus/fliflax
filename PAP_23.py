@@ -7,9 +7,9 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #st.image("img/fliflax-logo.jpg", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
-custom_title = "font-family: Bahnschrift Light; font-size: 23px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
-custom_subtitle = "font-family: Bahnschrift Light; font-size: 16px; line-height: 1.5; color: #B30A1B;"
-custom_style = "font-family: Bahnschrift Light; font-size: 12px; line-height: 1.5;"
+custom_title = "font-family: Bahnschrift Light; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
+custom_subtitle = "font-family: Bahnschrift Light; font-size: 18px; line-height: 1.5; color: #B30A1B;"
+custom_style = "font-family: Bahnschrift Light; font-size: 14px; line-height: 1.5;"
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
