@@ -55,7 +55,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-options = ["Inicio", "Enseñar", "Investigar", "Contactar", "Noticias"]
+options = ["Inicio", "Docentes", "Estudiar", "Investigar", "Contactar", "Noticias"]
 menu = st.selectbox("", options, key="custom_selectbox", label_visibility = "collapsed")
 separador("#B30A1B")
 #----------------------------------------#
@@ -133,6 +133,20 @@ elif menu == "Estudiar":
     
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     st.markdown("")
+
+    # Leer el archivo másteres.csv:
+    df_maestrias = pd.read_csv('másteres.csv')
+
+    # Mostrar el título "Másteres"
+    st.markdown(f"<p style='{custom_subtitle}'>Másteres</p>", unsafe_allow_html=True)
+
+    # Iterar sobre las filas del DataFrame y crear enlaces HTML
+    for _, row in df_maestrias.iterrows():
+        nombre_master = row['máster']
+        url_master = row['url']
+
+        st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
+
     
 # Investigación
 elif menu == "Investigar":
@@ -239,14 +253,14 @@ elif menu == "Investigar":
 
  
 # Docencia
-elif menu == "Enseñar":
+elif menu == "Docentes":
     # URL de la imagen
     # url_imagen = "img/uni_teacher.png"
     # Insertar imagen
     # imagen = cargar_imagen(url_imagen)
     # st.image(imagen, caption='')
     
-    st.markdown(f"<p style='{custom_title}'>ENSEÑAR</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>Docentes</p>", unsafe_allow_html=True)
     
     st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
 
