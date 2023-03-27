@@ -198,7 +198,7 @@ elif menu == "Investigar":
     # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
     # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
     for index, row in grupos.iterrows():
-        st.markdown(f"<p style='{custom_style}'><a href='{row['URL_grupo']}' target='_blank' style='text-decoration:none;'>{row['Grupo']}</a></p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><a href='{row['URL_grupo']}' target='_blank' style='text-decoration:none; color:inherit;'>{row['Grupo']}</a></p>", unsafe_allow_html=True)
 
     separador("#B30A1B")
     
