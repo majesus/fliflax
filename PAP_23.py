@@ -139,7 +139,7 @@ elif menu == "Estudiar":
     separador("#B30A1B")
     
     # Mostrar el título "Grados"
-    st.markdown(f"<p style='{custom_subtitle}'>Principales GRADOS en que participamos</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>GRADOS</b> en que participamos</p>", unsafe_allow_html=True)
     
     datos = [("Facultad de Ciencias Económicas y Empresariales", "https://fceye.us.es/",          
               [("Grado en Economía", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-economia"),           
@@ -173,7 +173,7 @@ elif menu == "Estudiar":
     df_maestrias = pd.read_csv('csv/masteres.csv', encoding='utf-8')
 
     # Mostrar el título "Másteres"
-    st.markdown(f"<p style='{custom_subtitle}'>Principales MÁSTERES en que participamos</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>MÁSTERES</b> en que participamos</p>", unsafe_allow_html=True)
 
     # Iterar sobre las filas del DataFrame y crear enlaces HTML
     for _, row in df_maestrias.iterrows():
@@ -188,7 +188,7 @@ elif menu == "Estudiar":
     df_maestrias = pd.read_csv('csv/doctorados.csv', encoding='utf-8')
 
     # Mostrar el título "Doctorasdos"
-    st.markdown(f"<p style='{custom_subtitle}'>Principales DOCTORADOS en que participamos</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>DOCTORADOS</b> en que participamos</p>", unsafe_allow_html=True)
 
     # Iterar sobre las filas del DataFrame y crear enlaces HTML
     for _, row in df_maestrias.iterrows():
