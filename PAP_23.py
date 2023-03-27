@@ -134,15 +134,15 @@ elif menu == "Estudiar":
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     st.markdown("")
 
-    # Leer el archivo másteres.csv:
-    df_maestrias = pd.read_csv('csv/másteres.csv')
+    # Leer el archivo masteres.csv:
+    df_maestrias = pd.read_csv('csv/masteres.csv')
 
     # Mostrar el título "Másteres"
     st.markdown(f"<p style='{custom_subtitle}'>Másteres</p>", unsafe_allow_html=True)
 
     # Iterar sobre las filas del DataFrame y crear enlaces HTML
     for _, row in df_maestrias.iterrows():
-        nombre_master = row['máster']
+        nombre_master = row['master']
         url_master = row['url']
 
         st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
