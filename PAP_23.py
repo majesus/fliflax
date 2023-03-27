@@ -80,10 +80,10 @@ if menu == "Inicio":
 
     # Lista de elementos
     equipo_directivo = [
-        "Director: Sánchez Franco, Manuel Jesús",
-        "Secretario: Calvo de Mora Schmidt, Arturo",
-        "Gestora: Martínez Medina, Silvia",
-        "Administrativa: Fernández Delgado, Ana",
+        "Director: Sánchez Franco, Manuel Jesús <majesus@us.es>",
+        "Secretario: Calvo de Mora Schmidt, Arturo <schmidt@us.es>",
+        "Gestora: Martínez Medina, Silvia <empresa@us.es>",
+        "Administrativa: Fernández Delgado, Ana <empresa@us.es>",
     ]
 
     areas_conocimiento = [
