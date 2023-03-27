@@ -268,6 +268,7 @@ elif menu == "Investigar":
     separador("#B30A1B")
     
     # Instituto de investigación:
+    st.markdown(f"<p style='{custom_subtitle}'>Instituto de investigación</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'><a href='http://centro.us.es/iusen/' target='_blank' style='text-decoration:none; color:inherit;'>Instituto de Economía y Negocios de la Universidad de Sevilla</a></p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
