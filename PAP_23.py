@@ -55,7 +55,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-options = ["Inicio", "Profesorado", "Estudiantes", "Investigación", "Contacto", "Noticias", "Oferta académica]
+options = ["Inicio", "Profesorado", "Estudiantes", "Investigación", "Contacto", "Noticias", "Oferta académica"]
 menu = st.selectbox("", options, key="custom_selectbox", label_visibility = "collapsed")
 separador("#B30A1B")
 #----------------------------------------#
