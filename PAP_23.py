@@ -179,6 +179,21 @@ elif menu == "Estudiar":
         url_master = row['url']
 
         st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
+        
+    separador("#B30A1B")
+    
+    # Leer el archivo doctorados.csv:
+    df_maestrias = pd.read_csv('csv/doctorados.csv', encoding='utf-8')
+
+    # Mostrar el título "Doctorasdos"
+    st.markdown(f"<p style='{custom_subtitle}'>Principales DOCTORADOS en que participamos</p>", unsafe_allow_html=True)
+
+    # Iterar sobre las filas del DataFrame y crear enlaces HTML
+    for _, row in df_maestrias.iterrows():
+        nombre_master = row['doctorado']
+        url_master = row['url']
+
+        st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
 
     
 # Investigación
