@@ -464,58 +464,30 @@ elif menu == "Noticias":
         
         
     import networkx as nx
-    import pandas as pd
-    import spacy
-
-    # Cargar modelo pre-entrenado de spaCy
-    nlp = spacy.load("es_core_news_sm")
-
-    # Leer los títulos de los artículos desde un DataFrame
-    df = pd.read_csv("csv/titulos.csv")
-    titulos = df["titulo"].tolist()
-
-    # Crear un grafo vacío
-    G = nx.Graph()
-
-    # Procesar cada título con spaCy y agregar los tokens como nodos del grafo
-    for titulo in titulos:
-        doc = nlp(titulo)
-        for token in doc:
-            # Solo agregar tokens que sean sustantivos o adjetivos
-            if token.pos_ in ["NOUN", "ADJ"]:
-                G.add_node(token.lemma_)
-
-    # Agregar las aristas del grafo (cada arista conecta dos tokens que aparecen juntos en un título)
-    for titulo in titulos:
-        doc = nlp(titulo)
-        tokens = [token.lemma_ for token in doc if token.pos_ in ["NOUN", "ADJ"]]
-        for i, token1 in enumerate(tokens):
-            for j in range(i+1, len(tokens)):
-                token2 = tokens[j]
-                if G.has_edge(token1, token2):
-                    # Si la arista ya existe, aumentar su peso
-                    G[token1][token2]["weight"] += 1
-                else:
-                    # Si la arista no existe, agregarla con un peso de 1
-                    G.add_edge(token1, token2, weight=1)
-
-    # Visualizar el grafo usando Streamlit y NetworkX
     import streamlit as st
-    from matplotlib.backends.backend_agg import RendererAgg
-    from matplotlib.figure import Figure
-    _lock = RendererAgg.lock
+    import matplotlib.pyplot as plt
 
-    st.title("Grafo de tokens en títulos de artículos")
+    def create_graph_from_titles(file_path):
+        with open(file_path, 'r') as file:
+            titles = file.readlines()
 
-    with _lock:
-        fig, ax = plt.subplots()
-        pos = nx.spring_layout(G, k=0.3)
-        node_sizes = [d * 50 for n, d in G.degree()]
-        edge_widths = [d["weight"] for (u, v, d) in G.edges(data=True)]
-        nx.draw_networkx_nodes(G, pos, node_size=node_sizes, node_color="#1f78b4")
-        nx.draw_networkx_edges(G, pos, width=edge_widths, edge_color="#a6cee3")
-        nx.draw_networkx_labels(G, pos, font_size=10, font_family="sans-serif")
-        ax.set_title("Grafo de tokens en títulos de artículos")
-        ax.axis("off")
+        G = nx.Graph()
 
-    st.pyplot(fig)
+        for title in titles:
+            title = title.strip()
+            tokens = title.split()
+
+            for token in tokens:
+                if token not in G:
+                    G.add_node(token)
+
+            for i in range(len(tokens) - 1):
+                G.add_edge(tokens[i], tokens[i + 1])
+
+        return G
+
+    def draw_graph(G):
+        pos = nx.spring_layout(G, seed=42)
+        plt.figure(figsize=(12, 8))
+        nx.draw(G, pos, with_labels=True, node_color="skyblue", font_size=10, font_weight="bold")
+        plt.title("Grafo de Tokens de Títulos")
