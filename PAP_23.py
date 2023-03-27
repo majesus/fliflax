@@ -453,6 +453,11 @@ elif menu == "Oferta académica":
     
     separador("#B30A1B")
     
+    st.markdown(f"<p style='{custom_title}'>Normativa universitaria</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/laUS/secretaria-general/normativas' target='_blank' style='text-decoration:none; color:inherit;'>Se recomienda consultar la siguiente normativa universitaria.</a></p>", unsafe_allow_html=True)
+    
+    separador("#B30A1B")
+    
     # Mostrar el título "Grados"
     st.markdown(f"<p style='{custom_subtitle}'>Principales <b>GRADOS</b> en que participamos</p>", unsafe_allow_html=True)
     
