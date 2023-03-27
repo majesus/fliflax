@@ -421,14 +421,14 @@ elif menu == "Noticias":
         separador("#B30A1B")
 
 # Estudiantes
-elif menu == "OFERTA ACADÉMICA":
+elif menu == "Oferta académica":
     # URL de la imagen
     # url_imagen = "img/uni_student.png"
     # Insertar imagen
     # imagen = cargar_imagen(url_imagen)
     # st.image(imagen, caption='')
     
-    st.markdown(f"<p style='{custom_title}'>ESTUDIAR</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>OFERTA ACADÉMICA</p>", unsafe_allow_html=True)
 
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     st.markdown("") 
