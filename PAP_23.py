@@ -156,11 +156,11 @@ elif menu == "Estudiar":
               [("Grado en Derecho", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-derecho")])]
     # Mostrar los datos
     for facultad in datos:
-        # Mostrar el título de la facultad
-        st.markdown(f"<p style='{custom_subtitle}'>{facultad[0]}</p>", unsafe_allow_html=True)
+    # Mostrar el título de la facultad con su enlace
+    st.markdown(f"<p style='{custom_subtitle}'><a href='{facultad[1]}' target='_blank' style='color: #B30A1B; text-decoration: none;'>{facultad[0]}</a></p>", unsafe_allow_html=True)
         # Mostrar los títulos en los que participa la facultad
         for titulo in facultad[2]:
-            st.markdown(f"<p style='{custom_style}'><a href='{titulo[1]}'>{titulo[0]}</a></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><a href='{titulo[1]}' target='_blank style='color: black; text-decoration: none;' >{titulo[0]}</a></p>", unsafe_allow_html=True)
         
     separador("#B30A1B")
     
