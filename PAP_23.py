@@ -135,7 +135,7 @@ elif menu == "Estudiar":
     st.markdown("")
 
     # Leer el archivo masteres.csv:
-    df_maestrias = pd.read_csv('csv/masteres.csv')
+    df_maestrias = pd.read_csv('csv/masteres.csv', encoding='utf-8')
 
     # Mostrar el título "Másteres"
     st.markdown(f"<p style='{custom_subtitle}'>Másteres</p>", unsafe_allow_html=True)
