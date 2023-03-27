@@ -429,7 +429,7 @@ elif menu == "Oferta académica":
     
     st.markdown(f"<p style='{custom_title}'>OFERTA ACADÉMICA</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_style}'>uestro departamento ofrece una amplia gama de programas y cursos de grado en ciencias sociales, con especial énfasis en administración de empresas y marketing. Nuestro enfoque académico se basa en el rigor teórico, la formación práctica y el desarrollo de habilidades transferibles, que permiten a nuestros estudiantes enfrentar los desafíos del mundo laboral con éxito y eficiencia.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Nuestro departamento ofrece una amplia gama de programas y cursos de grado en ciencias sociales, con especial énfasis en administración de empresas y marketing. Nuestro enfoque académico se basa en el rigor teórico, la formación práctica y el desarrollo de habilidades transferibles, que permiten a nuestros estudiantes enfrentar los desafíos del mundo laboral con éxito y eficiencia.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
