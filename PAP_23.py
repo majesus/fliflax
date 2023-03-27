@@ -55,7 +55,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-options = ["Inicio", "Profesorado", "Estudiantes", "Investigación", "Contacto", "Noticias", "Oferta académica"]
+options = ["Inicio", "Profesorado", "Oferta académica", "Estudiantes", "Investigación", "Contacto", "Noticias"]
 menu = st.selectbox("", options, key="custom_selectbox", label_visibility = "collapsed")
 separador("#B30A1B")
 #----------------------------------------#
@@ -131,7 +131,7 @@ elif menu == "Estudiantes":
     # imagen = cargar_imagen(url_imagen)
     # st.image(imagen, caption='')
     
-    st.markdown(f"<p style='{custom_title}'>ESTUDIAR</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>ESTUDIANTES</p>", unsafe_allow_html=True)
 
     st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
     st.markdown("") 
@@ -162,7 +162,7 @@ elif menu == "Investigación":
     # imagen = cargar_imagen(url_imagen)
     # st.image(imagen, caption='')
     
-    st.markdown(f"<p style='{custom_title}'>INVESTIGAR</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>INVESTIGACIÓN</p>", unsafe_allow_html=True)
     
     st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
     
@@ -273,7 +273,7 @@ elif menu == "Profesorado":
     # imagen = cargar_imagen(url_imagen)
     # st.image(imagen, caption='')
     
-    st.markdown(f"<p style='{custom_title}'>Docentes</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>PROFESORADO</p>", unsafe_allow_html=True)
     
     st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
 
@@ -421,7 +421,7 @@ elif menu == "Noticias":
         separador("#B30A1B")
 
 # Estudiantes
-elif menu == "Oferta académica":
+elif menu == "OFERTA ACADÉMICA":
     # URL de la imagen
     # url_imagen = "img/uni_student.png"
     # Insertar imagen
