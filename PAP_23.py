@@ -294,8 +294,7 @@ elif menu == "Profesorado":
     st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/norma_evaluac_calif_asig.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa reguladora de la evaluación y calificación de las asignaturas (texto consolidado; BOUS 2/2010, de 18 de marzo)</a></p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2019-06-07-Acuerdo6.5-CG-30-5-19.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Reglamento para la elaboración de los Planes de Asignación de Profesorado a los Planes de Organización Docente (BOUS 8/2019, de 7 de junio)</a></p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2022-07-06-Acuerdo6.1-CG-24-5-22.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa de dedicación académica del profesorado (BOUS 5/2022, de 6 de julio)</a></p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/norma_evaluac_calif_asig.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa reguladora de la evaluación y calificación de las asignaturas (texto consolidado; BOUS 2/2010, de 18 de marzo)</a></p>", unsafe_allow_html=True)
-    
+        
     separador("#B30A1B")
     
     # Ficha del docente
@@ -454,7 +453,7 @@ elif menu == "Oferta académica":
     separador("#B30A1B")
     
     st.markdown(f"<p style='{custom_title}'>Normativa universitaria</p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/laUS/secretaria-general/normativas' target='_blank' style='text-decoration:none; color:inherit;'>Se recomienda consultar la siguiente normativa universitaria.</a></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/laUS/secretaria-general/normativas' target='_blank' style='text-decoration:none; color:inherit;'>Se recomienda hacer CLIC para consultar la normativa universitaria.</a></p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
