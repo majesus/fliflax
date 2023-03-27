@@ -55,7 +55,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-options = ["Inicio", "Docentes", "Estudiar", "Investigar", "Contactar", "Noticias"]
+options = ["Inicio", "Profesorado", "Estudiantes", "Investigación", "Contacto", "Noticias", "Oferta académica]
 menu = st.selectbox("", options, key="custom_selectbox", label_visibility = "collapsed")
 separador("#B30A1B")
 #----------------------------------------#
@@ -124,7 +124,7 @@ if menu == "Inicio":
     separador("#B30A1B")
 
 # Estudiantes
-elif menu == "Estudiar":
+elif menu == "Estudiantes":
     # URL de la imagen
     # url_imagen = "img/uni_student.png"
     # Insertar imagen
@@ -154,69 +154,8 @@ elif menu == "Estudiar":
     
     separador("#B30A1B")
     
-    # Mostrar el título "Grados"
-    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>GRADOS</b> en que participamos</p>", unsafe_allow_html=True)
-    
-    datos = [("Facultad de Ciencias Económicas y Empresariales", "https://fceye.us.es/",          
-              [("Grado en Economía", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-economia"),           
-               ("Grado en Administración y Dirección de Empresas", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-administracion-y-direccion-de-empresas#edit-group-plani"),           ("Grado en Marketing e Investigación de Mercados", "https://departamento.us.es/daeep/docencia-facultad-de-ciencias-economicas-y-empresariales/#"),           ("Doble Grado en Derecho y en Economía", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/doble-grado-en-derecho-y-en-economia"),           ("Doble Grado en Administración y Dirección de Empresas y en Derecho", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/doble-grado-en-administracion-y-direccion-de-empresas-y-en")]),
-             ("Facultad de Turismo y Finanzas", "https://ftf.us.es/",
-              [("Grado en Turismo", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-turismo"),
-               ("Grado en Finanzas y Contabilidad", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-finanzas-y-contabilidad")]),
-             ("Facultad de Ciencias del Trabajo", "https://fct.us.es/",
-              [("Grado en Relaciones laborales y Recursos Humanos", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-relaciones-laborales-y-recursos-humanos")]),
-             ("Facultad de Comunicación", "https://fcom.us.es/",
-              [("Grado en Publicidad y Relaciones Públicas", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-publicidad-y-relaciones-publicas"),
-               ("Grado en Periodismo", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-periodismo"),
-               ("Grado en Comunicación Audiovisual", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-comunicacion-audiovisual")]),
-             ("Facultad de Ciencias de la Educación", "https://educacion.us.es/",
-              [("Grado en Ciencias de la Actividad Física y del Deporte", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-ciencias-de-la-actividad-fisica-y-del-deporte")]),
-             ("Facultad de Filosofía", "https://filosofia.us.es/",
-              [("Grado en Estudios de Asia Oriental por la Universidad de Sevilla", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-estudios-de-asia-oriental-por-la-universidad-de")]),
-             ("Facultad de Derecho", "https://derecho.us.es/",
-              [("Grado en Derecho", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-derecho")])]
-    # Mostrar los datos
-    for facultad in datos:
-        # Mostrar el título de la facultad con su enlace
-        st.markdown(f"<p style='{custom_subtitle}'><a href='{facultad[1]}' target='_blank' style='color: #B30A1B; text-decoration: none;'>{facultad[0]}</a></p>", unsafe_allow_html=True)
-        # Mostrar los títulos en los que participa la facultad
-        for titulo in facultad[2]:
-            st.markdown(f"<p style='{custom_style}'><a href='{titulo[1]}' target='_blank' style='color: black; text-decoration: none;'>{titulo[0]}</a></p>", unsafe_allow_html=True)   
-        
-    separador("#B30A1B")
-    
-    # Leer el archivo masteres.csv:
-    df_maestrias = pd.read_csv('csv/masteres.csv', encoding='utf-8')
-
-    # Mostrar el título "Másteres"
-    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>MÁSTERES</b> en que participamos</p>", unsafe_allow_html=True)
-
-    # Iterar sobre las filas del DataFrame y crear enlaces HTML
-    for _, row in df_maestrias.iterrows():
-        nombre_master = row['master']
-        url_master = row['url']
-
-        st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
-        
-    separador("#B30A1B")
-    
-    # Leer el archivo doctorados.csv:
-    df_maestrias = pd.read_csv('csv/doctorados.csv', encoding='utf-8')
-
-    # Mostrar el título "Doctorasdos"
-    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>DOCTORADOS</b> en que participamos</p>", unsafe_allow_html=True)
-
-    # Iterar sobre las filas del DataFrame y crear enlaces HTML
-    for _, row in df_maestrias.iterrows():
-        nombre_master = row['doctorado']
-        url_master = row['url']
-
-        st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
-
-    separador("#B30A1B")
-    
 # Investigación
-elif menu == "Investigar":
+elif menu == "Investigación":
     # URL de la imagen
     # url_imagen = "img/uni_research.png"
     # Insertar imagen
@@ -327,7 +266,7 @@ elif menu == "Investigar":
     separador("#B30A1B")
     
 # Docencia
-elif menu == "Docentes":
+elif menu == "Profesorado":
     # URL de la imagen
     # url_imagen = "img/uni_teacher.png"
     # Insertar imagen
@@ -405,7 +344,7 @@ elif menu == "Personal":
         st.write("Selecciona al menos un área de conocimiento para ver sus componentes.")
     
 # Contacto
-elif menu == "Contactar":
+elif menu == "Contacto":
     # URL de la imagen
     # url_imagen = "img/uni_contact.png"
     # Insertar imagen
@@ -481,6 +420,79 @@ elif menu == "Noticias":
         st.markdown(f"<p style='{custom_style}'><b>Resumen:</b> {noticia['resumen']}</p>", unsafe_allow_html=True)
         separador("#B30A1B")
 
+# Estudiantes
+elif menu == "Oferta académica":
+    # URL de la imagen
+    # url_imagen = "img/uni_student.png"
+    # Insertar imagen
+    # imagen = cargar_imagen(url_imagen)
+    # st.image(imagen, caption='')
+    
+    st.markdown(f"<p style='{custom_title}'>ESTUDIAR</p>", unsafe_allow_html=True)
+
+    st.write("El Departamento de **Administración de Empresas y Marketing** es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.")
+    st.markdown("") 
+    
+    separador("#B30A1B")
+    
+    # Mostrar el título "Grados"
+    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>GRADOS</b> en que participamos</p>", unsafe_allow_html=True)
+    
+    datos = [("Facultad de Ciencias Económicas y Empresariales", "https://fceye.us.es/",          
+              [("Grado en Economía", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-economia"),           
+               ("Grado en Administración y Dirección de Empresas", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-administracion-y-direccion-de-empresas#edit-group-plani"),           ("Grado en Marketing e Investigación de Mercados", "https://departamento.us.es/daeep/docencia-facultad-de-ciencias-economicas-y-empresariales/#"),           ("Doble Grado en Derecho y en Economía", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/doble-grado-en-derecho-y-en-economia"),           ("Doble Grado en Administración y Dirección de Empresas y en Derecho", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/doble-grado-en-administracion-y-direccion-de-empresas-y-en")]),
+             ("Facultad de Turismo y Finanzas", "https://ftf.us.es/",
+              [("Grado en Turismo", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-turismo"),
+               ("Grado en Finanzas y Contabilidad", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-finanzas-y-contabilidad")]),
+             ("Facultad de Ciencias del Trabajo", "https://fct.us.es/",
+              [("Grado en Relaciones laborales y Recursos Humanos", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-relaciones-laborales-y-recursos-humanos")]),
+             ("Facultad de Comunicación", "https://fcom.us.es/",
+              [("Grado en Publicidad y Relaciones Públicas", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-publicidad-y-relaciones-publicas"),
+               ("Grado en Periodismo", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-periodismo"),
+               ("Grado en Comunicación Audiovisual", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-comunicacion-audiovisual")]),
+             ("Facultad de Ciencias de la Educación", "https://educacion.us.es/",
+              [("Grado en Ciencias de la Actividad Física y del Deporte", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-ciencias-de-la-actividad-fisica-y-del-deporte")]),
+             ("Facultad de Filosofía", "https://filosofia.us.es/",
+              [("Grado en Estudios de Asia Oriental por la Universidad de Sevilla", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-estudios-de-asia-oriental-por-la-universidad-de")]),
+             ("Facultad de Derecho", "https://derecho.us.es/",
+              [("Grado en Derecho", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-derecho")])]
+    # Mostrar los datos
+    for facultad in datos:
+        # Mostrar el título de la facultad con su enlace
+        st.markdown(f"<p style='{custom_subtitle}'><a href='{facultad[1]}' target='_blank' style='color: #B30A1B; text-decoration: none;'>{facultad[0]}</a></p>", unsafe_allow_html=True)
+        # Mostrar los títulos en los que participa la facultad
+        for titulo in facultad[2]:
+            st.markdown(f"<p style='{custom_style}'><a href='{titulo[1]}' target='_blank' style='color: black; text-decoration: none;'>{titulo[0]}</a></p>", unsafe_allow_html=True)   
+        
+    separador("#B30A1B")
+    
+    # Leer el archivo masteres.csv:
+    df_maestrias = pd.read_csv('csv/masteres.csv', encoding='utf-8')
+
+    # Mostrar el título "Másteres"
+    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>MÁSTERES</b> en que participamos</p>", unsafe_allow_html=True)
+
+    # Iterar sobre las filas del DataFrame y crear enlaces HTML
+    for _, row in df_maestrias.iterrows():
+        nombre_master = row['master']
+        url_master = row['url']
+
+        st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
+        
+    separador("#B30A1B")
+    
+    # Leer el archivo doctorados.csv:
+    df_maestrias = pd.read_csv('csv/doctorados.csv', encoding='utf-8')
+
+    # Mostrar el título "Doctorasdos"
+    st.markdown(f"<p style='{custom_subtitle}'>Principales <b>DOCTORADOS</b> en que participamos</p>", unsafe_allow_html=True)
+
+    # Iterar sobre las filas del DataFrame y crear enlaces HTML
+    for _, row in df_maestrias.iterrows():
+        nombre_master = row['doctorado']
+        url_master = row['url']
+
+        st.markdown(f"<p style='{custom_style}'><a href='{url_master}' style='color: black; text-decoration: none;'>{nombre_master}</a></p>", unsafe_allow_html=True)
 
     separador("#B30A1B")
- 
+     
