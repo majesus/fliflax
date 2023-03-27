@@ -136,6 +136,9 @@ elif menu == "Estudiar":
 
     separador("#B30A1B")
     
+    # Mostrar el título "Grados"
+    st.markdown(f"<p style='{custom_subtitle}'>Grados</p>", unsafe_allow_html=True)
+    
     datos = [("Facultad de Ciencias Económicas y Empresariales", "https://fceye.us.es/",          
               [("Grado en Economía", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-economia"),           
                ("Grado en Administración y Dirección de Empresas", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-administracion-y-direccion-de-empresas#edit-group-plani"),           ("Grado en Marketing e Investigación de Mercados", "https://departamento.us.es/daeep/docencia-facultad-de-ciencias-economicas-y-empresariales/#"),           ("Doble Grado en Derecho y en Economía", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/doble-grado-en-derecho-y-en-economia"),           ("Doble Grado en Administración y Dirección de Empresas y en Derecho", "https://www.us.es/estudiar/que-estudiar/oferta-de-grados/doble-grado-en-administracion-y-direccion-de-empresas-y-en")]),
@@ -160,7 +163,7 @@ elif menu == "Estudiar":
         st.markdown(f"<p style='{custom_subtitle}'><a href='{facultad[1]}' target='_blank' style='color: #B30A1B; text-decoration: none;'>{facultad[0]}</a></p>", unsafe_allow_html=True)
         # Mostrar los títulos en los que participa la facultad
         for titulo in facultad[2]:
-            st.markdown(f"<p style='{custom_style}'><a href='{titulo[1]}' target='_blank style='color: black; text-decoration: none;' >{titulo[0]}</a></p>", unsafe_allow_html=True)   
+            st.markdown(f"<p style='{custom_style}'><a href='{titulo[1]}' target='_blank' style='color: black; text-decoration: none;'>{titulo[0]}</a></p>", unsafe_allow_html=True)   
         
     separador("#B30A1B")
     
