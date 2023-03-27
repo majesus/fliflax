@@ -133,7 +133,7 @@ elif menu == "Estudiantes":
     
     st.markdown(f"<p style='{custom_title}'>ESTUDIANTES</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Nuestro departamento se enorgullece de contar con un cuerpo estudiantil diverso y talentoso, que se dedica al estudio de las ciencias sociales con énfasis en administración de empresas y marketing. Los estudiantes de nuestra institución tienen la oportunidad de participar en actividades académicas y extracurriculares que enriquecen su experiencia educativa y fomentan su crecimiento personal y profesional.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
@@ -163,7 +163,7 @@ elif menu == "Investigación":
     
     st.markdown(f"<p style='{custom_title}'>INVESTIGACIÓN</p>", unsafe_allow_html=True)
     
-    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>La investigación es un componente esencial de la misión de nuestro departamento. Nuestros profesores y estudiantes colaboran en proyectos de investigación innovadores y de vanguardia en el campo de la administración de empresas y el marketing. Estos proyectos contribuyen al avance del conocimiento en nuestras áreas de especialización y proporcionan a nuestros estudiantes la oportunidad de desarrollar habilidades de investigación y aplicar sus conocimientos en contextos reales. Además, el departamento mantiene vínculos de colaboración con otras instituciones y organizaciones, nacionales e internacionales, lo que permite el intercambio de ideas y el enriquecimiento mutuo de nuestras líneas de investigación.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
@@ -274,7 +274,7 @@ elif menu == "Profesorado":
     
     st.markdown(f"<p style='{custom_title}'>PROFESORADO</p>", unsafe_allow_html=True)
     
-    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>El departamento cuenta con un destacado equipo de profesionales altamente capacitados y experimentados en el campo de la administración de empresas y el marketing. Nuestro profesorado se dedica a proporcionar una educación de alta calidad, basada en investigaciones y prácticas actuales, y está comprometido con el éxito académico y profesional de nuestros estudiantes.</p>", unsafe_allow_html=True)
 
     separador("#B30A1B")
     
@@ -350,7 +350,7 @@ elif menu == "Contacto":
     # imagen = cargar_imagen(url_imagen)
     # st.image(imagen, caption='')
     
-    st.markdown(f"<p style='{custom_title}'>CONTACTAR</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>CONTACTO</p>", unsafe_allow_html=True)
 
     st.markdown(f"<p style='{custom_subtitle}'>Secretaría</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'>Avda. Ramón y Cajal, n1, 41018, Sevilla, España</p>", unsafe_allow_html=True)
@@ -400,9 +400,9 @@ elif menu == "Noticias":
     
     st.markdown(f"<p style='{custom_title}'>NOTICIAS</p>", unsafe_allow_html=True)
     
-    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+    #st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
 
-    separador("#B30A1B")
+    #separador("#B30A1B")
     
     # Leer el archivo CSV
     noticias = pd.read_csv("csv/noticias.csv")
@@ -429,7 +429,7 @@ elif menu == "Oferta académica":
     
     st.markdown(f"<p style='{custom_title}'>OFERTA ACADÉMICA</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>uestro departamento ofrece una amplia gama de programas y cursos de grado en ciencias sociales, con especial énfasis en administración de empresas y marketing. Nuestro enfoque académico se basa en el rigor teórico, la formación práctica y el desarrollo de habilidades transferibles, que permiten a nuestros estudiantes enfrentar los desafíos del mundo laboral con éxito y eficiencia.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
