@@ -522,3 +522,21 @@ elif menu == "Noticias":
         nx.draw(G, pos, with_labels=True, node_color="skyblue", font_size=10, font_weight="bold")
         plt.title("Grafo de Tokens de Títulos")
         st.pyplot(plt.gcf())  # Agrega esta línea para mostrar el grafo en Streamlit
+
+    def main():
+        st.title("Visualizador de Grafo de Tokens de Títulos")
+
+        uploaded_file = st.file_uploader("Carga un archivo TXT con los títulos de los artículos", type=["txt"])
+
+        if uploaded_file is not None:
+            file_details = {"filename": uploaded_file.name, "filetype": uploaded_file.type, "filesize": uploaded_file.size}
+            st.write(file_details)
+
+            with open("temp_titles.txt", "wb") as f:
+                f.write(uploaded_file.getvalue())
+
+            G = create_graph_from_titles("temp_titles.txt")
+            draw_graph(G)
+
+    if __name__ == "__main__":
+        main()
