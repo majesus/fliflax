@@ -123,7 +123,7 @@ if menu == "Inicio":
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_subtitle}'>Centros en los que imparte docencia</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Centros en los que impartimos docencia</p>", unsafe_allow_html=True)
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
         
