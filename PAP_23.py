@@ -148,7 +148,7 @@ elif menu == "Estudiantes":
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
-    with st.expander("Ver normativa"):
+    with st.expander("Ver documentos de interés"):
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta</a></p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
