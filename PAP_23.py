@@ -150,7 +150,7 @@ elif menu == "Estudiantes":
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
     with st.expander("Ver documentos de interés"):
         st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}' color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
