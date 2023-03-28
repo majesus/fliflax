@@ -5,6 +5,7 @@ streamlit-on-Hover-tabs
 
 streamlit-echarts
 pyecharts
+altair
 
 pandas >= 1.0.5
 numpy >= 1.18.5
