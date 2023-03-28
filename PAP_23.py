@@ -118,11 +118,15 @@ if menu == "Inicio":
         st.markdown(f"<p style='{custom_style}'>Avda. Ramón y Cajal, n1, 41018, Sevilla, España</p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'>Teléfono: 954557575</p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'>Correo electrónico: empresa-us.es</p>", unsafe_allow_html=True)
-        
+    
+    separador("#B30A1B")
+    
     st.markdown(f"<p style='{custom_subtitle}'>Áreas de conocimiento</p>", unsafe_allow_html=True)
     for item in areas_conocimiento:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
-
+    
+    separador("#B30A1B")
+    
     st.markdown(f"<p style='{custom_subtitle}'>Centros en los que impartimos docencia</p>", unsafe_allow_html=True)
     for item in centros_docencia:
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
