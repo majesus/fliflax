@@ -223,14 +223,15 @@ elif menu == "Investigación":
     
     separador("#B30A1B")
     
-    with st.expander("Ver normativa"):
+    st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
+    with st.expander("Ver Grupos de investigación"):
         # Lectura de la tabla de Grupos con los datos de perfil:
         df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
         # Filtramos los grupos que finalizan con un paréntesis y un código alfanumérico y eliminamos duplicados
         grupos = df_result0.loc[df_result0['Grupo'].str.endswith(')'), ['Grupo', 'URL_grupo']].drop_duplicates()
         # Convertir los nombres de los grupos en mayúsculas
         grupos['Grupo'] = grupos['Grupo'].str.upper()
-        st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
+        
         # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
         # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
         for index, row in grupos.iterrows():
