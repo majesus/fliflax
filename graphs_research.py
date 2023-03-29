@@ -15,8 +15,8 @@ area_chart = go.Figure()
 area_chart.add_trace(go.Scatter(x=publications_by_year['Año'], y=publications_by_year['Número de Publicaciones'],
                                 mode='lines', line_shape='spline', fill='tozeroy', line=dict(smoothing=0.5)))
 
-area_chart.update_layout(title='Evolución del Número de Publicaciones por Año',
-                         xaxis=dict(range=[2000, 2023]), width=1200)
+area_chart.update_layout(title='Evolución del número de publicaciones por año [2000-2022]',
+                         xaxis=dict(range=[2000, 2022]), width=800)
 
 # Mostrar el gráfico en Streamlit
 st.plotly_chart(area_chart)
