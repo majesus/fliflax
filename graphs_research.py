@@ -2,7 +2,7 @@ import pandas as pd
 import altair as alt
 
 # Cargar tus datos desde el archivo CSV
-data = pd.read_csv("csv/dep_inv_prisma.txt", sep="_")
+data = pd.read_csv("csv/dep_inv_prisma.txt")
 st.write(data.head())
 
 # Calcular el número de publicaciones por año
