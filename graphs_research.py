@@ -36,4 +36,4 @@ line_chart = alt.Chart(publications_by_year).mark_line(
 combined_chart = area_chart + line_chart
 
 # Mostrar el gráfico combinado en Streamlit
-st.altair_chart(combined_chart)
+st.altair_chart(combined_chart, use_container=True)
