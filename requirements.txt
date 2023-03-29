@@ -11,6 +11,8 @@ pandas >= 1.0.5
 numpy >= 1.18.5
 scipy >= 1.6.1
 
+openpyxl
+
 tweepy
 git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 snscrape >= 0.3.4
