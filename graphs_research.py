@@ -6,7 +6,7 @@ data = pd.read_excel("csv/dep_inv_prisma.xlsx")
 st.write(data.columns)
 
 # Calcular el número de publicaciones por año
-publications_by_year = data.groupby(['Año de Publicación']).size().reset_index(name='Número de Publicaciones')
+publications_by_year = data.groupby(['Año']).size().reset_index(name='Número de Publicaciones')
 
 
 # Crear el gráfico de área apilada
