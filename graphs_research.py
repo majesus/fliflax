@@ -17,7 +17,8 @@ area_chart = alt.Chart(publications_by_year).mark_area(
     alt.Y('Número de Publicaciones:Q', stack=None)
 ).properties(
     title='Evolución del Número de Publicaciones por Año',
-    width=1200
+    width=1800,
+    height=300
 )
 
 # Crear el gráfico de líneas
@@ -27,7 +28,8 @@ line_chart = alt.Chart(publications_by_year).mark_line(
     alt.X('Año:Q', scale=alt.Scale(domain=[2000, 2023])),
     alt.Y('Número de Publicaciones:Q')
 ).properties(
-    width=1200
+    width=1800,
+    height=300
 )
 
 # Combinar los dos gráficos
