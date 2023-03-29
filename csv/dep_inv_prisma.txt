@@ -1,4 +1,4 @@
-Año_Autores_US_WOS_Scopus
+Año_AutoresUS_WOS_Scopus
 2023_Goldberg, Caren [8151]_WOS:000834720000001_2s2.085135208940
 2023_Leal-Rodríguez, Antonio L. [2157];Albort-Morant, Gema [5798]__2s2.085146671378
 2023_Irimia-Diéguez, A. [2026];Velicia-Martín, F. [4320];Aguayo-Camacho, M. [35]_WOS:000913771100003_2s2.085146318219
