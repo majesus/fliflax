@@ -17,7 +17,7 @@ def mostrar_grafico_area_suavizado():
 
   area_chart.update_layout(title='Evolución del número de publicaciones por año [2000-2022]',
                            xaxis=dict(range=[2000, 2022]), 
-                           width = 600)
+                           width = 650)
 
   # Mostrar el gráfico en Streamlit
   st.plotly_chart(area_chart)
