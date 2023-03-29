@@ -3,7 +3,7 @@ import altair as alt
 
 # Cargar tus datos desde el archivo CSV
 data = pd.read_csv("csv/departamento_inv_prisma.csv", sep=';')
-st.data(data)
+st.write(data)
 
 # Calcular el número de publicaciones por año para Cód. WOS y Cód. Scopus
 publications_by_year_wos = data[data['Cód. WOS'].notna()].groupby('Año de Publicación').size().reset_index(name='Número de Publicaciones WOS')
