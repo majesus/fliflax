@@ -23,7 +23,7 @@ area_chart = alt.Chart(publications_by_year).mark_area(
 # Crear el gráfico de la función de densidad
 density_chart = alt.Chart(publications_by_year).transform_density(
     density='Número de Publicaciones',
-    groupby=['Año de Publicación'],
+    groupby=['Año'],
     as_=['Año de Publicación', 'Número de Publicaciones']
 ).mark_area(
     opacity=0.3,
