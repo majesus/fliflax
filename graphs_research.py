@@ -14,7 +14,7 @@ area_chart = alt.Chart(publications_by_year).mark_area(
     opacity=0.5,
     line={'color': 'darkblue'}
 ).encode(
-    alt.X('Año:Q', axis=alt.Axis(format='d')),
+    alt.X('Año:Q', axis=alt.Axis(format='d'), scale=alt.Scale(domain=[2000, 2023])),
     alt.Y('Número de Publicaciones:Q', stack=None)
 ).properties(
     title='Evolución del Número de Publicaciones por Año'
@@ -29,7 +29,7 @@ density_chart = alt.Chart(publications_by_year).transform_density(
     opacity=0.3,
     color='darkgreen'
 ).encode(
-    alt.X('Año:Q'),
+    alt.X('Año:Q', scale=alt.Scale(domain=[2000, 2023])),
     alt.Y('Número de Publicaciones:Q')
 )
 
