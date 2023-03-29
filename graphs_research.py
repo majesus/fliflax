@@ -6,8 +6,8 @@ data = pd.read_csv("csv/departamento_inv_prisma.csv", sep=';')
 st.write(data.head()
 
 # Calcular el número de publicaciones por año para Cód. WOS y Cód. Scopus
-publications_by_year_wos = data[data['Cód. WOS'].notna()].groupby('Año de Publicación').size().reset_index(name='Número de Publicaciones WOS')
-publications_by_year_scopus = data[data['Cód. Scopus'].notna()].groupby('Año de Publicación').size().reset_index(name='Número de Publicaciones Scopus')
+publications_by_year_wos = data[data['Cód WOS'].notna()].groupby('Año de Publicación').size().reset_index(name='Número de Publicaciones WOS')
+publications_by_year_scopus = data[data['Cód Scopus'].notna()].groupby('Año de Publicación').size().reset_index(name='Número de Publicaciones Scopus')
 
 # Crear el gráfico de la función de densidad para Cód. WOS
 density_chart_wos = alt.Chart(publications_by_year_wos).transform_density(
