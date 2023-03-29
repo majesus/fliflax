@@ -18,7 +18,7 @@ def mostrar_grafico_area_suavizado():
     area_chart.update_layout(title='Evolución del número de publicaciones por año [2000-2022]',
                              xaxis=dict(range=[2000, 2022]),
                              width=650,
-                             annotations=[dict(xref='paper', yref='paper', x=0, y=-0.1,
+                             annotations=[dict(xref='paper', yref='paper', x=0, y=-0.5,
                                                xanchor='left', yanchor='bottom',
                                                text='Fuente: PRISMA, Universidad de Sevilla',
                                                font=dict(size=12),
