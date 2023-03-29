@@ -4,7 +4,7 @@ import altair as alt
 
 # Cargar tus datos desde el archivo CSV
 data = pd.read_csv("csv/dep_inv_prisma.txt")
-st.write(data.columns)
+st.write(data)
 
 # Calcular el número de publicaciones por año
 publications_by_year = data.groupby(['Año']).size().reset_index(name='Número de Publicaciones')
