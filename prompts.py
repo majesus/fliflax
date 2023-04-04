@@ -7,7 +7,7 @@ st.set_page_config(#layout="centered",
                    layout="wide",
                    page_title="Fliflax",
                    page_icon=img,
-                   initial_sidebar_state='expanded'
+                   #initial_sidebar_state='expanded'
                    )
 hide_menu_style = """
         <style>
