@@ -18,7 +18,7 @@ separador("#B30A1B")
 #------------------------------------------------#
 audience = st.text_input("Audiencia:", "")
 rol = st.multiselect("Rol de ChatGPT:", ["Académico", "Analista de datos", "Asesor financiero", "Asistente personal", "Cocinero", "Corrector de estilo / ortográfico", "Diseñador", "Escritor", "Guía de viaje", "Instrucciones de uso", "Nutricionista", "Programador", "Redactor publicitario", "Screenwriter", "Storyteller", "Traductor"], default=[])
-tone = st.selectbox("Tono de la respuesta:", ["", "Experto", "Formal", "Informal", "Divertido", "Serio", "Persuasivo"])
+tone = st.selectbox("Tono de la respuesta:", ["", "Experto", "Formal", "Relajado", "Cercano", "Divertido", "Serio", "Persuasivo"])
 objectives_tasks = st.text_input("Objetivos y tareas:", "")
 language = st.selectbox("Idioma:", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
 formato = st.selectbox("Formato de la respuesta:", ["", "Texto", "Bullet points", "Tabla"])
