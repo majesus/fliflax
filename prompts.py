@@ -34,7 +34,7 @@ st.write("""
         font-family: Bahnschrift Light, Segoe UI, Arial;
         font-size: 18px;
         line-height: 1.5;
-        color: #ffffff;
+        color: #000000;
     }
 </style>
 """, unsafe_allow_html=True)
