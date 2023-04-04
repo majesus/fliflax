@@ -56,7 +56,7 @@ col1, col2 = st.beta_columns([1, 3])  # La primera columna tendrá un ancho prop
 # Añadir imagen en la primera columna
 col1.image(imagen, width=150)
 # Añadir título en la segunda columna
-col2.markdown(f"<h1 style='{custom_title_black}'>Fliflax: Asistente de ChatGPT</h1>", unsafe_allow_html=True)
+col2.title("Fliflax: Asistente de ChatGPT")
 separador("#B30A1B")
 st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear tu prompt con tus deseos.")
 separador("#B30A1B")
