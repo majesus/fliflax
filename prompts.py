@@ -1,8 +1,4 @@
 import streamlit as st
-import openai
-
-# Configuración de API Key para OpenAI
-openai.api_key = "tu_api_key"
 
 # Título y descripción de la aplicación
 st.title("Asistente de Marketing con ChatGPT")
