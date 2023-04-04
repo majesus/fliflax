@@ -4,7 +4,7 @@ from PIL import Image
 img=Image.open('img/fliflax-logo.jpg')
 st.set_page_config(#layout="centered",
                    #theme="light",
-                   layout="wide",
+                   #layout="wide",
                    page_title="Fliflax",
                    page_icon=img,
                    #initial_sidebar_state='expanded'
