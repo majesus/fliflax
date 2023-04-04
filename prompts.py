@@ -100,8 +100,8 @@ if __name__ == '__main__':
     with st.expander("Prompt completo para ChatGPT."):
         text_area = st.sidebar.text_area("", full_prompt, key="prompt_text_area", height=300)
             
-        st.sidebar.markdown("1. Haz clic dentro del área de texto.")
-        st.sidebar.markdown("2. Utiliza `Ctrl+A` o `Cmd+A` para seleccionar todo el texto.")
-        st.sidebar.markdown("3. Copia el texto seleccionado con `Ctrl+C` o `Cmd+C`.")
-        st.sidebar.markdown("4. Pega el texto seleccionado con `Ctrl+V` o `Cmd+V` en [ChatGPT](http://ai.com).")
+        st.markdown("1. Haz clic dentro del área de texto.")
+        st.markdown("2. Utiliza `Ctrl+A` o `Cmd+A` para seleccionar todo el texto.")
+        st.markdown("3. Copia el texto seleccionado con `Ctrl+C` o `Cmd+C`.")
+        st.markdown("4. Pega el texto seleccionado con `Ctrl+V` o `Cmd+V` en [ChatGPT](http://ai.com).")
         
