@@ -40,6 +40,18 @@ st.write("""
 </style>
 """, unsafe_allow_html=True)
 #------------------------------------------------#
+# Aplicar estilos CSS personalizados solo al título en la segunda columna
+st.write("""
+<style>
+    #col2 .stApp-h1 {
+        font-family: Bahnschrift Light, Segoe UI, Arial;
+        font-size: 25px;
+        line-height: 1.5;
+        color: #000000;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Título y descripción de la aplicación
 # Función para descargar y almacenar imágenes en caché
 @st.cache
@@ -52,7 +64,7 @@ url_imagen = "img/fliflax-logo.jpg"
 # Descargar imagen
 imagen = cargar_imagen(url_imagen)
 # Crear dos columnas con anchos ajustados
-col1, col2 = st.beta_columns([1, 3])  # La primera columna tendrá un ancho proporcional de 1, y la segunda un ancho proporcional de 3
+col1, col2 = st.beta_columns([1, 3], key=["col1", "col2"])  # La primera columna tendrá un ancho proporcional de 1, y la segunda un ancho proporcional de 3
 # Añadir imagen en la primera columna
 col1.image(imagen, width=150)
 # Añadir título en la segunda columna
@@ -69,7 +81,7 @@ with st.expander("Preguntas prescindibles"):
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
-st.write("Escribe tu prompt. Puede contener distintos pasos.", "")
+st.write("Escribe tu prompt que puede contener distintos pasos si lo deseas.", "")
 prompt1 = st.text_area("Primer prompt (o único):", "")
 with st.expander("Pasos adicionales:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
