@@ -23,7 +23,7 @@ def separador(color):
         f'<hr style="border: 1px solid {color};">', unsafe_allow_html=True
     )
 #------------------------------------------------#
-custom_title_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #000000; font-weight: bold;"
+custom_title_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 40px; line-height: 1.5; color: #000000; font-weight: bold;"
 custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
 custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
