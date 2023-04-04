@@ -28,11 +28,11 @@ inject_restart_text = st.text_input("Texto de reinicio a inyectar:", "")
 #------------------------------------------------#
 # Construye el prompt completo
 def build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text, show_probabilities):
-    full_prompt = f"{prompt} [Audiencia: {audience}, Tono: {tone}, Objetivos y tareas: {objectives_tasks}, Idioma: {language}, Temperatura: {temperature}, Longitud máxima: {max_length}, Top P: {top_p}, Secuencia de parada: {stop_sequence}, Penalización de frecuencia: {frequency_penalty}, Penalización de presencia: {presence_penalty}, Mejor de: {best_of}, Texto inicial a inyectar: {inject_start_text}, Texto de reinicio a inyectar: {inject_restart_text}, Mostrar probabilidades: {show_probabilities}]"
+    full_prompt = f"{prompt} [Audiencia: {audience}, Tono: {tone}, Objetivos y tareas: {objectives_tasks}, Idioma: {language}, Temperatura: {temperature}, Longitud máxima: {max_length}, Top P: {top_p}, Secuencia de parada: {stop_sequence}, Penalización de frecuencia: {frequency_penalty}, Penalización de presencia: {presence_penalty}, Mejor de: {best_of}, Texto inicial a inyectar: {inject_start_text}, Texto de reinicio a inyectar: {inject_restart_text}]"
     return full_prompt
 
 # Modificar esta línea para incluir los parámetros adicionales
-full_prompt = build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text, show_probabilities)
+full_prompt = build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 #------------------------------------------------#
 st.write("Prompt completo para ChatGPT:")
 st.write(full_prompt)
