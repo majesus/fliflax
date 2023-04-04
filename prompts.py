@@ -15,6 +15,11 @@ st.title("Asistente de ChatGPT")
 st.write("Crea tus propios prompts y ajusta los parámetros para obtener respuestas precisas y relevantes.")
 separador("#B30A1B")
 #------------------------------------------------#
+# Comienza el prompt y elementos adicionales
+omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
+confirm = st.radio("¿Deseas que confirme que ha comprendido el prompt y los elementos adicionales?",('No', 'Sí'))
+detail = st.radio("La respuesta debe ser:",('Precisa', 'Creativa', 'Equilibrada'))
+#------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
 st.write("Escribe tu prompt. Puede contener distintos pasos.", "")
 prompt1 = st.text_input("Escribe tu prompt (o primer paso):", "")
@@ -22,14 +27,23 @@ with st.expander("Pasos adicionales:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
     prompt4 = st.text_input("Escribe tu cuarto paso:", "")
+    step = st.radio("¿Deseas que siga cada paso por orden?",('No', 'Sí'))
+separador("#B30A1B")
+#------------------------------------------------#
+# Añadir material complementario (por ejemplo, códigos)
+anexo = st.text_input("Incluye material complementario", "")
+#------------------------------------------------#
+contexto = st.text_input("Contexto:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 audience = st.text_input("Audiencia:", "")
 rol = st.multiselect("Rol de ChatGPT:", ["Académico", "Analista de datos", "Asesor financiero", "Asistente personal", "Cocinero", "Corrector de estilo / ortográfico", "Diseñador gráfico", "Diseñador web", "Diseñador multimedia", "Director de arte", "Editor de revista académica", "Escritor", "Estadístico", "Generador de prompts", "Guía de viaje", "Informático", "Interiorista", "Instrucciones de uso", "Matemático", "Nutricionista", "Programador", "Redactor publicitario", "Revisor de artículos académicos", "Screenwriter", "Storyteller", "Traductor"], default=[])
-tone = st.selectbox("Tono de la respuesta:", ["", "Experto", "Formal", "Relajado", "Cercano", "Divertido", "Serio", "Persuasivo"])
+tone = st.selectbox("Tono de la respuesta:", ["", "Experto", "Formal", "Profesional", "Informativo", "Relajado", "Cercano", "Divertido", "Serio", "Persuasivo", "Entusiasta"])
+author = st.text_input("Responde con el estilo de un/a autor/a conocido/a:", "")
 objectives_tasks = st.text_input("Objetivos y tareas:", "")
 language = st.selectbox("Idioma:", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
 formato = st.selectbox("Formato de la respuesta:", ["", "Texto", "Bullet points", "Tabla"])
+extension = st.selectbox("Longitud de la respuesta:", ["", "Corto", "Medio", "Largo"])
 separador("#B30A1B")
 #------------------------------------------------#
 with st.expander("Más parámetros:"):
@@ -69,7 +83,8 @@ with st.expander("Más parámetros:"):
     st.write("Inject restart text es un parámetro utilizado para agregar texto específico al reinicio de la respuesta generada. Este parámetro se utiliza para controlar el reinicio de la respuesta generada y para agregar contexto específico al reinicio de la respuesta.")
     st.write("Por ejemplo, si se establece un texto de reinicio como: Continuando nuestra conversación anterior..., el modelo generará una respuesta que comienza con esa frase para indicar que se está retomando una conversación anterior y agregar contexto a la respuesta.")
     inject_restart_text = st.text_input("Inject restart text:", "")
-    separador("#B30A1B")
+
+separador("#B30A1B")
 #------------------------------------------------#
 # Construye el prompt completo
 def build_full_prompt(prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text):
