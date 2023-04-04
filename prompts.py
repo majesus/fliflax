@@ -12,26 +12,40 @@ tone = st.selectbox("Tono de la respuesta:", ["", "Formal", "Informal", "Diverti
 objectives_tasks = st.text_input("Objetivos y tareas:", "")
 language = st.selectbox("Idioma:", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
 #------------------------------------------------#
-st.write("La temperatura es como la del horno. Al igual que un chef necesita ajustar el horno a la temperatura adecuada para hornear el pastel a la perfección, GPT necesita ajustar la temperatura al nivel adecuado para generar la historia más realista y coherente.")
+st.write("La temperatura es un parámetro utilizado en los modelos de lenguaje generativos para controlar la variabilidad en las respuestas generadas. Se refiere a la cantidad de aleatoriedad que se permite en la respuesta generada. Un valor más alto de temperatura genera respuestas más creativas y diversas, mientras que un valor más bajo produce respuestas más predecibles y cercanas a lo que ya ha sido visto en los datos de entrenamiento.")
+st.write("Por ejemplo, si se utiliza una temperatura alta en la generación de un texto, se pueden obtener respuestas como: El cielo es de color rosa, o Los gatos vuelan. Por otro lado, si se utiliza una temperatura baja, es más probable que la respuesta generada sea coherente y realista, como: El cielo es azul, o Los gatos no pueden volar.")
 temperature =st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.8, step=0.1)
-st.write("La longitud máxima es como el tamaño del molde. Del mismo modo que un chef debe elegir el molde adecuado para hornear la tarta, GPT debe establecer la longitud máxima para garantizar que la historia tenga la longitud adecuada y no se eternice.")
+
+st.write("La longitud máxima es el número máximo de tokens (palabras) permitidos en la respuesta generada. Este parámetro se utiliza para controlar la longitud de las respuestas generadas y evitar que sean demasiado largas o demasiado cortas.")
+st.write("Por ejemplo, si se establece una longitud máxima de 50 palabras, el modelo generará una respuesta que no supere esa cantidad.")
 max_length = st.slider("Maximum length:", min_value=10, max_value=4096, value=100, step=10)
-st.write("La P superior es como el tipo de molde. Al igual que un chef debe decidir el tipo de molde (redondo, cuadrado, etc.) en el que horneará el pastel, GPT debe establecer la p superior para generar la historia de la forma que considere más adecuada.")
+
+st.write("Top P es un parámetro utilizado para controlar la cantidad de opciones que el modelo tiene para elegir la siguiente palabra en una respuesta generada. Se refiere al porcentaje de las opciones más probables que el modelo considera para la siguiente palabra.")
+st.write("Por ejemplo, si se establece un valor Top P de 0.8, el modelo considerará las palabras con las 80% de mayor probabilidad para la siguiente palabra.")
 top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=0.9, step=0.1)
 
 st.write("La secuencia de parada es como el orden de los ingredientes. Al igual que un chef necesita añadir los ingredientes en el orden correcto, GPT necesita seguir la secuencia de pasos para generar la historia en el orden correcto.")
+st.write("La secuencia de parada se refiere a una cadena de texto que el modelo utilizará para detener la generación de texto. Es útil para controlar el tema o el enfoque de las respuestas generadas.")
 stop_sequence = st.text_input("Stop sequence:", "")
+
 st.write("La penalización por frecuencia es como utilizar demasiada sal. Al igual que un chef debe tener cuidado de no utilizar demasiada sal, GPT debe utilizar la penalización por frecuencia para evitar repetir palabras o frases con demasiada frecuencia en la historia.")
+st.write("Por ejemplo, si se establece una penalización de frecuencia, el modelo evitará generar respuestas que contengan muchas repeticiones de las mismas palabras.")
 frequency_penalty = st.slider("Frequency penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
-st.write("La penalización por presencia es como utilizar demasiado azúcar. Al igual que un chef debe tener cuidado de no utilizar demasiado azúcar, GPT necesita utilizar la penalización por presencia para evitar tener palabras o frases que no encajen en la historia.")
+
+st.write("La penalización de presencia es un parámetro utilizado para controlar la aparición de ciertas palabras o frases en las respuestas generadas. Este parámetro penaliza la aparición de ciertas palabras o frases en la respuesta generada.")
+st.write("Por ejemplo, si se establece una penalización de presencia para la palabra: política, el modelo evitará generar respuestas que contengan esa palabra o frases relacionadas con ese tema.")
 presence_penalty = st.slider("Presence penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
 
-st.write("El best of es como la presentación final del pastel. Al igual que un chef quiere presentar el pastel de la mejor manera posible, GPT quiere generar la mejor historia posible.")
+st.write("Best of se refiere a la cantidad de respuestas generadas que se presentan al usuario. Este parámetro permite seleccionar el número de respuestas más adecuadas a presentar al usuario.")
+st.write("Por ejemplo, si se establece un valor Best of de 5, el modelo generará 5 respuestas distintas y luego se presentarán las 5 opciones al usuario para que elija la que más le guste o la que mejor se ajuste a sus necesidades.")
 best_of = st.slider("Best of:", min_value=1, max_value=20, value=1, step=1)
 
-st.write("Son como decorar el pastel. Al igual que un chef puede añadir decoraciones para que la tarta tenga un aspecto más atractivo, GPT puede añadir texto para que la historia sea más interesante.")
+st.write("Inject start text es un parámetro utilizado para agregar texto específico al inicio de la respuesta generada. Este parámetro se utiliza para controlar el inicio de la respuesta generada y para agregar contexto específico al inicio de la respuesta.")
+st.write("Por ejemplo, si se establece un texto de inicio como: En respuesta a su pregunta sobre el clima..., el modelo generará una respuesta que comienza con esa frase para indicar que se está respondiendo a una pregunta específica.")
 inject_start_text = st.text_input("Inject start text:", "")
-st.write("Es como la prueba de sabor del pastel. Al igual que un chef puede probar el pastel para ver si necesita más azúcar o sal, GPT puede mostrar las probabilidades para ver si el texto generado es coherente y realista.")
+
+st.write("Inject restart text es un parámetro utilizado para agregar texto específico al reinicio de la respuesta generada. Este parámetro se utiliza para controlar el reinicio de la respuesta generada y para agregar contexto específico al reinicio de la respuesta.")
+st.write("Por ejemplo, si se establece un texto de reinicio como: Continuando nuestra conversación anterior..., el modelo generará una respuesta que comienza con esa frase para indicar que se está retomando una conversación anterior y agregar contexto a la respuesta.")
 inject_restart_text = st.text_input("Inject restart text:", "")
 # show_probabilities = st.checkbox("Show probabilities:")
 #------------------------------------------------#
