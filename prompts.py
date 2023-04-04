@@ -32,21 +32,21 @@ with st.expander("Pasos adicionales:"):
     step = st.radio("¿Deseas que siga cada paso por orden?",('No', 'Sí'))
 separador("#B30A1B")
 #------------------------------------------------#
-contexto = st.text_input("Contexto:", "")
+contexto = st.text_area("Contexto:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
-anexo = st.text_input("Incluye material complementario", "")
+anexo = st.text_area("Incluye material complementario", "")
 separador("#B30A1B")
 #------------------------------------------------#
 audience = st.text_input("¿A quién te diriges?", "")
 rol = st.multiselect("¿Qué rol deseas que asuma ChatGPT?", ["Académico", "Analista de datos", "Asesor financiero", "Asistente personal", "Cocinero", "Corrector de estilo / ortográfico", "Diseñador gráfico", "Diseñador web", "Diseñador multimedia", "Director de arte", "Editor de revista académica", "Escritor", "Estadístico", "Generador de prompts", "Guía de viaje", "Informático", "Interiorista", "Instrucciones de uso", "Matemático", "Nutricionista", "Programador", "Redactor publicitario", "Revisor de artículos académicos", "Screenwriter", "Storyteller", "Traductor"], default=[])
 tone = st.selectbox("¿Cuál debe ser el tono de la respuesta?", ["", "Experto", "Formal", "Profesional", "Informativo", "Relajado", "Cercano", "Divertido", "Serio", "Persuasivo", "Entusiasta"])
 author = st.text_input("Responde con el estilo de un/a autor/a conocido/a:", "")
-objectives_tasks = st.text_input("¿Cuáles son los objetivos que persigues preguntando, y las tareas necesarias para lograrlos?", "")
+objectives_tasks = st.text_area("¿Cuáles son los objetivos que persigues preguntando, y las tareas necesarias para lograrlos?", "")
 language = st.selectbox("¿En qué idoma deseas la respuesta?", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
 formato = st.selectbox("¿Cuál debe ser el formato de la respuesta?", ["", "Texto", "Bullet points", "Tabla"])
-extension = st.selectbox("¿QUé longitud deseas que tenga la respuesta?", ["", "Corto", "Medio", "Largo"])
+extension = st.selectbox("¿Qué longitud deseas que tenga la respuesta?", ["", "Corto", "Medio", "Largo"])
 separador("#B30A1B")
 #------------------------------------------------#
 with st.expander("Más parámetros:"):
@@ -90,11 +90,11 @@ with st.expander("Más parámetros:"):
 separador("#B30A1B")
 #------------------------------------------------#
 # Construye el prompt completo
-def build_full_prompt(prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text):
-    full_prompt = f"[Primer paso: {prompt1}. Segundo paso: {prompt2}. Tercer paso: {prompt3}. Cuarto paso: {prompt4}] [Audiencia: {audience}. Actúa como: {rol}, y emplea un tono: {tone}. Los objetivos y tareas de mi solicitud son: {objectives_tasks}. El idioma a emplear es: {language}. El formato de la respuesta debe ser: {formato}. El parámetro temperatura (parámetro: temperature) debe ser igual a: [{temperature}]. La extensión y duración de la respuesta (parámetro: maximum_length) NUNCA debe ser superior a: [{max_length}] tokens. Al generar tu respuesta elige siempre la siguiente palabra con probabilidad de al menos: [{top_p}]. Si te encuentras la siguiente cadena de texto: [{stop_sequence}], ¡para de escribir! De 0 (mayor repetición) a 2 (menor repetición) repite (aproximándose a 0) o evita repetir (aproximándose a 2) palabras en tu respuesta: [{frequency_penalty}]. De 0 (mayor repetición) a 2 (menor repetición) repite (aproximándose a 0) o evita (aproximándose a 2) las siguientes palabras: [{word_presence_penalty}], con un valor de: [{presence_penalty}]. Ofréceme un número de respuestas igual a: [{best_of}]. Y finalmente, comienza la respuesta con las siguientes palabras: [{inject_start_text}], y finaliza cada respuesta -independientemente de cuántas te haya pedido- siempre con las siguientes palabras: [{inject_restart_text}]]"
+def build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, author, prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text):
+    full_prompt = f"[{omit} olvida todo lo anterior. Y {step} sigue/sigas en tu respuesta los distintos prompts (o pasos) que te he facilitado. Importante: la respuesta {detail} debe ser altamente detallada. Contexto: {contexto}. Primer paso: {prompt1}. Segundo paso: {prompt2}. Tercer paso: {prompt3}. Cuarto paso: {prompt4}] [Audiencia: {audience}. Actúa como: {rol}, y emplea un tono: {tone}. Además, deseo que la respuesta sigua el estilo de: {author}. Los objetivos y tareas de mi solicitud son: {objectives_tasks}. El idioma a emplear es: {language}. El formato de la respuesta debe ser: {formato}. Adjunto material complementario: {anexo}.] [El parámetro temperatura (parámetro: temperature) debe ser igual a: [{temperature}]. La extensión y duración de la respuesta (parámetro: maximum_length) NUNCA debe ser superior a: [{max_length}] tokens. La extensión y duración de la respuesta debe ser: {extension}. Al generar tu respuesta elige siempre la siguiente palabra con probabilidad de al menos: [{top_p}]. Si te encuentras la siguiente cadena de texto: [{stop_sequence}], ¡para de escribir! De 0 (mayor repetición) a 2 (menor repetición) repite (aproximándose a 0) o evita repetir (aproximándose a 2) palabras en tu respuesta: [{frequency_penalty}]. De 0 (mayor repetición) a 2 (menor repetición) repite (aproximándose a 0) o evita (aproximándose a 2) las siguientes palabras: [{word_presence_penalty}], con un valor de: [{presence_penalty}]. Ofréceme un número de respuestas igual a: [{best_of}]. Y finalmente, comienza la respuesta con las siguientes palabras: [{inject_start_text}], y finaliza cada respuesta -independientemente de cuántas te haya pedido- siempre con las siguientes palabras: [{inject_restart_text}] [¿Me has comprendido? {confirm}]"
     return full_prompt
 
-full_prompt = build_full_prompt(prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
+full_prompt = build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, author, prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 
 if __name__ == '__main__':
     st.write("Prompt completo para ChatGPT. Haz clic sobre el texto, cópialo, y pégalo en la consola de [ChatGPT](http://ai.com).")
