@@ -16,10 +16,10 @@ st.write("Crea tus propios prompts y ajusta los parámetros para obtener respues
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
-st.write("Preguntas iniciales.", "")
-omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
-confirm = st.radio("¿Deseas que confirme que ha comprendido el prompt y los elementos adicionales?",('No', 'Sí'))
-detail = st.radio("La respuesta debe ser:",('Precisa', 'Creativa', 'Equilibrada'))
+with st.expander("Preguntas prescindibles"):
+    omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
+    confirm = st.radio("¿Deseas que confirme que ha comprendido el prompt y los elementos adicionales?",('No', 'Sí'))
+    detail = st.radio("La respuesta debe ser:",('Precisa', 'Creativa', 'Equilibrada'))
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
