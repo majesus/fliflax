@@ -96,15 +96,26 @@ def build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, a
 
 full_prompt = build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, author, prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 
-import clipboard
-
-def copy_to_clipboard(text):
-    clipboard.copy(text)
-    st.sidebar.success("Texto copiado al portapapeles")
+full_prompt = build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, author, prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 
 if __name__ == '__main__':
-    st.sidebar.write("Una vez que hayas configurado tu prmpot, copia el texto, y pégalo en la consola de [ChatGPT](http://ai.com).")
-    st.sidebar.write(full_prompt)
+    st.sidebar.write("Prompt completo para ChatGPT. Haz clic sobre el texto, cópialo, y pégalo en la consola de [ChatGPT](http://ai.com).")
+    text_area = st.sidebar.text_area("", full_prompt, key="prompt_text_area")
+    
+    st.sidebar.write("""
+    <script>
+        function copyText() {
+            const textArea = document.querySelector('#prompt_text_area');
+            textArea.select();
+            document.execCommand('copy');
+            alert('Texto copiado al portapapeles');
+        }
+    </script>
+    """, unsafe_allow_html=True)
 
     if st.sidebar.button("Copiar al portapapeles"):
-        copy_to_clipboard(full_prompt)
+        st.sidebar.write("""
+        <script>
+            copyText();
+        </script>
+        """, unsafe_allow_html=True)
