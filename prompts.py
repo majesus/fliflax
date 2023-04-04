@@ -8,7 +8,7 @@ def separador(color):
 #------------------------------------------------#
 
 # Título y descripción de la aplicación
-st.title("Asistente de Marketing con ChatGPT")
+st.title("Asistente de ChatGPT")
 st.write("Crea tus propios prompts y ajusta los parámetros para obtener respuestas precisas y relevantes.")
 separador("#B30A1B")
 #------------------------------------------------#
