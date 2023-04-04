@@ -71,7 +71,7 @@ with st.expander("Preguntas prescindibles"):
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
-st.write("Escribe tu prompt que puede contener distintos pasos si lo deseas.", "")
+st.write("Escribe tu cadena de entrada que guía la generación de texto del modelo.", "")
 prompt1 = st.text_area("Primer prompt (o único):", "")
 with st.expander("Pasos adicionales:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
@@ -101,19 +101,19 @@ st.write("Más parámetros")
 with st.expander("Temperature:"):
   st.write("La temperatura es un parámetro utilizado en los modelos de lenguaje generativos para controlar la variabilidad en las respuestas generadas. Se refiere a la cantidad de aleatoriedad que se permite en la respuesta generada. Un valor más alto de temperatura genera respuestas más creativas y diversas, mientras que un valor más bajo produce respuestas más predecibles y cercanas a lo que ya ha sido visto en los datos de entrenamiento.")
   st.write("Por ejemplo, si se utiliza una temperatura alta en la generación de un texto, se pueden obtener respuestas como: El cielo es de color rosa, o Los gatos vuelan. Por otro lado, si se utiliza una temperatura baja, es más probable que la respuesta generada sea coherente y realista, como: El cielo es azul, o Los gatos no pueden volar.")
-temperature =st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.8, step=0.1)
+temperature =st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
 separador("#B30A1B")
 
-with st.expander("Maximum length:"):
+with st.expander("Maximum tokens:"):
   st.write("La longitud máxima es el número máximo de tokens (palabras) permitidos en la respuesta generada. Este parámetro se utiliza para controlar la longitud de las respuestas generadas y evitar que sean demasiado largas o demasiado cortas.")
   st.write("Por ejemplo, si se establece una longitud máxima de 50 palabras, el modelo generará una respuesta que no supere esa cantidad.")
-max_length = st.slider("Maximum length:", min_value=10, max_value=4096, value=100, step=10)
+max_length = st.slider("Maximum length:", min_value=10, max_value=4096, value=1024, step=10)
 separador("#B30A1B")
 
 with st.expander("Top P:"):
   st.write("Top P es un parámetro utilizado para controlar la cantidad de opciones que el modelo tiene para elegir la siguiente palabra en una respuesta generada. Se refiere al porcentaje de las opciones más probables que el modelo considera para la siguiente palabra.")
   st.write("Por ejemplo, si se establece un valor Top P de 0.8, el modelo considerará las palabras con las 80% de mayor probabilidad para la siguiente palabra.")
-top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=0.9, step=0.1)
+top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=1, step=0.1)
 separador("#B30A1B")
 
 with st.expander("Stop sequence:"):
@@ -125,20 +125,20 @@ separador("#B30A1B")
 with st.expander("Frequency penalty:"):
   st.write("La penalización de frecuencia es un parámetro utilizado para controlar la repetición de palabras en las respuestas generadas. Este parámetro penaliza la repetición de palabras que ya han sido utilizadas en la respuesta generada.")
   st.write("Por ejemplo, si se establece una penalización de frecuencia, el modelo evitará generar respuestas que contengan muchas repeticiones de las mismas palabras.")
-frequency_penalty = st.slider("Frequency penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
+frequency_penalty = st.slider("Frequency penalty:", min_value=-2.0, max_value=2.0, value=0.6, step=0.1)
 separador("#B30A1B")
 
 with st.expander("Presence penalty:"):
   st.write("La penalización de presencia es un parámetro utilizado para controlar la aparición de ciertas palabras o frases en las respuestas generadas. Este parámetro penaliza la aparición de ciertas palabras o frases en la respuesta generada.")
   st.write("Por ejemplo, si se establece una penalización de presencia para la palabra: política, el modelo evitará generar respuestas que contengan esa palabra o frases relacionadas con ese tema.")
 word_presence_penalty = st.text_input("Texto:", "")
-presence_penalty = st.slider("Presence penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
+presence_penalty = st.slider("Presence penalty:", min_value=-2.0, max_value=2.0, value=0.5, step=0.1)
 separador("#B30A1B")
 
 with st.expander("Best of:"):
   st.write("Best of se refiere a la cantidad de respuestas generadas que se presentan al usuario. Este parámetro permite seleccionar el número de respuestas más adecuadas a presentar al usuario.")
   st.write("Por ejemplo, si se establece un valor Best of de 5, el modelo generará 5 respuestas distintas y luego se presentarán las 5 opciones al usuario para que elija la que más le guste o la que mejor se ajuste a sus necesidades.")
-best_of = st.slider("Best of:", min_value=1, max_value=20, value=1, step=1)
+best_of = st.slider("Best of:", min_value=1, max_value=5, value=1, step=1)
 separador("#B30A1B")
 
 with st.expander("Inject start text:"):
