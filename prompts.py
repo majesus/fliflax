@@ -33,6 +33,7 @@ def build_full_prompt(prompt, audience, tone, objectives_tasks, language, temper
 
 full_prompt = build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 #------------------------------------------------#
-st.write("Prompt completo para ChatGPT:")
-st.write(full_prompt)
+if __name__ == '__main__':
+    st.write("Prompt completo para ChatGPT:")
+    st.write(full_prompt)
 #------------------------------------------------#
