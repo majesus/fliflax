@@ -21,7 +21,7 @@ rol = st.multiselect("Rol de ChatGPT:", ["Académico", "Analista de datos", "Ase
 tone = st.selectbox("Tono de la respuesta:", ["", "Experto", "Formal", "Informal", "Divertido", "Serio", "Persuasivo"])
 objectives_tasks = st.text_input("Objetivos y tareas:", "")
 language = st.selectbox("Idioma:", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
-formato = st.selectbox("Formato de la respuesta:", ["", "Texto", "Bullet points", "Tabla", "Grafo"])
+formato = st.selectbox("Formato de la respuesta:", ["", "Texto", "Bullet points", "Tabla"])
 separador("#B30A1B")
 #------------------------------------------------#
 st.write("La temperatura es un parámetro utilizado en los modelos de lenguaje generativos para controlar la variabilidad en las respuestas generadas. Se refiere a la cantidad de aleatoriedad que se permite en la respuesta generada. Un valor más alto de temperatura genera respuestas más creativas y diversas, mientras que un valor más bajo produce respuestas más predecibles y cercanas a lo que ya ha sido visto en los datos de entrenamiento.")
