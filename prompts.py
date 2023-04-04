@@ -16,9 +16,11 @@ st.write("Crea tus propios prompts y ajusta los parámetros para obtener respues
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
+st.write("Preguntas iniciales.", "")
 omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
 confirm = st.radio("¿Deseas que confirme que ha comprendido el prompt y los elementos adicionales?",('No', 'Sí'))
 detail = st.radio("La respuesta debe ser:",('Precisa', 'Creativa', 'Equilibrada'))
+separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
 st.write("Escribe tu prompt. Puede contener distintos pasos.", "")
@@ -30,11 +32,11 @@ with st.expander("Pasos adicionales:"):
     step = st.radio("¿Deseas que siga cada paso por orden?",('No', 'Sí'))
 separador("#B30A1B")
 #------------------------------------------------#
-# Añadir material complementario (por ejemplo, códigos)
-anexo = st.text_input("Incluye material complementario", "")
-#------------------------------------------------#
 contexto = st.text_input("Contexto:", "")
 separador("#B30A1B")
+#------------------------------------------------#
+# Añadir material complementario (por ejemplo, códigos)
+anexo = st.text_input("Incluye material complementario", "")
 #------------------------------------------------#
 audience = st.text_input("Audiencia:", "")
 rol = st.multiselect("Rol de ChatGPT:", ["Académico", "Analista de datos", "Asesor financiero", "Asistente personal", "Cocinero", "Corrector de estilo / ortográfico", "Diseñador gráfico", "Diseñador web", "Diseñador multimedia", "Director de arte", "Editor de revista académica", "Escritor", "Estadístico", "Generador de prompts", "Guía de viaje", "Informático", "Interiorista", "Instrucciones de uso", "Matemático", "Nutricionista", "Programador", "Redactor publicitario", "Revisor de artículos académicos", "Screenwriter", "Storyteller", "Traductor"], default=[])
