@@ -97,7 +97,7 @@ def build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, a
 full_prompt = build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, author, prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 
 if __name__ == '__main__':
-    with st.expander("Prompt completo para ChatGPT."):
+    with st.expander("Consulta aquí el prompt completo para ChatGPT."):
         text_area = st.text_area("", full_prompt, key="prompt_text_area", height=300)
             
         st.markdown("1. Haz clic dentro del área de texto.")
