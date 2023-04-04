@@ -37,15 +37,16 @@ separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
 anexo = st.text_input("Incluye material complementario", "")
+separador("#B30A1B")
 #------------------------------------------------#
-audience = st.text_input("Audiencia:", "")
-rol = st.multiselect("Rol de ChatGPT:", ["Académico", "Analista de datos", "Asesor financiero", "Asistente personal", "Cocinero", "Corrector de estilo / ortográfico", "Diseñador gráfico", "Diseñador web", "Diseñador multimedia", "Director de arte", "Editor de revista académica", "Escritor", "Estadístico", "Generador de prompts", "Guía de viaje", "Informático", "Interiorista", "Instrucciones de uso", "Matemático", "Nutricionista", "Programador", "Redactor publicitario", "Revisor de artículos académicos", "Screenwriter", "Storyteller", "Traductor"], default=[])
-tone = st.selectbox("Tono de la respuesta:", ["", "Experto", "Formal", "Profesional", "Informativo", "Relajado", "Cercano", "Divertido", "Serio", "Persuasivo", "Entusiasta"])
+audience = st.text_input("¿A quién te diriges?", "")
+rol = st.multiselect("¿Qué rol deseas que asuma ChatGPT?", ["Académico", "Analista de datos", "Asesor financiero", "Asistente personal", "Cocinero", "Corrector de estilo / ortográfico", "Diseñador gráfico", "Diseñador web", "Diseñador multimedia", "Director de arte", "Editor de revista académica", "Escritor", "Estadístico", "Generador de prompts", "Guía de viaje", "Informático", "Interiorista", "Instrucciones de uso", "Matemático", "Nutricionista", "Programador", "Redactor publicitario", "Revisor de artículos académicos", "Screenwriter", "Storyteller", "Traductor"], default=[])
+tone = st.selectbox("¿Cuál debe ser el tono de la respuesta?", ["", "Experto", "Formal", "Profesional", "Informativo", "Relajado", "Cercano", "Divertido", "Serio", "Persuasivo", "Entusiasta"])
 author = st.text_input("Responde con el estilo de un/a autor/a conocido/a:", "")
-objectives_tasks = st.text_input("Objetivos y tareas:", "")
-language = st.selectbox("Idioma:", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
-formato = st.selectbox("Formato de la respuesta:", ["", "Texto", "Bullet points", "Tabla"])
-extension = st.selectbox("Longitud de la respuesta:", ["", "Corto", "Medio", "Largo"])
+objectives_tasks = st.text_input("¿Cuáles son los objetivos que persigues preguntando, y las tareas necesarias para lograrlos?", "")
+language = st.selectbox("¿En qué idoma deseas la respuesta?", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
+formato = st.selectbox("¿Cuál debe ser el formato de la respuesta?", ["", "Texto", "Bullet points", "Tabla"])
+extension = st.selectbox("¿QUé longitud deseas que tenga la respuesta?", ["", "Corto", "Medio", "Largo"])
 separador("#B30A1B")
 #------------------------------------------------#
 with st.expander("Más parámetros:"):
