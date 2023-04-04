@@ -66,7 +66,7 @@ separador("#B30A1B")
 # Comienza el prompt y elementos adicionales
 with st.expander("Preguntas prescindibles"):
     omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
-    confirm = st.radio("¿Deseas confirmar que ChatGPT ha comprendido el prompt y los elementos adicionales?",('No', 'Sí'))
+    confirm = st.radio("¿Deseas confirmar que ChatGPT ha comprendido el prompt y los elementos adicionales?",('Sí', 'No'))
     detail = st.radio("La respuesta debe ser:",('Precisa', 'Creativa', 'Equilibrada'))
 separador("#B30A1B")
 #------------------------------------------------#
@@ -77,7 +77,7 @@ with st.expander("Pasos adicionales:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
     prompt4 = st.text_input("Escribe tu cuarto paso:", "")
-    step = st.radio("¿Deseas que la respuesta siga cada paso por orden?",('No', 'Sí'))
+    step = st.radio("¿Deseas que la respuesta siga cada paso por orden?",('Sí', 'No'))
 separador("#B30A1B")
 #------------------------------------------------#
 contexto = st.text_area("Contexto:", "")
