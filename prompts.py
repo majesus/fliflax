@@ -57,7 +57,9 @@ col1, col2 = st.beta_columns([1, 3])  # La primera columna tendrá un ancho prop
 col1.image(imagen, width=150)
 # Añadir título en la segunda columna
 col2.title("")
+st.markdown(f"<p style='{custom_title}'>Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.</p>", unsafe_allow_html=True)
 separador("#B30A1B")
+#------------------------------------------------#
 st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear tu prompt con tus deseos.")
 separador("#B30A1B")
 #------------------------------------------------#
