@@ -24,8 +24,8 @@ st.write("Top P es un parámetro utilizado para controlar la cantidad de opcione
 st.write("Por ejemplo, si se establece un valor Top P de 0.8, el modelo considerará las palabras con las 80% de mayor probabilidad para la siguiente palabra.")
 top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=0.9, step=0.1)
 
-st.write("La secuencia de parada es como el orden de los ingredientes. Al igual que un chef necesita añadir los ingredientes en el orden correcto, GPT necesita seguir la secuencia de pasos para generar la historia en el orden correcto.")
 st.write("La secuencia de parada se refiere a una cadena de texto que el modelo utilizará para detener la generación de texto. Es útil para controlar el tema o el enfoque de las respuestas generadas.")
+st.write("Por ejemplo, si se establece una secuencia de parada como "Fin del texto", el modelo generará respuestas hasta que encuentre la secuencia "Fin del texto", luego dejará de generar texto.")
 stop_sequence = st.text_input("Stop sequence:", "")
 
 st.write("La penalización por frecuencia es como utilizar demasiada sal. Al igual que un chef debe tener cuidado de no utilizar demasiada sal, GPT debe utilizar la penalización por frecuencia para evitar repetir palabras o frases con demasiada frecuencia en la historia.")
@@ -34,6 +34,7 @@ frequency_penalty = st.slider("Frequency penalty:", min_value=0.0, max_value=2.0
 
 st.write("La penalización de presencia es un parámetro utilizado para controlar la aparición de ciertas palabras o frases en las respuestas generadas. Este parámetro penaliza la aparición de ciertas palabras o frases en la respuesta generada.")
 st.write("Por ejemplo, si se establece una penalización de presencia para la palabra: política, el modelo evitará generar respuestas que contengan esa palabra o frases relacionadas con ese tema.")
+word_presence_penalty = st.text_input("Word/s:", "")
 presence_penalty = st.slider("Presence penalty:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
 
 st.write("Best of se refiere a la cantidad de respuestas generadas que se presentan al usuario. Este parámetro permite seleccionar el número de respuestas más adecuadas a presentar al usuario.")
@@ -51,7 +52,7 @@ inject_restart_text = st.text_input("Inject restart text:", "")
 #------------------------------------------------#
 # Construye el prompt completo
 def build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text):
-    full_prompt = f"{prompt} [Audiencia: {audience}, Tono: {tone}, Objetivos y tareas: {objectives_tasks}, Idioma: {language}, Temperatura: {temperature}, Longitud máxima: {max_length}, Top P: {top_p}, Secuencia de parada: {stop_sequence}, Penalización de frecuencia: {frequency_penalty}, Penalización de presencia: {presence_penalty}, Mejor de: {best_of}, Texto inicial a inyectar: {inject_start_text}, Texto de reinicio a inyectar: {inject_restart_text}]"
+    full_prompt = f"{prompt} [Audiencia: {audience}, Tono: {tone}, Objetivos y tareas: {objectives_tasks}, Idioma: {language}, Temperature: {temperature}, Maximum length: {max_length}, Top P: {top_p}, Stop sequence: {stop_sequence}, Frequency penalty: {frequency_penalty}, [Presence penalty: {presence_penalty}, Word presence penalty: {word_presence_penalty}], Best of: {best_of}, Inject start text: {inject_start_text}, Inject restart text: {inject_restart_text}]"
     return full_prompt
 
 full_prompt = build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
