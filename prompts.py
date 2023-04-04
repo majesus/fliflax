@@ -23,6 +23,7 @@ def separador(color):
         f'<hr style="border: 1px solid {color};">', unsafe_allow_html=True
     )
 #------------------------------------------------#
+custom_title_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #000000; font-weight: bold;"
 custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
 custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
@@ -55,7 +56,7 @@ col1, col2 = st.beta_columns([1, 3])  # La primera columna tendrá un ancho prop
 # Añadir imagen en la primera columna
 col1.image(imagen, width=150)
 # Añadir título en la segunda columna
-col2.title(f"<p style='{custom_style}'>Fliflax: Asistente de ChatGPT".</p>", unsafe_allow_html=True)
+col2.markdown(f"<p style='{custom_title_black}'>Fliflax: Asistente de ChatGPT".</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear tu prompt con tus deseos.")
 separador("#B30A1B")
