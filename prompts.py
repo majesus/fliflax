@@ -33,7 +33,7 @@ best_of = st.slider("Mejor de:", min_value=1, max_value=20, value=1, step=1)
 
 inject_start_text = st.text_input("Texto inicial a inyectar:", "")
 inject_restart_text = st.text_input("Texto de reinicio a inyectar:", "")
-show_probabilities = st.checkbox("Mostrar probabilidades:")
+# show_probabilities = st.checkbox("Mostrar probabilidades:")
 #------------------------------------------------#
 # Botón para generar y mostrar la respuesta
 if st.button("Generar respuesta"):
