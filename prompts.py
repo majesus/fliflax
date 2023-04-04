@@ -45,7 +45,7 @@ col1.image(imagen, width=150)
 # Añadir título en la segunda columna
 col2.title("Fliflax: Asistente de ChatGPT")
 separador("#B30A1B")
-st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes.")
+st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear tu prompt con tus deseos.")
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
