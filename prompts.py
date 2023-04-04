@@ -25,9 +25,9 @@ temperature = st.slider("Temperatura:", min_value=0.0, max_value=1.0, value=0.8,
 max_length = st.slider("Longitud máxima:", min_value=10, max_value=4096, value=100, step=10)
 top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=0.9, step=0.1)
 
-stop_sequence = st.text_input("Secuencia de parada:", "")
-frequency_penalty = st.slider("Penalización de frecuencia:", min_value=-2.0, max_value=2.0, value=0.0, step=0.1)
-presence_penalty = st.slider("Penalización de presencia:", min_value=-2.0, max_value=2.0, value=0.0, step=0.1)
+stop_sequence = st.slider("Secuencia de parada:", min_value=0.0, max_value=1.0, value=0.0, step=0.1)
+frequency_penalty = st.slider("Penalización de frecuencia:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
+presence_penalty = st.slider("Penalización de presencia:", min_value=0.0, max_value=2.0, value=0.0, step=0.1)
 
 best_of = st.slider("Mejor de:", min_value=1, max_value=20, value=1, step=1)
 
