@@ -24,7 +24,7 @@ separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
 st.write("Escribe tu prompt. Puede contener distintos pasos.", "")
-prompt1 = st.text_input("Escribe tu prompt (o primer paso):", "")
+prompt1 = st.text_area("Primer prompt (o único):", "")
 with st.expander("Pasos adicionales:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
