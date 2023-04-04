@@ -113,7 +113,7 @@ separador("#B30A1B")
 with st.expander("Top P:"):
   st.write("Top P es un parámetro utilizado para controlar la cantidad de opciones que el modelo tiene para elegir la siguiente palabra en una respuesta generada. Se refiere al porcentaje de las opciones más probables que el modelo considera para la siguiente palabra.")
   st.write("Por ejemplo, si se establece un valor Top P de 0.8, el modelo considerará las palabras con las 80% de mayor probabilidad para la siguiente palabra.")
-top_p = st.slider("Top P:", min_value=0.0, max_value=1, value=1, step=0.1)
+top_p = st.slider("Top P:", min_value=0.0, max_value=0.9, value=1, step=0.1)
 separador("#B30A1B")
 
 with st.expander("Stop sequence:"):
