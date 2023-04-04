@@ -98,7 +98,7 @@ full_prompt = build_full_prompt(contexto, step, omit, confirm, anexo, extension,
 
 if __name__ == '__main__':
     with st.expander("Prompt completo para ChatGPT."):
-        text_area = st.sidebar.text_area("", full_prompt, key="prompt_text_area", height=300)
+        text_area = st.text_area("", full_prompt, key="prompt_text_area", height=300)
             
         st.markdown("1. Haz clic dentro del área de texto.")
         st.markdown("2. Utiliza `Ctrl+A` o `Cmd+A` para seleccionar todo el texto.")
