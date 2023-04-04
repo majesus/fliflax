@@ -3,6 +3,7 @@ streamlit-option-menu
 streamlit-tags
 streamlit-on-Hover-tabs
 
+clipboard
 streamlit-echarts
 pyecharts
 altair
