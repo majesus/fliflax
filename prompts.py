@@ -28,9 +28,18 @@ custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 1
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
 #------------------------------------------------#
 # Título y descripción de la aplicación
-st.image('img/fliflax-logo.jpg',width=200)
-st.title("Fliflax: Asistente de ChatGPT")
-st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
+
+# URL de la imagen
+url_imagen = "img/fliflax-logo.jpg"
+# Descargar imagen
+imagen = cargar_imagen(url_imagen)
+# Crear dos columnas con anchos ajustados
+col1, col2 = st.beta_columns([1, 3])  # La primera columna tendrá un ancho proporcional de 1, y la segunda un ancho proporcional de 3
+# Añadir imagen en la primera columna
+col1.image(imagen, width=150)
+# Añadir título en la segunda columna
+col2.title("Fliflax: Asistente de ChatGPT")
+
 st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes.")
 separador("#B30A1B")
 #------------------------------------------------#
