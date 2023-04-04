@@ -97,13 +97,11 @@ def build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, a
 full_prompt = build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, author, prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 
 if __name__ == '__main__':
-    st.sidebar.write("Prompt completo para ChatGPT.")
-
-    st.sidebar.markdown("1. Haz clic dentro del área de texto.")
-    st.sidebar.markdown("2. Utiliza `Ctrl+A` o `Cmd+A` para seleccionar todo el texto.")
-    st.sidebar.markdown("3. Copia el texto seleccionado con `Ctrl+C` o `Cmd+C`.")
-    st.sidebar.markdown("4. Pega el texto seleccionado con `Ctrl+V` o `Cmd+V` en [ChatGPT](http://ai.com).")
-    
-    text_area = st.sidebar.text_area("", full_prompt, key="prompt_text_area", height=200)
-        
+    with st.expander("Prompt completo para ChatGPT.")
+        text_area = st.sidebar.text_area("", full_prompt, key="prompt_text_area", height=300)
+            
+        st.sidebar.markdown("1. Haz clic dentro del área de texto.")
+        st.sidebar.markdown("2. Utiliza `Ctrl+A` o `Cmd+A` para seleccionar todo el texto.")
+        st.sidebar.markdown("3. Copia el texto seleccionado con `Ctrl+C` o `Cmd+C`.")
+        st.sidebar.markdown("4. Pega el texto seleccionado con `Ctrl+V` o `Cmd+V` en [ChatGPT](http://ai.com).")
         
