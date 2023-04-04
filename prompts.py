@@ -1,5 +1,22 @@
 import streamlit as st
 #------------------------------------------------#
+from PIL import Image
+img=Image.open('img/fliflax-logo.jpg')
+st.set_page_config(#layout="centered",
+                   #theme="light",
+                   layout="wide",
+                   page_title="Fliflax",
+                   page_icon=img,
+                   initial_sidebar_state='expanded'
+                   )
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; }
+        #footer {visibility: hidden;}
+        </style>
+        """
+#st.markdown(hide_menu_style, unsafe_allow_html=True)
+#------------------------------------------------#
 # Separador estético personalizado
 def separador(color):
     st.markdown(
@@ -11,8 +28,10 @@ custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 1
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
 #------------------------------------------------#
 # Título y descripción de la aplicación
-st.title("Asistente de ChatGPT")
-st.write("Crea tus propios prompts y ajusta los parámetros para obtener respuestas precisas y relevantes.")
+st.image('img/fliflax-logo.jpg',width=200)
+st.title("Fliflax: Asistente de ChatGPT")
+st.markdown("Por __*Manuel J. Sánchez Franco*__, Universidad de Sevilla.")
+st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes.")
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
