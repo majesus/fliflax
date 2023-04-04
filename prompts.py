@@ -55,7 +55,7 @@ def build_full_prompt(prompt, audience, tone, objectives_tasks, language, temper
     full_prompt = f"{prompt} [Audiencia: {audience}, Tono: {tone}, Objetivos y tareas: {objectives_tasks}, Idioma: {language}, temperature: {temperature}, maximum_length: {max_length}, top_p: {top_p}, stop_sequence: {stop_sequence}, frequency_penalty: {frequency_penalty}, [presence_penalty: {presence_penalty}, word_presence_penalty: {word_presence_penalty}], best_of: {best_of}, inject_start_text: {inject_start_text}, inject_restart_text: {inject_restart_text}]"
     return full_prompt
 
-full_prompt = build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, word_presence_penalty, best_of, inject_start_text, inject_restart_text)
+full_prompt = build_full_prompt(prompt, audience, tone, objectives_tasks, language, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text)
 
 if __name__ == '__main__':
     st.write("Prompt completo para ChatGPT:")
