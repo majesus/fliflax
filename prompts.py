@@ -28,7 +28,12 @@ custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 1
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
 #------------------------------------------------#
 # Título y descripción de la aplicación
-
+# Función para descargar y almacenar imágenes en caché
+@st.cache
+def cargar_imagen(url):
+    image = Image.open(url_imagen)
+    return image
+  
 # URL de la imagen
 url_imagen = "img/fliflax-logo.jpg"
 # Descargar imagen
