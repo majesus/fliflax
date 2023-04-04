@@ -25,7 +25,7 @@ st.write("Por ejemplo, si se establece un valor Top P de 0.8, el modelo consider
 top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=0.9, step=0.1)
 
 st.write("La secuencia de parada se refiere a una cadena de texto que el modelo utilizará para detener la generación de texto. Es útil para controlar el tema o el enfoque de las respuestas generadas.")
-st.write("Por ejemplo, si se establece una secuencia de parada como: Fin del texto, el modelo generará respuestas hasta que encuentre la secuencia "Fin del texto", luego dejará de generar texto.")
+st.write("Por ejemplo, si se establece una secuencia de parada como: Fin del texto, el modelo generará respuestas hasta que encuentre la secuencia: Fin del texto, luego dejará de generar texto.")
 stop_sequence = st.text_input("Stop sequence:", "")
 
 st.write("La penalización por frecuencia es como utilizar demasiada sal. Al igual que un chef debe tener cuidado de no utilizar demasiada sal, GPT debe utilizar la penalización por frecuencia para evitar repetir palabras o frases con demasiada frecuencia en la historia.")
