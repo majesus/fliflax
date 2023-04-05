@@ -100,7 +100,7 @@ with st.expander("Conceptos básicos para la generación de un prompt que genere
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
-st.markdown(f"<p style='{custom_style_black}'>Escribe tu cadena de entrada que guía la generación de texto del modelo.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style_black}'>Escribe tu <b>cadena de entrada (o prompt)</b> que guía la generación de texto del modelo.</p>", unsafe_allow_html=True)
 prompt1 = st.text_area("Primer prompt (o único):", "")
 with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
@@ -109,15 +109,15 @@ with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso?",('Sí', 'No'))
 separador("#B30A1B")
 #------------------------------------------------#
-contexto = st.text_area("Facilita, si lo deseas, un contexto para que la respuesta adquiera mayor relevancia:", "")
+contexto = st.text_area("Facilita, si lo deseas, un <b>contexto</b> para que la respuesta adquiera mayor relevancia:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
-anexo = st.text_area("Material complementario, por ejemplo, ejemplos, código, etc.:", "")
+anexo = st.text_area("<b>Material complementario</b>, por ejemplo, ejemplos, código, etc.:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir objetivos y tareas
-objectives_tasks = st.text_area("¿Cuáles son los objetivos que persigues en tu respuesta, y las tareas necesarias para lograr los objetivos?", "")
+objectives_tasks = st.text_area("¿Cuáles son los <b>objetivos</b> que persigues en tu respuesta, y las <b>tareas</b> necesarias para lograr los objetivos?", "")
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de claves para dotar a la respuesta esperada de mayor relevancia.</p>", unsafe_allow_html=True)
