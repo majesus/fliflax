@@ -60,7 +60,7 @@ col2.title("")
 st.markdown(f"<p style='{custom_subtitle_black}'>Por Manuel J. Sánchez Franco, Universidad de Sevilla.</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 #------------------------------------------------#
-st.write("Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear tu prompt con tus deseos.")
+st.markdown(f"<p style='{custom_subtitle_black}'>Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear tu prompt con tus deseos.</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
