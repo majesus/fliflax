@@ -109,13 +109,15 @@ with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso?",('Sí', 'No'))
 separador("#B30A1B")
 #------------------------------------------------#
-contexto = st.text_area("Facilita, si lo deseas, un contexto para que la respusta adquiera mayor relevancia:", "")
+contexto = st.text_area("Facilita, si lo deseas, un contexto para que la respuesta adquiera mayor relevancia:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
 anexo = st.text_area("Material complementario, por ejemplo, ejemplos, código, etc.:", "")
 separador("#B30A1B")
 #------------------------------------------------#
+st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de claves para dotar a la respuesta generada de mayor relevancia.</p>", unsafe_allow_html=True)
+
 audience = st.text_input("¿A quién te diriges?", "")
 rol = st.multiselect("¿Qué rol deseas que asuma ChatGPT?", ["académico", "analista de datos", "asesor financiero", "asistente personal", "cocinero", "corrector de estilo / ortográfico", "diseñador gráfico", "diseñador web", "diseñador multimedia", "director de arte", "editor de revista académica", "escritor", "estadístico", "generador de prompts", "guía de viaje", "informático", "interiorista", "instrucciones de uso", "matemático", "nutricionista", "programador", "programador de videojuegos", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "storyteller", "traductor"], default=[])
 tone = st.multiselect("¿Cuál debe ser el tono de la respuesta?", ["experto", "formal", "profesional", "informativo", "relajado", "cercano", "divertido", "serio", "persuasivo", "entusiasta"], default=[])
