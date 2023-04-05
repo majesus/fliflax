@@ -72,7 +72,7 @@ with st.expander("Preguntas iniciales:"):
 separador("#B30A1B")
 #------------------------------------------------#
 # Conceptos clave para la generación de un prompt que genere una respuesta relevante
-with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
+with st.expander("Conceptos básicos para la generación de un prompt que genere una respuesta relevante:"):
   st.markdown(f"<p style='{custom_subtitle}'>Contexto:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Información adicional, detalles o antecedentes que ayudan a aclarar o especificar la situación, tema o propósito del prompt.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: El contexto proporciona la base para comprender el prompt y es necesario para establecer una conexión clara entre el tema y la respuesta esperada.</p>", unsafe_allow_html=True)
