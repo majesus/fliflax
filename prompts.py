@@ -133,69 +133,69 @@ site = st.selectbox("¿Deseas que consulta documentación de algún SITE en part
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>Parámetros adicionales:</p>", unsafe_allow_html=True)
-with st.expander("Temperature:"):
+with st.expander("Temperature (o ajuste de la variabilidad -o creatividad y diversidad- en la respuesta generada):"):
   st.write("La temperatura es un parámetro utilizado en los modelos de lenguaje generativos para controlar la variabilidad en las respuestas generadas. Se refiere a la cantidad de aleatoriedad que se permite en la respuesta generada. Un valor más alto de temperatura genera respuestas más creativas y diversas, mientras que un valor más bajo produce respuestas más predecibles y cercanas a lo que ya ha sido visto en los datos de entrenamiento.")
   st.write("Por ejemplo, si se utiliza una temperatura alta en la generación de un texto, se pueden obtener respuestas como: El cielo es de color rosa, o Los gatos vuelan. Por otro lado, si se utiliza una temperatura baja, es más probable que la respuesta generada sea coherente y realista, como: El cielo es azul, o Los gatos no pueden volar.")
 temperature =st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
 separador("#B30A1B")
 
-with st.expander("logit-bias:"):
+with st.expander("logit-bias (o ajuste de las probabilidades de determinados tokens para ser seleccionados):"):
   st.write("El logit bias es un parámetro utilizado en los modelos de lenguaje generativos para ajustar las probabilidades de ciertos tokens antes de aplicar la función softmax, lo que afecta la selección de tokens durante la generación de texto. Al ajustar el logit bias, puedes hacer que ciertos tokens sean más o menos probables en la salida generada.")
   st.write("Por ejemplo, si deseas que el modelo genere más contenido relacionado con gatos, puedes aumentar el logit bias de tokens relacionados con gatos, como gato, felino o gatito. Por otro lado, si deseas reducir la probabilidad de que aparezcan palabras negativas en la salida, puedes disminuir el logit bias de tokens como triste, malo o negativo.")
 logit_bias_tokens = st.text_input("Tokens:", "")
 logit_bias =st.slider("logit-bias:", min_value=-2.0, max_value=2.0, value=0.0, step=0.1)
 separador("#B30A1B")
 
-with st.expander("Maximum tokens:"):
+with st.expander("Maximum tokens (o extensión en número de tokens):"):
   st.write("La longitud máxima es el número máximo de tokens (palabras) permitidos en la respuesta generada. Este parámetro se utiliza para controlar la longitud de las respuestas generadas y evitar que sean demasiado largas o demasiado cortas.")
   st.write("Por ejemplo, si se establece una longitud máxima de 50 palabras, el modelo generará una respuesta que no supere esa cantidad.")
 max_length = st.slider("Maximum length:", min_value=10, max_value=4096, value=1024, step=10)
 separador("#B30A1B")
 
-with st.expander("Top P:"):
-  st.write("Top P es un parámetro utilizado para controlar la cantidad de opciones que el modelo tiene para elegir la siguiente palabra en una respuesta generada. Se refiere al porcentaje de las opciones más probables que el modelo considera para la siguiente palabra.")
-  st.write("Por ejemplo, si se establece un valor Top P de 0.8, el modelo considerará las palabras con las 80% de mayor probabilidad para la siguiente palabra.")
+with st.expander("Top P (ajuste de la diversidad de respuestas basado en la probabilidad acumulativa de tokens):"):
+  st.write("Top P es un parámetro utilizado para controlar la cantidad de opciones que el modelo tiene para elegir la siguiente palabra en una respuesta generada. Ayuda a controlar la creatividad de las respuestas generadas al elegir palabras en función de su probabilidad. Si se elige un valor de Top P más bajo, la respuesta será más conservadora y probable, mientras que un valor más alto dará lugar a respuestas más creativas y diversas, aunque potencialmente menos coherentes.")
+  st.write("Por ejemplo, si estableces Top P en 0.9, se combinan palabras hasta que su probabilidad acumulada alcance el 90 %. Esto permitirá que el modelo elija entre un conjunto diverso de palabras, creando respuestas más creativas y variadas, pero aún coherentes y relevantes para el contexto.")
 top_p = st.slider("Top P:", min_value=0.0, max_value=1.0, value=1.0, step=0.1)
 separador("#B30A1B")
 
-with st.expander("Stop sequence:"):
-  st.write("La secuencia de parada se refiere a una cadena de texto que el modelo utilizará para detener la generación de texto. Es útil para controlar el tema o el enfoque de las respuestas generadas.")
-  st.write("Por ejemplo, si se establece una secuencia de parada como: Fin del texto, el modelo generará respuestas hasta que encuentre la secuencia: Fin del texto, luego dejará de generar texto.")
+with st.expander("Stop sequence (expresión que, cuando el modelo la genera, detiene inmediatamente la generación de texto adicional):"):
+  st.write("El parámetro Stop sequence es un parámetro utilizado en GPT-4 para indicar el final anticipado de una respuesta generada. Este parámetro permite especificar una secuencia de palabras o caracteres que, cuando el modelo los genera, detiene inmediatamente la generación de texto adicional. De esta manera, se puede controlar la longitud de la respuesta y asegurar que termine de manera coherente y apropiada.")
+  st.write("Por ejemplo, si se establece una secuencia de parada como: Fin de la explicación, el modelo generará una respuesta y, una vez que encuentre la frase: Fin de la explicación, detendrá la generación de texto adicional. Esto puede ser útil para garantizar que la respuesta se complete con una conclusión adecuada o para limitar su extensión a un contexto específico.")
 stop_sequence = st.text_input("Stop sequence:", "")
 separador("#B30A1B")
 
-with st.expander("Frequency penalty:"):
+with st.expander("Frequency penalty (valor con que penalizamos la reiteración de palabras o tokens en la respuesta):"):
   st.write("La penalización de frecuencia es un parámetro utilizado para controlar la repetición de palabras en las respuestas generadas. Este parámetro penaliza la repetición de palabras que ya han sido utilizadas en la respuesta generada.")
   st.write("Por ejemplo, si se establece una penalización de frecuencia, el modelo evitará generar respuestas que contengan muchas repeticiones de las mismas palabras.")
 frequency_penalty = st.slider("Frequency penalty:", min_value=-2.0, max_value=2.0, value=0.6, step=0.1)
 separador("#B30A1B")
 
-with st.expander("Presence penalty:"):
+with st.expander("Presence penalty (valor con que penalizamos la aparición de un texto en la respuesta):"):
   st.write("La penalización de presencia es un parámetro utilizado para controlar la aparición de ciertas palabras o frases en las respuestas generadas. Este parámetro penaliza la aparición de ciertas palabras o frases en la respuesta generada.")
   st.write("Por ejemplo, si se establece una penalización de presencia para la palabra: política, el modelo evitará generar respuestas que contengan esa palabra o frases relacionadas con ese tema.")
 word_presence_penalty = st.text_input("Texto:", "")
 presence_penalty = st.slider("Presence penalty:", min_value=-2.0, max_value=2.0, value=0.5, step=0.1)
 separador("#B30A1B")
 
-with st.expander("Best of:"):
+with st.expander("Best of (número de respuestas solicitadas):"):
   st.write("Best of se refiere a la cantidad de respuestas generadas que se presentan al usuario. Este parámetro permite seleccionar el número de respuestas más adecuadas a presentar al usuario.")
   st.write("Por ejemplo, si se establece un valor Best of de 5, el modelo generará 5 respuestas distintas y luego se presentarán las 5 opciones al usuario para que elija la que más le guste o la que mejor se ajuste a sus necesidades.")
 best_of = st.slider("Best of:", min_value=1, max_value=5, value=1, step=1)
 separador("#B30A1B")
 
-with st.expander("Inject start text:"):
+with st.expander("Inject start text (texto de inicio de la respuesta):"):
   st.write("Inject start text es un parámetro utilizado para agregar texto específico al inicio de la respuesta generada. Este parámetro se utiliza para controlar el inicio de la respuesta generada y para agregar contexto específico al inicio de la respuesta.")
   st.write("Por ejemplo, si se establece un texto de inicio como: En respuesta a su pregunta sobre el clima..., el modelo generará una respuesta que comienza con esa frase para indicar que se está respondiendo a una pregunta específica.")
 inject_start_text = st.text_input("Inject start text:", "")
 separador("#B30A1B")
 
-with st.expander("Inject restart text:"):
+with st.expander("Inject restart text (texto de reinicio de la respuesta):"):
   st.write("Inject restart text es un parámetro utilizado para agregar texto específico al reinicio de la respuesta generada. Este parámetro se utiliza para controlar el reinicio de la respuesta generada y para agregar contexto específico al reinicio de la respuesta.")
   st.write("Por ejemplo, si se establece un texto de reinicio como: Continuando nuestra conversación anterior..., el modelo generará una respuesta que comienza con esa frase para indicar que se está retomando una conversación anterior y agregar contexto a la respuesta.")
 inject_restart_text = st.text_input("Inject restart text:", "")
 separador("#B30A1B")
 
-with st.expander("n-gram size:"):
+with st.expander("n-gram size (no repetir n-gramas de tamaño n):"):
   st.write("El parámetro repeat n-gram es un parámetro utilizado para controlar la repetición de secuencias de palabras (n-gramas) en la respuesta generada. Este parámetro ayuda a reducir la redundancia y a mejorar la calidad de la respuesta, asegurando que la información no se repita innecesariamente.")
   st.write("Por ejemplo, si se establece el valor de repeat n-gram en 3, el modelo evitará repetir cualquier secuencia de tres palabras consecutivas que ya haya aparecido en la respuesta. Esto ayuda a mantener la coherencia y la relevancia del texto generado, evitando redundancias y mejorando la legibilidad de la respuesta.")
 repeat_ngram = st.slider("No repeat n-gram size:", min_value=0, max_value=5, value=0, step=1)
