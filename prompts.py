@@ -73,18 +73,18 @@ separador("#B30A1B")
 # Campos de entrada para el prompt y elementos adicionales
 st.write("Escribe tu cadena de entrada que guía la generación de texto del modelo.", "")
 prompt1 = st.text_area("Primer prompt (o único):", "")
-with st.expander("Pasos adicionales:"):
+with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
     prompt4 = st.text_input("Escribe tu cuarto paso:", "")
-    step = st.radio("¿Deseas que la respuesta siga cada paso por orden?",('Sí', 'No'))
+    step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso?",('Sí', 'No'))
 separador("#B30A1B")
 #------------------------------------------------#
-contexto = st.text_area("Contexto:", "")
+contexto = st.text_area("Facilita, si lo deseas, un contexto para que la respusta adquiera mayor relevancia:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
-anexo = st.text_area("Material complementario", "")
+anexo = st.text_area("Material complementario, por ejemplo, ejemplos, código, etc.:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 audience = st.text_input("¿A quién te diriges?", "")
