@@ -133,20 +133,20 @@ site = st.selectbox("¿Deseas que consulta documentación de algún SITE en part
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>Parámetros adicionales:</p>", unsafe_allow_html=True)
-with st.expander("Temperature (o ajuste de la variabilidad -o creatividad y diversidad- en la respuesta generada):"):
+with st.expander("Temperature (ajuste de la variabilidad -o creatividad y diversidad- en la respuesta generada):"):
   st.write("La temperatura es un parámetro utilizado en los modelos de lenguaje generativos para controlar la variabilidad en las respuestas generadas. Se refiere a la cantidad de aleatoriedad que se permite en la respuesta generada. Un valor más alto de temperatura genera respuestas más creativas y diversas, mientras que un valor más bajo produce respuestas más predecibles y cercanas a lo que ya ha sido visto en los datos de entrenamiento.")
   st.write("Por ejemplo, si se utiliza una temperatura alta en la generación de un texto, se pueden obtener respuestas como: El cielo es de color rosa, o Los gatos vuelan. Por otro lado, si se utiliza una temperatura baja, es más probable que la respuesta generada sea coherente y realista, como: El cielo es azul, o Los gatos no pueden volar.")
 temperature =st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
 separador("#B30A1B")
 
-with st.expander("logit-bias (o ajuste de las probabilidades de determinados tokens para ser seleccionados):"):
+with st.expander("logit-bias (ajuste de las probabilidades de determinados tokens para ser seleccionados):"):
   st.write("El logit bias es un parámetro utilizado en los modelos de lenguaje generativos para ajustar las probabilidades de ciertos tokens antes de aplicar la función softmax, lo que afecta la selección de tokens durante la generación de texto. Al ajustar el logit bias, puedes hacer que ciertos tokens sean más o menos probables en la salida generada.")
   st.write("Por ejemplo, si deseas que el modelo genere más contenido relacionado con gatos, puedes aumentar el logit bias de tokens relacionados con gatos, como gato, felino o gatito. Por otro lado, si deseas reducir la probabilidad de que aparezcan palabras negativas en la salida, puedes disminuir el logit bias de tokens como triste, malo o negativo.")
 logit_bias_tokens = st.text_input("Tokens:", "")
 logit_bias =st.slider("logit-bias:", min_value=-2.0, max_value=2.0, value=0.0, step=0.1)
 separador("#B30A1B")
 
-with st.expander("Maximum tokens (o extensión en número de tokens):"):
+with st.expander("Maximum tokens (extensión en número de tokens):"):
   st.write("La longitud máxima es el número máximo de tokens (palabras) permitidos en la respuesta generada. Este parámetro se utiliza para controlar la longitud de las respuestas generadas y evitar que sean demasiado largas o demasiado cortas.")
   st.write("Por ejemplo, si se establece una longitud máxima de 50 palabras, el modelo generará una respuesta que no supere esa cantidad.")
 max_length = st.slider("Maximum length:", min_value=10, max_value=4096, value=1024, step=10)
