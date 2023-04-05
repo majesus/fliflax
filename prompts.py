@@ -75,27 +75,27 @@ with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
   st.markdown(f"<p style='{custom_subtitle}'>Contexto:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Información adicional, detalles o antecedentes que ayudan a aclarar o especificar la situación, tema o propósito del prompt.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: El contexto proporciona la base para comprender el prompt y es necesario para establecer una conexión clara entre el tema y la respuesta esperada.</p>", unsafe_allow_html=True)
-  st.markdown(f"<p style='{custom_style}'>Ejemplo: "La empresa ABC ha lanzado recientemente un producto innovador en el mercado de dispositivos electrónicos".</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Ejemplo: La empresa ABC ha lanzado recientemente un producto innovador en el mercado de dispositivos electrónicos.</p>", unsafe_allow_html=True)
 
   st.markdown(f"<p style='{custom_subtitle}'>Prompt:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: La pregunta o instrucción central que se presenta al modelo de lenguaje, diseñada para obtener una respuesta específica o iniciar una discusión sobre un tema.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: El prompt es la parte principal de la interacción, y su contenido determina en gran medida la calidad y relevancia de la respuesta.</p>", unsafe_allow_html=True)
-  st.markdown(f"<p style='{custom_style}'>Ejemplo: "Analice el impacto potencial de la campaña de marketing de la empresa ABC en las ventas de su nuevo producto."</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Ejemplo: Analice el impacto potencial de la campaña de marketing de la empresa ABC en las ventas de su nuevo producto.</p>", unsafe_allow_html=True)
 
   st.markdown(f"<p style='{custom_subtitle}'>Material complementario:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Recursos adicionales, como estudios, gráficos, datos o referencias que pueden ayudar a enriquecer y respaldar la respuesta del modelo de lenguaje.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: El material complementario no forma parte del prompt en sí, pero puede ser útil para proporcionar información adicional o aclaraciones que el modelo podría utilizar en su respuesta.</p>", unsafe_allow_html=True)
-  st.markdown(f"<p style='{custom_style}'>Ejemplo: "Incluya en su análisis datos de la siguiente investigación de mercado: [enlace al estudio]."</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Ejemplo: Incluya en su análisis datos de la siguiente investigación de mercado: [enlace al estudio].</p>", unsafe_allow_html=True)
 
   st.markdown(f"<p style='{custom_subtitle}'>Objetivos:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Los propósitos específicos que se esperan lograr con la respuesta del modelo, como informar, persuadir, analizar o resolver un problema.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: Los objetivos guían el enfoque y el tono de la respuesta, y deben estar alineados con las necesidades y expectativas de la audiencia.</p>", unsafe_allow_html=True)
-  st.markdown(f"<p style='{custom_style}'>Ejemplo: "El objetivo principal de este análisis es identificar oportunidades de mejora en la estrategia de marketing y proponer acciones específicas para incrementar las ventas."</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Ejemplo: El objetivo principal de este análisis es identificar oportunidades de mejora en la estrategia de marketing y proponer acciones específicas para incrementar las ventas.</p>", unsafe_allow_html=True)
 
   st.markdown(f"<p style='{custom_subtitle}'>Tareas:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Acciones concretas o pasos que el modelo debe llevar a cabo para cumplir con los objetivos y responder adecuadamente al prompt.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: Las tareas son instrucciones claras y específicas que facilitan la estructuración y el enfoque de la respuesta.</p>", unsafe_allow_html=True)
-  st.markdown(f"<p style='{custom_style}'>Ejemplo: "a) Identifique los principales canales de marketing utilizados por la empresa ABC, b) Evalúe la efectividad de cada canal en función de los datos proporcionados, y c) Proponga al menos tres acciones de marketing para mejorar el rendimiento de la campaña actual."</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Ejemplo: a) Identifique los principales canales de marketing utilizados por la empresa ABC, b) Evalúe la efectividad de cada canal en función de los datos proporcionados, y c) Proponga al menos tres acciones de marketing para mejorar el rendimiento de la campaña actual.</p>", unsafe_allow_html=True)#------------------------------------------------#
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
 st.write("Escribe tu cadena de entrada que guía la generación de texto del modelo.", "")
