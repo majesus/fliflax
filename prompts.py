@@ -26,7 +26,7 @@ def separador(color):
 custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
 custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
 custom_subtitle_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
-custom_style_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
+custom_style_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 16px; line-height: 1.5;"
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
 
 # Aplicar estilos CSS personalizados a toda la página
@@ -99,7 +99,7 @@ with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
   st.markdown(f"<p style='{custom_style}'>Ejemplo: a) Identifique los principales canales de marketing utilizados por la empresa ABC, b) Evalúe la efectividad de cada canal en función de los datos proporcionados, y c) Proponga al menos tres acciones de marketing para mejorar el rendimiento de la campaña actual.</p>", unsafe_allow_html=True)#------------------------------------------------#
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
-st.write("Escribe tu cadena de entrada que guía la generación de texto del modelo.", "")
+st.markdown(f"<p style='{custom_style_black}'>Escribe tu cadena de entrada que guía la generación de texto del modelo.</p>", unsafe_allow_html=True)
 prompt1 = st.text_area("Primer prompt (o único):", "")
 with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
@@ -125,7 +125,7 @@ formato = st.selectbox("¿Cuál debe ser el formato de la respuesta?", ["", "tex
 extension = st.selectbox("¿Qué longitud deseas que tenga la respuesta?", ["", "corto", "medio", "largo"])
 separador("#B30A1B")
 #------------------------------------------------#
-st.write("Más parámetros")
+st.markdown(f"<p style='{custom_style_black}'>Parámetros adicionales:</p>", unsafe_allow_html=True)
 with st.expander("Temperature:"):
   st.write("La temperatura es un parámetro utilizado en los modelos de lenguaje generativos para controlar la variabilidad en las respuestas generadas. Se refiere a la cantidad de aleatoriedad que se permite en la respuesta generada. Un valor más alto de temperatura genera respuestas más creativas y diversas, mientras que un valor más bajo produce respuestas más predecibles y cercanas a lo que ya ha sido visto en los datos de entrenamiento.")
   st.write("Por ejemplo, si se utiliza una temperatura alta en la generación de un texto, se pueden obtener respuestas como: El cielo es de color rosa, o Los gatos vuelan. Por otro lado, si se utiliza una temperatura baja, es más probable que la respuesta generada sea coherente y realista, como: El cielo es azul, o Los gatos no pueden volar.")
