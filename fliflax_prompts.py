@@ -71,8 +71,8 @@ with st.expander("Preguntas iniciales:"):
     detail = st.radio("La respuesta debe ser:",('equilibrada', 'precisa', 'creativa'))
 separador("#B30A1B")
 #------------------------------------------------#
-# Conceptos clave para la generación de un prompt que genere una respuesta relevante
-with st.expander("Conceptos básicos para la generación de un prompt que genere una respuesta relevante:"):
+# Conceptos clave para la generación de un prompt que generen una respuesta relevante
+with st.expander("Conceptos básicos para la generación de un prompt que generen una respuesta relevante:"):
   st.markdown(f"<p style='{custom_subtitle}'>Contexto:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Información adicional, detalles o antecedentes que ayudan a aclarar o especificar la situación, tema o propósito del prompt.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: El contexto proporciona la base para comprender el prompt y es necesario para establecer una conexión clara entre el tema y la respuesta esperada.</p>", unsafe_allow_html=True)
@@ -103,34 +103,34 @@ contexto = st.text_area("Facilita, si lo deseas, un CONTEXTO para que la respues
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
-prompt1 = st.text_area("Escribe tu cadena de entrada (o PROMPT) que guía la generación de texto del modelo.", "")
+prompt1 = st.text_area("Escribe tu cadena de entrada (o PROMPT) para guiar la generación de texto del modelo.", "")
 with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
     prompt4 = st.text_input("Escribe tu cuarto paso:", "")
-    step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso?",('Sí', 'No'))
+    step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso (o prompt) que has señalado?",('Sí', 'No'))
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
-anexo = st.text_area("MATERIAL complementario, por ejemplo, ejemplos, código, etc.:", "")
+anexo = st.text_area("MATERIAL complementario (ejemplos, código, etc.):", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir objetivos y tareas
-objectives_tasks = st.text_area("¿Cuáles son los OBJETIVOS que persigues en tu respuesta, y las TAREAS necesarias para lograr los objetivos?", "")
+objectives_tasks = st.text_area("¿Cuáles son los OBJETIVOS que persigues en tu respuesta, y las TAREAS que crees necesarias para lograr los objetivos?", "")
 separador("#B30A1B")
 #------------------------------------------------#
-st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de instrucciones que dar a GPT4 para dotar a la respuesta esperada de mayor relevancia.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de instrucciones para dotar a la respuesta esperada de mayor relevancia.</p>", unsafe_allow_html=True)
 
 audience = st.text_input("¿Quiénes son los DESTINATARIOS de la respuesta esperada?", "")
 rol = st.multiselect("¿Qué ROL deseas que asuma ChatGPT al generar la respuesta?", ["académico", "analista de datos", "analista de marketing", "analista de negocios", "analista de sistemas", "asesor financiero", "asesor legal", "asistente de investigación", "asistente personal", "biólogo", "científico de datos", "coach de vida", "cocinero", "comentarista deportivo", "consultor de recursos humanos", "consultor de ventas", "corrector de estilo / ortográfico", "crítico de cine", "crítico literario", "desarrollador de aplicaciones móviles", "desarrollador frontend", "desarrollador backend", "diseñador de experiencia de usuario (UX)", "diseñador de interfaz de usuario (UI)", "diseñador de moda", "diseñador gráfico", "diseñador multimedia", "diseñador web", "director de arte", "director de cine", "director de fotografía", "editor de revista académica", "educador", "escritor", "especialista en animación", "especialista en efectos visuales", "estadístico", "experto en marketing", "fotógrafo", "físico", "generador de prompts", "gestor de proyectos", "guía de viaje", "historiador", "informático", "ingeniero civil", "ingeniero de sonido", "interiorista", "instrucciones de uso", "matemático", "médico", "nutricionista", "periodista", "productor musical", "programador", "programador de R", "programador de Python", "programador de videojuegos", "psicólogo", "químico", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "sociólogo", "sonidista", "storyteller", "técnico de soporte", "traductor", "tutor", "videógrafo"], default=[])
-tone = st.multiselect("¿Cuál debe ser el TONO de la respuesta (o conversación) empleado en la respuesta?", ["experto", "amigable", "asertivo", "cercano", "divertido", "duro", "enfadado", "entusiasta", "faltón", "formal", "grosero", "informativo", "insultante", "optimista", "persuasivo", "preocupado", "profesional", "relajado", "romántico", "rudo", "serio"], default=[])
+tone = st.multiselect("¿Cuál debe ser el TONO (de la conversación) empleado en la respuesta?", ["experto", "amigable", "asertivo", "cercano", "divertido", "duro", "enfadado", "entusiasta", "faltón", "formal", "grosero", "informativo", "insultante", "optimista", "persuasivo", "preocupado", "profesional", "relajado", "romántico", "rudo", "serio"], default=[])
 author = st.text_input("ChatGPT debe responder con el ESTILO del siguiente autor/a:", "")
 language = st.selectbox("¿En qué IDIOMA deseas que se genere la respuesta?", ["", "español", "alemán", "francés", "inglés", "italiano", "portugués"])
 formato = st.selectbox("¿Cuál debe ser el FORMATO de la respuesta esperada?", ["", "texto", "bullet points", "tabla"])
-tipo = st.selectbox("¿Qué tipo de texto estás redactando?", ["", "artículo académico", "artículo de opinión", "definición", "diario personal/reflexión", "ejemplo", "email", "entrada de blog o redes sociales", "entrevista", "preguntas frecuentes", "guía paso a paso", "ideas", "lista de verificación (checklist)", "párrafo", "resumen ejecutivo", "script de vídeo/animación"])
+tipo = st.selectbox("¿Qué TIPO de texto estás redactando?", ["", "artículo académico", "artículo de opinión", "definición", "diario personal/reflexión", "ejemplo", "email", "entrada de blog o redes sociales", "entrevista", "preguntas frecuentes", "guía paso a paso", "ideas", "lista de verificación (checklist)", "párrafo", "resumen ejecutivo", "script de vídeo/animación"])
 extension = st.selectbox("¿Qué EXTENSIÓN o duración deseas que tenga la respuesta esperada?", ["", "corto", "medio", "largo"])
 separador("#B30A1B")
-site = st.selectbox("¿Deseas que consulta documentación de algún SITE en particular?", ["", "scholar.google.com", "pubmed.ncbi.nlm.nih.gov", "elicit.org"])
+site = st.selectbox("¿Deseas que se consulte documentación de algún SITE en particular?", ["", "scholar.google.com", "pubmed.ncbi.nlm.nih.gov", "elicit.org"])
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>Parámetros adicionales:</p>", unsafe_allow_html=True)
