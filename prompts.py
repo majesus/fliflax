@@ -65,7 +65,7 @@ st.markdown(f"<p style='{custom_style_black}'>Crea tus propios prompts, y ajusta
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
-with st.expander("Preguntas prescindibles"):
+with st.expander("Preguntas iniciales:"):
     omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
     confirm = st.radio("¿Deseas confirmar que ChatGPT ha comprendido el prompt y los elementos adicionales?",('Sí', 'No'))
     detail = st.radio("La respuesta debe ser:",('equilibrada', 'precisa', 'creativa'))
