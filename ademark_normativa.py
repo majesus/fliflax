@@ -14,7 +14,7 @@ def download_link(object_to_download, download_filename, download_link_text):
 
 
 # Realizar scraping
-url = "https://www.example.com"  # Cambiar esta URL a la URL real del sitio web
+url = "https://www.us.es/laUS/secretaria-general/normativas"  # Cambiar esta URL a la URL real del sitio web
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 items = soup.select("dl.ckeditor-accordion dd ul li a")
