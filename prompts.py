@@ -123,9 +123,9 @@ st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un 
 
 audience = st.text_input("¿Quiénes son los DESTINATARIOS de la respuesta esperada?", "")
 rol = st.multiselect("¿Qué ROL deseas que asuma ChatGPT al generar la respuesta?", ["académico", "analista de datos", "asesor financiero", "asistente personal", "cocinero", "corrector de estilo / ortográfico", "diseñador gráfico", "diseñador web", "diseñador multimedia", "director de arte", "editor de revista académica", "escritor", "estadístico", "generador de prompts", "guía de viaje", "informático", "interiorista", "instrucciones de uso", "matemático", "nutricionista", "programador", "programador de videojuegos", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "storyteller", "traductor"], default=[])
-tone = st.multiselect("¿Cuál debe ser el TONO empleado en la respuesta?", ["experto", "formal", "profesional", "informativo", "relajado", "cercano", "divertido", "serio", "persuasivo", "entusiasta"], default=[])
+tone = st.multiselect("¿Cuál debe ser el TONO empleado en la respuesta?", ["experto", "amigable", "asertivo", "cercano", "divertido", "duro", "enfadado", "entusiasta", "faltón", "formal", "grosero", "informativo", "insultante", "optimista", "persuasivo", "preocupado", "profesional", "relajado", "romántico", "rudo", "serio"], default=[])
 author = st.text_input("ChatGPT debe responder con el ESTILO de un/a autor/a conocido/a:", "")
-language = st.selectbox("¿En qué IDIOMA deseas que se genere la respuesta?", ["", "español", "inglés", "alemán", "francés", "italiano", "portugués"])
+language = st.selectbox("¿En qué IDIOMA deseas que se genere la respuesta?", ["", "español", "alemán", "francés", "inglés", "italiano", "portugués"])
 formato = st.selectbox("¿Cuál debe ser el FORMATO de la respuesta esperada?", ["", "texto", "bullet points", "tabla"])
 extension = st.selectbox("¿Qué EXTENSIÓN o duración deseas que tenga la respuesta esperada?", ["", "corto", "medio", "largo"])
 separador("#B30A1B")
