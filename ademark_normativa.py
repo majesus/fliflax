@@ -19,13 +19,13 @@ for elem in elements:
 
 df = pd.DataFrame(data, columns=["Normativa", "URL", "Codigo"])
 
-st.write(df)
+# st.write(df)
 
-csv = df.to_csv(index=False, encoding="utf-8")
-st.download_button(label="Descargar CSV", data=csv, file_name="normativas.csv", mime="text/csv")
+# csv = df.to_csv(index=False, encoding="utf-8")
+# st.download_button(label="Descargar CSV", data=csv, file_name="normativas.csv", mime="text/csv")
 
-data = pd.read_csv("csv/normativas.csv") #path folder of the data file
-st.write(data) #displays the table of data
+# data = pd.read_csv("csv/normativas.csv") #path folder of the data file
+# st.write(data) #displays the table of data
 #-------------------------------------------------------#
 # Crear el vector de valores proporcionados
 vector_valores = [
