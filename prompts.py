@@ -99,11 +99,11 @@ with st.expander("Conceptos básicos para la generación de un prompt que genere
   st.markdown(f"<p style='{custom_style}'>Ejemplo: a) Identifique los principales canales de marketing utilizados por la empresa ABC, b) Evalúe la efectividad de cada canal en función de los datos proporcionados, y c) Proponga al menos tres acciones de marketing para mejorar el rendimiento de la campaña actual.</p>", unsafe_allow_html=True)#------------------------------------------------#
 separador("#B30A1B")
 #------------------------------------------------#
-contexto = st.text_area("Facilita, si lo deseas, un contexto para que la respuesta adquiera mayor relevancia:", "")
+contexto = st.text_area("Facilita, si lo deseas, un CONTEXTO para que la respuesta adquiera mayor relevancia:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
-prompt1 = st.text_area("Escribe tu cadena de entrada (o prompt) que guía la generación de texto del modelo.", "")
+prompt1 = st.text_area("Escribe tu cadena de entrada (o PROMPT) que guía la generación de texto del modelo.", "")
 with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
@@ -112,11 +112,11 @@ with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
-anexo = st.text_area("Material complementario, por ejemplo, ejemplos, código, etc.:", "")
+anexo = st.text_area("MATERIAL complementario, por ejemplo, ejemplos, código, etc.:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Añadir objetivos y tareas
-objectives_tasks = st.text_area("¿Cuáles son los <b>objetivos</b> que persigues en tu respuesta, y las <b>tareas</b> necesarias para lograr los objetivos?", "")
+objectives_tasks = st.text_area("¿Cuáles son los OBJETIVOS que persigues en tu respuesta, y las TAREAS necesarias para lograr los objetivos?", "")
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de claves para dotar a la respuesta esperada de mayor relevancia.</p>", unsafe_allow_html=True)
