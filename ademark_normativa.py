@@ -3,39 +3,46 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-# Define la URL de la página web que contiene la información que queremos extraer.
+# función para obtener el contenido de una url
+def get_url_content(url):
+    response = requests.get(url)
+    content = response.content
+    return content
+
+# url de la página a hacer scraping
 url = 'https://www.us.es/laUS/secretaria-general/normativas'
 
-# Realiza una petición a la página web y obtiene el código HTML como respuesta.
-response = requests.get(url)
+# hacer scraping del contenido de la página
+soup = BeautifulSoup(get_url_content(url), 'html.parser')
 
-# Parsea el código HTML con BeautifulSoup y extrae la lista de normativas.
-soup = BeautifulSoup(response.content, 'html.parser')
-normativas_list = soup.select_one('dl.ckeditor-accordion')
+# encontrar el elemento de la página que contiene la lista de normativas
+lista_normativas = soup.find('dl', class_='ckeditor-accordion')
 
-# Crea listas vacías para almacenar los datos de la tabla.
-normativas = []
-urls = []
-codigos = []
+# inicializar una lista vacía para almacenar las filas de la tabla
+rows = []
 
-# Extrae la información de cada normativa de la lista y la añade a las listas.
-for item in normativas_list.select('dt'):
-    normativas.append(item.text.strip())
+# iterar sobre cada elemento de la lista de normativas
+for normativa in lista_normativas.find_all('a'):
+
+    # obtener el título de la normativa y la url
+    title = normativa.text.strip()
+    url = normativa['href']
     
-    link = item.find_next('a')
-    urls.append(link['href'])
+    # obtener el código de la normativa a partir de la url
+    cod = url.split('/')[-1]
     
-    codigos.append("")
+    # agregar una nueva fila a la tabla
+    rows.append({'Normativa': title, 'URL': url, 'COD': cod})
 
-# Crea un DataFrame con los datos extraídos.
-data = {'Normativa': normativas, 'URL': urls, 'COD': codigos}
-df = pd.DataFrame(data)
+# convertir la lista de filas en un DataFrame de pandas
+df = pd.DataFrame(rows)
 
-# Muestra la tabla en pantalla.
-st.write(df)
+# mostrar la tabla en pantalla
+st.dataframe(df)
 
-# Agrega un enlace para descargar la tabla en formato CSV.
+# agregar un enlace para descargar la tabla en formato CSV
 csv = df.to_csv(index=False)
 b64 = base64.b64encode(csv.encode()).decode()
-href = f'<a href="data:file/csv;base64,{b64}" download="tabla_normativas.csv">Descargar tabla en CSV</a>'
+href = f'<a href="data:file/csv;base64,{b64}" download="tabla_normativas.csv">Descargar CSV</a>'
 st.markdown(href, unsafe_allow_html=True)
+
