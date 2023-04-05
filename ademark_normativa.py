@@ -1,45 +1,41 @@
 import requests
 from bs4 import BeautifulSoup
-import csv
+import pandas as pd
 import streamlit as st
+import base64
 
-url = "https://www.us.es/laUS/secretaria-general/normativas"
+def download_csv(dataframe):
+    csv = dataframe.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="normativa.csv">Descargar tabla en formato CSV</a>'
+    return href
 
-# Realizar una solicitud HTTP a la página web y obtener el contenido
-response = requests.get(url)
-content = response.content
+html_doc = """
+# Aquí deberías pegar el código HTML que proporcionaste anteriormente
+"""
 
-# Analizar el contenido HTML utilizando BeautifulSoup
-soup = BeautifulSoup(content, "html.parser")
-dl_elements = soup.find_all("dl", class_="ckeditor-accordion")
+soup = BeautifulSoup(html_doc, 'html.parser')
 
-# Recorrer los elementos dl y extraer la información relevante
-data = []
-for dl in dl_elements:
-    dt_elements = dl.find_all("dt")
-    dd_elements = dl.find_all("dd")
+normativas = []
+urls = []
 
-    for dt, dd in zip(dt_elements, dd_elements):
-        title = dt.get_text(strip=True)
-        links = dd.find_all("a")
-        for link in links:
-            normativa = link.get_text(strip=True)
-            url = link["href"]
-            importance = "PE"  # Por defecto, asumimos que es importante para ambos
+for link in soup.find_all('a'):
+    normativas.append(link.get_text())
+    urls.append(link.get('href'))
 
-            if "profesorado" in normativa.lower():
-                importance = "P"
-            elif "estudiantes" in normativa.lower():
-                importance = "E"
+codigos = [
+    # Aquí debes agregar los códigos correspondientes (A P, E, PE) para cada normativa
+]
 
-            data.append([normativa, url, importance])
+data = {
+    "Normativa": normativas,
+    "URL": urls,
+    "Código": codigos
+}
 
-# Crear y descargar el archivo CSV
-csv_file = "normativas.csv"
-with open(csv_file, "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerow(["Normativa", "URL", "Importancia"])
-    writer.writerows(data)
+df = pd.DataFrame(data)
 
-st.markdown("### Descargar archivo CSV")
-st.markdown(f"[{csv_file}]({csv_file})")
+st.title("Normativas de la Universidad")
+st.write(df)
+
+st.markdown(download_csv(df), unsafe_allow_html=True)
