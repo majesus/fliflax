@@ -25,7 +25,7 @@ def separador(color):
 #------------------------------------------------#
 custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
 custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
-custom_subtitle_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
+custom_subtitle_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5;"
 custom_style_black = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 16px; line-height: 1.5;"
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
 
@@ -59,6 +59,7 @@ col1.image(imagen, width=150)
 # Añadir título en la segunda columna
 col2.title("")
 st.markdown(f"<p style='{custom_subtitle_black}'>Por Manuel J. Sánchez Franco, Universidad de Sevilla.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style_black}'><i>Asistido en la programación por GPT-4</i>.</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear la respuesta con tus deseos. Los parámetros empleados están pensados para GPT4.</p>", unsafe_allow_html=True)
