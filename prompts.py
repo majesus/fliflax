@@ -164,7 +164,7 @@ with st.expander("No repeat n-gram size:"):
   st.write("")
   st.write("")
 word_repeat_ngram = st.text_input("Token:", "")
-repeat_ngram = st.slider("No repeat n-gram size:", min_value=0.0, max_value=5.0, value=0.0, step=1)
+repeat_ngram = st.slider("No repeat n-gram size:", min_value=0, max_value=5, value=0, step=1)
 separador("#B30A1B")
 #------------------------------------------------#
 # Construye el prompt completo
