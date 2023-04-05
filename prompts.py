@@ -97,6 +97,7 @@ with st.expander("Conceptos básicos para la generación de un prompt que genere
   st.markdown(f"<p style='{custom_style}'>Definición: Acciones concretas o pasos que el modelo debe llevar a cabo para cumplir con los objetivos y responder adecuadamente al prompt.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: Las tareas son instrucciones claras y específicas que facilitan la estructuración y el enfoque de la respuesta.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Ejemplo: a) Identifique los principales canales de marketing utilizados por la empresa ABC, b) Evalúe la efectividad de cada canal en función de los datos proporcionados, y c) Proponga al menos tres acciones de marketing para mejorar el rendimiento de la campaña actual.</p>", unsafe_allow_html=True)#------------------------------------------------#
+separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
 st.markdown(f"<p style='{custom_style_black}'>Escribe tu cadena de entrada que guía la generación de texto del modelo.</p>", unsafe_allow_html=True)
