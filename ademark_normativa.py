@@ -1,41 +1,28 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
 import streamlit as st
-import base64
+import requests
+import pandas as pd
+import io
 
-def download_csv(dataframe):
-    csv = dataframe.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="normativa.csv">Descargar tabla en formato CSV</a>'
-    return href
+# Hacer la petición HTTP para obtener el HTML
+url = "https://www.us.es/centro/secretariageneral/normativa"
+response = requests.get(url)
 
-html_doc = """
-# Aquí deberías pegar el código HTML que proporcionaste anteriormente
-"""
+# Cargar el HTML en BeautifulSoup
+soup = BeautifulSoup(response.content, "html.parser")
 
-soup = BeautifulSoup(html_doc, 'html.parser')
+# Buscar la tabla y convertirla en un objeto DataFrame de Pandas
+table = soup.find("dl", {"class": "ckeditor-accordion"})
+df = pd.read_html(str(table))[0]
+df.columns = ["Normativa", "URL"]
 
-normativas = []
-urls = []
+# Crear un objeto de memoria para escribir el archivo CSV
+buffer = io.StringIO()
+df.to_csv(buffer, index=False)
 
-for link in soup.find_all('a'):
-    normativas.append(link.get_text())
-    urls.append(link.get('href'))
+# Descargar el archivo CSV
+b64 = base64.b64encode(buffer.getvalue().encode()).decode()
+href = f'<a href="data:file/csv;base64,{b64}" download="normativas.csv">Descargar archivo CSV</a>'
+st.markdown(href, unsafe_allow_html=True)
 
-codigos = [
-    # Aquí debes agregar los códigos correspondientes (A P, E, PE) para cada normativa
-]
-
-data = {
-    "Normativa": normativas,
-    "URL": urls,
-    "Código": codigos
-}
-
-df = pd.DataFrame(data)
-
-st.title("Normativas de la Universidad")
+# Mostrar la tabla en pantalla
 st.write(df)
-
-st.markdown(download_csv(df), unsafe_allow_html=True)
