@@ -197,7 +197,7 @@ separador("#B30A1B")
 
 with st.expander("Repeat n-gram:"):
   st.write("El parámetro repeat n-gram es un parámetro utilizado para controlar la repetición de secuencias de palabras (n-gramas) en la respuesta generada. Este parámetro ayuda a reducir la redundancia y a mejorar la calidad de la respuesta, asegurando que la información no se repita innecesariamente.")
-  st.write("Por ejemplo, si se establece el valor de "repeat n-gram" en 3, el modelo evitará repetir cualquier secuencia de tres palabras consecutivas que ya haya aparecido en la respuesta. Esto ayuda a mantener la coherencia y la relevancia del texto generado, evitando redundancias y mejorando la legibilidad de la respuesta.")
+  st.write("Por ejemplo, si se establece el valor de repeat n-gram en 3, el modelo evitará repetir cualquier secuencia de tres palabras consecutivas que ya haya aparecido en la respuesta. Esto ayuda a mantener la coherencia y la relevancia del texto generado, evitando redundancias y mejorando la legibilidad de la respuesta.")
 repeat_ngram = st.slider("No repeat n-gram size:", min_value=0, max_value=5, value=0, step=1)
 separador("#B30A1B")
 #------------------------------------------------#
