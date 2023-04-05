@@ -23,3 +23,6 @@ st.write(df)
 
 csv = df.to_csv(index=False, encoding="utf-8")
 st.download_button(label="Descargar CSV", data=csv, file_name="normativas.csv", mime="text/csv")
+
+data = pd.read_csv("csv/normativas.csv") #path folder of the data file
+st.write(data) #displays the table of data
