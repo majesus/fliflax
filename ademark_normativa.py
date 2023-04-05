@@ -21,5 +21,5 @@ df = pd.DataFrame(data, columns=["Normativa", "URL", "Columna Adicional"])
 
 st.write(df)
 
-csv = df.to_csv(index=False, encoding="utf-8-sig")
+csv = df.to_csv(index=False, encoding="utf-8")
 st.download_button(label="Descargar CSV", data=csv, file_name="normativas.csv", mime="text/csv")
