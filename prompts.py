@@ -67,7 +67,7 @@ separador("#B30A1B")
 with st.expander("Preguntas prescindibles"):
     omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
     confirm = st.radio("¿Deseas confirmar que ChatGPT ha comprendido el prompt y los elementos adicionales?",('Sí', 'No'))
-    detail = st.radio("La respuesta debe ser:",('precisa', 'creativa', 'equilibrada'))
+    detail = st.radio("La respuesta debe ser:",('equilibrada', 'precisa', 'creativa'))
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
