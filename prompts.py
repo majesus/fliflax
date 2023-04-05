@@ -67,7 +67,7 @@ separador("#B30A1B")
 with st.expander("Preguntas prescindibles"):
     omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
     confirm = st.radio("¿Deseas confirmar que ChatGPT ha comprendido el prompt y los elementos adicionales?",('Sí', 'No'))
-    detail = st.radio("La respuesta debe ser:",('Precisa', 'Creativa', 'Equilibrada'))
+    detail = st.radio("La respuesta debe ser:",('precisa', 'creativa', 'equilibrada'))
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
@@ -88,13 +88,13 @@ anexo = st.text_area("Material complementario", "")
 separador("#B30A1B")
 #------------------------------------------------#
 audience = st.text_input("¿A quién te diriges?", "")
-rol = st.multiselect("¿Qué rol deseas que asuma ChatGPT?", ["Académico", "Analista de datos", "Asesor financiero", "Asistente personal", "Cocinero", "Corrector de estilo / ortográfico", "Diseñador gráfico", "Diseñador web", "Diseñador multimedia", "Director de arte", "Editor de revista académica", "Escritor", "Estadístico", "Generador de prompts", "Guía de viaje", "Informático", "Interiorista", "Instrucciones de uso", "Matemático", "Nutricionista", "Programador", "Redactor publicitario", "Revisor de artículos académicos", "Screenwriter", "Storyteller", "Traductor"], default=[])
-tone = st.selectbox("¿Cuál debe ser el tono de la respuesta?", ["", "Experto", "Formal", "Profesional", "Informativo", "Relajado", "Cercano", "Divertido", "Serio", "Persuasivo", "Entusiasta"])
+rol = st.multiselect("¿Qué rol deseas que asuma ChatGPT?", ["académico", "analista de datos", "asesor financiero", "asistente personal", "cocinero", "corrector de estilo / ortográfico", "diseñador gráfico", "diseñador web", "diseñador multimedia", "director de arte", "editor de revista académica", "escritor", "estadístico", "generador de prompts", "guía de viaje", "informático", "interiorista", "instrucciones de uso", "matemático", "nutricionista", "programador", "programador de videojuegos", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "storyteller", "traductor"], default=[])
+tone = st.multiselect("¿Cuál debe ser el tono de la respuesta?", ["experto", "formal", "profesional", "informativo", "relajado", "cercano", "divertido", "serio", "persuasivo", "entusiasta"], default=[])
 author = st.text_input("Responde con el estilo de un/a autor/a conocido/a:", "")
 objectives_tasks = st.text_area("¿Cuáles son los objetivos que persigues preguntando, y las tareas necesarias para lograrlos?", "")
-language = st.selectbox("¿En qué idoma deseas la respuesta?", ["", "Español", "Inglés", "Alemán", "Francés", "Italiano", "Portugués"])
-formato = st.selectbox("¿Cuál debe ser el formato de la respuesta?", ["", "Texto", "Bullet points", "Tabla"])
-extension = st.selectbox("¿Qué longitud deseas que tenga la respuesta?", ["", "Corto", "Medio", "Largo"])
+language = st.selectbox("¿En qué idoma deseas la respuesta?", ["", "español", "inglés", "alemán", "francés", "italiano", "portugués"])
+formato = st.selectbox("¿Cuál debe ser el formato de la respuesta?", ["", "texto", "bullet points", "tabla"])
+extension = st.selectbox("¿Qué longitud deseas que tenga la respuesta?", ["", "corto", "medio", "largo"])
 separador("#B30A1B")
 #------------------------------------------------#
 st.write("Más parámetros")
