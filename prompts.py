@@ -128,6 +128,7 @@ author = st.text_input("ChatGPT debe responder con el ESTILO de un/a autor/a con
 language = st.selectbox("¿En qué IDIOMA deseas que se genere la respuesta?", ["", "español", "inglés", "alemán", "francés", "italiano", "portugués"])
 formato = st.selectbox("¿Cuál debe ser el FORMATO de la respuesta esperada?", ["", "texto", "bullet points", "tabla"])
 extension = st.selectbox("¿Qué EXTENSIÓN o duración deseas que tenga la respuesta esperada?", ["", "corto", "medio", "largo"])
+separador("#B30A1B")
 site = st.selectbox("¿Deseas que consulta documentación de algún SITE en particular?", ["", "scholar.google.com", "pubmed.ncbi.nlm.nih.gov", "elicit.org"])
 separador("#B30A1B")
 #------------------------------------------------#
