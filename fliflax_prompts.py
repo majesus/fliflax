@@ -59,6 +59,7 @@ col1.image(imagen, width=150)
 # Añadir título en la segunda columna
 col2.title("")
 st.markdown(f"<p style='{custom_subtitle_black}'>Por Manuel J. Sánchez Franco, Universidad de Sevilla.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style}'>[Es esencial señalar que esta herramienta se ha construido exclusivamente para uso docente, con la que ilustrar a los estudiantes sobre los usos, su buena y mala praxis, de los modelos de lenguaje de gran tamaño (LLMs)]</p>", unsafe_allow_html=True)
 st.markdown(f"<p style='{custom_style}'>[Asistido en la programación por GPT-4]</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 #------------------------------------------------#
