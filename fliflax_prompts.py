@@ -66,7 +66,7 @@ st.markdown(f"<p style='{custom_style_black}'>Crea tus propios prompts, y ajusta
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
-with st.expander("Preguntas iniciales:"):
+with st.expander("Instrucciones iniciales:"):
     omit = st.radio("¿Deseas que olvide lo anteriormente preguntado?",('No', 'Sí'))
     confirm = st.radio("¿Deseas confirmar que ChatGPT ha comprendido el prompt y los elementos adicionales?",('Sí', 'No'))
     detail = st.radio("La respuesta debe ser:",('equilibrada', 'precisa', 'creativa'))
@@ -100,7 +100,7 @@ with st.expander("Conceptos básicos para la generación de un prompt que genere
   st.markdown(f"<p style='{custom_style}'>Ejemplo: a) Identifique los principales canales de marketing utilizados por la empresa ABC, b) Evalúe la efectividad de cada canal en función de los datos proporcionados, y c) Proponga al menos tres acciones de marketing para mejorar el rendimiento de la campaña actual.</p>", unsafe_allow_html=True)#------------------------------------------------#
 separador("#B30A1B")
 #------------------------------------------------#
-contexto = st.text_area("Facilita, si lo deseas, un CONTEXTO para que la respuesta adquiera mayor relevancia:", "")
+contexto = st.text_area("Facilita, si lo deseas, un CONTEXTO para que la respuesta adquiera mayor relevancia. En el contexto precisa el rol que tú juegas en la conversación; más adelante te preguntaremos por el rol específico que asignas al modelo:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
@@ -123,18 +123,35 @@ separador("#B30A1B")
 st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de instrucciones para dotar a la respuesta esperada de mayor relevancia.</p>", unsafe_allow_html=True)
 
 audience = st.text_input("¿Quiénes son los DESTINATARIOS de la respuesta esperada?", "")
-rol = st.multiselect("¿Qué ROL deseas que asuma ChatGPT al generar la respuesta?", ["académico", "analista de datos", "analista de marketing", "analista de negocios", "analista de sistemas", "asesor financiero", "asesor legal", "asistente de investigación", "asistente personal", "biólogo", "científico de datos", "coach de vida", "cocinero", "comentarista deportivo", "consultor de recursos humanos", "consultor de ventas", "corrector de estilo / ortográfico", "crítico de cine", "crítico literario", "desarrollador de aplicaciones móviles", "desarrollador frontend", "desarrollador backend", "diseñador de experiencia de usuario (UX)", "diseñador de interfaz de usuario (UI)", "diseñador de moda", "diseñador gráfico", "diseñador multimedia", "diseñador web", "director de arte", "director de cine", "director de fotografía", "editor de revista académica", "educador", "escritor", "especialista en animación", "especialista en efectos visuales", "estadístico", "experto en marketing", "fotógrafo", "físico", "generador de prompts", "gestor de proyectos", "guía de viaje", "historiador", "informático", "ingeniero civil", "ingeniero de sonido", "interiorista", "instrucciones de uso", "matemático", "médico", "nutricionista", "periodista", "productor musical", "programador", "programador de R", "programador de Python", "programador de videojuegos", "psicólogo", "químico", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "sociólogo", "sonidista", "storyteller", "técnico de soporte", "traductor", "tutor", "videógrafo"], default=[])
-tone = st.multiselect("¿Cuál debe ser el TONO (de la conversación) empleado en la respuesta?", ["experto", "amigable", "asertivo", "cercano", "divertido", "duro", "enfadado", "entusiasta", "faltón", "formal", "grosero", "informativo", "insultante", "optimista", "persuasivo", "preocupado", "profesional", "relajado", "romántico", "rudo", "serio"], default=[])
+rol = st.multiselect("¿Qué ROL específico deseas que asuma ChatGPT al generar la respuesta?", ["académico", "analista de datos", "analista de marketing", "analista de negocios", "analista de sistemas", "asesor financiero", "asesor legal", "asistente de investigación", "asistente personal", "biólogo", "científico de datos", "coach de vida", "cocinero", "comentarista deportivo", "consultor de recursos humanos", "consultor de ventas", "corrector de estilo / ortográfico", "crítico de cine", "crítico literario", "desarrollador de aplicaciones móviles", "desarrollador frontend", "desarrollador backend", "diseñador de experiencia de usuario (UX)", "diseñador de interfaz de usuario (UI)", "diseñador de moda", "diseñador gráfico", "diseñador multimedia", "diseñador web", "director de arte", "director de cine", "director de fotografía", "editor de revista académica", "educador", "escritor", "especialista en animación", "especialista en efectos visuales", "estadístico", "experto en marketing", "fotógrafo", "físico", "generador de prompts", "gestor de proyectos", "guía de viaje", "historiador", "informático", "ingeniero civil", "ingeniero de sonido", "interiorista", "instrucciones de uso", "matemático", "médico", "nutricionista", "periodista", "productor musical", "programador", "programador de R", "programador de Python", "programador de videojuegos", "psicólogo", "químico", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "sociólogo", "sonidista", "storyteller", "técnico de soporte", "traductor", "tutor", "videógrafo"], default=[])
+tone = st.multiselect("¿Cuál debe ser el TONO (de la conversación) empleado por el modelo en la respuesta?", ["experto", "amigable", "asertivo", "cercano", "divertido", "duro", "enfadado", "entusiasta", "faltón", "formal", "grosero", "informativo", "insultante", "optimista", "persuasivo", "preocupado", "profesional", "relajado", "romántico", "rudo", "serio"], default=[])
 author = st.text_input("ChatGPT debe responder con el ESTILO del siguiente autor/a:", "")
 language = st.selectbox("¿En qué IDIOMA deseas que se genere la respuesta?", ["", "español", "alemán", "francés", "inglés", "italiano", "portugués"])
 formato = st.selectbox("¿Cuál debe ser el FORMATO de la respuesta esperada?", ["", "texto", "bullet points", "tabla"])
 tipo = st.selectbox("¿Qué TIPO de texto estás redactando?", ["", "artículo académico", "artículo de opinión", "definición", "diario personal/reflexión", "ejemplo", "email", "entrada de blog o redes sociales", "entrevista", "preguntas frecuentes", "guía paso a paso", "ideas", "lista de verificación (checklist)", "párrafo", "resumen ejecutivo", "script de vídeo/animación"])
 extension = st.selectbox("¿Qué EXTENSIÓN o duración deseas que tenga la respuesta esperada?", ["", "corto", "medio", "largo"])
 separador("#B30A1B")
+#------------------------------------------------#
+st.markdown(f"<p style='{custom_style_black}'>Si deseas que el modelo consulte en algún SITE particular para generar su respuesta, indícalo, por favor.</p>", unsafe_allow_html=True)
 site = st.selectbox("¿Deseas que se consulte documentación de algún SITE en particular?", ["", "scholar.google.com", "pubmed.ncbi.nlm.nih.gov", "elicit.org"])
 separador("#B30A1B")
+
 st.markdown(f"<p style='{custom_style_black}'>Si deseas que la respuesta tenga una estructura muy específica, debes ingresar algunos ejemplos de cómo te gustaría que fueran, separados por comas. Te animo a consultar: few-shot prompting.</p>", unsafe_allow_html=True)
 shot = st.text_input("Ejemplos de respuestas:", "")
+separador("#B30A1B")
+#------------------------------------------------#
+st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de instrucciones para agregar información de entrada (start) y también adicional (restart) en la respuesta para guiar al modelo.</p>", unsafe_allow_html=True)
+
+with st.expander("Inject start text (texto de inicio para guiar la respuesta desde el principio):"):
+  st.write("Inject start text es un parámetro utilizado para agregar texto específico al inicio de la respuesta generada como, por ejemplo: ¿Qué es la inflación? Este parámetro se utiliza para controlar el inicio de la respuesta generada y para agregar contexto específico al inicio de la respuesta.")
+  st.write("Por ejemplo, si se establece un texto de inicio como: En respuesta a su pregunta sobre el clima..., el modelo generará una respuesta que comienza con esa frase para indicar que se está respondiendo a una pregunta específica.")
+inject_start_text = st.text_input("Inject start text:", "")
+separador("#B30A1B")
+
+with st.expander("Inject restart text (texto de reinicio para cambiar o reorientar la dirección del flujo de la conversación):"):
+  st.write("Inject restart text es un parámetro utilizado para agregar texto específico al reinicio de la respuesta generada. Este parámetro se utiliza para controlar el reinicio de la respuesta generada y para agregar contexto específico al reinicio de la respuesta.")
+  st.write("Por ejemplo, si se establece un texto de reinicio como: Me gustaría saber más sobre la inflación subyacente..., el modelo generará una respuesta que comienza con esa frase para indicar que se está retomando una conversación anterior y agregar contexto a la respuesta.")
+inject_restart_text = st.text_input("Inject restart text:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>Parámetros adicionales:</p>", unsafe_allow_html=True)
@@ -186,18 +203,6 @@ with st.expander("Best of (número de respuestas solicitadas):"):
   st.write("Best of se refiere a la cantidad de respuestas generadas que se presentan al usuario. Este parámetro permite seleccionar el número de respuestas más adecuadas a presentar al usuario.")
   st.write("Por ejemplo, si se establece un valor Best of de 5, el modelo generará 5 respuestas distintas y luego se presentarán las 5 opciones al usuario para que elija la que más le guste o la que mejor se ajuste a sus necesidades.")
 best_of = st.slider("Best of:", min_value=1, max_value=5, value=1, step=1)
-separador("#B30A1B")
-
-with st.expander("Inject start text (texto de inicio de la respuesta):"):
-  st.write("Inject start text es un parámetro utilizado para agregar texto específico al inicio de la respuesta generada. Este parámetro se utiliza para controlar el inicio de la respuesta generada y para agregar contexto específico al inicio de la respuesta.")
-  st.write("Por ejemplo, si se establece un texto de inicio como: En respuesta a su pregunta sobre el clima..., el modelo generará una respuesta que comienza con esa frase para indicar que se está respondiendo a una pregunta específica.")
-inject_start_text = st.text_input("Inject start text:", "")
-separador("#B30A1B")
-
-with st.expander("Inject restart text (texto de reinicio de la respuesta):"):
-  st.write("Inject restart text es un parámetro utilizado para agregar texto específico al reinicio de la respuesta generada. Este parámetro se utiliza para controlar el reinicio de la respuesta generada y para agregar contexto específico al reinicio de la respuesta.")
-  st.write("Por ejemplo, si se establece un texto de reinicio como: Continuando nuestra conversación anterior..., el modelo generará una respuesta que comienza con esa frase para indicar que se está retomando una conversación anterior y agregar contexto a la respuesta.")
-inject_restart_text = st.text_input("Inject restart text:", "")
 separador("#B30A1B")
 
 with st.expander("n-gram size (no repetir n-gramas de tamaño n):"):
