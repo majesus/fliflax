@@ -64,25 +64,21 @@ st.markdown(f"<p style='{custom_style}'>[Asistido en la programación por GPT-4]
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>Crea tus propios prompts, y ajusta los parámetros para obtener respuestas precisas y relevantes. A continuación, te formulamos distintas preguntas para alinear la respuesta con tus deseos. Los parámetros empleados están pensados para GPT4.</p>", unsafe_allow_html=True)
-
 with st.expander("Instrucciones iniciales:"):
-  st.write("Ventajas:")
-  st.markdown("""
-  1. Acceso rápido a información: GPT-4 puede proporcionar respuestas rápidas y relevantes a preguntas, lo que permite a los estudiantes investigar temas y obtener información de manera eficiente.
-  2. Generación de ideas: GPT-4 puede ayudar a los estudiantes a explorar nuevas perspectivas y generar ideas para sus proyectos de investigación o tareas.
-  3. Desarrollo de habilidades de redacción: GPT-4 puede servir como una herramienta para mejorar las habilidades de redacción de los estudiantes al proporcionar ejemplos de escritura de alta calidad y ayudar a mejorar el estilo y la gramática.
-  4. Facilitar el aprendizaje de idiomas: GPT-4 puede ser útil para estudiantes que aprenden nuevos idiomas al proporcionar traducciones, ejemplos de uso de vocabulario y práctica en la construcción de frases.
-  5. Soporte para la enseñanza: GPT-4 puede ser utilizado como un recurso adicional para profesores, proporcionando ejemplos, explicaciones y material adicional para apoyar la enseñanza.
-  """)
-
-  st.write("Peligros:")
-  st.markdown("""
-  1. Confiabilidad de la información: GPT-4 puede generar respuestas incorrectas o desactualizadas, lo que podría llevar a los estudiantes a obtener información errónea.
-  2. Plagio: La facilidad con la que GPT-4 puede generar contenido bien redactado puede fomentar el plagio por parte de los estudiantes, lo que socava la integridad académica.
-  3. Falta de pensamiento crítico: La dependencia excesiva de GPT-4 puede disuadir a los estudiantes de desarrollar habilidades de pensamiento crítico y análisis independiente.
-  4. Sesgo y discriminación: GPT-4 puede reflejar y perpetuar sesgos y estereotipos presentes en los datos de entrenamiento, lo que podría llevar a conclusiones incorrectas o discriminatorias.
-  5. Falta de habilidades de comunicación: El uso excesivo de GPT-4 puede limitar las oportunidades de los estudiantes para desarrollar habilidades de comunicación interpersonal, ya que pueden depender en exceso del modelo en lugar de interactuar directamente con profesores y compañeros de clase.
-  """)
+  
+  st.markdown(f"<p style='{custom_subtitle}'>Ventajas:</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Acceso rápido a información: GPT-4 puede proporcionar respuestas rápidas y relevantes a preguntas, lo que permite a los estudiantes investigar temas y obtener información de manera eficiente.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Generación de ideas: GPT-4 puede ayudar a los estudiantes a explorar nuevas perspectivas y generar ideas para sus proyectos de investigación o tareas.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Desarrollo de habilidades de redacción: GPT-4 puede servir como una herramienta para mejorar las habilidades de redacción de los estudiantes al proporcionar ejemplos de escritura de alta calidad y ayudar a mejorar el estilo y la gramática.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Facilitar el aprendizaje de idiomas: GPT-4 puede ser útil para estudiantes que aprenden nuevos idiomas al proporcionar traducciones, ejemplos de uso de vocabulario y práctica en la construcción de frases.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Soporte para la enseñanza: GPT-4 puede ser utilizado como un recurso adicional para profesores, proporcionando ejemplos, explicaciones y material adicional para apoyar la enseñanza.</p>", unsafe_allow_html=True)
+  
+  st.markdown(f"<p style='{custom_subtitle}'>Desventajas:</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Confiabilidad de la información: GPT-4 puede generar respuestas incorrectas o desactualizadas, lo que podría llevar a los estudiantes a obtener información errónea.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Plagio: La facilidad con la que GPT-4 puede generar contenido bien redactado puede fomentar el plagio por parte de los estudiantes, lo que socava la integridad académica.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Falta de pensamiento crítico: La dependencia excesiva de GPT-4 puede disuadir a los estudiantes de desarrollar habilidades de pensamiento crítico y análisis independiente.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Sesgo y discriminación: GPT-4 puede reflejar y perpetuar sesgos y estereotipos presentes en los datos de entrenamiento, lo que podría llevar a conclusiones incorrectas o discriminatorias.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Falta de habilidades de comunicación: El uso excesivo de GPT-4 puede limitar las oportunidades de los estudiantes para desarrollar habilidades de comunicación interpersonal, ya que pueden depender en exceso del modelo en lugar de interactuar directamente con profesores y compañeros de clase.</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 #------------------------------------------------#
 # Comienza el prompt y elementos adicionales
