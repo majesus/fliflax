@@ -28,3 +28,5 @@ httpagentparser
 
 networkx 
 matplotlib
+
+whisper
