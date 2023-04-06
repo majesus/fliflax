@@ -171,7 +171,7 @@ separador("#B30A1B")
 with st.expander("Maximum tokens (extensión en número de tokens):"):
   st.write("La longitud máxima es el número máximo de tokens (palabras) permitidos en la respuesta generada. Este parámetro se utiliza para controlar la longitud de las respuestas generadas y evitar que sean demasiado largas o demasiado cortas.")
   st.write("Por ejemplo, si se establece una longitud máxima de 50 palabras, el modelo generará una respuesta que no supere esa cantidad.")
-max_length = st.slider("Maximum length:", min_value=10, max_value=4096, value=1024, step=10)
+max_length = st.slider("Maximum tokens:", min_value=10, max_value=4096, value=1024, step=10)
 separador("#B30A1B")
 
 with st.expander("Top P (ajuste de la diversidad de respuestas basado en la probabilidad acumulativa de tokens):"):
