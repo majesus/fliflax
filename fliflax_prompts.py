@@ -65,6 +65,7 @@ with st.expander("Notas del autor:"):
   st.markdown(f"<p style='{custom_style}'>La programación ha sido asistida por el modelo: GPT-4.</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 #------------------------------------------------#
+st.markdown(f"<p style='{custom_subtitle}'>Bloque 0</p>", unsafe_allow_html=True)
 st.markdown(f"<p style='{custom_style_black}'>Con esta herramienta puedes crear tus propios prompts, y ajustar los principales parámetros e instrucciones dados al modelo para alinear las respuestas a tus deseos. Los parámetros e instrucciones están orientados a GPT4. No obstante, antes de comenzar debes saber las ventajas e desventajas del uso de los modelos LLMs.</p>", unsafe_allow_html=True)
 
 with st.expander("Advertencias"):
