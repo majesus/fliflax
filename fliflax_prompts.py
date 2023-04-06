@@ -108,7 +108,7 @@ with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     prompt2 = st.text_input("Escribe tu segundo paso", "")
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
     prompt4 = st.text_input("Escribe tu cuarto paso:", "")
-    step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso (o prompt) que has señalado?",('Sí', 'No'))
+    step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso (o prompt) que has señalado?",('No', 'Sí'))
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
 anexo = st.text_area("MATERIAL complementario (ejemplos, código, etc.):", "")
