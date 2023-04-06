@@ -223,7 +223,7 @@ separador("#B30A1B")
 with st.expander("Presence penalty (valor con que penalizamos la aparición de un texto en la respuesta):"):
   st.markdown(f"<p style='{custom_style}'>La penalización de presencia es un parámetro utilizado para controlar la aparición de ciertas palabras o frases en las respuestas generadas. Este parámetro penaliza la aparición de ciertas palabras o frases en la respuesta generada.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Por ejemplo, si se establece una penalización de presencia para la palabra: política, el modelo evitará generar respuestas que contengan esa palabra o frases relacionadas con ese tema.</p>", unsafe_allow_html=True)
-word_presence_penalty = st.text_input("Texto:", "</p>", unsafe_allow_html=True)
+word_presence_penalty = st.text_input("Texto:", "")
 presence_penalty = st.slider("Presence penalty:", min_value=-2.0, max_value=2.0, value=0.5, step=0.1)
 separador("#B30A1B")
 
