@@ -101,7 +101,6 @@ with st.expander("Conceptos básicos para la generación de un prompt que genere
 separador("#B30A1B")
 #------------------------------------------------#
 contexto = st.text_area("Facilita, si lo deseas, un CONTEXTO para que la respuesta adquiera mayor relevancia. En el contexto precisa el rol que tú juegas en la conversación; más adelante te preguntaremos por el rol específico que asignas al modelo:", "")
-separador("#B30A1B")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
 prompt1 = st.text_area("Escribe tu cadena de entrada (o PROMPT) para guiar la generación de texto del modelo.", "")
@@ -110,15 +109,12 @@ with st.expander("Prompts adicionales en el caso de que desees secuenciarlos:"):
     prompt3 = st.text_input("Escribe tu tercer paso:", "")
     prompt4 = st.text_input("Escribe tu cuarto paso:", "")
     step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso (o prompt) que has señalado?",('Sí', 'No'))
-separador("#B30A1B")
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
 anexo = st.text_area("MATERIAL complementario (ejemplos, código, etc.):", "")
-separador("#B30A1B")
 #------------------------------------------------#
 # Añadir objetivos y tareas
 objectives_tasks = st.text_area("¿Cuáles son los OBJETIVOS que persigues en tu respuesta, y las TAREAS que crees necesarias para lograr los objetivos?", "")
-separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de instrucciones para dotar a la respuesta esperada de mayor relevancia.</p>", unsafe_allow_html=True)
 
@@ -137,7 +133,11 @@ site = st.selectbox("¿Deseas que se consulte documentación de algún SITE en p
 separador("#B30A1B")
 
 st.markdown(f"<p style='{custom_style_black}'>Si deseas que la respuesta tenga una estructura muy específica, debes ingresar algunos ejemplos de cómo te gustaría que fueran, separados por comas. Te animo a consultar: few-shot prompting.</p>", unsafe_allow_html=True)
-shot = st.text_input("Ejemplos de respuestas:", "")
+with st.expander("Aquí tienes un ejemplo muy básico de la técnica few-shot en el diseño de prompts."):
+    st.write("3 + 3 = 6. La explicación es ...")
+    st.write("5 + 5 = 10. La explicación es ...")
+    st.write("2 + 2 = ...")
+shot = st.text_area("Ejemplos de respuestas:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_style_black}'>A continuación, te proponemos un conjunto de instrucciones para agregar información de entrada (start) y también adicional (restart) en la respuesta para guiar al modelo.</p>", unsafe_allow_html=True)
