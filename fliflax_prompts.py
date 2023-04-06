@@ -192,7 +192,7 @@ separador("#B30A1B")
 with st.expander("logit-bias (ajuste de las probabilidades de determinados tokens para ser seleccionados):"):
   st.markdown(f"<p style='{custom_style}'>El logit bias es un parámetro utilizado en los modelos de lenguaje generativos para ajustar las probabilidades de ciertos tokens antes de aplicar la función softmax, lo que afecta la selección de tokens durante la generación de texto. Al ajustar el logit bias, puedes hacer que ciertos tokens sean más o menos probables en la salida generada.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Por ejemplo, si deseas que el modelo genere más contenido relacionado con gatos, puedes aumentar el logit bias de tokens relacionados con gatos, como gato, felino o gatito. Por otro lado, si deseas reducir la probabilidad de que aparezcan palabras negativas en la salida, puedes disminuir el logit bias de tokens como triste, malo o negativo.</p>", unsafe_allow_html=True)
-logit_bias_tokens = st.text_input("Tokens:", "</p>", unsafe_allow_html=True)
+logit_bias_tokens = st.text_input("Tokens:", "")
 logit_bias =st.slider("logit-bias:", min_value=-2.0, max_value=2.0, value=0.0, step=0.1)
 separador("#B30A1B")
 
@@ -211,7 +211,7 @@ separador("#B30A1B")
 with st.expander("Stop sequence (expresión que, cuando el modelo la genera, detiene inmediatamente la generación de texto adicional):"):
   st.markdown(f"<p style='{custom_style}'>El parámetro Stop sequence es un parámetro utilizado en GPT-4 para indicar el final anticipado de una respuesta generada. Este parámetro permite especificar una secuencia de palabras o caracteres que, cuando el modelo los genera, detiene inmediatamente la generación de texto adicional. De esta manera, se puede controlar la longitud de la respuesta y asegurar que termine de manera coherente y apropiada.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Por ejemplo, si se establece una secuencia de parada como: Fin de la explicación, el modelo generará una respuesta y, una vez que encuentre la frase: Fin de la explicación, detendrá la generación de texto adicional. Esto puede ser útil para garantizar que la respuesta se complete con una conclusión adecuada o para limitar su extensión a un contexto específico.</p>", unsafe_allow_html=True)
-stop_sequence = st.text_input("Stop sequence:", "</p>", unsafe_allow_html=True)
+stop_sequence = st.text_input("Stop sequence:", "")
 separador("#B30A1B")
 
 with st.expander("Frequency penalty (valor con que penalizamos la reiteración de palabras o tokens en la respuesta):"):
