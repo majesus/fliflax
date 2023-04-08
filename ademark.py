@@ -141,7 +141,7 @@ if menu == "Inicio":
     
     separador("#B30A1B")
     
-    st.markdown(f"<p style='{custom_subtitle}'>Centros en los que impartimos docencia</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Centros en los que impartimos docencia (por orden alfabético)</p>", unsafe_allow_html=True)
     # Utilizar la función enumerate para obtener el índice y el valor del elemento en la lista 'centros_docencia'
     for index, item in enumerate(centros_docencia):
         # Concatenar el nombre del centro de docencia con su respectiva URL
@@ -230,7 +230,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_subtitle}'>Líneas de investigación en Marketing</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Principales líneas de investigación en Marketing</p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
     for titular in titulares:
@@ -250,7 +250,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_subtitle}'>Líneas de investigación en Organización</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_subtitle}'>Principales líneas de investigación en Organización</p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
     for titular in titulares:
