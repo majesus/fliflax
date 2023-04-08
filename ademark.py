@@ -103,7 +103,6 @@ if menu == "Inicio":
         "Facultad de Enfermería, Fisioterapia y Podología",
         "Facultad de Farmacia",
         "Facultad de Filosofía",
-        "Facultad de Medicina",
         "Facultad de Turismo y Finanzas",
     ]
 
@@ -128,8 +127,10 @@ if menu == "Inicio":
     separador("#B30A1B")
     
     st.markdown(f"<p style='{custom_subtitle}'>Centros en los que impartimos docencia</p>", unsafe_allow_html=True)
-    for item in centros_docencia:
-        st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
+    # Utilizar la función enumerate para obtener el índice y el valor del elemento en la lista 'centros_docencia'
+    for index, item in enumerate(centros_docencia):
+        # Concatenar el nombre del centro de docencia con su respectiva URL
+        st.markdown(f"<p style='{custom_style}'><a href='{centros_docencia_url[index]}' target='_blank' style='text-decoration:none; color:inherit;'>{item}</a></p>", unsafe_allow_html=True)
         
     separador("#B30A1B")
 
