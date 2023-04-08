@@ -158,7 +158,7 @@ elif menu == "Estudiantes":
         # Iterar sobre las noticias y mostrarlas
         for _, normativa in normativas.iterrows():
             complete_url = f"https://www.us.es{normativa['URL']}"
-            st.markdown(f"<p style='{custom_subtitle}'><a href='{complete_url}' target='_blank' style='text-decoration:none; color:inherit;'>{normativa['Normativa']}</a></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><a href='{complete_url}' target='_blank' style='text-decoration:none; color:inherit;'>{normativa['Normativa']}</a></p>", unsafe_allow_html=True)
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
