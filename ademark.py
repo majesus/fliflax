@@ -148,13 +148,14 @@ elif menu == "Estudiantes":
     separador("#B30A1B")
     
     # Normativa_estudiantes
-    st.markdown(f"<p style='{custom_title}'>Normativa estudiantes</p>", unsafe_allow_html=True)
-    with st.expander("Ver normativa"):
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Reglamento General de Estudiantes (BOUS 4/2009, de 1 de abril)</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/Reglamento_General_Defensor_Universitario.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Reglamento General del Defensor Universitario (Acuerdo 1.2/CU 22-11-04)</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/norma_evaluac_calif_asig.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa reguladora de la evaluación y calificación de las asignaturas (texto consolidado; BOUS 2/2010, de 18 de marzo)</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/15Acuerdo10.1.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa de Prácticas Académicas Externas de la Universidad de Sevilla (BOUS 3/2017, de 14 de junio)</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2017-09-27-Acuerdo4.1-CG-20-7-17.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa sobre Trabajos Fin de Estudios (BOUS 5/2017, de 27 de septiembre)</a></p>", unsafe_allow_html=True)
+    # Leer el archivo CSV
+    normativas = pd.read_csv("csv/normativas.csv")
+    options = ['E', 'PE'] 
+    # Seleccionar las filas que cumplen la condición: E, PE 
+    normativas = normativas[normativas['Columna Adicional'].isin(options)]
+    # Iterar sobre las noticias y mostrarlas
+    for _, normativa in normativas.iterrows():
+        st.markdown(f"<p style='{custom_subtitle}'><a href='{row['URL']}' target='_blank' style='text-decoration:none; color:inherit;'>{row['Normativa']}</a></p>", unsafe_allow_html=True)
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
