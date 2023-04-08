@@ -147,15 +147,18 @@ elif menu == "Estudiantes":
     
     separador("#B30A1B")
     
-    # Normativa_estudiantes
+    # Normativa_interés
     # Leer el archivo CSV
     normativas = pd.read_csv("csv/normativas.csv")
     options = ['E', 'PE'] 
     # Seleccionar las filas que cumplen la condición: E, PE 
     normativas = normativas[normativas['Columna Adicional'].isin(options)]
-    # Iterar sobre las noticias y mostrarlas
-    for _, normativa in normativas.iterrows():
-        st.markdown(f"<p style='{custom_subtitle}'><a href='{row['URL']}' target='_blank' style='text-decoration:none; color:inherit;'>{row['Normativa']}</a></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
+    with st.expander("Ver normativa de interés"):
+        # Normativa_estudiantes
+        # Iterar sobre las noticias y mostrarlas
+        for _, normativa in normativas.iterrows():
+            st.markdown(f"<p style='{custom_subtitle}'><a href='{row['URL']}' target='_blank' style='text-decoration:none; color:inherit;'>{row['Normativa']}</a></p>", unsafe_allow_html=True)
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
