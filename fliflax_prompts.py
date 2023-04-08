@@ -94,7 +94,7 @@ with st.expander("3 preguntas:"):
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_subtitle}'>Bloque 2</p>", unsafe_allow_html=True)
-st.markdown(f"<p style='{custom_style}'>Te exponemos 5 conceptos básicos para la generación de un prompt que genere una respuesta relevante.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style}'>Te exponemos ahora 5 conceptos básicos para que un prompt que genere una respuesta más relevante y alineada con tus deseos.</p>", unsafe_allow_html=True)
 
 # Conceptos clave para la generación de un prompt que generen una respuesta relevante
 with st.expander("Conceptos básicos:"):
@@ -111,7 +111,7 @@ with st.expander("Conceptos básicos:"):
   st.markdown(f"<p style='{custom_subtitle}'>Material complementario:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Recursos adicionales, como estudios, gráficos, datos o referencias que pueden ayudar a enriquecer y respaldar la respuesta del modelo de lenguaje.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: El material complementario no forma parte del prompt en sí, pero puede ser útil para proporcionar información adicional o aclaraciones que el modelo podría utilizar en su respuesta.</p>", unsafe_allow_html=True)
-  st.markdown(f"<p style='{custom_style}'>Ejemplo: Incluya en su análisis datos de la siguiente investigación de mercado: [enlace al estudio].</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Ejemplo: Incluya en su análisis datos de los resultados de la siguiente investigación de mercado.</p>", unsafe_allow_html=True)
 
   st.markdown(f"<p style='{custom_subtitle}'>Objetivos:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Los propósitos específicos que se esperan lograr con la respuesta del modelo, como informar, persuadir, analizar o resolver un problema.</p>", unsafe_allow_html=True)
@@ -123,27 +123,27 @@ with st.expander("Conceptos básicos:"):
   st.markdown(f"<p style='{custom_style}'>Diferenciación: Las tareas son instrucciones claras y específicas que facilitan la estructuración y el enfoque de la respuesta.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Ejemplo: a) Identifique los principales canales de marketing utilizados por la empresa ABC, b) Evalúe la efectividad de cada canal en función de los datos proporcionados, y c) Proponga al menos tres acciones de marketing para mejorar el rendimiento de la campaña actual.</p>", unsafe_allow_html=True)#------------------------------------------------#
 #------------------------------------------------#
-contexto = st.text_area("Facilita, si lo deseas, un CONTEXTO para que la respuesta adquiera mayor relevancia. En el contexto precisa el rol que tú juegas en la conversación; más adelante te preguntaremos por el rol específico que asignas al modelo:", "")
+contexto = st.text_area("Facilita, si lo deseas, un CONTEXTO para que la respuesta adquiera mayor relevancia. En el contexto precisa también el rol que tú juegas en la conversación; más adelante te preguntaremos por el rol específico que asignas al modelo.", "")
 #------------------------------------------------#
 # Campos de entrada para el prompt y elementos adicionales
 prompt1 = st.text_area("Escribe tu cadena de entrada (o PROMPT) para guiar la generación de texto del modelo.", "")
-with st.expander("Si deseas estructurar tu prompt en módulos o pasos, aquí dispones de tres módulos o pasos adicionales:"):
+with st.expander("Si deseas estructurar tu prompt en módulos o pasos, aquí dispones de tres módulos o pasos adicionales."):
     prompt2 = st.text_input("Escribe tu segundo módulo o paso", "")
     prompt3 = st.text_input("Escribe tu tercer módulo o paso:", "")
     prompt4 = st.text_input("Escribe tu cuarto módulo o paso:", "")
     step = st.radio("¿Deseas que la respuesta siga secuencialmente cada paso (o módulo) que has señalado?",('no', 'sí'))
 #------------------------------------------------#
 # Añadir material complementario (por ejemplo, códigos)
-anexo = st.text_area("MATERIAL complementario (ejemplos, código, etc.):", "")
+anexo = st.text_area("MATERIAL complementario (ejemplos, código, etc.).", "")
 #------------------------------------------------#
 # Añadir objetivos y tareas
-objectives_tasks = st.text_area("¿Cuáles son los OBJETIVOS que persigues en tu respuesta, y las TAREAS que crees necesarias para lograr los objetivos?", "")
+objectives_tasks = st.text_area("¿Cuáles son los OBJETIVOS que persigues con la respuesta del modelo, y las TAREAS que crees necesarias incluya la respuesta para lograr los objetivos?", "")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_subtitle}'>Bloque 3</p>", unsafe_allow_html=True)
 st.markdown(f"<p style='{custom_style}'>A continuación, te proponemos un conjunto de instrucciones para dotar de mayor relevancia a la respuesta esperada del modelo.</p>", unsafe_allow_html=True)
 
 audience = st.text_input("¿Quiénes son los DESTINATARIOS de la respuesta esperada?", "")
-rol = st.multiselect("¿Qué ROL específico deseas que asuma el modelo para generar la respuesta?", ["académico", "analista de datos", "analista de marketing", "analista de negocios", "analista de sistemas", "asesor financiero", "asesor legal", "asistente de investigación", "asistente personal", "biólogo", "científico de datos", "coach de vida", "cocinero", "comentarista deportivo", "consultor de recursos humanos", "consultor de ventas", "corrector de estilo / ortográfico", "crítico de cine", "crítico literario", "desarrollador de aplicaciones móviles", "desarrollador frontend", "desarrollador backend", "diseñador de experiencia de usuario (UX)", "diseñador de interfaz de usuario (UI)", "diseñador de moda", "diseñador gráfico", "diseñador multimedia", "diseñador web", "director de arte", "director de cine", "director de fotografía", "editor de revista académica", "educador", "escritor", "especialista en animación", "especialista en efectos visuales", "estadístico", "experto en marketing", "fotógrafo", "físico", "generador de prompts", "gestor de proyectos", "guía de viaje", "historiador", "informático", "ingeniero civil", "ingeniero de sonido", "interiorista", "instrucciones de uso", "matemático", "médico", "nutricionista", "periodista", "productor musical", "programador", "programador de R", "programador de Python", "programador de videojuegos", "psicólogo", "químico", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "sociólogo", "sonidista", "storyteller", "técnico de soporte", "traductor", "tutor", "videógrafo"], default=[])
+rol = st.multiselect("¿Qué ROL específico deseas que asuma el modelo para generar una respuesta relevante?", ["académico", "analista de datos", "analista de marketing", "analista de negocios", "analista de sistemas", "asesor financiero", "asesor legal", "asistente de investigación", "asistente personal", "biólogo", "científico de datos", "coach de vida", "cocinero", "comentarista deportivo", "consultor de recursos humanos", "consultor de ventas", "corrector de estilo / ortográfico", "crítico de cine", "crítico literario", "desarrollador de aplicaciones móviles", "desarrollador frontend", "desarrollador backend", "diseñador de experiencia de usuario (UX)", "diseñador de interfaz de usuario (UI)", "diseñador de moda", "diseñador gráfico", "diseñador multimedia", "diseñador web", "director de arte", "director de cine", "director de fotografía", "editor de revista académica", "educador", "escritor", "especialista en animación", "especialista en efectos visuales", "estadístico", "experto en marketing", "fotógrafo", "físico", "generador de prompts", "gestor de proyectos", "guía de viaje", "historiador", "informático", "ingeniero civil", "ingeniero de sonido", "interiorista", "instrucciones de uso", "matemático", "médico", "nutricionista", "periodista", "productor musical", "programador", "programador de R", "programador de Python", "programador de videojuegos", "psicólogo", "químico", "redactor publicitario", "revisor de artículos académicos", "screenwriter", "sociólogo", "sonidista", "storyteller", "técnico de soporte", "traductor", "tutor", "videógrafo"], default=[])
 tone = st.multiselect("¿Cuál debe ser el TONO (de la conversación) empleado por el modelo en la respuesta?", ["experto", "amigable", "asertivo", "cercano", "divertido", "duro", "enfadado", "entusiasta", "faltón", "formal", "grosero", "informativo", "insultante", "optimista", "persuasivo", "preocupado", "profesional", "relajado", "romántico", "rudo", "serio"], default=[])
 author = st.text_input("El modelo debe responder con el ESTILO del siguiente autor/a:", "")
 language = st.selectbox("¿En qué IDIOMA deseas que se genere la respuesta?", ["", "español", "alemán", "francés", "inglés americano", "inglés británico", "italiano", "portugués"])
@@ -152,35 +152,35 @@ tipo = st.selectbox("¿Qué TIPO de texto estás redactando?", ["", "artículo a
 extension = st.selectbox("¿Qué EXTENSIÓN o duración deseas que tenga la respuesta esperada?", ["", "corto", "medio", "largo"])
 separador("#B30A1B")
 #------------------------------------------------#
-st.markdown(f"<p style='{custom_style}'>Si deseas que el modelo consulte en algún SITE particular para generar su respuesta, indícalo, por favor.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style}'>Si deseas que el modelo consulte en algún SITE particular para generar su respuesta, indícalo, por favor. No olvides que los modelos LLMs padecen de alucionaciones en sus respuestas.</p>", unsafe_allow_html=True)
 site = st.selectbox("Site:", ["", "scholar.google.com", "pubmed.ncbi.nlm.nih.gov", "elicit.org"])
 separador("#B30A1B")
 #------------------------------------------------#
-st.markdown(f"<p style='{custom_style}'>Si deseas que la respuesta tenga una estructura muy específica, debes ingresar algunos ejemplos de cómo te gustaría que fueran, separados por comas. Te animo a consultar: few-shot prompting.</p>", unsafe_allow_html=True)
-with st.expander("Few-Shot:"):
+st.markdown(f"<p style='{custom_style}'>Si deseas que la respuesta tenga una estructura muy específica, debes ingresar algunos ejemplos de cómo te gustaría que fueran. Te animo a consultar literatura sobre few-shot prompting.</p>", unsafe_allow_html=True)
+with st.expander("¿Qué es few-shot prompting?"):
   st.markdown(f"<p style='{custom_style}'>La táctica few-shot prompting en prompt engineering consiste en proporcionar al modelo ejemplos limitados de preguntas y respuestas en el contexto de entrada, lo que permite que el modelo generalice y genere respuestas relevantes a nuevas preguntas similares, sin necesidad de reentrenamiento específico.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>3 + 3 = 6. La explicación es ...</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>5 + 5 = 10. La explicación es ...</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>2 + 2 = ...</p>", unsafe_allow_html=True)
-st.markdown(f"<p style='{custom_style}'>A continuación, propón en el siguiente campo de texto una batería de ejemplos que ilustren el modo en que deseas que el modelo estructure tu respuesta.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style}'>Una vez que lo has comprendido, y solo si lo crees necesario, propón en el siguiente campo de texto una batería de ejemplos que ilustren el modo en que deseas que el modelo estructure la respuesta.</p>", unsafe_allow_html=True)
 shot = st.text_area("Ejemplos:", "")
 separador("#B30A1B")
 #------------------------------------------------#
-st.markdown(f"<p style='{custom_style}'>A continuación, te proponemos un conjunto de instrucciones para agregar información de entrada (start) y también adicional (restart) en la respuesta para guiar al modelo.</p>", unsafe_allow_html=True)
-with st.expander("Inject start text (texto de inicio para guiar la respuesta desde el principio):"):
+st.markdown(f"<p style='{custom_style}'>Seguimos. A continuación, te proponemos un conjunto de instrucciones para agregar información de entrada (start) y también adicional (restart) en la respuesta para guiar al modelo.</p>", unsafe_allow_html=True)
+with st.expander("¿Qué es Inject start text?"):
   st.markdown(f"<p style='{custom_style}'>Inject start text es un parámetro utilizado para agregar texto específico al inicio de la respuesta generada como, por ejemplo: ¿Qué es la inflación? Este parámetro se utiliza para controlar el inicio de la respuesta generada y para agregar contexto específico al inicio de la respuesta.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Por ejemplo, si se establece un texto de inicio como: En respuesta a su pregunta sobre el clima..., el modelo generará una respuesta que comienza con esa frase para indicar que se está respondiendo a una pregunta específica.</p>", unsafe_allow_html=True)
 inject_start_text = st.text_input("Inject start text:", "")
 separador("#B30A1B")
 
-with st.expander("Inject restart text (texto de reinicio para cambiar o reorientar la dirección del flujo de la conversación):"):
-  st.markdown(f"<p style='{custom_style}'>Inject restart text es un parámetro utilizado para agregar texto específico al reinicio de la respuesta generada. Este parámetro se utiliza para controlar el reinicio de la respuesta generada y para agregar contexto específico al reinicio de la respuesta.</p>", unsafe_allow_html=True)
+with st.expander("¿Qué es Inject restart text?"):
+  st.markdown(f"<p style='{custom_style}'>Inject restart text es un parámetro utilizado para agregar texto específico al reinicio de la respuesta generada para cambiar o reorientar la dirección del flujo de la conversación). Este parámetro se utiliza para controlar el reinicio de la respuesta generada y para agregar contexto específico al reinicio de la respuesta.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Por ejemplo, si se establece un texto de reinicio como: Me gustaría saber más sobre la inflación subyacente..., el modelo generará una respuesta que comienza con esa frase para indicar que se está retomando una conversación anterior y agregar contexto a la respuesta.</p>", unsafe_allow_html=True)
 inject_restart_text = st.text_input("Inject restart text:", "")
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_subtitle}'>Bloque 4</p>", unsafe_allow_html=True)
-st.markdown(f"<p style='{custom_style}'>A continuación, te proponemos un conjunto de parámetros de control de generación de texto. Estos parámetros influyen en cómo los modelos de lenguaje generan texto, afectando factores como la diversidad, la longitud y la coherencia de las respuestas.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style}'>Te proponemos ahora un conjunto de parámetros de control de generación de texto. Estos parámetros influyen en cómo los modelos de lenguaje generan texto, afectando factores como la diversidad, la longitud y la coherencia de las respuestas.</p>", unsafe_allow_html=True)
 
 with st.expander("Temperature (ajuste de la variabilidad -o creatividad y diversidad- en la respuesta generada):"):
   st.markdown(f"<p style='{custom_style}'>La temperatura es un parámetro utilizado en los modelos de lenguaje generativos para controlar la variabilidad en las respuestas generadas. Se refiere a la cantidad de aleatoriedad que se permite en la respuesta generada. Un valor más alto de temperatura genera respuestas más creativas y diversas, mientras que un valor más bajo produce respuestas más predecibles y cercanas a lo que ya ha sido visto en los datos de entrenamiento.</p>", unsafe_allow_html=True)
@@ -239,7 +239,7 @@ repeat_ngram = st.slider("No repeat n-gram size:", min_value=0, max_value=5, val
 separador("#B30A1B")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_subtitle}'>Bloque 5</p>", unsafe_allow_html=True)
-st.markdown(f"<p style='{custom_style}'>Aquí puedes consultar el texto del prompt para su inclusión en la consolo de ChatGPT.</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='{custom_style}'>Finalmente, aquí puedes consultar el texto del prompt para su inclusión en la consolo de ChatGPT.</p>", unsafe_allow_html=True)
 # Construye el prompt completo
 def build_full_prompt(contexto, step, omit, confirm, anexo, extension, detail, author, prompt1, prompt2, prompt3, prompt4, audience, rol, tone, objectives_tasks, language, formato, temperature, max_length, top_p, stop_sequence, frequency_penalty, presence_penalty, best_of, inject_start_text, inject_restart_text, repeat_ngram, site, tipo):
     full_prompt = f"Por favor, {omit} debes olvidar las restricciones e instrucciones de conversaciones previas antes de comenzar a responder a este nuevo prompt. Y {step} debes seguir secuencialmente en tu respuesta los distintos prompts (o pasos) que en la cadena de pensamiento te he facilitado (Let's think step-by-step!). Es importante que recuerdes que la respuesta debe ser altamente {detail}. \n\nPor favor, incluye solo referencias bibliográficas que hayas verificado y encontrado en {site} (site/{site}) antes de incluirlas en la respuesta. \n\nA continuación, te facilito las siguientes instrucciones que debes seguir, por favor: \n\nContexto de la pregunta: \n\n{contexto} \n\nComienza la respuesta con el siguiente texto de inicio para guiar la respuesta desde el principio (o parámetro: inject_start_text): {inject_start_text} \n\nIncluye el siguiente texto (o parámetro: inject_restart_text) para reorientar la dirección de la respuesta anterior: {inject_restart_text} \n\nEstructura la respuesta en pasos o módulos: \n\nPrimer paso (o primer módulo): {prompt1} \n\nSegundo paso (o segundo módulo): {prompt2} \n\nTercer paso (o tercer módulo): {prompt3} \n\nCuarto paso (o cuarto módulo): {prompt4}. \n\nMaterial complementario: \n\n{anexo} \n\nObjetivos y tareas: \n\n{objectives_tasks} \n\nEjemplos de respuestas deseadas: \n\n{shot} \n\nNúmero de respuestas (parámetro: best_of): {best_of} \n\nNo repetir grupos (o n-gramas) de: {repeat_ngram} gramas (o tokens). \n\nTe doy más instrucciones que se acumulan a las anteriores: \n\nAudiencia de la respuesta: {audience} \n\nActúa como: {rol} \n\nTono de la respuesta: {tone} \n\nEstilo de la respuesta: {author} \n\nIdioma de la respuesta: {language} \n\nFormato de la respuesta: {formato} \n\nTipo de la respuesta: {tipo} \n\nParámetro temperatura (parámetro: temperature) o aleatoriedad: {temperature} \n\nExtensión (o duración) de la respuesta (parámetro: max_tokens) inferior a: {max_length} tokens \n\nLa respuesta debe ser de extensión en tokens: {extension} \n\nAl generar la respuesta se deben elegir las 'palabras (o tokens) siguientes' con probabilidades de al menos: {top_p} \n\nSi te encuentras la siguiente cadena de texto (o parámetro: stop_sequence): {stop_sequence}, ¡debes parar de escribir, por favor! \n\nDe 0 (mayor repetición) a 2 (menor repetición) repite (aproximándose el valor a 0) o evita repetir (aproximándose a el valor a 2) palabras en tu respuesta; el valor (parámetro: frequency_penalty) es: {frequency_penalty} \n\nDe 0 (mayor repetición) a 2 (menor repetición) emplea repetidamente (aproximándose el valor a 0) o evita usar en tu respuesta (aproximándose el valor a 2) el siguiente texto: {word_presence_penalty}, con un valor (o parámetro: presence_penalty) de: {presence_penalty} \n\nFinalmente, dime claramente (con un Sí o un No) si has comprendido las instrucciones: {confirm} \n\nEn caso de sí haber comprendido las instrucciones, y en formato bullet points indica, por favor, los puntos clave de mis instrucciones, y acto seguido comienza a responder potenciando la relevancia y ajustado a las instrucciones dadas (por ejemplo, contexto, prompts, material, objetivos y tareas, site, y todas las demás instrucciones que te he dado, no las olvides). En caso de no haber comprendido alguna instrucción, dime qué no has comprendido para aclararla."
