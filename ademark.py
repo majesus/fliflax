@@ -318,8 +318,8 @@ elif menu == "Profesorado":
     # Normativa_interés
     # Leer el archivo CSV
     normativas = pd.read_csv("csv/normativas.csv")
-    options = ['E', 'PE'] 
-    # Seleccionar las filas que cumplen la condición: P,PE
+    options = ['P'] 
+    # Seleccionar las filas que cumplen la condición: P
     normativas = normativas[normativas['Codigo'].isin(options)]
     st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
     with st.expander("Ver normativa de interés"):
