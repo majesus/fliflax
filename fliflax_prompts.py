@@ -67,7 +67,7 @@ separador("#B30A1B")
 st.markdown(f"<p style='{custom_subtitle}'>Bloque 0</p>", unsafe_allow_html=True)
 st.markdown(f"<p style='{custom_style_black}'>Comenzamos. Con esta herramienta puedes crear tus propios prompts, y ajustar los principales parámetros e instrucciones dados al modelo para alinear las respuestas a tus deseos. Los parámetros e instrucciones están orientados a GPT4. No obstante, antes de comenzar debes saber las ventajas e desventajas del uso de los modelos LLMs.</p>", unsafe_allow_html=True)
 
-with st.expander("Notas sobre su el uso de los modelos LLMs:"):
+with st.expander("Notas sobre su el uso de los modelos LLMs."):
   st.markdown(f"<p style='{custom_subtitle}'>Ventajas:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Acceso rápido a información: GPT-4 puede proporcionar respuestas rápidas y relevantes a preguntas, lo que permite a los estudiantes investigar temas y obtener información de manera eficiente.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Generación de ideas: GPT-4 puede ayudar a los estudiantes a explorar nuevas perspectivas y generar ideas para sus proyectos de investigación o tareas.</p>", unsafe_allow_html=True)
@@ -87,7 +87,7 @@ st.markdown(f"<p style='{custom_subtitle}'>Bloque 1</p>", unsafe_allow_html=True
 st.markdown(f"<p style='{custom_style}'>A continuación, y con el objetivo de ir dando forma al prompt defintiivo, deseamos conocer algunos aspectos clave que deben ser establecidos al inicio para con ellos guiar mejor la respuesta.</p>", unsafe_allow_html=True)
 
 # Comienza el prompt y elementos adicionales
-with st.expander("3 preguntas:"):
+with st.expander("3 preguntas."):
     omit = st.radio("¿Deseas que el modelo olvide todas las instrucciones y restricciones dadas en los prompts anteriores?",('no', 'sí'))
     confirm = st.radio("¿Deseas confirmar que el modelo ha comprendido el prompt que vamos a diseñar, y las instrucciones y restricciones adicionales que le daremos?",('sí', 'no'))
     detail = st.radio("¿Cómo te gustaría que fuera la respuesta del modelo?",('equilibrada', 'precisa', 'creativa'))
@@ -97,7 +97,7 @@ st.markdown(f"<p style='{custom_subtitle}'>Bloque 2</p>", unsafe_allow_html=True
 st.markdown(f"<p style='{custom_style}'>Te exponemos ahora 5 conceptos básicos para que un prompt que genere una respuesta más relevante y alineada con tus deseos.</p>", unsafe_allow_html=True)
 
 # Conceptos clave para la generación de un prompt que generen una respuesta relevante
-with st.expander("Conceptos básicos:"):
+with st.expander("Conceptos básicos."):
   st.markdown(f"<p style='{custom_subtitle}'>Contexto:</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Definición: Información adicional, detalles o antecedentes que ayudan a aclarar o especificar la situación, tema o propósito del prompt.</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>Diferenciación: El contexto proporciona la base para comprender el prompt y es necesario para establecer una conexión clara entre el tema y la respuesta esperada.</p>", unsafe_allow_html=True)
