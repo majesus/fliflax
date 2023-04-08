@@ -105,6 +105,21 @@ if menu == "Inicio":
         "Facultad de Filosofía",
         "Facultad de Turismo y Finanzas",
     ]
+    
+    centros_docencia_url = [
+        "http://eip.us.es/",
+        "https://etsie.us.es/",
+        "https://www.informatica.us.es/",
+        "https://educacion.us.es/",
+        "https://fct.us.es/",
+        "https://fceye.us.es/",
+        "https://fcom.us.es/",
+        "Facultad de Derecho",
+        "https://derecho.us.es/",
+        "http://farmacia.us.es/portal/",
+        "https://filosofia.us.es/",
+        "https://ftf.us.es/",
+    ]
 
     st.markdown(f"<p style='{custom_subtitle}'>Dirección</p>", unsafe_allow_html=True)
     # Establecer estilos personalizados para los elementos de la lista
