@@ -128,7 +128,7 @@ if menu == "Inicio":
         st.markdown(f"<p style='{custom_style}'>{item}</p>", unsafe_allow_html=True)
 
     with st.expander("Localización"):
-        st.markdown(f"<p style='{custom_style}'>Facultad de Ciencias Económicas y Empresariales</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><a href='http://fceye.us.es' target='_blank' style='text-decoration:none; color:inherit;'>Facultad de Ciencias Económicas y Empresariales</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'>Avda. Ramón y Cajal, n1, 41018, Sevilla, España</p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'>Teléfono: 954557575</p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}'>Correo electrónico: empresa-us.es</p>", unsafe_allow_html=True)
