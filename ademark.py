@@ -150,8 +150,8 @@ elif menu == "Estudiantes":
     # Normativa_interés
     # Leer el archivo CSV
     normativas = pd.read_csv("csv/normativas.csv")
-    options = ['E', 'PE'] 
-    # Seleccionar las filas que cumplen la condición: E, PE 
+    options = ['E'] 
+    # Seleccionar las filas que cumplen la condición: E
     normativas = normativas[normativas['Codigo'].isin(options)]
     st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
     with st.expander("Ver normativa de interés"):
@@ -315,13 +315,18 @@ elif menu == "Profesorado":
 
     separador("#B30A1B")
     
-    # Normativa_profesorado
-    st.markdown(f"<p style='{custom_title}'>Normativa profesorado</p>", unsafe_allow_html=True)
-    with st.expander("Ver normativa"):
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2022-11-16-Acuerdo2.4-CU-11-11-22-NormasConvivencia.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normas de Convivencia de la Universidad de Sevilla (BOUS 10/2022, de 16 de noviembre)</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/norma_evaluac_calif_asig.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa reguladora de la evaluación y calificación de las asignaturas (texto consolidado; BOUS 2/2010, de 18 de marzo)</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2019-06-07-Acuerdo6.5-CG-30-5-19.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Reglamento para la elaboración de los Planes de Asignación de Profesorado a los Planes de Organización Docente (BOUS 8/2019, de 7 de junio)</a></p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/secretaria-general/normativa/files/bous-2022-07-06-Acuerdo6.1-CG-24-5-22.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Normativa de dedicación académica del profesorado (BOUS 5/2022, de 6 de julio)</a></p>", unsafe_allow_html=True)
+    # Normativa_interés
+    # Leer el archivo CSV
+    normativas = pd.read_csv("csv/normativas.csv")
+    options = ['E', 'PE'] 
+    # Seleccionar las filas que cumplen la condición: P,PE
+    normativas = normativas[normativas['Codigo'].isin(options)]
+    st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
+    with st.expander("Ver normativa de interés"):
+        # Iterar sobre las noticias y mostrarlas
+        for _, normativa in normativas.iterrows():
+            complete_url = f"https://www.us.es{normativa['URL']}"
+            st.markdown(f"<p style='{custom_style}'><a href='{complete_url}' target='_blank' style='text-decoration:none; color:inherit;'>{normativa['Normativa']}</a></p>", unsafe_allow_html=True)
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
