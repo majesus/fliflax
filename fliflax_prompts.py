@@ -61,7 +61,7 @@ col2.title("")
 #------------------------------------------------#
 st.markdown(f"<p style='{custom_subtitle_black}'>Por Manuel J. Sánchez Franco, Universidad de Sevilla.</p>", unsafe_allow_html=True)
 with st.expander("Notas del autor:"):
-  st.markdown(f"<p style='{custom_style}'>Es esencial señalar que esta herramienta se ha construido exclusivamente para uso docente, con la que ilustrar a los estudiantes sobre los usos, su buena y mala praxis, de los modelos de lenguaje de gran tamaño (LLMs). Con la herramienta se busca evidenciar los errores propios de este tipo de modelos de lenguaje, así como advertir en relación con las alucinaciones que se derivan de su concepto y diseño.</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='{custom_style}'>Es esencial señalar que esta herramienta se ha construido exclusivamente para uso docente, con la que ilustrar a los estudiantes sobre los usos, su buena y mala praxis, de los modelos de lenguaje de gran tamaño (LLMs). Con la herramienta se busca evidenciar las ventajas y también los errores propios de este tipo de modelos de lenguaje, así como advertir en relación con las alucinaciones que se derivan de su concepto y diseño. El objetivo es que, siguiendo a Gary Marcus, los estudiantes se pregunten: ¿En qué se equivocó el modelo? ¿Inventó hechos? ¿Hay fallos de razonamiento? ¿Cómo mejorarían lo que ha escrito el modelo? ¿De qué otra forma podrían ellos mismos haber escrito y mejorado el resultado ofrecido por el modelo?</p>", unsafe_allow_html=True)
   st.markdown(f"<p style='{custom_style}'>La programación ha sido asistida por el modelo: GPT-4.</p>", unsafe_allow_html=True)
 separador("#B30A1B")
 #------------------------------------------------#
