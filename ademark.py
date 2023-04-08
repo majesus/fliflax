@@ -212,7 +212,7 @@ elif menu == "Investigación":
     
     st.markdown(f"<p style='{custom_style}'>La investigación es un componente esencial de la misión de nuestro departamento. Nuestros profesores y estudiantes colaboran en proyectos de investigación innovadores y de vanguardia en el campo de la administración de empresas y el marketing. Estos proyectos contribuyen al avance del conocimiento en nuestras áreas de especialización y proporcionan a nuestros estudiantes la oportunidad de desarrollar habilidades de investigación y aplicar sus conocimientos en contextos reales. Además, el departamento mantiene vínculos de colaboración con otras instituciones y organizaciones, nacionales e internacionales, lo que permite el intercambio de ideas y el enriquecimiento mutuo de nuestras líneas de investigación.</p>", unsafe_allow_html=True)
     
-    from graphs_research import mostrar_grafico_area_suavizado
+    from ademark_graphs_research import mostrar_grafico_area_suavizado
     with st.expander("Ver evolución de nuestras publicaciones"):
         mostrar_grafico_area_suavizado()
         
