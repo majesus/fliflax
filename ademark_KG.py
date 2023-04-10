@@ -56,8 +56,6 @@ def create_knowledge_graph(edges):
                         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                     )
     return fig
-
-
   
 edges = [("Marketing", "SEO"),
          ("Marketing", "SEM"),
