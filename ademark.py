@@ -170,7 +170,7 @@ elif menu == "Estudiantes":
     # Seleccionar las filas que cumplen la condición: E
     normativas = normativas[normativas['Codigo'].isin(options)]
     st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
-    with st.expander("Ver normativa de interés"):
+    with st.expander("Normativas"):
         # Iterar sobre las noticias y mostrarlas
         for _, normativa in normativas.iterrows():
             complete_url = f"https://www.us.es{normativa['URL']}"
@@ -178,7 +178,7 @@ elif menu == "Estudiantes":
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
-    with st.expander("Ver documentos de interés"):
+    with st.expander("Documentos"):
         st.markdown(f"<p style='{custom_style}'><a href='csv/Tutorías.xlsx' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     
