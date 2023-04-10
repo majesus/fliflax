@@ -41,8 +41,13 @@ def create_knowledge_graph(edges):
                 xanchor="left",
                 titleside="right"),
             line_width=2))
+    
+    offset = 0.02
+    node_label_x = [pos[node][0] + offset for node in G.nodes()]
+    node_label_y = [pos[node][1] + offset for node in G.nodes()]
+
     node_label_trace = go.Scatter(
-        x=node_x, y=node_y,
+        x=node_label_x, y=node_label_y,
         mode="text",
         hoverinfo="none",
         text=[node for node in G.nodes()],
