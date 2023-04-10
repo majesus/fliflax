@@ -133,4 +133,5 @@ def knowledge_graph_app():
     fig = create_knowledge_graph(edges)
     st.plotly_chart(fig)
     
+    custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
     st.markdown(f"<p style='{custom_style}'>Si sitúas el ratón sobre el grafo, podrás trabajar con él.</p>", unsafe_allow_html=True)
