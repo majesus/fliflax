@@ -179,7 +179,7 @@ elif menu == "Estudiantes":
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
     with st.expander("Documentos"):
-        st.markdown(f"<p style='{custom_style}'><a href='csv/Tutorías.xlsx' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><a href='csv/Tutorías.xlsb' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
