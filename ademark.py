@@ -263,28 +263,6 @@ elif menu == "Investigación":
     
     separador("#B30A1B")
     
-    st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
-    with st.expander("Ver Grupos de investigación"):
-        # Lectura de la tabla de Grupos con los datos de perfil:
-        df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
-        # Filtramos los grupos que finalizan con un paréntesis y un código alfanumérico y eliminamos duplicados
-        grupos = df_result0.loc[df_result0['Grupo'].str.endswith(')'), ['Grupo', 'URL_grupo']].drop_duplicates()
-        # Convertir los nombres de los grupos en mayúsculas
-        grupos['Grupo'] = grupos['Grupo'].str.upper()
-        
-        # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
-        # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
-        for index, row in grupos.iterrows():
-            st.markdown(f"<p style='{custom_style}'><a href='{row['URL_grupo']}' target='_blank' style='text-decoration:none; color:inherit;'>{row['Grupo']}</a></p>", unsafe_allow_html=True)
-
-    separador("#B30A1B")
-    
-    # Instituto de investigación:
-    st.markdown(f"<p style='{custom_subtitle}'>Instituto de investigación</p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='{custom_style}'><a href='http://centro.us.es/iusen/' target='_blank' style='text-decoration:none; color:inherit;'>Instituto de Economía y Negocios de la Universidad de Sevilla</a></p>", unsafe_allow_html=True)
-    
-    separador("#B30A1B")
-    
     # Ficha del investigador
     st.markdown(f"<p style='{custom_subtitle}'>Datos de nuestros/as investigadores/as</p>", unsafe_allow_html=True)
     
@@ -320,6 +298,28 @@ elif menu == "Investigación":
     else:
         st.write("")
 
+    separador("#B30A1B")
+    
+    st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
+    with st.expander("Ver Grupos de investigación"):
+        # Lectura de la tabla de Grupos con los datos de perfil:
+        df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
+        # Filtramos los grupos que finalizan con un paréntesis y un código alfanumérico y eliminamos duplicados
+        grupos = df_result0.loc[df_result0['Grupo'].str.endswith(')'), ['Grupo', 'URL_grupo']].drop_duplicates()
+        # Convertir los nombres de los grupos en mayúsculas
+        grupos['Grupo'] = grupos['Grupo'].str.upper()
+        
+        # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
+        # Crear una lista utilizando la etiqueta <p> y enlazar cada grupo con su URL correspondiente
+        for index, row in grupos.iterrows():
+            st.markdown(f"<p style='{custom_style}'><a href='{row['URL_grupo']}' target='_blank' style='text-decoration:none; color:inherit;'>{row['Grupo']}</a></p>", unsafe_allow_html=True)
+
+    separador("#B30A1B")
+    
+    # Instituto de investigación:
+    st.markdown(f"<p style='{custom_subtitle}'>Instituto de investigación</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'><a href='http://centro.us.es/iusen/' target='_blank' style='text-decoration:none; color:inherit;'>Instituto de Economía y Negocios de la Universidad de Sevilla</a></p>", unsafe_allow_html=True)
+    
     separador("#B30A1B")
     
 # Docencia
