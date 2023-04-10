@@ -11,6 +11,30 @@ custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px
 custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
 #----------------------------------------#
+st.markdown(
+    """
+    <style>
+    .custom-download-button {
+        font-family: 'Bahnschrift Light', sans-serif;
+        font-size: 16px;
+        color: #B30A1B;
+        background-color: #FFFFFF;
+        border: 1px solid #B30A1B;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 5px 0;
+        width: 200px;
+        height: 40px;
+    }
+    .custom-download-button:hover {
+        color: #FFFFFF;
+        background-color: #B30A1B;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+#----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
 def cargar_imagen(url):
@@ -179,15 +203,18 @@ elif menu == "Estudiantes":
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
     with st.expander("Documentos"):
-        st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     #---------------------------
         # Asegúrate de cambiar la ruta del archivo a la ubicación de tu archivo PDF
         with open("csv/Tutorías.xlsb", "rb") as pdf_file: # img/tutorias_cuarta_planta_fceye.pdf
             PDFbyte = pdf_file.read()
-        st.download_button(label="Descargar horas de tutorías", 
-                data=PDFbyte,
-                file_name="tutorias.xlsb",
-                mime='application/octet-stream')
+        st.download_button(
+            label="Descargar horas de tutorías", 
+            data=PDFbyte,
+            file_name="tutorias.xlsb",
+            mime='application/octet-stream',
+            css_classes=["custom-download-button"],)
+    #---------------------------
+        st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     #---------------------------
     separador("#B30A1B")
     
