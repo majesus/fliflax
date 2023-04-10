@@ -15,20 +15,20 @@ st.markdown(
     """
     <style>
     .custom-download-button {
-        font-family: 'Bahnschrift Light', sans-serif;
-        font-size: 16px;
+        font-family: 'Bahnschrift Light', Segoe UI, sans-serif;
+        font-size: 14px;
         color: #B30A1B;
         background-color: #FFFFFF;
-        border: 1px solid #B30A1B;
+        border: 1px solid #FFFFFF;
         border-radius: 5px;
         padding: 5px;
         margin: 5px 0;
-        width: 200px;
+        width: 600px;
         height: 40px;
     }
     .custom-download-button:hover {
         color: #FFFFFF;
-        background-color: #B30A1B;
+        background-color: #FFFFFF;
     }
     </style>
     """,
