@@ -205,6 +205,7 @@ elif menu == "Estudiantes":
     with st.expander("Documentos"):
     #---------------------------
         # Asegúrate de cambiar la ruta del archivo a la ubicación de tu archivo PDF
+        import base64
         with open("csv/Tutorías.xlsb", "rb") as pdf_file: # img/tutorias_cuarta_planta_fceye.pdf
             PDFbyte = pdf_file.read()
         base64_pdf = base64.b64encode(PDFbyte).decode("utf-8")
