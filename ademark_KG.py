@@ -94,7 +94,18 @@ edges = [("Absorptive Capacity", "International Performance"),
     ("Tourism", "Active and Healthy Aging"),
     ("Religious Tourism", "Generation Z"),
     ("Intellectual Capital", "Sustainable Development"),
-    ("Fitness Center Apps", "Customer Satisfaction")]
+    ("Fitness Center Apps", "Customer Satisfaction"),
+    # Añadiendo conexiones para crear una red más interesante
+    ("Tourism", "Religious Tourism"),
+    ("International Performance", "Family SMEs"),
+    ("Entrepreneurial Intention", "Startup Success"),
+    ("Corporate Social Responsibility", "Sustainable Development"),
+    ("Servant Leadership", "Employee Happiness"),
+    ("AI", "Big Data"),
+    ("Gamification", "Fitness Center Apps"),
+    ("Digitization", "Advertising")]
+
+
 
 st.title("Knowledge Graph")
 
