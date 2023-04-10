@@ -75,15 +75,46 @@ def create_knowledge_graph(edges):
                     )
     return fig
 
-edges = [("Marketing", "SEO"),
-         ("Marketing", "SEM"),
-         ("Marketing", "Email Marketing"),
-         ("SEO", "On-page"),
-         ("SEO", "Off-page"),
-         ("SEM", "Google Ads"),
-         ("SEM", "Bing Ads"),
-         ("Email Marketing", "Newsletter"),
-         ("Email Marketing", "Drip Campaign")]
+edges = [
+    ("Prioridades", "Valor al cliente"),
+    ("Prioridades", "Martech y publicidad"),
+    ("Prioridades", "Capturar información"),
+    ("Prioridades", "Promoción omnicanal"),
+    ("Prioridades", "Agilidad marketing"),
+    ("Prioridades", "Innovación y desarrollo"),
+    ("Prioridades", "Inclusión y diversidad"),
+
+    ("Valor al cliente", "Viaje omnicanal"),
+    ("Valor al cliente", "Tendencias macro"),
+
+    ("Martech y publicidad", "Valor de marca"),
+    ("Martech y publicidad", "Mensaje comunicación"),
+    ("Martech y publicidad", "Estrategia de medios"),
+    ("Martech y publicidad", "Interfaz cliente-tecnología"),
+
+    ("Capturar información", "Visión cliente"),
+    ("Capturar información", "KPI o métricas"),
+    ("Capturar información", "Causalidad"),
+    ("Capturar información", "Metodologías medición"),
+
+    ("Promoción omnicanal", "Experiencia marca"),
+    ("Promoción omnicanal", "Promoción marca"),
+    ("Promoción omnicanal", "Distribución y demanda"),
+
+    ("Agilidad marketing", "Capacidades y responsabilidades"),
+    ("Agilidad marketing", "Entorno externo"),
+    ("Agilidad marketing", "Cultura aprendizaje"),
+
+    ("Innovación y desarrollo", "Ideas innovadoras"),
+    ("Innovación y desarrollo", "Diseño productos"),
+    ("Innovación y desarrollo", "Lanzamiento productos"),
+    ("Innovación y desarrollo", "Medir éxito"),
+
+    ("Inclusión y diversidad", "Problemas sociales y éticos"),
+    ("Inclusión y diversidad", "Inclusión en estrategias"),
+    ("Inclusión y diversidad", "Medir impacto"),
+]
+
 
 st.title("Marketing Knowledge Graph")
 
