@@ -115,7 +115,7 @@ def knowledge_graph_app():
         ("Leadership", "Innovation"),
         ]
 
-    st.title("")
+    st.title("Grafo de conocimiento de nuestro departamento")
 
     fig = create_knowledge_graph(edges)
     st.plotly_chart(fig)
