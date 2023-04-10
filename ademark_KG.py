@@ -94,8 +94,7 @@ edges = [("Absorptive Capacity", "International Performance"),
     ("Tourism", "Active and Healthy Aging"),
     ("Religious Tourism", "Generation Z"),
     ("Intellectual Capital", "Sustainable Development"),
-    ("Fitness Center Apps", "Customer Satisfaction")]]
-
+    ("Fitness Center Apps", "Customer Satisfaction")]
 
 st.title("Knowledge Graph")
 
