@@ -207,12 +207,9 @@ elif menu == "Estudiantes":
         # Asegúrate de cambiar la ruta del archivo a la ubicación de tu archivo PDF
         with open("csv/Tutorías.xlsb", "rb") as pdf_file: # img/tutorias_cuarta_planta_fceye.pdf
             PDFbyte = pdf_file.read()
-        st.download_button(
-            label="Descargar horas de tutorías", 
-            data=PDFbyte,
-            file_name="tutorias.xlsb",
-            mime='application/octet-stream',
-            css_classes=["custom-download-button"])
+        base64_pdf = base64.b64encode(PDFbyte).decode("utf-8")
+        html_button = f'<a download="tutorias.xlsb" href="data:application/octet-stream;base64,{base64_pdf}" class="custom-download-button">Descargar horas de tutorías</a>'
+        st.write(html_button, unsafe_allow_html=True)
     #---------------------------
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     #---------------------------
