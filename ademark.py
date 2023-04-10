@@ -179,20 +179,17 @@ elif menu == "Estudiantes":
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
     with st.expander("Documentos"):
-        
-        import streamlit as st
-        import base64
-        def show_pdf(file_path):
-            with open(file_path, "rb") as f:
-                base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
-            st.markdown(pdf_display, unsafe_allow_html=True)
-        pdf_path = "https://ademark.streamlit.app/img/tutorias_cuarta_planta_fceye.pdf"
-        st.markdown(f"[Descargar PDF]({pdf_path})", unsafe_allow_html=True)
-
+        pdf_path = "img/tutorias_planta_cuarta_fceye.pdf"
         st.markdown(f"<p style='{custom_style}'><a href='{pdf_path}' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
-    
+    #---------------------------
+    with open("img/tutorias_planta_cuarta_fceye.pdf", "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+    st.download_button(label="Download PDF Tutorial", 
+            data=PDFbyte,
+            file_name="pandas-clean-id-column.pdf",
+            mime='application/octet-stream')
+    #---------------------------
     separador("#B30A1B")
     
     # Leer el archivo CSV
