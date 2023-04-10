@@ -335,26 +335,6 @@ elif menu == "Profesorado":
 
     separador("#B30A1B")
     
-    # Normativa_interés
-    # Leer el archivo CSV
-    normativas = pd.read_csv("csv/normativas.csv")
-    options = ['P'] 
-    # Seleccionar las filas que cumplen la condición: P
-    normativas = normativas[normativas['Codigo'].isin(options)]
-    st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
-    with st.expander("Ver normativa de interés"):
-        # Iterar sobre las noticias y mostrarlas
-        for _, normativa in normativas.iterrows():
-            complete_url = f"https://www.us.es{normativa['URL']}"
-            st.markdown(f"<p style='{custom_style}'><a href='{complete_url}' target='_blank' style='text-decoration:none; color:inherit;'>{normativa['Normativa']}</a></p>", unsafe_allow_html=True)
-
-    # Documentos_interés
-    st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
-    with st.expander("Documentos de interés"):
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta</a></p>", unsafe_allow_html=True)
-    
-    separador("#B30A1B")
-    
     # Ficha del docente
     st.markdown(f"<p style='{custom_subtitle}'>Datos de nuestros/as docentes</p>", unsafe_allow_html=True)
     
@@ -394,6 +374,26 @@ elif menu == "Profesorado":
     else:
         st.write("")
 
+    separador("#B30A1B")
+    
+    # Normativa_interés
+    # Leer el archivo CSV
+    normativas = pd.read_csv("csv/normativas.csv")
+    options = ['P'] 
+    # Seleccionar las filas que cumplen la condición: P
+    normativas = normativas[normativas['Codigo'].isin(options)]
+    st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
+    with st.expander("Ver normativa de interés"):
+        # Iterar sobre las noticias y mostrarlas
+        for _, normativa in normativas.iterrows():
+            complete_url = f"https://www.us.es{normativa['URL']}"
+            st.markdown(f"<p style='{custom_style}'><a href='{complete_url}' target='_blank' style='text-decoration:none; color:inherit;'>{normativa['Normativa']}</a></p>", unsafe_allow_html=True)
+
+    # Documentos_interés
+    st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
+    with st.expander("Documentos de interés"):
+        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta</a></p>", unsafe_allow_html=True)
+    
     separador("#B30A1B")
 
 # Personal
