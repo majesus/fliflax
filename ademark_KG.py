@@ -42,7 +42,7 @@ def create_knowledge_graph(edges):
                 titleside="right"),
             line_width=2))
     
-    offset = 0.05
+    offset = -0.05
     node_label_x = [pos[node][0] + offset for node in G.nodes()]
     node_label_y = [pos[node][1] + offset for node in G.nodes()]
 
