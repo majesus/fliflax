@@ -75,48 +75,29 @@ def create_knowledge_graph(edges):
                     )
     return fig
 
-edges = [
-    ("Prioridades", "Valor al cliente"),
-    ("Prioridades", "Martech y publicidad"),
-    ("Prioridades", "Capturar información"),
-    ("Prioridades", "Promoción omnicanal"),
-    ("Prioridades", "Agilidad marketing"),
-    ("Prioridades", "Innovación y desarrollo"),
-    ("Prioridades", "Inclusión y diversidad"),
-
-    ("Valor al cliente", "Viaje omnicanal"),
-    ("Valor al cliente", "Tendencias macro"),
-
-    ("Martech y publicidad", "Valor de marca"),
-    ("Martech y publicidad", "Mensaje comunicación"),
-    ("Martech y publicidad", "Estrategia de medios"),
-    ("Martech y publicidad", "Interfaz cliente-tecnología"),
-
-    ("Capturar información", "Visión cliente"),
-    ("Capturar información", "KPI o métricas"),
-    ("Capturar información", "Causalidad"),
-    ("Capturar información", "Metodologías medición"),
-
-    ("Promoción omnicanal", "Experiencia marca"),
-    ("Promoción omnicanal", "Promoción marca"),
-    ("Promoción omnicanal", "Distribución y demanda"),
-
-    ("Agilidad marketing", "Capacidades y responsabilidades"),
-    ("Agilidad marketing", "Entorno externo"),
-    ("Agilidad marketing", "Cultura aprendizaje"),
-
-    ("Innovación y desarrollo", "Ideas innovadoras"),
-    ("Innovación y desarrollo", "Diseño productos"),
-    ("Innovación y desarrollo", "Lanzamiento productos"),
-    ("Innovación y desarrollo", "Medir éxito"),
-
-    ("Inclusión y diversidad", "Problemas sociales y éticos"),
-    ("Inclusión y diversidad", "Inclusión en estrategias"),
-    ("Inclusión y diversidad", "Medir impacto"),
-]
+edges = [("Absorptive Capacity", "International Performance"),
+    ("Social Media", "Service-Dominant Orientation"),
+    ("Entrepreneurial Intention", "Gender"),
+    ("Intrapreneurship", "Gender"),
+    ("Tourism", "Eco-Friendly Practices"),
+    ("AI", "Trustworthy Influencers"),
+    ("Corporate Social Responsibility", "Employee Happiness"),
+    ("Gamification", "Online Shopping"),
+    ("Family SMEs", "Internationalization"),
+    ("Digitization", "Professional Skills"),
+    ("Servant Leadership", "Employee Outcomes"),
+    ("Big Data", "Startup Success"),
+    ("COVID-19", "Consumer Behavior"),
+    ("Cooperation", "Productivity"),
+    ("Advertising", "Ad-Blockers"),
+    ("Customer Value", "B2B Express Delivery"),
+    ("Tourism", "Active and Healthy Aging"),
+    ("Religious Tourism", "Generation Z"),
+    ("Intellectual Capital", "Sustainable Development"),
+    ("Fitness Center Apps", "Customer Satisfaction")]]
 
 
-st.title("Marketing Knowledge Graph")
+st.title("Knowledge Graph")
 
 fig = create_knowledge_graph(edges)
 st.plotly_chart(fig)
