@@ -42,8 +42,14 @@ def create_knowledge_graph(edges):
                 titleside="right"),
             line_width=2))
 
-    node_trace.marker.color = [len(adjacencies[1]) for _, adjacencies in G.adjacency()]
-    node_trace.text = [f"{adjacencies[0]} - # of connections: {len(adjacencies[1])}" for _, adjacencies in G.adjacency()]
+    node_adjacencies = []
+    node_text = []
+    for node, adjacencies in G.adjacency():
+        node_adjacencies.append(len(adjacencies))
+        node_text.append(f"{node} - # of connections: {len(adjacencies)}")
+
+    node_trace.marker.color = node_adjacencies
+    node_trace.text = node_text
 
     fig = go.Figure(data=[edge_trace, node_trace],
                     layout=go.Layout(
@@ -56,7 +62,7 @@ def create_knowledge_graph(edges):
                         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                     )
     return fig
-  
+
 edges = [("Marketing", "SEO"),
          ("Marketing", "SEM"),
          ("Marketing", "Email Marketing"),
