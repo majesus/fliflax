@@ -212,7 +212,7 @@ elif menu == "Estudiantes":
             data=PDFbyte,
             file_name="tutorias.xlsb",
             mime='application/octet-stream',
-            css_classes=["custom-download-button"],)
+            css_classes=["custom-download-button"])
     #---------------------------
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     #---------------------------
