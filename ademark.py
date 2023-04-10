@@ -183,11 +183,13 @@ elif menu == "Estudiantes":
         st.markdown(f"<p style='{custom_style}'><a href='{pdf_path}' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     #---------------------------
-    with open("img/tutorias_planta_cuarta_fceye.pdf", "rb") as pdf_file:
+    # Asegúrate de cambiar la ruta del archivo a la ubicación de tu archivo PDF
+    with open("img/tutorias_cuarta_planta_fceye.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
-    st.download_button(label="Download PDF Tutorial", 
+
+    st.download_button(label="Descargar PDF", 
             data=PDFbyte,
-            file_name="pandas-clean-id-column.pdf",
+            file_name="tutorias_cuarta_planta_fceye_dw.pdf",
             mime='application/octet-stream')
     #---------------------------
     separador("#B30A1B")
