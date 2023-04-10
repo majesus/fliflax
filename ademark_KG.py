@@ -132,3 +132,5 @@ def knowledge_graph_app():
 
     fig = create_knowledge_graph(edges)
     st.plotly_chart(fig)
+    
+    st.markdown(f"<p style='{custom_style}'>Si sitúas el ratón sobre el grafo, podrás trabajar con él.</p>", unsafe_allow_html=True)
