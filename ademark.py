@@ -228,6 +228,7 @@ elif menu == "Investigación":
         "Transformación digital y tecnologías de la información",
         "Marketing digital y redes sociales",
         "Big data y aprendizaje automático (machine learning)",
+        "Inteligencia Artificial: retos y soluciones",
         "Innovación y emprendimiento",
         "Comportamiento del consumidor y valor en instituciones",
         "Estudio de demanda con incertidumbre",
