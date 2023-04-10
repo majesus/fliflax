@@ -178,8 +178,19 @@ elif menu == "Estudiantes":
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
-    pdf_link = "https://ademark.streamlit.app/img/tutorias_cuarta_planta_fceye.pdf"
     with st.expander("Documentos"):
+        
+        import streamlit as st
+        import base64
+
+        def show_pdf(file_path):
+            with open(file_path, "rb") as f:
+                base64_pdf = base64.b64encode(f.read()).decode("utf-8")
+            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
+            st.markdown(pdf_display, unsafe_allow_html=True)
+        pdf_link = "https://ademark.streamlit.app/img/tutorias_cuarta_planta_fceye.pdf"
+        show_pdf(pdf_link)
+
         st.markdown(f"<p style='{custom_style}'><a href='{pdf_link}' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
     
