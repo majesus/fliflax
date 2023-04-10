@@ -216,6 +216,10 @@ elif menu == "Investigación":
     with st.expander("Ver evolución de nuestras publicaciones"):
         mostrar_grafico_area_suavizado()
         
+    from knowledge_graph import knowledge_graph_app
+    # Llama a la función en la parte apropiada de tu aplicación Streamlit.
+    knowledge_graph_app()
+
     separador("#B30A1B")
     
     # Lista de titulares
