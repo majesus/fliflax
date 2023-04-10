@@ -178,7 +178,7 @@ elif menu == "Estudiantes":
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
-    pdf_link = "https://ademark.streamlit.app/csv/Tutorías.xlsb"
+    pdf_link = "https://ademark.streamlit.app/img/tutorias_cuarta_planta_fceye.pdf"
     with st.expander("Documentos"):
         st.markdown(f"<p style='{custom_style}'><a href='{pdf_link}' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta del profesorado de nuestro departamento.</a></p>", unsafe_allow_html=True)
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
