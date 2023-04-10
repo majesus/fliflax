@@ -41,6 +41,13 @@ def create_knowledge_graph(edges):
                 xanchor="left",
                 titleside="right"),
             line_width=2))
+    node_label_trace = go.Scatter(
+        x=node_x, y=node_y,
+        mode="text",
+        hoverinfo="none",
+        text=[node for node in G.nodes()],
+        textposition="bottom center",
+        textfont=dict(size=12, color="#000"))
 
     node_adjacencies = []
     node_text = []
@@ -51,7 +58,7 @@ def create_knowledge_graph(edges):
     node_trace.marker.color = node_adjacencies
     node_trace.text = node_text
 
-    fig = go.Figure(data=[edge_trace, node_trace],
+    fig = go.Figure(data=[edge_trace, node_trace, node_label_trace],
                     layout=go.Layout(
                         title="Knowledge Graph",
                         titlefont=dict(size=16),
