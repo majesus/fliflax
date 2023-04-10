@@ -67,7 +67,7 @@ def knowledge_graph_app():
 
         fig = go.Figure(data=[edge_trace, node_trace, node_label_trace],
                         layout=go.Layout(
-                            title="Knowledge Graph",
+                            title="Grafo de conocimiento de nuestro departamento",
                             titlefont=dict(size=16),
                             showlegend=False,
                             hovermode="closest",
@@ -115,7 +115,7 @@ def knowledge_graph_app():
         ("Leadership", "Innovation"),
         ]
 
-    st.title("Grafo de conocimiento de nuestro departamento")
+    st.title("")
 
     fig = create_knowledge_graph(edges)
     st.plotly_chart(fig)
