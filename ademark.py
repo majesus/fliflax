@@ -257,12 +257,6 @@ elif menu == "Investigación":
     df_result = df_result0.set_index('Nombre')
     st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
     selected_indices = st.multiselect('', df_result.index.unique())
-    # !!!!!!!!!!!!!!!!!!
-    import streamlit_widgets as st_widgets
-    options = ['Option 1', 'Option 2', 'Option 3']
-    selected_options = st_widgets.multiselect("Selecciona una opción:", df_result.index.unique(), placeholder="Selecciona una opción")
-    st.write(f"Opciones seleccionadas: {selected_options}")
-    # !!!!!!!!!!!!!!!!!!
         
     import re
     if selected_indices:
