@@ -282,17 +282,17 @@ elif menu == "Investigación":
         st.write("")
 
     separador("#B30A1B")
-        
-    from ademark_graphs_research import mostrar_grafico_area_suavizado
-    with st.expander("Ver evolución de nuestras publicaciones"):
-        mostrar_grafico_area_suavizado()
-        
+
     from ademark_KG import knowledge_graph_app
     # Llama a la función en la parte apropiada de tu aplicación Streamlit.
     knowledge_graph_app()
 
     separador("#B30A1B")
-    
+     
+    from ademark_graphs_research import mostrar_grafico_area_suavizado
+    with st.expander("Ver evolución de nuestras publicaciones"):
+        mostrar_grafico_area_suavizado()
+
     # Lista de titulares
     titulares = [
         "Turismo y sostenibilidad",
