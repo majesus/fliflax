@@ -210,7 +210,7 @@ elif menu == "Estudiantes":
         with open("csv/Tutorías.xlsb", "rb") as pdf_file: # img/tutorias_cuarta_planta_fceye.pdf
             PDFbyte = pdf_file.read()
         base64_pdf = base64.b64encode(PDFbyte).decode("utf-8")
-        html_button = f'<a download="tutorias.xlsb" href="data:application/octet-stream;base64,{base64_pdf}" class="custom-download-button" target="_blank" style="text-decoration:none; color:inherit;">Descargar horas de tutorías del profesorado en sus centros de referencia</a>'
+        html_button = f'<a download="tutorias.xlsb" href="data:application/octet-stream;base64,{base64_pdf}" class="custom-download-button" target="_blank" style="text-decoration:none; color:inherit;">Descargar aquí las horas de tutorías del profesorado</a>'
         st.write(html_button, unsafe_allow_html=True)
     #---------------------------
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
@@ -441,7 +441,7 @@ elif menu == "Profesorado":
         with open("csv/Tutorías.xlsb", "rb") as pdf_file: # img/tutorias_cuarta_planta_fceye.pdf
             PDFbyte = pdf_file.read()
         base64_pdf = base64.b64encode(PDFbyte).decode("utf-8")
-        html_button = f'<a download="tutorias.xlsb" href="data:application/octet-stream;base64,{base64_pdf}" class="custom-download-button" target="_blank" style="text-decoration:none; color:inherit;">Descargar horas de tutorías del profesorado en sus centros de referencia</a>'
+        html_button = f'<a download="tutorias.xlsb" href="data:application/octet-stream;base64,{base64_pdf}" class="custom-download-button" target="_blank" style="text-decoration:none; color:inherit;">Descargar aquí las horas de tutorías del profesorado</a>'
         st.write(html_button, unsafe_allow_html=True)
     #---------------------------
         st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
