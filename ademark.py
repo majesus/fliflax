@@ -261,9 +261,8 @@ elif menu == "Investigación":
     import streamlit_widgets as st_widgets
     options = ['Option 1', 'Option 2', 'Option 3']
     selected_options = st_widgets.multiselect("Selecciona una opción:", df_result.index.unique(), placeholder="Selecciona una opción")
+    st.write(f"Opciones seleccionadas: {selected_options}")
     # !!!!!!!!!!!!!!!!!!
-
-st.write(f"Opciones seleccionadas: {selected_options}")
         
     import re
     if selected_indices:
