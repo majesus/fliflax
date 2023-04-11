@@ -94,8 +94,8 @@ if menu == "Inicio":
     
     st.markdown(f"<p style='{custom_title}'>BIENVENIDOS</p>", unsafe_allow_html=True)
         
-    st.markdown(f"<p style='{custom_style}'>El Departamento de <b>Administración de Empresas y Marketing</b> de la Universidad de Sevilla es una reconocida entidad académica, dedicada a la enseñanza e investigación universitaria en organización de empresas y marketing. Con más de 100 miembros expertos, nuestro departamento se enfoca en la formación de profesionales altamente cualificados y líderes en sus respectivos campos.</p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='{custom_style}'>Nos organizamos en dos áreas principales: <b>Organización de Empresas</b> (69 profesores) y <b>Comercialización e Investigación de Mercados (Marketing)</b> (35 profesores), reflejando nuestra diversidad y versatilidad académica. Nuestro equipo incluye profesionales que practican diversas líneas docentes y de investigación avanzadas en los campos de la organización de empresas y el marketing. Estamos presentes en <b>trece facultades</b> de la Universidad de Sevilla, lo que demuestra nuestra capacidad para contribuir en distintos campos y audiencias.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>El Departamento de Administración de Empresas y Marketing de la Universidad de Sevilla es una prestigiosa entidad académica que se dedica al fomento y la promoción de la enseñanza y la investigación universitaria en los ámbitos de la gestión empresarial y el marketing. Con una plantilla de más de 100 expertos, nuestro departamento se centra en la formación de profesionales altamente capacitados y líderes en sus respectivas disciplinas.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Nos dividimos en dos áreas principales: Organización de Empresas (69 profesores) y Comercialización e Investigación de Mercados (Marketing) (35 profesores), lo que refleja nuestra diversidad y versatilidad académica. Nuestro equipo incluye académicos y profesionales que trabajan en múltiples áreas de investigación avanzada y docencia en los campos de la gestión empresarial y el marketing. Estamos presentes en trece facultades de la Universidad de Sevilla, lo que demuestra nuestro compromiso con la excelencia académica y la colaboración interdisciplinaria.</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'>Le invitamos a explorar nuestra página web para conocer las oportunidades académicas y de investigación que ofrece nuestro departamento.</p>", unsafe_allow_html=True)
 
     separador("#B30A1B")
@@ -184,7 +184,7 @@ elif menu == "Estudiantes":
     
     st.markdown(f"<p style='{custom_title}'>ESTUDIANTES</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_style}'>Nuestro departamento se enorgullece de contar con un cuerpo estudiantil diverso y talentoso, que se dedica al estudio de las ciencias sociales con énfasis en administración de empresas y marketing. Los estudiantes de nuestra institución tienen la oportunidad de participar en actividades académicas y extracurriculares que enriquecen su experiencia educativa y fomentan su crecimiento personal y profesional.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Nuestro departamento se enorgullece de contar con un cuerpo estudiantil talentoso y diverso, dedicado al estudio de las ciencias sociales con énfasis en la gestión empresarial y el marketing. Los estudiantes de nuestra institución tienen la oportunidad de participar en actividades académicas y extracurriculares que enriquecen su experiencia educativa y fomentan su crecimiento personal y profesional.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
@@ -243,7 +243,7 @@ elif menu == "Investigación":
     
     st.markdown(f"<p style='{custom_title}'>INVESTIGACIÓN</p>", unsafe_allow_html=True)
     
-    st.markdown(f"<p style='{custom_style}'>La investigación es un componente esencial de la misión de nuestro departamento. Nuestros profesores y estudiantes colaboran en proyectos de investigación innovadores y de vanguardia en el campo de la administración de empresas y el marketing. Estos proyectos contribuyen al avance del conocimiento en nuestras áreas de especialización y proporcionan a nuestros estudiantes la oportunidad de desarrollar habilidades de investigación y aplicar sus conocimientos en contextos reales. Además, el departamento mantiene vínculos de colaboración con otras instituciones y organizaciones, nacionales e internacionales, lo que permite el intercambio de ideas y el enriquecimiento mutuo de nuestras líneas de investigación.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>La investigación es un componente fundamental de la misión de nuestro departamento. Nuestros académicos y estudiantes colaboran en proyectos de investigación innovadores y de vanguardia en el campo de la administración de empresas y el marketing. Estos proyectos contribuyen al avance del conocimiento en nuestras áreas de especialización y ofrecen a nuestros estudiantes la oportunidad de desarrollar habilidades de investigación y aplicar sus conocimientos en contextos prácticos. Además, el departamento mantiene relaciones de colaboración con instituciones y organizaciones nacionales e internacionales, lo que fomenta el intercambio de ideas y el enriquecimiento mutuo de nuestras líneas de investigación.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
@@ -375,7 +375,7 @@ elif menu == "Profesorado":
     
     st.markdown(f"<p style='{custom_title}'>PROFESORADO</p>", unsafe_allow_html=True)
     
-    st.markdown(f"<p style='{custom_style}'>El departamento cuenta con un destacado equipo de profesionales altamente capacitados y experimentados en el campo de la administración de empresas y el marketing. Nuestro profesorado se dedica a proporcionar una educación de alta calidad, basada en investigaciones y prácticas actuales, y está comprometido con el éxito académico y profesional de nuestros estudiantes.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>El departamento cuenta con un destacado equipo de profesionales altamente cualificados y experimentados en los campos de la administración de empresas y el marketing. Nuestro profesorado se dedica a proporcionar una educación excepcional basada en investigaciones y prácticas actuales, y está comprometido con el éxito académico y profesional de nuestros estudiantes.</p>", unsafe_allow_html=True)
 
     separador("#B30A1B")
     
@@ -548,7 +548,7 @@ elif menu == "Noticias":
         st.markdown(f"<p style='{custom_style}'><b>Resumen:</b> {noticia['resumen']}</p>", unsafe_allow_html=True)
         separador("#B30A1B")
 
-# Estudiantes
+# Oferta académica
 elif menu == "Oferta académica":
     # URL de la imagen
     # url_imagen = "img/uni_student.png"
@@ -558,7 +558,7 @@ elif menu == "Oferta académica":
     
     st.markdown(f"<p style='{custom_title}'>OFERTA ACADÉMICA</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_style}'>Nuestro departamento ofrece una amplia gama de programas y cursos de grado en ciencias sociales, con especial énfasis en administración de empresas y marketing. Nuestro enfoque académico se basa en el rigor teórico, la formación práctica y el desarrollo de habilidades transferibles, que permiten a nuestros estudiantes enfrentar los desafíos del mundo laboral con éxito y eficiencia.</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>El departamento ofrece una amplia gama de programas y cursos de grado en ciencias sociales, con especial énfasis en la administración de empresas y el marketing. Nuestra metodología académica combina el rigor teórico con la formación práctica y el desarrollo de habilidades transferibles, lo que permite a nuestros estudiantes enfrentar los desafíos del mundo laboral con éxito y eficacia.</p>", unsafe_allow_html=True)
     
     separador("#B30A1B")
     
