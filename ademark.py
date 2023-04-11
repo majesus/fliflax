@@ -35,14 +35,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-# multiselect
-change_text = """
-<style>
-div.st-cs.st-c5.st-bc.st-ct.st-cu {visibility: hidden;}
-div.st-cs.st-c5.st-bc.st-ct.st-cu:before {content: "Wähle eine Option"; visibility: visible;}
-</style>
-"""
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
@@ -264,7 +256,6 @@ elif menu == "Investigación":
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
     #st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
-    st.markdown(change_text, unsafe_allow_html=True)
     selected_indices = st.multiselect('Selecciona su nombre:', df_result.index.unique())
         
     import re
