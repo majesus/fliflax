@@ -9,6 +9,7 @@ st.set_page_config(page_title="Departamento de Administración de Empresas y Mar
 #----------------------------------------#
 custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
 custom_subtitle = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 18px; line-height: 1.5; color: #B30A1B;"
+custom_style_15 = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 15px; line-height: 1.5;"
 custom_style = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 14px; line-height: 1.5;"
 #----------------------------------------#
 st.markdown(
@@ -293,7 +294,7 @@ elif menu == "Investigación":
     st.markdown("---")
     
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_style}'><b>Evolución de nuestras publicaciones</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style_15}'><b>Evolución de nuestras publicaciones</b></p>", unsafe_allow_html=True)
     
     from ademark_graphs_research import mostrar_grafico_area_suavizado
     with st.expander("Evolución"):
@@ -314,11 +315,13 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_style}'><b>Principales líneas de investigación en Marketing</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style_15}'><b>Principales líneas de investigación en Marketing</b></p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
     for titular in titulares:
         st.markdown(f"<p style='{custom_style}'>{titular}</p>", unsafe_allow_html=True)
+    
+    st.markdown("---")
     
     # Lista de titulares
     titulares = [
@@ -330,9 +333,9 @@ elif menu == "Investigación":
         "Estrategia y dirección internacional de empresas",
         "Coaching y desarrollo personal",
     ]
-
+    
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_style}'><b>Principales líneas de investigación en Organización</b></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style_15}'><b>Principales líneas de investigación en Organización</b></p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
     for titular in titulares:
