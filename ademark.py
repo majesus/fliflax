@@ -310,8 +310,6 @@ elif menu == "Investigación":
     for titular in titulares:
         st.markdown(f"<p style='{custom_style}'>{titular}</p>", unsafe_allow_html=True)
     
-    separador("#B30A1B")
-    
     # Lista de titulares
     titulares = [
         "Emprendimiento y creación de empresas",
