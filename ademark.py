@@ -290,12 +290,16 @@ elif menu == "Investigación":
     # Llama a la función en la parte apropiada de tu aplicación Streamlit.
     knowledge_graph_app()
     
+    st.markdown("---")
+    
     # Título de la aplicación
     st.markdown(f"<p style='{custom_style}'><b>Evolución de nuestras publicaciones</b></p>", unsafe_allow_html=True)
     
     from ademark_graphs_research import mostrar_grafico_area_suavizado
     with st.expander("Evolución"):
         mostrar_grafico_area_suavizado()
+        
+    st.markdown("---")
         
     # Lista de titulares
     titulares = [
