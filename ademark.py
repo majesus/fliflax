@@ -288,10 +288,8 @@ elif menu == "Investigación":
     knowledge_graph_app()
      
     from ademark_graphs_research import mostrar_grafico_area_suavizado
-    with st.expander("Ver evolución de nuestras publicaciones"):
+    with st.expander("Evolución de nuestras publicaciones"):
         mostrar_grafico_area_suavizado()
-        
-    separador("#B30A1B")
         
     # Lista de titulares
     titulares = [
