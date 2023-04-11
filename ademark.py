@@ -244,6 +244,45 @@ elif menu == "Investigación":
     
     st.markdown(f"<p style='{custom_style}'>La investigación es un componente esencial de la misión de nuestro departamento. Nuestros profesores y estudiantes colaboran en proyectos de investigación innovadores y de vanguardia en el campo de la administración de empresas y el marketing. Estos proyectos contribuyen al avance del conocimiento en nuestras áreas de especialización y proporcionan a nuestros estudiantes la oportunidad de desarrollar habilidades de investigación y aplicar sus conocimientos en contextos reales. Además, el departamento mantiene vínculos de colaboración con otras instituciones y organizaciones, nacionales e internacionales, lo que permite el intercambio de ideas y el enriquecimiento mutuo de nuestras líneas de investigación.</p>", unsafe_allow_html=True)
     
+    separador("#B30A1B")
+    
+    # Ficha del investigador
+    st.markdown(f"<p style='{custom_subtitle}'>Datos de nuestros/as investigadores/as</p>", unsafe_allow_html=True)
+    
+    # Lectura de la tabla con los datos de perfil:
+    df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
+
+    # Selector de profesores
+    df_result = df_result0.set_index('Nombre')
+    st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
+    selected_indices = st.multiselect('', df_result.index.unique())
+        
+    import re
+    if selected_indices:
+        # Muestra la ficha del profesor seleccionado
+        for index in selected_indices:
+            professor_data = df_result.loc[index]
+
+            st.markdown(f"<p style='{custom_subtitle}', color = '#8DB4ED'><b>{index}</b></p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Área de Conocimiento:</b> {professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
+
+            # Comprueba si el valor de 'Grupo' no coincide con el patrón de números y guiones
+            grupo_str = str(professor_data['Grupo'])
+            if not re.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}', grupo_str):
+                st.write(f"<p style='{custom_style}'><b>Grupo:</b> <a href='{professor_data['URL_grupo']}' target='_blank'>{professor_data['Grupo']}</a></p>", unsafe_allow_html=True)
+
+            st.markdown(f"<p style='{custom_style}'><b>Instituto de Inv.:</b> {professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Prog. Doctorado:</b> {professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['URL']}' target='_blank'>{professor_data['URL']}</a></p>", unsafe_allow_html=True)
+            separador("#B30A1B")
+    else:
+        st.write("")
+
+    separador("#B30A1B")
+        
     from ademark_graphs_research import mostrar_grafico_area_suavizado
     with st.expander("Ver evolución de nuestras publicaciones"):
         mostrar_grafico_area_suavizado()
@@ -293,43 +332,6 @@ elif menu == "Investigación":
     for titular in titulares:
         st.markdown(f"<p style='{custom_style}'>{titular}</p>", unsafe_allow_html=True)
     
-    separador("#B30A1B")
-    
-    # Ficha del investigador
-    st.markdown(f"<p style='{custom_subtitle}'>Datos de nuestros/as investigadores/as</p>", unsafe_allow_html=True)
-    
-    # Lectura de la tabla con los datos de perfil:
-    df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
-
-    # Selector de profesores
-    df_result = df_result0.set_index('Nombre')
-    st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
-    selected_indices = st.multiselect('', df_result.index.unique())
-        
-    import re
-    if selected_indices:
-        # Muestra la ficha del profesor seleccionado
-        for index in selected_indices:
-            professor_data = df_result.loc[index]
-
-            st.markdown(f"<p style='{custom_subtitle}', color = '#8DB4ED'><b>{index}</b></p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Área de Conocimiento:</b> {professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
-
-            # Comprueba si el valor de 'Grupo' no coincide con el patrón de números y guiones
-            grupo_str = str(professor_data['Grupo'])
-            if not re.fullmatch(r'\d{4}-\d{4}-\d{4}-\d{4}', grupo_str):
-                st.write(f"<p style='{custom_style}'><b>Grupo:</b> <a href='{professor_data['URL_grupo']}' target='_blank'>{professor_data['Grupo']}</a></p>", unsafe_allow_html=True)
-
-            st.markdown(f"<p style='{custom_style}'><b>Instituto de Inv.:</b> {professor_data['Instituto de Inv.']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Prog. Doctorado:</b> {professor_data['Prog. Doctorado']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['URL']}' target='_blank'>{professor_data['URL']}</a></p>", unsafe_allow_html=True)
-            separador("#B30A1B")
-    else:
-        st.write("")
-
     separador("#B30A1B")
     
     st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
