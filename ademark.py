@@ -283,6 +283,9 @@ elif menu == "Investigación":
 
     separador("#B30A1B")
 
+    # Título de la aplicación
+    st.markdown(f"<p style='{custom_subtitle}'>Líneas de investigación</p>", unsafe_allow_html=True)
+    
     from ademark_KG import knowledge_graph_app
     # Llama a la función en la parte apropiada de tu aplicación Streamlit.
     knowledge_graph_app()
