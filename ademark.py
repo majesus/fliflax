@@ -256,7 +256,8 @@ elif menu == "Investigación":
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
     #st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
-    selected_indices = st.multiselect('Selecciona su nombre:', df_result.index.unique(), help='Elige un profesor de la lista')
+    selected_indices = st.selectbox("'Selecciona su nombre'", options = df_result.index.unique(), key="custom_selectbox", label_visibility = "collapsed")
+    #selected_indices = st.multiselect('Selecciona su nombre:', df_result.index.unique(), help='Elige un profesor de la lista')
         
     import re
     if selected_indices:
@@ -344,7 +345,7 @@ elif menu == "Investigación":
     separador("#B30A1B")
     
     st.markdown(f"<p style='{custom_subtitle}'>Grupos de investigación</p>", unsafe_allow_html=True)
-    with st.expander("Ver Grupos de investigación"):
+    with st.expander("Ver grupos de investigación"):
         # Lectura de la tabla de Grupos con los datos de perfil:
         df_result0 = pd.read_csv('csv/investigadores_perfil.csv', sep=",")
         # Filtramos los grupos que finalizan con un paréntesis y un código alfanumérico y eliminamos duplicados
