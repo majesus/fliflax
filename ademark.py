@@ -639,4 +639,4 @@ keyword = st_tags_sidebar(
     suggestions=['estudiantes', 'profesorado'],
     maxtags = 10,
     key='1')
-st.sidebar.write(keyword)
+st.write(keyword)
