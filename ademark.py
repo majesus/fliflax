@@ -628,3 +628,15 @@ elif menu == "Oferta académica":
 
     separador("#B30A1B")
      
+
+        
+#---------------------------------------------------------#
+from streamlit_tags import st_tags, st_tags_sidebar
+keyword = st_tags_sidebar(
+    label='',
+    text='',
+    value=['Universidad de Sevilla','Organización de Empreas','Marketing','Docencia avanzada','Investigación académica'],
+    suggestions=['estudiantes', 'profesorado'],
+    maxtags = 10,
+    key='1')
+st.sidebar.write(keyword)
