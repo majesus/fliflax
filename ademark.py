@@ -426,7 +426,7 @@ elif menu == "Profesorado":
     # Seleccionar las filas que cumplen la condición: P
     normativas = normativas[normativas['Codigo'].isin(options)]
     st.markdown(f"<p style='{custom_title}'>Normativa de interés</p>", unsafe_allow_html=True)
-    with st.expander("Ver normativa de interés"):
+    with st.expander("Normativas"):
         # Iterar sobre las noticias y mostrarlas
         for _, normativa in normativas.iterrows():
             complete_url = f"https://www.us.es{normativa['URL']}"
@@ -434,9 +434,18 @@ elif menu == "Profesorado":
 
     # Documentos_interés
     st.markdown(f"<p style='{custom_title}'>Documentos de interés</p>", unsafe_allow_html=True)
-    with st.expander("Documentos de interés"):
-        st.markdown(f"<p style='{custom_style}'><a href='https://www.us.es/sites/default/files/2019-05/2009_03_19_CU_RG_ESTUDIANTES.pdf' target='_blank' style='text-decoration:none; color:inherit;'>Horas de consulta</a></p>", unsafe_allow_html=True)
-    
+    with st.expander("Documentos"):
+    #---------------------------
+        # Asegúrate de cambiar la ruta del archivo a la ubicación de tu archivo PDF
+        import base64
+        with open("csv/Tutorías.xlsb", "rb") as pdf_file: # img/tutorias_cuarta_planta_fceye.pdf
+            PDFbyte = pdf_file.read()
+        base64_pdf = base64.b64encode(PDFbyte).decode("utf-8")
+        html_button = f'<a download="tutorias.xlsb" href="data:application/octet-stream;base64,{base64_pdf}" class="custom-download-button" target="_blank" style="text-decoration:none; color:inherit;">Descargar horas de tutorías del profesorado en sus centros de referencia</a>'
+        st.write(html_button, unsafe_allow_html=True)
+    #---------------------------
+        st.markdown(f"<p style='{custom_style}', color: #B30A1B>AVISO: En cada centro puedes consultar la normativa específica de los TFE.</p>", unsafe_allow_html=True)
+    #---------------------------
     separador("#B30A1B")
 
 # Personal
