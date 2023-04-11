@@ -35,6 +35,18 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# multiselect
+st.markdown(
+    """
+    <style>
+    ::placeholder {
+        color: white !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 #----------------------------------------#
 # Función para descargar y almacenar imágenes en caché
 @st.cache
