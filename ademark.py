@@ -632,11 +632,11 @@ elif menu == "Oferta académica":
         
 #---------------------------------------------------------#
 from streamlit_tags import st_tags, st_tags_sidebar
-keyword = st_tags_sidebar(
+keyword = st_tags(
     label='',
     text='',
     value=['Universidad de Sevilla','Organización de Empreas','Marketing','Docencia avanzada','Investigación académica'],
     suggestions=['estudiantes', 'profesorado'],
     maxtags = 10,
     key='1')
-st.write(keyword)
+#st.write(keyword)
