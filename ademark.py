@@ -289,9 +289,12 @@ elif menu == "Investigación":
     from ademark_KG import knowledge_graph_app
     # Llama a la función en la parte apropiada de tu aplicación Streamlit.
     knowledge_graph_app()
-     
+    
+    # Título de la aplicación
+    st.markdown(f"<p style='{custom_style}'><b>Evolución de nuestras publicaciones</b></p>", unsafe_allow_html=True)
+    
     from ademark_graphs_research import mostrar_grafico_area_suavizado
-    with st.expander("Evolución de nuestras publicaciones"):
+    with st.expander("Evolución"):
         mostrar_grafico_area_suavizado()
         
     # Lista de titulares
