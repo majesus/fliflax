@@ -307,7 +307,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_subtitle}'>Principales líneas de investigación en Marketing</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'><b>Principales líneas de investigación en Marketing</b></p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
     for titular in titulares:
@@ -325,7 +325,7 @@ elif menu == "Investigación":
     ]
 
     # Título de la aplicación
-    st.markdown(f"<p style='{custom_subtitle}'>Principales líneas de investigación en Organización</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'><b>Principales líneas de investigación en Organización</b></p>", unsafe_allow_html=True)
 
     # Mostrar titulares como una lista con interlineado ajustado
     for titular in titulares:
