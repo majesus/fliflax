@@ -256,7 +256,7 @@ elif menu == "Investigación":
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
     #st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
-    selected_indices = st.multiselect('Selecciona su nombre:', df_result.index.unique(), default='Choose either 1 or 2 but not both')
+    selected_indices = st.multiselect('Selecciona su nombre:', df_result.index.unique(), help='Elige un profesor de la lista')
         
     import re
     if selected_indices:
