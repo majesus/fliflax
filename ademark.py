@@ -255,10 +255,8 @@ elif menu == "Investigación":
 
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
-    #st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
     options = [''] + list(df_result.index.unique())
     selected_indices = st.selectbox(label = "Selecciona un investigador/a", options = options, key="custom_selectbox_2", index=0, label_visibility = "collapsed")
-    #selected_indices = st.multiselect('Selecciona su nombre:', df_result.index.unique(), help='Elige un profesor de la lista')
         
     import re
     if selected_indices:
@@ -366,7 +364,7 @@ elif menu == "Investigación":
     
     separador("#B30A1B")
     
-# Docencia
+# Profesorado
 elif menu == "Profesorado":
     # URL de la imagen
     # url_imagen = "img/uni_teacher.png"
@@ -388,8 +386,11 @@ elif menu == "Profesorado":
     
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
-    st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
-    selected_indices = st.multiselect('', df_result.index.unique())
+    #st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
+    #selected_indices = st.multiselect('', df_result.index.unique())
+    #df_result = df_result0.set_index('Nombre')
+    options = [''] + list(df_result.index.unique())
+    selected_indices = st.selectbox(label = "Selecciona un docente", options = options, key="custom_selectbox_2", index=0, label_visibility = "collapsed")
         
     import re
     # Función para reemplazar "nan" por "No disponible"
