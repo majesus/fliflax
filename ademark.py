@@ -522,12 +522,23 @@ elif menu == "Contacto":
         "Facultad": ["Ciencias Económicas y Empresariales", "Turismo y Finanzas", "Comunicación"]
     })
 
-    # Mostrar el mapa en Streamlit con las coordenadas proporcionadas
+    # Crear un mapa de Folium centrado en las coordenadas proporcionadas
+    m = folium.Map(location=[latitude, longitude], zoom_start=12)
+
+    # Agregar marcadores al mapa con etiquetas para cada punto
+    for index, row in data.iterrows():
+        folium.Marker(
+            location=[row["lat"], row["lon"]],
+            popup=row["Facultad"],
+            icon=None,
+        ).add_to(m)
+
+    # Mostrar el mapa en Streamlit usando streamlit-folium
     container = st.container()
     with container:
-        #st.write(data)
-        st.map(data, use_container_width=True)                                      
+        folium_static(m, use_container_width=True)
 
+    # Asumiendo que 'separador' es una función previamente definida en tu código
     separador("#B30A1B")
 
 # Noticias
