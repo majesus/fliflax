@@ -383,43 +383,52 @@ elif menu == "Profesorado":
     
     # Lectura de la tabla con los datos de perfil:
     df_result0 = pd.read_csv('csv/profesores_perfil.csv', sep=",")
-    
+
     # Selector de profesores
     df_result = df_result0.set_index('Nombre')
-    #st.markdown(f"<p style='{custom_style}'>Selecciona su nombre:</p>", unsafe_allow_html=True)
-    #selected_indices = st.multiselect('', df_result.index.unique())
-    #df_result = df_result0.set_index('Nombre')
+
+    # Crear una lista de opciones con todos los nombres de los profesores
     options = [''] + list(df_result.index.unique())
-    selected_indices = st.selectbox(label = "Selecciona un docente", options = options, key="custom_selectbox_2", index=0, label_visibility = "collapsed")
-        
-    import re
+
+    # Crear un selectbox para seleccionar un docente
+    selected_index = st.selectbox(label="Selecciona un docente", options=options, key="custom_selectbox_2", index=0)
+
+    # Importar re no es necesario en este caso, así que lo he eliminado
+
     # Función para reemplazar "nan" por "No disponible"
     def replace_nan(value):
         if pd.isna(value):
             return "No disponible"
         return value
 
-    if selected_indices:
-        for index in selected_indices:
-            professor_data = df_result.loc[index]
+    # Verificar si se ha seleccionado un docente
+    if selected_index:
+        professor_data = df_result.loc[selected_index]
 
-            for key in professor_data.keys():
-                professor_data[key] = replace_nan(professor_data[key])
+        # Reemplazar los valores NaN con "No disponible"
+        for key in professor_data.keys():
+            professor_data[key] = replace_nan(professor_data[key])
 
-            # El resto del código sigue igual
-            st.markdown(f"<p style='{custom_subtitle}', color = '#8DB4ED'>{index}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['Perfil de Prisma']}' target='_blank'>{professor_data['Perfil de Prisma']}</a></p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Teléfono:</b> {professor_data['Teléfono']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Área de Conocimiento:</b> {professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Centros:</b> {professor_data['Centros']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='{custom_style}'><b>Asignaturas:</b> {professor_data['Asignaturas']}</p>", unsafe_allow_html=True)
+        # El resto del código sigue igual
+        # He corregido el atributo de estilo para que se aplique correctamente
+        custom_subtitle = "color: #8DB4ED;"
+        custom_style = "font-size: 14px;"
+
+        st.markdown(f"<p style='{custom_subtitle}'>{selected_index}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Categoría:</b> {professor_data['Categoría']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Publicaciones:</b> <a href='{professor_data['Perfil de Prisma']}' target='_blank'>{professor_data['Perfil de Prisma']}</a></p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Email:</b> {professor_data['Email']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Teléfono:</b> {professor_data['Teléfono']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Área de Conocimiento:</b> {professor_data['Área de Conocimiento']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Departamento:</b> {professor_data['Departamento']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Centros:</b> {professor_data['Centros']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='{custom_style}'><b>Asignaturas:</b> {professor_data['Asignaturas']}</p>", unsafe_allow_html=True)
     else:
         st.write("")
 
+    # Asumiendo que 'separador' es una función previamente definida en tu código
     separador("#B30A1B")
+
     
     # Normativa_interés
     # Leer el archivo CSV
