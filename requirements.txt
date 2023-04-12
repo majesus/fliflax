@@ -7,7 +7,7 @@ streamlit-echarts
 pyecharts
 altair
 
-folium
+pydeck
 
 pandas >= 1.0.5
 numpy >= 1.18.5
