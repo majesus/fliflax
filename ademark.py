@@ -518,9 +518,9 @@ elif menu == "Contacto":
 
     # Crear un DataFrame de Pandas con las coordenadas
     data = pd.DataFrame({
-        "lat": [37.377777777778, 37.378888888889, 37.405277777778],
-        "lon": [-5.9743055555556, -5.9733611111111, -6.0030555555556],
-        "Facultad": ["Ciencias Económicas y Empresariales", "Turismo y Finanzas", "Comunicación"]
+        "lat": [37.377777777778, 37.378888888889, 37.41043, 37.37774],
+        "lon": [-5.9743055555556, -5.9733611111111, -6.00654, -5.97829],
+        "Facultad": ["Ciencias Económicas y Empresariales", "Turismo y Finanzas", "Comunicación", "Ciencias del Trabajo"]
     })
 
     # Crear un mapa de pydeck centrado en las coordenadas proporcionadas
@@ -566,8 +566,6 @@ elif menu == "Contacto":
 
     # Asumiendo que 'separador' es una función previamente definida en tu código
     separador("#B30A1B")
-
-
 
 # Noticias
 elif menu == "Noticias":
