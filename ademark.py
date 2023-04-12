@@ -4,7 +4,7 @@ from PIL import Image
 #----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
-#st.image("img/fliflax-logo.jpg", width=200)
+#st.image("img/fliflax-logo.png", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
 custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
@@ -499,7 +499,7 @@ elif menu == "Contacto":
     st.markdown(f"<p style='{custom_subtitle}', color = '#B30A1B'>Horario de atención al público:</p>", unsafe_allow_html=True)
     st.markdown(f"<p style='{custom_style}'>Lunes – Viernes: 12 a 14 horas</p>", unsafe_allow_html=True)
 
-    st.markdown(f"<p style='{custom_style}'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='{custom_style}'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expon@US</a></p>", unsafe_allow_html=True)
     
     import pandas as pd
     import pydeck as pdk
