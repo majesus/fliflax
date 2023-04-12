@@ -4,7 +4,6 @@ from PIL import Image
 #----------------------------------------#
 # Encabezado
 st.set_page_config(page_title="Departamento de Administración de Empresas y Marketing", page_icon=":mortar_board:")
-#st.image("img/fliflax-logo.png", width=200)
 #st.title("Departamento de Administración de Empresas y Marketing")
 #----------------------------------------#
 custom_title = "font-family: Bahnschrift Light, Segoe UI, Arial; font-size: 25px; line-height: 1.5; color: #B30A1B; font-weight: bold;"
