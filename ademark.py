@@ -501,8 +501,6 @@ elif menu == "Contacto":
 
     st.markdown(f"<p style='{custom_style}'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
     
-    separador("#B30A1B")
-   
     st.markdown("""
     <style>
     .container {
@@ -522,24 +520,50 @@ elif menu == "Contacto":
         "Facultad": ["Ciencias Económicas y Empresariales", "Turismo y Finanzas", "Comunicación"]
     })
 
-    # Crear un mapa de Folium centrado en las coordenadas proporcionadas
-    m = folium.Map(location=[latitude, longitude], zoom_start=12)
+    # Crear un mapa de pydeck centrado en las coordenadas proporcionadas
+    view_state = pdk.ViewState(
+        latitude=latitude,
+        longitude=longitude,
+        zoom=12
+    )
 
-    # Agregar marcadores al mapa con etiquetas para cada punto
-    for index, row in data.iterrows():
-        folium.Marker(
-            location=[row["lat"], row["lon"]],
-            popup=row["Facultad"],
-            icon=None,
-        ).add_to(m)
+    layer = pdk.Layer(
+        "ScatterplotLayer",
+        data,
+        pickable=True,
+        opacity=0.8,
+        stroked=True,
+        filled=True,
+        radius_scale=10,
+        radius_min_pixels=10,
+        radius_max_pixels=10,
+        line_width_min_pixels=1,
+        get_position=["lon", "lat"],
+        get_radius=50,
+        get_fill_color=[255, 140, 0],
+        get_line_color=[0, 0, 0],
+    )
 
-    # Mostrar el mapa en Streamlit usando streamlit-folium
-    container = st.container()
-    with container:
-        folium_static(m, use_container_width=True)
+    tooltip = {
+        "html": "<b>Facultad:</b> {Facultad}",
+        "style": {
+            "backgroundColor": "steelblue",
+            "color": "white"
+        }
+    }
+
+    deck = pdk.Deck(
+        layers=[layer],
+        initial_view_state=view_state,
+        tooltip=tooltip
+    )
+
+    # Mostrar el mapa en Streamlit
+    st.pydeck_chart(deck)
 
     # Asumiendo que 'separador' es una función previamente definida en tu código
     separador("#B30A1B")
+
 
 # Noticias
 elif menu == "Noticias":
