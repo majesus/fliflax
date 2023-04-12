@@ -503,6 +503,7 @@ elif menu == "Contacto":
     
     import pandas as pd
     import pydeck as pdk
+
     st.markdown("""
     <style>
     .container {
@@ -512,8 +513,8 @@ elif menu == "Contacto":
     """, unsafe_allow_html=True)
 
     # Coordenadas de la Facultad de Estudios
-    latitude = 36.7277394
-    longitude = -4.41775599241557
+    latitude = 37.377777777778
+    longitude = -5.9743055555556
 
     # Crear un DataFrame de Pandas con las coordenadas
     data = pd.DataFrame({
@@ -565,6 +566,7 @@ elif menu == "Contacto":
 
     # Asumiendo que 'separador' es una función previamente definida en tu código
     separador("#B30A1B")
+
 
 
 # Noticias
