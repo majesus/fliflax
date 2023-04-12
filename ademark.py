@@ -518,8 +518,8 @@ elif menu == "Contacto":
 
     # Crear un DataFrame de Pandas con las coordenadas
     data = pd.DataFrame({
-        "lat": [37.377777777778, 37.378888888889, 37.41043, 37.37774],
-        "lon": [-5.9743055555556, -5.9733611111111, -6.00654, -5.97829],
+        "lat": [37.37824, 37.37904, 37.41043, 37.37774],
+        "lon": [-5.97645, -5.97607, -6.00654, -5.97829],
         "Facultad": ["Ciencias Económicas y Empresariales", "Turismo y Finanzas", "Comunicación", "Ciencias del Trabajo"]
     })
 
