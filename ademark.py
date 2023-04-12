@@ -501,6 +501,8 @@ elif menu == "Contacto":
 
     st.markdown(f"<p style='{custom_style}'>Buzón de quejas y sugerencias: <a href='https://www.us.es/expon-us'>Expón@US</a></p>", unsafe_allow_html=True)
     
+    import pandas as pd
+    import pydeck as pdk
     st.markdown("""
     <style>
     .container {
