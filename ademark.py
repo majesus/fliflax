@@ -42,7 +42,7 @@ def cargar_imagen(url):
     return image
 
 # URL de la imagen
-url_imagen = "img/uni_logo_ademark.png"
+url_imagen = "img/log_us.png"
 # Descargar imagen
 imagen = cargar_imagen(url_imagen)
 # Crear dos columnas con anchos ajustados
