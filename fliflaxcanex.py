@@ -2,25 +2,22 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-# Función para generar datos de exposición basados en inserciones
-def generate_exposure_data(n, p, inserciones):
-    data = np.zeros((n, len(p)))
+# Función para simular la distribución conjunta de probabilidad completa para los medios dados
+def simulate_joint_distribution(n, p, inserciones):
+    joint_prob = np.zeros((n, len(p)))
     for i in range(len(p)):
         effective_p = 1 - (1 - p[i]) ** inserciones[i]
-        random_data = np.random.binomial(1, effective_p, n)
-        data[:, i] = random_data.astype(int)
-    return data
+        joint_prob[:, i] = np.random.binomial(1, effective_p, n)
+    return joint_prob
 
-# Función iterativa para calcular la suma de productos M-duples de covarianzas y probabilidades marginales
-def calc_mduple_sum_iterative(cov_matrix, p):
-    sum_mduple = 0
-    indices = range(len(p))
-    for depth in range(len(p)):
-        prod_p = np.prod(p[indices])
-        sum_cov = np.sum(cov_matrix[indices, :][:, indices])
-        sum_mduple += (-1) ** depth * prod_p * sum_cov
-        indices = indices[1:]
-    return sum_mduple
+# Función para calcular la matriz de covarianza ajustada en función de las correlaciones entre los medios
+def adjusted_covariance_matrix(cov_matrix, correlations, p):
+    adjusted_cov_matrix = cov_matrix.copy()
+    for i in range(len(p)):
+        for j in range(i + 1, len(p)):
+            adjusted_cov_matrix[i, j] = correlations[i, j] * np.sqrt(p[i] * p[j] * (1 - p[i]) * (1 - p[j]))
+            adjusted_cov_matrix[j, i] = adjusted_cov_matrix[i, j]
+    return adjusted_cov_matrix
 
 # Generar datos ficticios de exposición a los medios para M medios
 M = st.slider('Número de medios', min_value=2, max_value=10, value=4)
@@ -43,20 +40,18 @@ marginal_probabilities = exposure_ratios / np.sum(exposure_ratios)
 
 st.write('Probabilidades marginales de cada medio:', dict(zip(audiencia_labels, marginal_probabilities)))
 
-data = generate_exposure_data(n, exposure_ratios, inserciones)
+joint_prob = simulate_joint_distribution(n, exposure_ratios, inserciones)
 
+cov_matrix = np.cov(joint_prob.T)
+correlations = np.identity(M)  # Asumimos que no hay correlaciones entre los medios
+adjusted_cov_matrix = adjusted_covariance_matrix(cov_matrix, correlations, marginal_probabilities)
 
-df = pd.DataFrame(data)
-df.columns = [f'Medio{i}' for i in range(1, M+1)]
-
-# Calcular las probabilidades conjuntas de exposición a los medios usando la expansión canónica truncada
-cov_matrix = np.cov(data.T)
 joint_prob = np.prod(marginal_probabilities)
 for depth in range(1, M+1):
-    joint_prob += (-1) ** depth * calc_mduple_sum_iterative(cov_matrix, marginal_probabilities)
-
+    joint_prob += (-1) ** depth * calc_mduple_sum_iterative(adjusted_cov_matrix, marginal_probabilities)
 
 st.write(f'La probabilidad conjunta de exposición a los {M} medios es {joint_prob:.4f}')
+
 
 # Función para calcular la distribución de contactos
 def calculate_contact_distribution(data):
