@@ -39,6 +39,8 @@ inserciones = np.array(inserciones[:M])
 p = 1 - np.power(1 - audiencias/n, inserciones)
 p = np.array(p[:M])
 
+st.write('Probabilidades marginales de cada medio:', dict(zip(audiencia_labels, p)))
+
 data = generate_exposure_data(n, p, inserciones)
 
 df = pd.DataFrame(data)
