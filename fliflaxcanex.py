@@ -78,7 +78,7 @@ import seaborn as sns
 
 def plot_contact_distribution(contact_distribution):
     plt.figure(figsize=(10, 6))
-    sns.barplot(x=contact_distribution.index, y=contact_distribution["Frecuencia"])
+    sns.barplot(x=contact_distribution.index, y=contact_distribution["Personas"])
     plt.xlabel("Contactos")
     plt.ylabel("Personas")
     plt.title("Distribución de contactos")
