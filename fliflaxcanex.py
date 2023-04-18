@@ -62,7 +62,7 @@ st.write(f'La probabilidad conjunta de exposición a los {M} medios es {joint_pr
 def calculate_contact_distribution(data):
     contact_freq = data.sum(axis=1)
     freq_table = pd.DataFrame(contact_freq.value_counts())
-    freq_table.columns = ['Frecuencia']
+    freq_table.columns = ['Personas']
     freq_table.index.name = 'Contactos'
     return freq_table
 
