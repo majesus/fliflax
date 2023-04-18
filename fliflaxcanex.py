@@ -64,4 +64,26 @@ st.write('Distribución de contactos:')
 st.dataframe(contact_distribution)
 st.write(f'Total: {contact_distribution["Frecuencia"].sum()}')
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def plot_contact_distribution(contact_distribution):
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=contact_distribution.index, y=contact_distribution["Frecuencia"])
+    plt.xlabel("Contactos")
+    plt.ylabel("Frecuencia")
+    plt.title("Distribución de contactos")
+    st.pyplot()
+
+plot_contact_distribution(contact_distribution)
+
+def plot_covariance_matrix(cov_matrix):
+    plt.figure(figsize=(10, 6))
+    sns.heatmap(cov_matrix, annot=True, fmt=".2f", cmap="coolwarm", linewidths=0.5)
+    plt.xlabel("Medios")
+    plt.ylabel("Medios")
+    plt.title("Matriz de covarianzas entre medios")
+    st.pyplot()
+
+plot_covariance_matrix(cov_matrix)
 
