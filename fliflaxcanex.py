@@ -23,7 +23,7 @@ def calc_mduple_sum_iterative(cov_matrix, p):
     return sum_mduple
 
 # Generar datos ficticios de exposición a los medios para M medios
-M = st.slider('Número de medios', min_value=2, max_value=10, value=6)
+M = st.slider('Número de medios', min_value=1, max_value=10, value=4)
 
 n = st.number_input('Número de individuos', value=1000)
 
