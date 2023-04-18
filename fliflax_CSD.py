@@ -18,8 +18,10 @@ def CSD(audiences, insertions, order, form):
     reach = 0
     exposure = []
 
+    accumulated_insertions = 0
     for i in range(len(df)):
-        r = CANEX(df["audience"].iloc[i], df["insertion"].iloc[i])
+        accumulated_insertions += df["insertion"].iloc[i]
+        r = CANEX(df["audience"].iloc[i], accumulated_insertions)
         
         if form == "normal":
             reach = reach + r * (1 - reach)
@@ -41,5 +43,6 @@ order = "audience"
 form = "inverse"
 
 reach, exposure = CSD(audiences, insertions, order, form)
+
 st.write(f"El alcance de la campaña es {reach:.4f}")
 st.write(f"La distribución de exposición de la campaña es {exposure}")
