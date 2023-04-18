@@ -72,7 +72,8 @@ def calculate_contact_distribution(data):
     return freq_table
 
 # Calcular e imprimir la distribución de contactos
-contact_distribution = calculate_contact_distribution(joint_prob)
+simulated_joint_dist = simulate_joint_distribution(n, exposure_ratios, inserciones)
+contact_distribution = calculate_contact_distribution(simulated_joint_dist)
 contact_distribution = contact_distribution.sort_index()
 st.write('Distribución de contactos:')
 st.dataframe(contact_distribution)
