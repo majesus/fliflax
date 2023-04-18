@@ -7,7 +7,8 @@ def generate_exposure_data(n, p, inserciones):
     data = np.zeros((n, len(p)))
     for i in range(len(p)):
         for j in range(inserciones[i]):
-            data[:, i] |= np.random.binomial(1, p[i], n)
+            random_data = np.random.binomial(1, p[i], n)
+            data[:, i] = np.logical_or(data[:, i], random_data).astype(int)
     return data
 
 # Función iterativa para calcular la suma de productos M-duples de covarianzas y probabilidades marginales
