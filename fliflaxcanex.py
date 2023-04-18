@@ -36,12 +36,15 @@ inserciones = [st.slider(inserciones_labels[i], min_value=1, max_value=10, value
 audiencias = np.array(audiencias[:M])
 inserciones = np.array(inserciones[:M])
 
-p = 1 - np.power(1 - audiencias/n, inserciones)
-p = np.array(p[:M])
+exposure_ratios = 1 - np.power(1 - audiencias/n, inserciones)
+exposure_ratios = np.array(exposure_ratios[:M])
 
-st.write('Probabilidades marginales de cada medio:', dict(zip(audiencia_labels, p)))
+marginal_probabilities = exposure_ratios / np.sum(exposure_ratios)
 
-data = generate_exposure_data(n, p, inserciones)
+st.write('Probabilidades marginales de cada medio:', dict(zip(audiencia_labels, marginal_probabilities)))
+
+data = generate_exposure_data(n, exposure_ratios, inserciones)
+
 
 df = pd.DataFrame(data)
 df.columns = [f'Medio{i}' for i in range(1, M+1)]
