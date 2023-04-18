@@ -72,19 +72,22 @@ def main():
     st.sidebar.subheader("Número de inserciones")
     i1 = st.sidebar.number_input("Medio 1", value=10, min_value=0)
     i2 = st.sidebar.number_input("Medio 2", value=2, min_value=0)
-i3 = st.sidebar.number_input("Medio 3", value=3, min_value=0)
-i4 = st.sidebar.number_input("Medio 4", value=4, min_value=0)
+    i3 = st.sidebar.number_input("Medio 3", value=3, min_value=0)
+    i4 = st.sidebar.number_input("Medio 4", value=4, min_value=0)
 
-order = st.sidebar.selectbox("Ordenar medios por", ["audience", "insertion", "random"])
-form = st.sidebar.selectbox("Forma de agregación secuencial", ["normal", "inverse", "mixed"])
+    order = st.sidebar.selectbox("Ordenar medios por", ["audience", "insertion", "random"])
+    form = st.sidebar.selectbox("Forma de agregación secuencial", ["normal", "inverse", "mixed"])
 
-# Calcular el alcance y la distribución de exposición de la campaña
-audiences = [a1, a2, a3, a4]
-insertions = [i1, i2, i3, i4]
-reach, exposure = CSD(audiences, insertions, order, form)
+    # Calcular el alcance y la distribución de exposición de la campaña
+    audiences = [a1, a2, a3, a4]
+    insertions = [i1, i2, i3, i4]
+    reach, exposure = CSD(audiences, insertions, order, form)
 
-# Mostrar los resultados
-st.subheader("Resultados")
-st.write(f"El alcance de la campaña es {reach:.4f}")
-st.write("La distribución de exposición de la campaña es:")
-st.line_chart(exposure)
+    # Mostrar los resultados
+    st.subheader("Resultados")
+    st.write(f"El alcance de la campaña es {reach:.4f}")
+    st.write("La distribución de exposición de la campaña es:")
+    st.line_chart(exposure)
+
+if name == "main":
+main()
