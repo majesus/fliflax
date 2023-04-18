@@ -89,5 +89,5 @@ def main():
     st.write("La distribución de exposición de la campaña es:")
     st.line_chart(exposure)
 
-if name == "main":
-main()
+    if name == "main":
+    main()
