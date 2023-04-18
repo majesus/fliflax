@@ -7,6 +7,8 @@ streamlit-echarts
 pyecharts
 altair
 
+seaborn
+
 pydeck
 
 pandas >= 1.0.5
