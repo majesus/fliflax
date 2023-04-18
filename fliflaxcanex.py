@@ -3,11 +3,11 @@ import pandas as pd
 import numpy as np
 
 # Función para generar datos de exposición basados en inserciones
-def generate_cumulative_exposure(n, exposure_ratios, inserciones):
-    data = np.zeros((n, len(exposure_ratios)))
-    for i in range(len(exposure_ratios)):
+def generate_exposure_data(n, p, inserciones):
+    data = np.zeros((n, len(p)))
+    for i in range(len(p)):
         for j in range(inserciones[i]):
-            random_data = np.random.binomial(1, exposure_ratios[i], n)
+            random_data = np.random.binomial(1, p[i], n)
             data[:, i] = np.logical_or(data[:, i], random_data).astype(int)
     return data
 
