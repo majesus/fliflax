@@ -37,7 +37,7 @@ inserciones = [st.slider(inserciones_labels[i], min_value=0, max_value=10, value
 audiencias = np.array(audiencias[:M])
 inserciones = np.array(inserciones[:M])
 
-exposure_ratios = 1 - np.exp(-inserciones/audiencias)
+exposure_ratios = 1 - np.power(1 - 1/audiencias, inserciones)
 exposure_ratios = np.array(exposure_ratios[:M])
 
 marginal_probabilities = exposure_ratios / np.sum(exposure_ratios)
