@@ -19,6 +19,17 @@ def adjusted_covariance_matrix(cov_matrix, correlations, p):
             adjusted_cov_matrix[j, i] = adjusted_cov_matrix[i, j]
     return adjusted_cov_matrix
 
+# Función iterativa para calcular la suma de productos M-duples de covarianzas y probabilidades marginales
+def calc_mduple_sum_iterative(cov_matrix, p):
+    sum_mduple = 0
+    indices = range(len(p))
+    for depth in range(len(p)):
+        prod_p = np.prod(p[indices])
+        sum_cov = np.sum(cov_matrix[indices, :][:, indices])
+        sum_mduple += (-1) ** depth * prod_p * sum_cov
+        indices = indices[1:]
+    return sum_mduple
+
 # Generar datos ficticios de exposición a los medios para M medios
 M = st.slider('Número de medios', min_value=2, max_value=10, value=4)
 
