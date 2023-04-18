@@ -27,8 +27,11 @@ M = st.slider('Número de medios', min_value=2, max_value=10, value=4)
 
 n = st.number_input('Número de individuos', value=1000)
 
-p_labels = [f"Probabilidad marginal medio {i+1}" for i in range(M)]
-p = [st.slider(p_labels[i], min_value=0.0, max_value=1.0, value=1.0/M, step=0.01) for i in range(M)]
+audiencia_labels = [f"Audiencia medio {i+1}" for i in range(M)]
+audiencias = [st.slider(audiencia_labels[i], min_value=0.0, max_value=1.0, value=1.0/M, step=0.01) for i in range(M)]
+
+audiencias = np.array(audiencias[:M])
+p = 1 - np.power(1 - audiencias, inserciones)
 
 inserciones_labels = [f"Número de inserciones en el medio {i+1}" for i in range(M)]
 inserciones = [st.slider(inserciones_labels[i], min_value=1, max_value=10, value=i+1) for i in range(M)]
