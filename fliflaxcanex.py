@@ -63,7 +63,6 @@ for depth in range(1, M+1):
 
 st.write(f'La probabilidad conjunta de exposición a los {M} medios es {joint_prob:.4f}')
 
-
 # Función para calcular la distribución de contactos
 def calculate_contact_distribution(data):
     contact_freq = data.sum(axis=1)
