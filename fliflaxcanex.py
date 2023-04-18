@@ -99,4 +99,4 @@ def plot_covariance_matrix(cov_matrix):
     plt.title("Matriz de covarianzas entre medios")
     st.pyplot()
 
-plot_covariance_matrix(cov_matrix)
+plot_covariance_matrix(adjusted_cov_matrix)
