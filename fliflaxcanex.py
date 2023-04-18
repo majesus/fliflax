@@ -23,15 +23,15 @@ def calc_mduple_sum_iterative(cov_matrix, p):
     return sum_mduple
 
 # Generar datos ficticios de exposición a los medios para M medios
-M = st.slider('Número de medios', min_value=2, max_value=10, value=4)
+M = st.slider('Número de medios', min_value=2, max_value=10, value=6)
 
 n = st.number_input('Número de individuos', value=1000)
 
 audiencia_labels = [f"Audiencia medio {i+1}" for i in range(M)]
-audiencias = [st.slider(audiencia_labels[i], min_value=0, max_value=n, value=n//M) for i in range(M)]
+audiencias = [st.slider(audiencia_labels[i], min_value=0, max_value=n, value=n//(2*M)+(i*(n//M)//M)) for i in range(M)]
 
 inserciones_labels = [f"Número de inserciones en el medio {i+1}" for i in range(M)]
-inserciones = [st.slider(inserciones_labels[i], min_value=1, max_value=10, value=i+1) for i in range(M)]
+inserciones = [st.slider(inserciones_labels[i], min_value=1, max_value=10, value=(i%M)+1) for i in range(M)]
 
 audiencias = np.array(audiencias[:M])
 inserciones = np.array(inserciones[:M])
@@ -40,7 +40,6 @@ p = 1 - np.power(1 - audiencias/n, inserciones)
 p = np.array(p[:M])
 
 data = generate_exposure_data(n, p, inserciones)
-
 
 df = pd.DataFrame(data)
 df.columns = [f'Medio{i}' for i in range(1, M+1)]
