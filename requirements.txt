@@ -30,8 +30,6 @@ requests
 beautifulsoup4
 httpagentparser
 
-pgmpy
-
 networkx 
 matplotlib
 
