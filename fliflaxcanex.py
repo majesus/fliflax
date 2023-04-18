@@ -53,7 +53,8 @@ df.columns = [f'Medio{i}' for i in range(1, M+1)]
 cov_matrix = np.cov(data.T)
 joint_prob = np.prod(marginal_probabilities)
 for depth in range(1, M+1):
-    joint_prob += (-1) ** depth * calc_mduple_sum_iterative(cov_matrix, p)
+    joint_prob += (-1) ** depth * calc_mduple_sum_iterative(cov_matrix, marginal_probabilities)
+
 
 st.write(f'La probabilidad conjunta de exposición a los {M} medios es {joint_prob:.4f}')
 
