@@ -51,7 +51,7 @@ df.columns = [f'Medio{i}' for i in range(1, M+1)]
 
 # Calcular las probabilidades conjuntas de exposición a los medios usando la expansión canónica truncada
 cov_matrix = np.cov(data.T)
-joint_prob = np.prod(p)
+joint_prob = np.prod(marginal_probabilities)
 for depth in range(1, M+1):
     joint_prob += (-1) ** depth * calc_mduple_sum_iterative(cov_matrix, p)
 
