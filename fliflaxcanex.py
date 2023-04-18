@@ -71,7 +71,7 @@ contact_distribution = calculate_contact_distribution(df)
 contact_distribution = contact_distribution.sort_index()  # Agrega esta línea
 st.write('Distribución de contactos:')
 st.dataframe(contact_distribution)
-st.write(f'Total: {contact_distribution["Frecuencia"].sum()}')
+st.write(f'Total: {contact_distribution["Personas"].sum()}')
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -80,7 +80,7 @@ def plot_contact_distribution(contact_distribution):
     plt.figure(figsize=(10, 6))
     sns.barplot(x=contact_distribution.index, y=contact_distribution["Frecuencia"])
     plt.xlabel("Contactos")
-    plt.ylabel("Frecuencia")
+    plt.ylabel("Personas")
     plt.title("Distribución de contactos")
     st.pyplot()
 
