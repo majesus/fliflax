@@ -73,7 +73,8 @@ def calculate_contact_distribution(data):
 
 # Calcular e imprimir la distribución de contactos
 simulated_joint_dist = simulate_joint_distribution(n, exposure_ratios, inserciones)
-contact_distribution = calculate_contact_distribution(simulated_joint_dist)
+simulated_joint_dist_df = pd.DataFrame(simulated_joint_dist)  # Convertir la matriz en un DataFrame de Pandas
+contact_distribution = calculate_contact_distribution(simulated_joint_dist_df)
 contact_distribution = contact_distribution.sort_index()
 st.write('Distribución de contactos:')
 st.dataframe(contact_distribution)
