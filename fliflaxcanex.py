@@ -11,7 +11,6 @@ def generate_exposure_data(n, p, inserciones):
             data[:, i] = np.logical_or(data[:, i], random_data).astype(int)
     return data
 
-
 # Función iterativa para calcular la suma de productos M-duples de covarianzas y probabilidades marginales
 def calc_mduple_sum_iterative(cov_matrix, p):
     sum_mduple = 0
@@ -37,7 +36,7 @@ inserciones = [st.slider(inserciones_labels[i], min_value=0, max_value=10, value
 audiencias = np.array(audiencias[:M])
 inserciones = np.array(inserciones[:M])
 
-exposure_ratios = 1 - np.power(1 - 1/audiencias, inserciones)
+exposure_ratios = 1 - np.power(1 - audiencias/n, inserciones)
 exposure_ratios = np.array(exposure_ratios[:M])
 
 marginal_probabilities = exposure_ratios / np.sum(exposure_ratios)
