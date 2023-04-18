@@ -59,7 +59,9 @@ def calculate_contact_distribution(data):
 
 # Calcular e imprimir la distribución de contactos
 contact_distribution = calculate_contact_distribution(df)
+contact_distribution = contact_distribution.sort_index()  # Agrega esta línea
 st.write('Distribución de contactos:')
 st.dataframe(contact_distribution)
 st.write(f'Total: {contact_distribution["Frecuencia"].sum()}')
+
 
