@@ -88,6 +88,3 @@ st.subheader("Resultados")
 st.write(f"El alcance de la campaña es {reach:.4f}")
 st.write("La distribución de exposición de la campaña es:")
 st.line_chart(exposure)
-
-if name == "main":
-main()
