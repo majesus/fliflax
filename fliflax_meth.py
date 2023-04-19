@@ -105,7 +105,9 @@ else:
     alphas = 0.125
     betas = 0.125
     pmf = BetaBinom(alpha, beta, n, x)  
-             
+
+# Pi:
+y = pmf * P
 Ri = np.flip(y)
 Ri = np.cumsum(Ri)
 Ri = np.flip(Ri)
