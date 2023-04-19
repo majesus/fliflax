@@ -43,9 +43,9 @@ st.write("Introduce el número de medios y de individuos para generar el conjunt
 num_media = st.number_input("Número de medios:", min_value=2, value=4)
 num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
 
-data = create_dataset(M, num_individuals)
+data = create_dataset(num_media, num_individuals)
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
-min_audience_matrix = create_min_audience_matrix(A_list)
+#min_audience_matrix = create_min_audience_matrix(A_list)
 #correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 #------------------------------------------#
 M = num_media
@@ -77,6 +77,7 @@ max_audience = max(A_list)
 P = st.sidebar.number_input("Población (P)", value=sum(A_list), min_value=max_audience+1)
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
 
+min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
