@@ -12,10 +12,10 @@ A_list = []
 n_list = []
 
 for i in range(M):
-    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 0, 100000, 10000))
-    n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 100, 10))
+    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 0, 1000, 10))
+    n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 100, 5))
 
-P = st.sidebar.slider("Población (P)", 0, 1000000, 100000)
+P = st.sidebar.slider("Población (P)", 0, 1100000, 1000)
 
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 st.header("Duplicaciones")
