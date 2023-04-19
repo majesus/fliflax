@@ -83,6 +83,7 @@ st.write(A1); st.write(A2); st.write(n)
 R1=A1/P;R2=A2/P  
 alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
 beta=(alpha*(1-R1))/(R1)
+st.write(alpha); st.write(beta)
 #----------------------------------------------------#
 try:
   alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
