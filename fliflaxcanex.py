@@ -20,7 +20,7 @@ def calcular_alcance(marginales, prob_conjunta):
 def calcular_distribucion_contactos(data, inserciones, alcance):
     distribucion = pd.DataFrame(index=range(1, inserciones.sum() + 1), columns=['Contactos'])
     for i in range(1, inserciones.sum() + 1):
-        distribucion.loc[i, 'Contactos'] = np.sum(data ** i) / alcance
+        distribucion.loc[i, 'Contactos'] = np.sum((data * i).sum()) / alcance
 
     return distribucion
 
