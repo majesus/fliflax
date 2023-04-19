@@ -26,6 +26,17 @@ def calculate_phi_correlation_matrix(dataframe):
                 
     return pd.DataFrame(correlation_matrix, index=dataframe.columns, columns=dataframe.columns)
 
+def adjust_correlation_matrix(correlation_matrix, min_audience_matrix):
+    num_media = correlation_matrix.shape[0]
+    adjusted_matrix = correlation_matrix.copy()
+
+    for i in range(num_media):
+        for j in range(num_media):
+            if i != j:
+                adjusted_matrix.iat[i, j] *= min_audience_matrix[i, j]
+                
+    return adjusted_matrix
+
 def create_min_audience_matrix(audience_list):
     num_media = len(audience_list)
     min_audience_matrix = np.zeros((num_media, num_media))
