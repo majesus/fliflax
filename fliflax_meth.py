@@ -307,13 +307,16 @@ def calculate_Dii(data, P, i):
     reach = np.sum(z)
     Dii = reach - 2 * Ai
 
-    return Dii
+    return Dii, reach, Ai  # Devolver reach y Ai además de Dii
 
 def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
     num_media = correlation_matrix.shape[0]
 
     for i in range(num_media):
-        Dii = calculate_Dii(data, P, i)
+        Dii, reach, Ai = calculate_Dii(data, P, i)
+        st.write(f"Reach para el medio {i + 1}: {reach}")
+        st.write(f"Ai para el medio {i + 1}: {Ai}")
+
         correlation_matrix.iat[i, i] = Dii
 
     return correlation_matrix
@@ -329,5 +332,15 @@ P = 150 # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 st.table(correlation_matrix)
 
+reach_list = []
+Ai_list = []
+
+for i in range(data.shape[1]):
+    Dii, reach, Ai = calculate_Dii(data, P, i)
+    reach_list.append(reach)
+    Ai_list.append(Ai)
+
+result_df = pd.DataFrame({'Media': range(1, data.shape[1] + 1), 'Reach': reach_list, 'Ai': Ai_list})
+st.table(result_df)
 
 
