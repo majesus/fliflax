@@ -305,7 +305,7 @@ def calculate_Dii(data, P, i):
     dc = BetaBinom(a, b, n, x)
     z = dc * P
     reach = np.sum(z)
-    Dii = reach - 2 * Ai
+    Dii = 2 * Ai - reach
 
     return Dii, reach, Ai  # Devolver reach y Ai además de Dii
 
