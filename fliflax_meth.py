@@ -81,6 +81,8 @@ except ZeroDivisionError as e:
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
 #----------------------------------------------------#
 n = sum(n_list)
+st.write(n)
+
 x = np.arange(1,n+1)
 alphas = alpha
 betas = beta
