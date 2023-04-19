@@ -1,8 +1,21 @@
-
 import numpy as np
 import pandas as pd
 from scipy.stats import chi2_contingency
 import streamlit as st
+
+st.sidebar.header("Configuración de parámetros")
+M = st.sidebar.slider("Número de medios (M)", 1, 5, 3)
+
+A_list = []
+n_list = []
+
+for i in range(M):
+    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 1, 1000, 10))
+    n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 10, 1))
+
+max_audience = max(A_list)
+P = st.sidebar.number_input("Población (P)", value=sum(A_list), min_value=max_audience+1)
+Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value=10000)
 
 def create_dataset(num_media, num_individuals):
     np.random.seed(42)
@@ -26,45 +39,21 @@ def calculate_phi_correlation_matrix(dataframe):
                 
     return pd.DataFrame(correlation_matrix, index=dataframe.columns, columns=dataframe.columns)
 
-st.title("Correlación Phi entre medios")
-st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
+def adjust_correlation_matrix(correlation_matrix, audience_list):
+    num_media = correlation_matrix.shape[0]
+    adjusted_matrix = correlation_matrix.copy()
 
-num_media = st.number_input("Número de medios:", min_value=2, value=4)
-num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
+    for i in range(num_media):
+        for j in range(num_media):
+            if i != j:
+                min_audience = min(audience_list[i], audience_list[j])
+                adjusted_matrix.iat[i, j] *= min_audience
+                
+    return adjusted_matrix
 
-data = create_dataset(num_media, num_individuals)
-correlation_matrix = calculate_phi_correlation_matrix(data)
-#------------------------------------------#
-M = num_media
-#------------------------------------------#
-#------------------------------------------#
-#------------------------------------------#
-#------------------------------------------#
-
-import streamlit as st
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy import special
-
-# 1) Sliders para Ai, ni y P
-st.sidebar.header("Configuración de parámetros")
-M = st.sidebar.slider("Número de medios (M)", 1, 5, 3)
-
-# Inicializar listas para almacenar Ai y ni
-A_list = []
-n_list = []
-
-for i in range(M):
-    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 1, 1000, 10))
-    n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 10, 1))
-
-# Población superior a la mayor de las audiencias, y Precio
-max_audience = max(A_list)
-P = st.sidebar.number_input("Población (P)", value=sum(A_list), min_value=max_audience+1)
-Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
-
-# 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
+data = create_dataset(M, 150)
+correlation_matrix_0 = calculate_phi_correlation_matrix(data)
+correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, A_list)
 
 with st.expander("Duplicaciones"):
     duplication_df = pd.DataFrame(index=range(M), columns=range(M))
