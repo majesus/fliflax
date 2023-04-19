@@ -117,9 +117,9 @@ freq_population_pct = y / P * 100
 freq_people = y
 
 contacts_df = pd.DataFrame({"% Población": freq_population_pct,
-"% Cobertura": freq_coverage_pct,
-"Personas": freq_people},
-index=range(n+1))
+                            "% Cobertura": freq_coverage_pct,
+                            "Personas": freq_people},
+                           index=range(n+1))
 contacts_df.index.name = "Contactos"
 
 st.write(contacts_df)
