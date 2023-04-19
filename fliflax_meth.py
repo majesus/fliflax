@@ -140,25 +140,3 @@ ax.set_title("Distribución de frecuencias")
 ax.legend()
 
 st.pyplot(fig)
-
-
-# Construcción de la tabla de contactos
-contacts_df = pd.DataFrame({"% Población": freq_population_pct,
-                            "% Cobertura": freq_coverage_pct,
-                            "Personas": freq_people},
-                            index=range(n+1))
-contacts_df.index.name = "Contactos"
-
-st.write(contacts_df)
-
-# Gráfica de la tabla de contactos
-fig, ax = plt.subplots(figsize=(10, 6))
-ax.plot(contacts_df.index, contacts_df["% Población"], label="% Población")
-ax.plot(contacts_df.index, contacts_df["% Cobertura"], label="% Cobertura")
-ax.plot(contacts_df.index, contacts_df["Personas"], label="Personas")
-ax.set_xlabel("Contactos")
-ax.set_ylabel("Frecuencia")
-ax.set_title("Distribución de frecuencias")
-ax.legend()
-
-st.pyplot(fig)
