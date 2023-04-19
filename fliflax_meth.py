@@ -94,7 +94,6 @@ except ZeroDivisionError as e:
            "Debes pues revisar los valores de A1 y A2. "
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
 #----------------------------------------------------#
-n = inserciones
 x = np.arange(1,n+1)
 alphas = alpha
 betas = beta
