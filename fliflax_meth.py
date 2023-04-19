@@ -84,7 +84,8 @@ for i in range(M):
 
 # Población superior a la mayor de las audiencias, y Precio
 max_audience = max(A_list)
-P = st.sidebar.number_input("Población (P)", value=sum(A_list), min_value=max_audience+1)
+min_audience = min(A_list)
+P = st.sidebar.number_input("Población (P)", value=pow(10,10), min_value=max_audience+min_audience)
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
 
 #M = st.number_input("Número de medios (M):", min_value=1, value=3)
