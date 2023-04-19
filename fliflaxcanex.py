@@ -1,63 +1,65 @@
+import pandas as pd
+import itertools
 import streamlit as st
+import numpy as np
 
-# Datos de entrada 
-tv_audience = 2000000  
-tv_insertions = 3
-radio_audience = 1000000  
-radio_insertions = 2
-press_audience = 500000  
-press_insertions = 1 
-total_population = 10000000
+def calcular_prob_conjunta(data, marginales):
+    n = len(data.columns)
+    medios = data.columns
+    prob_conjunta = pd.DataFrame(columns=medios, index=medios)
+    
+    for medio_i, medio_j in itertools.combinations(medios, 2):
+        prob_conjunta.at[medio_i, medio_j] = marginales[medio_i] * marginales[medio_j]
+        prob_conjunta.at[medio_j, medio_i] = prob_conjunta.at[medio_i, medio_j]
+        
+    for medio in medios:
+        prob_conjunta.at[medio, medio] = marginales[medio]
+        
+    return prob_conjunta
 
-# Duplicación entre medios
-tv_radio_dup = 0.10  
-tv_press_dup = 0.05
-radio_press_dup = 0.02
+def calcular_alcance(marginales, prob_conjunta):
+    return 1 - np.prod(1 - marginales + np.diag(prob_conjunta))
 
-# Función para calcular alcance 
-def get_reach(audience, insertions, duplication):
-  reach = audience * (1 - duplication)
-  for i in range(2, insertions + 1):
-    reach += audience * (duplication ** (i - 1)) * (1 - duplication)
-  return reach
+def calcular_distribucion_contactos(marginales, inserciones, alcance):
+    distribucion = pd.DataFrame(index=range(1, inserciones.sum() + 1), columns=['Contactos'])
+    for i in range(1, inserciones.sum() + 1):
+        distribucion.loc[i, 'Contactos'] = np.sum(marginales ** i) / alcance
 
-# Función para calcular distribución de frecuencias
-def get_frequency_dist(audience, insertions, duplication):
-  frequency_dist = {1: 0}
-  for i in range(2, insertions + 1):
-    frequency_dist[i] = audience * (duplication ** (i - 1)) * (1 - duplication)
-  return frequency_dist
+    return distribucion
 
-# Interfaz de Streamlit
-st.title('Modelo de cobertura CANEX')
-st.subheader('Datos de entrada')
-col1, col2 = st.beta_columns(2)
-with col1:
-  st.write('Audiencia TV: ', tv_audience)
-  st.write('Inserciones TV: ', tv_insertions)
-with col2:  
-  st.write('Audiencia Radio: ', radio_audience)
-  st.write('Inserciones Radio: ', radio_insertions)  
-st.write('Audiencia Prensa: ', press_audience)  
-st.write('Inserciones Prensa: ', press_insertions)
-st.write('Población Total: ', total_population)
-st.write('Duplicación TV-Radio: ', tv_radio_dup) 
-st.write('Duplicación TV-Prensa: ', tv_press_dup)
-st.write('Duplicación Radio-Prensa: ', radio_press_dup)
+st.set_page_config(page_title="Planificación de Medios", page_icon="📊", layout="centered")
 
-# Cálculo de alcance 
-tv_reach = get_reach(tv_audience, tv_insertions, tv_radio_dup + tv_press_dup) 
-radio_reach = get_reach(radio_audience, radio_insertions, radio_press_dup)
-press_reach = get_reach(press_audience, press_insertions, 0)  
-total_reach = tv_reach + radio_reach + press_reach - (tv_reach*radio_reach*press_reach)/total_population
+st.title("Planificación de Medios")
+st.write("Cálculo del alcance del plan de medios y la distribución de contactos utilizando el modelo CANEX")
 
-# Cálculo de distribución de frecuencias
-tv_freq_dist = get_frequency_dist(tv_audience, tv_insertions, tv_radio_dup + tv_press_dup)
-radio_freq_dist = get_frequency_dist(radio_audience, radio_insertions, radio_press_dup) 
-press_freq_dist = get_frequency_dist(press_audience, press_insertions, 0)
-total_freq_dist = {k: tv_freq_dist.get(k, 0) + radio_freq_dist.get(k, 0) + press_freq_dist.get(k, 0) for k in set(tv_freq_dist) | set(radio_freq_dist) | set(press_freq_dist)}
+np.random.seed(42)
 
-# Mostrar resultados 
-st.subheader('Resultados')
-st.write('Alcance Total: ', total_reach)
-st.write('Distribución de Frecuencias: ', total_freq_dist) 
+# Sidebar
+st.sidebar.title("Parámetros del Plan de Medios")
+poblacion = st.sidebar.number_input("Población", value=1000, min_value=1)
+audiencias = {
+    'Medio1': st.sidebar.number_input("Audiencia Medio1", value=400, min_value=0, max_value=poblacion),
+    'Medio2': st.sidebar.number_input("Audiencia Medio2", value=300, min_value=0, max_value=poblacion),
+    'Medio3': st.sidebar.number_input("Audiencia Medio3", value=500, min_value=0, max_value=poblacion)
+}
+inserciones = {
+    'Medio1': st.sidebar.number_input("Inserciones Medio1", value=1, min_value=0),
+    'Medio2': st.sidebar.number_input("Inserciones Medio2", value=1, min_value=0),
+    'Medio3': st.sidebar.number_input("Inserciones Medio3", value=1, min_value=0)
+}
+
+data = pd.DataFrame(audiencias, index=[0]).div(poblacion)
+
+marginales = data.mean()
+prob_conjunta = calcular_prob_conjunta(data, marginales)
+alcance = calcular_alcance(marginales, prob_conjunta)
+distribucion_contactos = calcular_distribucion_contactos(marginales, pd.Series(inserciones), alcance)
+
+st.subheader("Probabilidades marginales")
+st.write(marginales)
+st.subheader("Probabilidades conjuntas")
+st.write(prob_conjunta)
+st.subheader("Alcance del plan de medios")
+st.write(alcance)
+st.subheader("Distribución de contactos")
+st.write(distribucion_contactos)
