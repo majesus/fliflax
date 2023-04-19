@@ -117,11 +117,7 @@ freq_coverage_pct = Ri / P * 100
 freq_coverage_pct = np.insert(freq_coverage_pct, 0, 0)
 freq_people = pmf * P
 
-contacts_df = pd.DataFrame({"% Población": freq_population_pct,
-                            "% Cobertura": freq_coverage_pct,
-                            "Personas": freq_people},
-                           index=range(n+1))
-contacts_df.index.name = "Contactos"
-
-st.write(contacts_df)
+st.write(freq_population_pct)
+st.write(freq_coverage_pct)
+st.write(freq_people)
 
