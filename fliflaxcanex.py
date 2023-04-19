@@ -1,43 +1,58 @@
-import itertools
-import math
-import numpy as np
 import pandas as pd
+import itertools
 import streamlit as st
+import numpy as np
 
-M = st.slider('Número de medios', min_value=2, max_value=10, value=4)
+def calcular_segundo_orden(data):
+    n = len(data)
+    medios = data.columns
+    segundo_orden = pd.DataFrame(columns=medios, index=medios)
 
-n = st.number_input('Número de individuos', value=1000)
+    for medio_i, medio_j in itertools.combinations(medios, 2):
+        prob_conjunta = data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0] / n
 
-audiencia_labels = [f"Audiencia medio {i+1}" for i in range(M)]
-audiencias = [st.slider(audiencia_labels[i], min_value=0, max_value=n, value=n//(2*M)+(i*(n//M)//M)) for i in range(M)]
+        for medio_k in medios:
+            if medio_k != medio_i and medio_k != medio_j:
+                prob_condicional = data[(data[medio_i] == 1) & (data[medio_j] == 1) & (data[medio_k] == 1)].shape[0] / data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0]
+                segundo_orden.at[medio_i, medio_j] = prob_condicional
+                segundo_orden.at[medio_j, medio_i] = prob_condicional
 
-inserciones_labels = [f"Número de inserciones en el medio {i+1}" for i in range(M)]
-inserciones = [st.slider(inserciones_labels[i], min_value=0, max_value=10, value=(i%M)+1) for i in range(M)]
+    return segundo_orden
 
-audiencias = np.array(audiencias[:M])
-inserciones = np.array(inserciones[:M])
+def calcular_alcance(marginales, inserciones):
+    alcance = 1 - (1 - marginales) ** inserciones
+    return alcance
 
-def canex_probability(audiencias, inserciones, contacts):
-    prob = 0
-    for subset in itertools.combinations(range(len(audiencias)), contacts):
-        subset = list(subset)
-        prob_subset = 1
-        for i in range(len(audiencias)):
-            if i in subset:
-                prob_subset *= 1 - (1 - audiencias[i] / n) ** inserciones[i]
-            else:
-                prob_subset *= (1 - audiencias[i] / n) ** inserciones[i]
-        prob += prob_subset
-    return prob
+def calcular_distribucion_contactos(marginales, inserciones):
+    distribucion = marginales * inserciones
+    return distribucion / distribucion.sum()
 
-contact_distribution = pd.DataFrame(columns=['Contactos', 'Personas'])
-total_prob = 0
+# Configuración de la aplicación Streamlit
+st.set_page_config(page_title="Planificación de Medios", page_icon="📊", layout="centered")
 
-for contacts in range(1, M+1):
-    prob = canex_probability(audiencias, inserciones, contacts)
-    total_prob += prob
-    contact_distribution.loc[len(contact_distribution)] = [contacts, round(prob * n)]
+st.title("Planificación de Medios")
+st.write("Cálculo del alcance del plan de medios y la distribución de contactos utilizando el modelo CANEX")
 
-st.write('Distribución de contactos:')
-st.dataframe(contact_distribution)
-st.write(f'Total: {contact_distribution["Personas"].sum()}')
+#------------------------------------------#
+np.random.seed(42)  # Fijar una semilla para obtener resultados consistentes
+
+data_ficticia = pd.DataFrame({
+    'Medio1': np.random.choice([0, 1], size=100, p=[0.6, 0.4]),
+    'Medio2': np.random.choice([0, 1], size=100, p=[0.7, 0.3]),
+    'Medio3': np.random.choice([0, 1], size=100, p=[0.5, 0.5])
+})
+
+# if uploaded_file is not None:
+#     data = pd.read_csv(uploaded_file)
+data = data_ficticia
+marginales = data.mean()
+primer_orden = data.corr()
+segundo_orden = calcular_segundo_orden(data)
+#------------------------------------------#
+
+alcance = calcular_alcance(marginales, inserciones)
+distribucion_contactos = calcular_distribucion_contactos(marginales, inserciones)
+st.subheader("Alcance del plan de medios")
+st.write(alcance)
+st.subheader("Distribución de contactos")
+st.write(distribucion_contactos)
