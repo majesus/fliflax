@@ -87,7 +87,7 @@ max_audience = max(A_list)
 P = st.sidebar.number_input("Población (P)", value=sum(A_list), min_value=max_audience+1)
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
 
-M = st.number_input("Número de medios (M):", min_value=1, value=3)
+#M = st.number_input("Número de medios (M):", min_value=1, value=3)
 #num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
 
 data = create_dataset(M, num_individuals)
