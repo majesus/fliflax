@@ -3,7 +3,29 @@ import itertools
 import streamlit as st
 import numpy as np
 
-# ... (aquí van las funciones: calcular_segundo_orden, calcular_alcance, calcular_distribucion_contactos)
+def calcular_segundo_orden(data):
+    n = len(data)
+    medios = data.columns
+    segundo_orden = pd.DataFrame(columns=medios, index=medios)
+
+    for medio_i, medio_j in itertools.combinations(medios, 2):
+        prob_conjunta = data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0] / n
+
+        for medio_k in medios:
+            if medio_k != medio_i and medio_k != medio_j:
+                prob_condicional = data[(data[medio_i] == 1) & (data[medio_j] == 1) & (data[medio_k] == 1)].shape[0] / data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0]
+                segundo_orden.at[medio_i, medio_j] = prob_condicional
+                segundo_orden.at[medio_j, medio_i] = prob_condicional
+
+    return segundo_orden
+
+def calcular_alcance(marginales, inserciones):
+    alcance = 1 - (1 - marginales) ** inserciones
+    return alcance
+
+def calcular_distribucion_contactos(marginales, inserciones):
+    distribucion = marginales * inserciones
+    return distribucion / distribucion.sum()
 
 # Configuración de la aplicación Streamlit
 st.set_page_config(page_title="Planificación de Medios", page_icon="📊", layout="centered")
