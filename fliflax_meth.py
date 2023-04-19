@@ -26,17 +26,16 @@ def calculate_phi_correlation_matrix(dataframe):
                 
     return pd.DataFrame(correlation_matrix, index=dataframe.columns, columns=dataframe.columns)
 
-def adjust_correlation_matrix(correlation_matrix, audience_list):
-    num_media = correlation_matrix.shape[0]
-    adjusted_matrix = correlation_matrix.copy()
+def create_min_audience_matrix(audience_list):
+    num_media = len(audience_list)
+    min_audience_matrix = np.zeros((num_media, num_media))
 
     for i in range(num_media):
         for j in range(num_media):
             if i != j:
-                min_audience = min(audience_list[i], audience_list[j])
-                adjusted_matrix.iat[i, j] *= min_audience
-                
-    return adjusted_matrix
+                min_audience_matrix[i, j] = min(audience_list[i], audience_list[j])
+
+    return min_audience_matrix
 
 st.title("Correlación Phi entre medios")
 st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
@@ -44,9 +43,10 @@ st.write("Introduce el número de medios y de individuos para generar el conjunt
 num_media = st.number_input("Número de medios:", min_value=2, value=4)
 num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
 
-data = create_dataset(num_media, num_individuals)
+data = create_dataset(M, num_individuals)
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
-#correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, A_list)
+min_audience_matrix = create_min_audience_matrix(A_list)
+#correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 #------------------------------------------#
 M = num_media
 #------------------------------------------#
@@ -77,8 +77,7 @@ max_audience = max(A_list)
 P = st.sidebar.number_input("Población (P)", value=sum(A_list), min_value=max_audience+1)
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
 
-st.write(A_list)
-correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, A_list)
+correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 
