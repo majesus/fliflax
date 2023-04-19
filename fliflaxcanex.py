@@ -45,6 +45,13 @@ prob_conjunta = calcular_prob_conjunta(marginales)
 alcance = calcular_alcance(prob_conjunta)
 distribucion_contactos = calcular_distribucion_contactos(marginales, inserciones, alcance)
 
+# Asegurar que el alcance se actualiza cuando se modifican las inserciones
+alcance = alcance * sum(inserciones.values())
+
+# Convertir la distribución de contactos a porcentaje
+distribucion_contactos['Contactos'] = distribucion_contactos['Contactos'] * 100
+
+
 st.subheader("Probabilidades marginales")
 st.write(marginales)
 st.subheader("Probabilidades conjuntas")
