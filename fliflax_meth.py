@@ -292,7 +292,7 @@ def BetaBinom(a, b, n, x):
 
 def calculate_Dii(data, P, i):
     n = data.shape[0]
-    y = np.sum(data[:, i] == 1)
+    y = np.sum(data.iloc[:, i] == 1)  # Cambiar esta línea
 
     p = y / n
     s2 = p * (1 - p) / n
@@ -323,7 +323,7 @@ correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
-P = 1000 # Cambia esto por el valor real de la población
+P = 150 # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 st.table(correlation_matrix)
 
