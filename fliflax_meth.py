@@ -144,3 +144,52 @@ else:
 #----------------------------------------------------#
 st.markdown("""---""")
 #----------------------------------------------------#
+#----------------------------------------------------#
+st.write("Derivado de tus datos y siempre que se ajusten a las premisas del modelo Beta-Binomial, "
+         "con una audiencia de", f"**{A1:,.0f}**", "y una audiencia acumulada tras la segunda inserción de", f"**{A2:,.0f}**", 
+         ", el valor de la cobertura alcanzada es igual a", f"**{round(df['Ri'].iloc[0]):,.0f}**", "personas. "
+         "Es decir,", f"**{round(df['Ri'].iloc[0]):,.0f}**", "personas se exponen al menos 1 vez. "
+         "Los impactos logrados con", f"**{n:,.0f}**", "inserciones son", f"**{A1 * n:,.0f}**"," impactos. "
+         "La frecuencia media es pues igual a", f"**{df['Ri'].sum() / df['Ri'].iloc[0]:,.0f}**","impactos por persona de la cobertura.")
+st.write("Junto a lo anterior, el valor GRP es igual a", f"**{round(df['Ri'].sum() * 100 / P):,.0f}**","impactos por cada 100 personas de la población "
+         "que en nuestro caso es igual a", f"{P:,.0f}", "personas. "
+         "Y junto a los GRP te mostramos el valor CPP (coste por punto de rating), en este caso "
+         "el coste monetario de alcanzar a un 1 % de la población es igual a", f"**{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}**","€. "
+         "El valor CPP es el resultado de divir un presupuesto de", f"**{Precio * n:,.0f}**", "€ "
+         "y los GRP logrados con la programación de inserciones.")
+st.write('Finalmente, te mostramos los parámetros de forma que obtenemos: alfa: ',f"{alphas:,.3f}",'y beta: ',f"{betas:,.3f}")
+st.write("A continuación, te ofrecemos un breve resumen de las principales cifras.")
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
+col1, col2 = st.columns([5,5])
+with col1:
+    st.metric(label="Cobertura", value = f"{round(df['Ri'].iloc[0]):,.0f}")
+with col2:
+    st.metric(label="Frecuencia media", value = f"{df['Ri'].sum() / df['Ri'].iloc[0]:,.3f}")
+col1, col2 = st.columns([5,5])
+with col1:
+    st.metric(label="Impactos", value = f"{A1 * n:,.0f}")
+with col2:
+    st.metric(label="GRP", value = f"{round(df['Ri'].sum() * 100 / P):,.0f}")
+col1, col2 = st.columns([5,5])
+with col1:
+    st.metric(label="Presupuesto €", value = f"{Precio * n:,.0f}")
+with col2:
+    st.metric(label="CPP", value = f"{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}")  
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#    
+# https://github.com/PablocFonseca/streamlit-aggrid  # --> Para el futuro.
+#----------------------------------------------------#
+# Mostrar la tabla de Pi y Ri:
+# Convierto en index columna de exposiciones, y vuelco en otra tabla porque si no, me genera arror en Matplotlib.
+df1 = df.set_index('exposiciones')
+if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marca la casilla.", False):
+    st.write('###### Tabla 1. Distribución de contactos Pi (y acumulada Ri)')
+    st.table(df1.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
+    st.info("En nuestro Anexo de abajo, puedes ver todos los valores de Pi y Ri.")
+    #st.balloons()
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
