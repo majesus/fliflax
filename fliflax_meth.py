@@ -93,9 +93,10 @@ Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value
 
 data = create_dataset(M, num_individuals)
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
-st.table(correlation_matrix_0)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
+st.table(correlation_matrix_0)
+st.table(correlation_matrix)
 
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 
