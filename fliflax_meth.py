@@ -35,7 +35,7 @@ def adjust_correlation_matrix(correlation_matrix, min_audience_matrix):
             if i != j:
                 adjusted_matrix.iat[i, j] *= min_audience_matrix[i, j]
                 
-    #return adjusted_matrix
+    return adjusted_matrix
 
 def create_min_audience_matrix(audience_list):
     num_media = len(audience_list)
@@ -46,7 +46,7 @@ def create_min_audience_matrix(audience_list):
             if i != j:
                 min_audience_matrix[i, j] = min(audience_list[i], audience_list[j])
 
-    #return min_audience_matrix
+    return min_audience_matrix
 
 st.title("Correlación Phi entre medios")
 #st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
