@@ -42,6 +42,20 @@ data = data_ficticia.copy()
 
 # Agregar una columna 'Ninguno' para calcular el alcance y la distribución de contactos
 data['Ninguno'] = (~data.any(axis=1)).astype(int)
+
+# Sidebar para ingresar datos
+st.sidebar.title("Ingrese los datos del plan de medios")
+inserciones = {
+    medio: st.sidebar.number_input(f"Inserciones en {medio}", min_value=0, value=1)
+    for medio in data.columns[:-1]
+}
+
+poblacion = st.sidebar.number_input("Población", min_value=1, value=100)
+
+# Aplicar las inserciones en el plan de medios
+for medio, num_inserciones in inserciones.items():
+    data.loc[data[medio] == 1, medio] = num_inserciones
+
 marginales = data.mean()
 prob_conjunta = calcular_prob_conjunta(data, marginales)
 alcance = calcular_alcance(prob_conjunta)
