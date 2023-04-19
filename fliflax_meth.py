@@ -56,6 +56,7 @@ num_individuals = st.number_input("Número de individuos:", min_value=100, value
 
 data = create_dataset(num_media, num_individuals)
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
+st.table(correlation_matrix_0)
 #min_audience_matrix = create_min_audience_matrix(A_list)
 #correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 #------------------------------------------#
