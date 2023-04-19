@@ -114,6 +114,7 @@ Ri = np.flip(Ri)
 
 freq_population_pct = pmf / P * 100
 freq_coverage_pct = Ri / P * 100
+freq_coverage_pct = np.insert(freq_coverage_pct, 0, 0)
 freq_people = pmf * P
 
 contacts_df = pd.DataFrame({"% Población": freq_population_pct,
