@@ -1,3 +1,64 @@
+
+import numpy as np
+import pandas as pd
+from scipy.stats import chi2_contingency
+import streamlit as st
+
+def create_dataset(num_media, num_individuals):
+    np.random.seed(42)
+    data = np.random.randint(0, 2, size=(num_individuals, num_media))
+    return pd.DataFrame(data, columns=[f'Medio {i+1}' for i in range(num_media)])
+
+def calculate_phi_correlation_matrix(dataframe):
+    num_media = dataframe.shape[1]
+    correlation_matrix = np.zeros((num_media, num_media))
+
+    for i in range(num_media):
+        for j in range(num_media):
+            if i == j:
+                correlation_matrix[i, j] = 1
+            else:
+                contingency_table = pd.crosstab(dataframe.iloc[:, i], dataframe.iloc[:, j])
+                chi2, _, _, _ = chi2_contingency(contingency_table)
+                n = contingency_table.sum().sum()
+                phi = np.sqrt(chi2 / n)
+                correlation_matrix[i, j] = phi
+                
+    return pd.DataFrame(correlation_matrix, index=dataframe.columns, columns=dataframe.columns)
+
+st.title("Correlación Phi entre medios")
+st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
+
+num_media = st.number_input("Número de medios:", min_value=2, value=4)
+num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
+
+data = create_dataset(num_media, num_individuals)
+correlation_matrix = calculate_phi_correlation_matrix(data)
+
+with st.expander("Duplicaciones"):
+    duplication_df = pd.DataFrame(index=range(num_media), columns=range(num_media))
+    duplication_input = []
+
+    for i in range(num_media):
+        for j in range(i, num_media):
+            default_value = correlation_matrix.iat[i, j]
+            duplication_input.append(st.number_input(f"Duplicación del Medio {i+1} con {j+1}", value=default_value, key=f"{i},{j}"))
+
+    duplication_input = iter(duplication_input)
+
+    for i in range(num_media):
+        for j in range(i, num_media):
+            value = next(duplication_input)
+            duplication_df.at[i, j] = value
+            duplication_df.at[j, i] = value
+
+    st.write(duplication_df)
+
+#------------------------------------------#
+#------------------------------------------#
+#------------------------------------------#
+#------------------------------------------#
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -199,50 +260,3 @@ if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marc
 st.markdown("""---""")
 #----------------------------------------------------#
 #----------------------------------------------------#
-
-import numpy as np
-import pandas as pd
-from scipy.stats import chi2_contingency
-import seaborn as sns
-import streamlit as st
-
-def create_dataset(num_media, num_individuals):
-    np.random.seed(42)
-    data = np.random.randint(0, 2, size=(num_individuals, num_media))
-    return pd.DataFrame(data, columns=[f'Medio {i+1}' for i in range(num_media)])
-
-def calculate_phi_correlation_matrix(dataframe):
-    num_media = dataframe.shape[1]
-    correlation_matrix = np.zeros((num_media, num_media))
-
-    for i in range(num_media):
-        for j in range(num_media):
-            if i == j:
-                correlation_matrix[i, j] = 1
-            else:
-                contingency_table = pd.crosstab(dataframe.iloc[:, i], dataframe.iloc[:, j])
-                chi2, _, _, _ = chi2_contingency(contingency_table)
-                n = contingency_table.sum().sum()
-                phi = np.sqrt(chi2 / n)
-                correlation_matrix[i, j] = phi
-                
-    return pd.DataFrame(correlation_matrix, index=dataframe.columns, columns=dataframe.columns)
-
-st.title("Correlación Phi entre medios")
-st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
-
-num_media = st.number_input("Número de medios:", min_value=2, value=4)
-num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
-
-if st.button("Generar datos y calcular correlación"):
-    data = create_dataset(num_media, num_individuals)
-    st.write("Conjunto de datos generado:")
-    st.dataframe(data)
-
-    correlation_matrix = calculate_phi_correlation_matrix(data)
-    st.write("Matriz de correlación Phi:")
-    st.dataframe(correlation_matrix)
-
-    st.write("Mapa de calor de la matriz de correlación Phi:")
-    heatmap = sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", vmin=-1, vmax=1)
-    st.pyplot(heatmap.figure)
