@@ -74,7 +74,7 @@ A1 = C1
 A2 = C2
 n = sum(n_list)
 
-st.write(A1); st.write(A2); set.write(n)
+st.write(A1); st.write(A2); st.write(n)
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P  
 alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
