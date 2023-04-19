@@ -84,9 +84,9 @@ except ZeroDivisionError as e:
 # https://docs.pymc.io/en/v3/api/distributions/discrete-2.py
 # https://docs.scipy.org/doc/scipy/tutorial/stats/discrete_betabinom.html
 def BetaBinom(a, b, n, x):
-    pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
-    return pmf
-         
+  pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
+  return pmf
+
 n = sum(n_list)
 x = np.arange(1, n+1)
 
