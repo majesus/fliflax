@@ -192,7 +192,7 @@ st.markdown("""---""")
 df1 = df.set_index('exposiciones')
 if st.checkbox("Si deseas ver los primeros 5 valores de Pi y Ri alcanzados, marca la casilla.", False):
     st.write('###### Tabla 1. Distribución de contactos Pi (y acumulada Ri)')
-    st.table(df1.head().style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
+    st.table(df1.head(n).style.format("{:,.0f}").set_properties(**{'text-align': 'center'}).set_properties(**{'background-color': '#ffffff'})) 
     st.info("En nuestro Anexo de abajo, puedes ver todos los valores de Pi y Ri.")
     #st.balloons()
 #----------------------------------------------------#
