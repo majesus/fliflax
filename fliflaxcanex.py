@@ -3,59 +3,57 @@ import itertools
 import streamlit as st
 import numpy as np
 
-def calcular_prob_conjunta(data):
+def calcular_segundo_orden(data):
     n = len(data)
     medios = data.columns
-    prob_conjunta = pd.DataFrame(columns=medios, index=medios)
-    
+    segundo_orden = pd.DataFrame(columns=medios, index=medios)
+
     for medio_i, medio_j in itertools.combinations(medios, 2):
-        prob_conjunta.at[medio_i, medio_j] = data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0] / n
-        prob_conjunta.at[medio_j, medio_i] = prob_conjunta.at[medio_i, medio_j]
-        
-    return prob_conjunta
+        prob_conjunta = data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0] / n
 
-def calcular_alcance(marginales, prob_conjunta):
-    return 1 - np.prod(1 - marginales + np.diag(prob_conjunta))
+        for medio_k in medios:
+            if medio_k != medio_i and medio_k != medio_j:
+                prob_condicional = data[(data[medio_i] == 1) & (data[medio_j] == 1) & (data[medio_k] == 1)].shape[0] / data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0]
+                segundo_orden.at[medio_i, medio_j] = prob_condicional
+                segundo_orden.at[medio_j, medio_i] = prob_condicional
 
-def calcular_distribucion_contactos(data, inserciones, alcance):
-    distribucion = pd.DataFrame(index=range(1, inserciones.sum() + 1), columns=['Contactos'])
-    for i in range(1, inserciones.sum() + 1):
-        distribucion.loc[i, 'Contactos'] = np.sum((data * i).sum()) / alcance
+    return segundo_orden
 
-    return distribucion
+def calcular_alcance(marginales, inserciones):
+    alcance = 1 - (1 - marginales) ** inserciones
+    return alcance
 
+def calcular_distribucion_contactos(marginales, inserciones):
+    distribucion = marginales * inserciones
+    return distribucion / distribucion.sum()
+
+# Configuración de la aplicación Streamlit
 st.set_page_config(page_title="Planificación de Medios", page_icon="📊", layout="centered")
 
 st.title("Planificación de Medios")
 st.write("Cálculo del alcance del plan de medios y la distribución de contactos utilizando el modelo CANEX")
 
-np.random.seed(42)
+# Crear un DataFrame ficticio
+np.random.seed(42)  # Fijar una semilla para obtener resultados consistentes
 
-# Sidebar
-st.sidebar.title("Parámetros del Plan de Medios")
-poblacion = st.sidebar.number_input("Población", value=1000, min_value=1)
-audiencias = {
-    'Medio1': st.sidebar.number_input("Audiencia Medio1", value=400, min_value=0, max_value=poblacion),
-    'Medio2': st.sidebar.number_input("Audiencia Medio2", value=300, min_value=0, max_value=poblacion),
-    'Medio3': st.sidebar.number_input("Audiencia Medio3", value=500, min_value=0, max_value=poblacion)
-}
-inserciones = {
-    'Medio1': st.sidebar.number_input("Inserciones Medio1", value=1, min_value=0),
-    'Medio2': st.sidebar.number_input("Inserciones Medio2", value=1, min_value=0),
-    'Medio3': st.sidebar.number_input("Inserciones Medio3", value=1, min_value=0)
-}
+data_ficticia = pd.DataFrame({
+    'Medio1': np.random.choice([0, 1], size=100, p=[0.6, 0.4]),
+    'Medio2': np.random.choice([0, 1], size=100, p=[0.7, 0.3]),
+    'Medio3': np.random.choice([0, 1], size=100, p=[0.5, 0.5])
+})
 
-data = pd.DataFrame(audiencias, index=[0]).div(poblacion)
-
+data = data_ficticia.copy()
 marginales = data.mean()
-prob_conjunta = calcular_prob_conjunta(data)
-alcance = calcular_alcance(marginales, prob_conjunta)
-distribucion_contactos = calcular_distribucion_contactos(data, pd.Series(inserciones), alcance)
+primer_orden = data.corr()
+segundo_orden = calcular_segundo_orden(data)
 
-st.subheader("Probabilidades marginales")
-st.write(marginales)
-st.subheader("Probabilidades conjuntas")
-st.write(prob_conjunta)
+# Solicitar el número de inserciones por medio
+inserciones = {}
+for medio in data.columns:
+    inserciones[medio] = st.sidebar.number_input(f"Inserciones en {medio}", value=1, min_value=1, step=1)
+
+alcance = calcular_alcance(marginales, pd.Series(inserciones))
+distribucion_contactos = calcular_distribucion_contactos(marginales, pd.Series(inserciones))
 st.subheader("Alcance del plan de medios")
 st.write(alcance)
 st.subheader("Distribución de contactos")
