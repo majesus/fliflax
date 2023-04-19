@@ -90,8 +90,8 @@ def BetaBinom(a, b, n, x):
 n = sum(n_list)
 x = np.arange(1, n+1)
 
-if alphas > 0 and betas > 0 and P > C2:
-    pmf = BetaBinom(alphas, betas, n, x)
+if alpha > 0 and beta > 0 and P > C2:
+    pmf = BetaBinom(alpha, beta, n, x)
 else:
     st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
            "Debes revisar la elección de C1 y C2 o de la población. "
@@ -104,7 +104,7 @@ else:
     P = 1000000
     alphas = 0.125
     betas = 0.125
-    pmf = BetaBinom(alphas, betas, n, x)  
+    pmf = BetaBinom(alpha, beta, n, x)  
              
 Ri = np.flip(y)
 Ri = np.cumsum(Ri)
