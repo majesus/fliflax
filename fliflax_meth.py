@@ -51,7 +51,7 @@ def create_min_audience_matrix(audience_list):
 st.title("Correlación Phi entre medios")
 st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
 
-num_media = st.number_input("Número de medios:", min_value=2, value=4)
+num_media = st.number_input("Número de medios (M):", min_value=2, value=4)
 num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
 
 data = create_dataset(num_media, num_individuals)
@@ -74,7 +74,7 @@ from scipy import special
 
 # 1) Sliders para Ai, ni y P
 st.sidebar.header("Configuración de parámetros")
-M = st.sidebar.slider("Número de medios (M)", 1, 5, 3)
+M = st.sidebar.slider("Número de medios (M)", 1, 5, M)
 
 # Inicializar listas para almacenar Ai y ni
 A_list = []
