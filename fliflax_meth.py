@@ -5,7 +5,7 @@ from scipy.stats import betabinom
 
 # 1) Sliders para Ai, ni y P
 st.sidebar.header("Configuración de parámetros")
-M = st.sidebar.slider("Número de medios (M)", 1, 10, 3)
+M = st.sidebar.slider("Número de medios (M)", 1, 5, 1)
 
 # Inicializar listas para almacenar Ai y ni
 A_list = []
