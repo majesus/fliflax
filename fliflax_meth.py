@@ -13,7 +13,7 @@ A_list = []
 n_list = []
 
 for i in range(M):
-    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 0, 10000, 100))
+    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 1, 1000, 10))
     n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 10, 1))
 
 # Población superior a la mayor de las audiencias, y Precio
