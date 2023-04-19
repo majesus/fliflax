@@ -34,26 +34,8 @@ num_individuals = st.number_input("Número de individuos:", min_value=100, value
 
 data = create_dataset(num_media, num_individuals)
 correlation_matrix = calculate_phi_correlation_matrix(data)
-
-with st.expander("Duplicaciones"):
-    duplication_df = pd.DataFrame(index=range(num_media), columns=range(num_media))
-    duplication_input = []
-
-    for i in range(num_media):
-        for j in range(i, num_media):
-            default_value = correlation_matrix.iat[i, j]
-            duplication_input.append(st.number_input(f"Duplicación del Medio {i+1} con {j+1}", value=default_value, key=f"{i},{j}"))
-
-    duplication_input = iter(duplication_input)
-
-    for i in range(num_media):
-        for j in range(i, num_media):
-            value = next(duplication_input)
-            duplication_df.at[i, j] = value
-            duplication_df.at[j, i] = value
-
-    st.write(duplication_df)
-
+#------------------------------------------#
+M = num_media
 #------------------------------------------#
 #------------------------------------------#
 #------------------------------------------#
@@ -83,13 +65,15 @@ P = st.sidebar.number_input("Población (P)", value=sum(A_list), min_value=max_a
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
 
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
+
 with st.expander("Duplicaciones"):
     duplication_df = pd.DataFrame(index=range(M), columns=range(M))
     duplication_input = []
 
     for i in range(M):
         for j in range(i, M):
-            duplication_input.append(st.number_input(f"Duplicación del Medio {i+1} con {j+1}", key=f"{i},{j}"))
+            default_value = correlation_matrix.iat[i, j]
+            duplication_input.append(st.number_input(f"Duplicación del Medio {i+1} con {j+1}", value=default_value, key=f"{i},{j}"))
 
     duplication_input = iter(duplication_input)
 
