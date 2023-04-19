@@ -84,6 +84,7 @@ n = sum(n_list)
 st.write(n)
 
 x = np.arange(1,n+1)
+st.write(x)
 alphas = alpha
 betas = beta
 #----------------------------------------------------#
