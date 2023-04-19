@@ -3,29 +3,7 @@ import itertools
 import streamlit as st
 import numpy as np
 
-def calcular_segundo_orden(data):
-    n = len(data)
-    medios = data.columns
-    segundo_orden = pd.DataFrame(columns=medios, index=medios)
-
-    for medio_i, medio_j in itertools.combinations(medios, 2):
-        prob_conjunta = data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0] / n
-
-        for medio_k in medios:
-            if medio_k != medio_i and medio_k != medio_j:
-                prob_condicional = data[(data[medio_i] == 1) & (data[medio_j] == 1) & (data[medio_k] == 1)].shape[0] / data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0]
-                segundo_orden.at[medio_i, medio_j] = prob_condicional
-                segundo_orden.at[medio_j, medio_i] = prob_condicional
-
-    return segundo_orden
-
-def calcular_alcance(marginales, inserciones):
-    alcance = 1 - (1 - marginales) ** inserciones
-    return alcance
-
-def calcular_distribucion_contactos(marginales, inserciones):
-    distribucion = marginales * inserciones
-    return distribucion / distribucion.sum()
+# ... (aquí van las funciones: calcular_segundo_orden, calcular_alcance, calcular_distribucion_contactos)
 
 # Configuración de la aplicación Streamlit
 st.set_page_config(page_title="Planificación de Medios", page_icon="📊", layout="centered")
@@ -43,7 +21,17 @@ data_ficticia = pd.DataFrame({
 })
 
 data = data_ficticia.copy()
-marginales = data.mean()
+
+# Solicitar el tamaño de la población
+poblacion = st.sidebar.number_input("Población total", value=1000, min_value=1, step=1)
+
+# Solicitar las audiencias de cada soporte
+audiencias = {}
+for medio in data.columns:
+    audiencias[medio] = st.sidebar.number_input(f"Audiencia de {medio}", value=100, min_value=1, step=1)
+
+# Calcular las probabilidades marginales
+marginales = pd.Series(audiencias) / poblacion
 primer_orden = data.corr()
 segundo_orden = calcular_segundo_orden(data)
 
