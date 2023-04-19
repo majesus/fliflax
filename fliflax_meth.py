@@ -60,7 +60,10 @@ st.write(multiplication_df)
 C1 = sum(np.array(A_list) * np.array(n_list)) / sum(n_list)
 
 # 6) Cálculo de D
-D = np.triu(multiplication_df).sum() / np.triu(options_df).sum()
+if M == 1:
+    D = duplication_df.at[0, 0]
+else:
+    D = np.triu(multiplication_df).sum() / np.triu(options_df).sum()
 
 # 7) Cálculo de C2
 C2 = 2 * C1 - D
