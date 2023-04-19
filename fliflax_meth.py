@@ -112,8 +112,13 @@ Ri = np.flip(y)
 Ri = np.cumsum(Ri)
 Ri = np.flip(Ri)
              
+# Distribución de frecuencias en porcentaje sobre la población
 freq_population_pct = y / P * 100
-freq_population_pct = y / P * 100       
+
+# Distribución de frecuencias en porcentaje sobre la cobertura
+freq_coverage_pct = y / sum(y[1:]) * 100
+
+# Distribución de frecuencias en personas
 freq_people = y
 
 contacts_df = pd.DataFrame({"% Población": freq_population_pct,
