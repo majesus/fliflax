@@ -3,7 +3,7 @@ import itertools
 import streamlit as st
 import numpy as np
 
-def calcular_segundo_orden(data):
+def calcular_segundo_orden(data, marginales):
     n = len(data)
     medios = data.columns
     segundo_orden = pd.DataFrame(columns=medios, index=medios)
@@ -14,10 +14,12 @@ def calcular_segundo_orden(data):
         for medio_k in medios:
             if medio_k != medio_i and medio_k != medio_j:
                 prob_condicional = data[(data[medio_i] == 1) & (data[medio_j] == 1) & (data[medio_k] == 1)].shape[0] / data[(data[medio_i] == 1) & (data[medio_j] == 1)].shape[0]
-                segundo_orden.at[medio_i, medio_j] = prob_condicional
-                segundo_orden.at[medio_j, medio_i] = prob_condicional
+                prob_exclusiva = prob_conjunta / (marginales[medio_i] * marginales[medio_j])
+                segundo_orden.at[medio_i, medio_j] = prob_exclusiva
+                segundo_orden.at[medio_j, medio_i] = prob_exclusiva
 
     return segundo_orden
+
 
 def calcular_alcance(marginales, inserciones):
     alcance = 1 - (1 - marginales) ** inserciones
@@ -55,7 +57,7 @@ for medio in data.columns:
 # Calcular las probabilidades marginales
 marginales = pd.Series(audiencias) / poblacion
 primer_orden = data.corr()
-segundo_orden = calcular_segundo_orden(data)
+segundo_orden = calcular_segundo_orden(data, marginales)
 
 # Solicitar el número de inserciones por medio
 inserciones = {}
