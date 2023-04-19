@@ -19,7 +19,7 @@ for i in range(M):
 # Población superior a la mayor de las audiencias, y Precio
 max_audience = max(A_list)
 P = st.sidebar.number_input("Población (P)", value=max_audience+1, min_value=max_audience+1)
-Precio = st.sidebar.number_input("Precio", value=100000, min_value=1000, max_value = 10000)
+Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
 
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 with st.expander("Duplicaciones"):
