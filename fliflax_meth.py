@@ -76,9 +76,7 @@ R2 = C2 / P
 try:
     alpha = (R1 * (R2 - R1)) / (2 * R1 - R1 * R1 - R2)
     beta = (alpha * (1 - R1)) / R1
-except Zero
-
-DivisionError as e:
+except ZeroDivisionError as e:
     alpha = 0.125
     beta = 0.125
     st.error("Se ha producido una excepción al proponerse un valor de C2 que provoca una división por 0. "
