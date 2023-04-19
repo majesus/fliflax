@@ -79,47 +79,42 @@ try:
 except ZeroDivisionError as e:
     alpha = 0.125
     beta = 0.125
-    st.error("Se ha producido una excepción al proponerse un valor de C2 que provoca una división por 0. ")
-         
+    st.error("Se ha producido una excepción al proponerse un valor de C2 que provoca una división por 0. "
+             "Se han establecido valores predeterminados para alpha y beta.")
+
 # https://docs.pymc.io/en/v3/api/distributions/discrete-2.py
 # https://docs.scipy.org/doc/scipy/tutorial/stats/discrete_betabinom.html
 def BetaBinom(a, b, n, x):
-    pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
-    return pmf
+  pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
+  return pmf
 
 n = sum(n_list)
 x = np.arange(1, n+1)
 
 if alpha > 0 and beta > 0 and P > C2:
-    pmf = BetaBinom(alpha, beta, n, x)
+  pmf = BetaBinom(alpha, beta, n, x)
 else:
-    st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
+  st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
            "Debes revisar la elección de C1 y C2 o de la población. "
            "Recuerda que C2 debe ser superior a C1, y nunca más del doble, y que la población debe ser superior a C2.")
-    st.error("Asimismo, valores excesivos de C2 producen errores graves que impiden a la distribución ofrecer valores consistentes.")
-    st.error("Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de C1 igual a 500,000 y "
+  st.error("Asimismo, valores excesivos de C2 producen errores graves que impiden a la distribución ofrecer valores consistentes.")
+  st.error("Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de C1 igual a 500,000 y "
            "un valor de C2 igual a 550,000 personas, y una población igual a 1,000,000, con el número de inserciones que hayas elegido.")
-    C1 = 500000
-    C2 = 550000
-    P = 1000000
-    alphas = 0.125
-    betas = 0.125
-    pmf = BetaBinom(alpha, beta, n, x)  
 
-# Pi:
-y = pmf * P
-Ri = np.flip(y)
+  C1 = 500000
+  C2 = 550000
+  P = 1000000
+  alpha = 0.125
+  beta = 0.125
+  pmf = BetaBinom(alpha, beta, n, x)  
+
+Ri = np.flip(pmf)
 Ri = np.cumsum(Ri)
 Ri = np.flip(Ri)
-             
-# Distribución de frecuencias en porcentaje sobre la población
-freq_population_pct = y / P * 100
 
-# Distribución de frecuencias en porcentaje sobre la cobertura
-freq_coverage_pct = y / sum(y[1:]) * 100
-
-# Distribución de frecuencias en personas
-freq_people = y
+freq_population_pct = pmf / P * 100
+freq_coverage_pct = Ri / P * 100
+freq_people = pmf * P
 
 contacts_df = pd.DataFrame({"% Población": freq_population_pct,
                             "% Cobertura": freq_coverage_pct,
@@ -128,3 +123,4 @@ contacts_df = pd.DataFrame({"% Población": freq_population_pct,
 contacts_df.index.name = "Contactos"
 
 st.write(contacts_df)
+
