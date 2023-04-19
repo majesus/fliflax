@@ -6,19 +6,20 @@ from scipy import special
 
 # 1) Sliders para Ai, ni y P
 st.sidebar.header("Configuración de parámetros")
-M = st.sidebar.slider("Número de medios (M)", 1, 10, 3)
+M = st.sidebar.slider("Número de medios (M)", 1, 5, 3)
 
 # Inicializar listas para almacenar Ai y ni
 A_list = []
 n_list = []
 
 for i in range(M):
-    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 0, 100000, 10000))
-    n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 100, 10))
+    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 0, 10000, 100))
+    n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 10, 1))
 
-# Población superior a la mayor de las audiencias
+# Población superior a la mayor de las audiencias, y Precio
 max_audience = max(A_list)
 P = st.sidebar.number_input("Población (P)", value=max_audience+1, min_value=max_audience+1)
+Precio = st.sidebar.number_input("Precio", value=100000, min_value=1000, max_value = 10000)
 
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 with st.expander("Duplicaciones"):
