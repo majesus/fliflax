@@ -303,8 +303,8 @@ def calculate_Dii(data, P, i):
     n = 2
     x = np.array([1, 2])
     dc = BetaBinom(a, b, n, x)
-    y = dc * P
-    reach = np.sum(y)
+    z = dc * P
+    reach = np.sum(z)
     Dii = reach - 2 * Ai
 
     return Dii
@@ -324,7 +324,6 @@ min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 st.table(correlation_matrix)
 
-st.write(reach)
 
 P = 150 # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
