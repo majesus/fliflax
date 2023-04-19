@@ -129,10 +129,13 @@ for i in range(M):
         else:
             options_df.at[i, j] = n_list[i] * n_list[j]
 
+st.title("Matriz nii y nij")
 st.write(options_df)
 
 # 4) Matriz de multiplicación de la duplicación ii x nii, duplicación ij por nij
 multiplication_df = duplication_df * options_df
+
+st.title("Matriz de multiplicación de la duplicación ii x nii, duplicación ij por nij")
 st.write(multiplication_df)
 
 # 5) Cálculo de C1
@@ -157,6 +160,7 @@ A1 = C1
 A2 = C2
 n = sum(n_list)
 
+st.title("Parámetros y número de inserciones")
 st.write(A1); st.write(A2); st.write(n)
 #----------------------------------------------------#
 R1=A1/P;R2=A2/P  
