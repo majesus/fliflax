@@ -69,55 +69,79 @@ C1_rounded = round(C1, 4)
 D_rounded = round(D, 4)
 C2_rounded = round(C2, 4)
 
-# Cálculo de alphas y betas para la distribución Beta Binomial
-R1 = C1 / P
-R2 = C2 / P
+#----------------------------------------------------#
+A1 = C1
+A2 = C2
+n = sum(n_list)
 
+st.write(A1); st.write(A2); set.write(n)
+#----------------------------------------------------#
+R1=A1/P;R2=A2/P  
+alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
+beta=(alpha*(1-R1))/(R1)
+#----------------------------------------------------#
 try:
-    alpha = (R1 * (R2 - R1)) / (2 * R1 - R1 * R1 - R2)
-    beta = (alpha * (1 - R1)) / R1
+  alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
+  beta=(alpha*(1-R1))/(R1)
 except ZeroDivisionError as e:
-    alpha = 0.125
-    beta = 0.125
-    st.error("Se ha producido una excepción al proponerse un valor de C2 que provoca una división por 0. "
-             "Se han establecido valores predeterminados para alpha y beta.")
-
+  # st.write("#### Observaciones:")
+  # datos de muestra:
+  alpha = 0.125
+  beta = 0.125
+  n = 5
+  st.error("Se ha producido una excepción al proponerse un valor de A2 que provoca una división por 0. "
+           "Recuerda que los parámetros de forma deben ser superiores a 0 ."
+           "Debes pues revisar los valores de A1 y A2. "
+           "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
+#----------------------------------------------------#
+n = inserciones
+x = np.arange(1,n+1)
+alphas = alpha
+betas = beta
+#----------------------------------------------------#
 # https://docs.pymc.io/en/v3/api/distributions/discrete-2.py
 # https://docs.scipy.org/doc/scipy/tutorial/stats/discrete_betabinom.html
 def BetaBinom(a, b, n, x):
-  pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
-  return pmf
+    pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
+    return pmf
 
-n = sum(n_list)
-x = np.arange(1, n+1)
-
-if alpha > 0 and beta > 0 and P > C2:
-  pmf = BetaBinom(alpha, beta, n, x)
+# eliminar primer elemento de la lista pmf que hace referencia a los individuos no expuestos:
+dc = BetaBinom(alphas, betas, n, x); 
+  
+if alphas > 0 and betas > 0 and P > A2:
+  pmf = BetaBinom(alphas, betas, n, x)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
-           "Debes revisar la elección de C1 y C2 o de la población. "
-           "Recuerda que C2 debe ser superior a C1, y nunca más del doble, y que la población debe ser superior a C2.")
-  st.error("Asimismo, valores excesivos de C2 producen errores graves que impiden a la distribución ofrecer valores consistentes.")
-  st.error("Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de C1 igual a 500,000 y "
-           "un valor de C2 igual a 550,000 personas, y una población igual a 1,000,000, con el número de inserciones que hayas elegido.")
+           "Debes revisar la elección de A1 y A2 o de la población. "
+           "Recuerda que A2 debe ser superior a A1, y nunca más del doble, y que la población debe ser superior a A2.")
+  st.error("Asimismo, valores excesivos de A2 producen errores graves que impiden a la distribución ofrecer valores consistentes.")
+  st.error("Mientras tanto, los resultados que te mostramos abajo corresponden a un valor de A1 igual a 500,000 y "
+           "un valor de A2 igual a 550,000 personas, y una población igual a 1,000,000, con el número de inserciones que hayas elegido.")
 
-  C1 = 500000
-  C2 = 550000
+  A1 = 500000
+  A2 = 550000
   P = 1000000
-  alpha = 0.125
-  beta = 0.125
-  pmf = BetaBinom(alpha, beta, n, x)  
+  alphas = 0.125
+  betas = 0.125
+  pmf = BetaBinom(alphas, betas, n, x)
+  
+# Pi:
+y = pmf * P
+# Ri:
+Ri = np.flip(y); Ri = np.cumsum(Ri); Ri = np.flip(Ri)
+#----------------------------------------------------#
+data = {'exposiciones':  x, 'Pi': y, 'Ri': Ri}
 
-Ri = np.flip(pmf)
-Ri = np.cumsum(Ri)
-Ri = np.flip(Ri)
-
-freq_population_pct = pmf / P * 100
-freq_coverage_pct = Ri / P * 100
-freq_coverage_pct = np.insert(freq_coverage_pct, 0, 0)
-freq_people = pmf * P
-
-st.write(freq_population_pct)
-st.write(freq_coverage_pct)
-st.write(freq_people)
-
+df = pd.DataFrame(data)
+df = df.astype(int)
+pd.options.display.float_format = '{:,}'.format
+df = df.head(n=n)
+#----------------------------------------------------#
+if df['Ri'].iloc[0] > P:
+  st.error("La cobertura es superior a la población, y es imposible; puedes verlo en los resultados de abajo. "
+           "Igual el número de inserciones es excesivo.")
+else:
+  st.write("")
+#----------------------------------------------------#
+st.markdown("""---""")
+#----------------------------------------------------#
