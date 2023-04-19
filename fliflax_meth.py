@@ -96,6 +96,8 @@ correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
+st.table(correlation_matrix)
+
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 
 with st.expander("Duplicaciones"):
