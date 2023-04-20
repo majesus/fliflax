@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import chi2_contingency
 import streamlit as st
-
+#------------------------------------------#
 def create_dataset(num_media, num_individuals):
     np.random.seed(42)
     data = np.random.randint(0, 2, size=(num_individuals, num_media))
@@ -90,6 +90,7 @@ correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
+st.table(data.head())
 st.table(correlation_matrix)
 #----------------------------------------------#
 
@@ -142,6 +143,7 @@ def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
 P = P # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 
+st.table(data.head())
 st.table(correlation_matrix_with_Dii)
 
 reach_list = []
