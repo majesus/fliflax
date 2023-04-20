@@ -169,7 +169,7 @@ with st.expander("Duplicaciones"):
 
     for i in range(M):
         for j in range(i, M):
-            default_value = correlation_matrix.iat[i, j]
+            default_value = correlation_matrix_with_Dii.iat[i, j]
             duplication_input.append(st.number_input(f"Duplicación del Medio {i+1} con {j+1}", value=default_value, key=f"{i},{j}"))
 
     duplication_input = iter(duplication_input)
