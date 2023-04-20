@@ -48,7 +48,6 @@ def create_min_audience_matrix(audience_list):
 
     return min_audience_matrix
 
-st.title("Correlación Phi entre medios")
 #st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
 
 #num_media = st.number_input("Número de medios (M):", min_value=1, value=3)
@@ -95,6 +94,7 @@ correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
+st.title("Correlación Phi entre medios")
 st.table(correlation_matrix)
 #----------------------------------------------#
 import numpy as np
@@ -141,11 +141,11 @@ correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
-st.table(correlation_matrix)
-
 P = 150 # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
-st.table(correlation_matrix)
+
+st.title("BBD - estimación Duplicaciones")
+st.table(correlation_matrix_with_Dii)
 
 reach_list = []
 Ai_list = []
@@ -157,8 +157,6 @@ for i in range(data.shape[1]):
 
 result_df = pd.DataFrame({'Media': range(1, data.shape[1] + 1), 'Reach': reach_list, 'Ai': Ai_list})
 st.table(result_df)
-
-st.table(correlation_matrix)
 #----------------------------------------------#
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 
@@ -178,7 +176,8 @@ with st.expander("Duplicaciones"):
             value = next(duplication_input)
             duplication_df.at[i, j] = value
             duplication_df.at[j, i] = value
-
+    
+    st.title("Duplicaciones propuestas por el usuario")
     st.write(duplication_df)
 
 # 3) Matriz de opciones de duplicación i con i, e i con j
