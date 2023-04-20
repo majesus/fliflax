@@ -141,8 +141,8 @@ def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
 #correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
 data = data.sample(n=150, random_state=42)
-P = data.shape[0] # Cambia esto por el valor real de la población
-correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
+POB = data.shape[0] # Cambia esto por el valor real de la población
+correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, POB)
 
 #st.table(data.head())
 st.table(correlation_matrix_with_Dii)
@@ -151,7 +151,7 @@ reach_list = []
 Ai_list = []
 
 for i in range(data.shape[1]):
-    Dii, reach, Ai = calculate_Dii(data, P, i)
+    Dii, reach, Ai = calculate_Dii(data, POB, i)
     reach_list.append(reach)
     Ai_list.append(Ai)
 
