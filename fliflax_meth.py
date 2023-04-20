@@ -228,16 +228,18 @@ A2 = C2
 n = sum(n_list)
 
 st.title("Parámetros y número de inserciones")
-st.write(A1); st.write(A2); st.write(n)
+st.write("A1 = "f"**{A1:,.3f}**"); st.write("A2 = "f"**{A2:,.3f}**")
 
 R1=A1/P;R2=A2/P  
+st.write("R1 = "f"**{R1:,.3f}**"); st.write("R2 = "f"**{R2:,.3f}**")
+
 alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
 beta=(alpha*(1-R1))/(R1)
 st.write("alpha = "f"**{alpha:,.3f}**"); st.write("beta = "f"**{beta:,.3f}**"); st.write("n = "f"**{n:,.0f}**")
 #----------------------------------------------------#
 try:
-  alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
-  beta=(alpha*(1-R1))/(R1)
+  alpha=alpha
+  beta=beta
 except ZeroDivisionError as e:
   # st.write("#### Observaciones:")
   # datos de muestra:
@@ -250,8 +252,6 @@ except ZeroDivisionError as e:
            "Mientras tanto, los resultados que ves abajo, se corresponden con valores por defecto.")
 #----------------------------------------------------#
 x = np.arange(1,n+1)
-alphas = alpha
-betas = beta
 #----------------------------------------------------#
 # https://docs.pymc.io/en/v3/api/distributions/discrete-2.py
 # https://docs.scipy.org/doc/scipy/tutorial/stats/discrete_betabinom.html
@@ -260,10 +260,10 @@ def BetaBinom(a, b, n, x):
     return pmf
 
 # eliminar primer elemento de la lista pmf que hace referencia a los individuos no expuestos:
-dc = BetaBinom(alphas, betas, n, x); 
+dc = BetaBinom(alpha, beta, n, x); 
   
-if alphas > 0 and betas > 0 and P > A2:
-  pmf = BetaBinom(alphas, betas, n, x)
+if alpha > 0 and beta > 0 and P > A2:
+  pmf = BetaBinom(alpha, beta, n, x)
 else:
   st.error("Se ha producido un error catastrófico. Los valores alfa y beta generan un error debido a los valores arriba elegidos. "
            "Debes revisar la elección de A1 y A2 o de la población. "
@@ -275,9 +275,9 @@ else:
   A1 = 500000
   A2 = 550000
   P = 1000000
-  alphas = 0.125
-  betas = 0.125
-  pmf = BetaBinom(alphas, betas, n, x)
+  alpha = 0.125
+  beta = 0.125
+  pmf = BetaBinom(alpha, beta, n, x)
   
 # Pi:
 y = pmf * P
