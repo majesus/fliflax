@@ -47,15 +47,6 @@ def create_min_audience_matrix(audience_list):
                 min_audience_matrix[i, j] = min(audience_list[i], audience_list[j])
 
     return min_audience_matrix
-
-#st.write("Introduce el número de medios y de individuos para generar el conjunto de datos y calcular la matriz de correlación Phi:")
-
-#num_media = st.number_input("Número de medios (M):", min_value=1, value=3)
-#num_individuals = st.number_input("Número de individuos:", min_value=100, value=150)
-
-#data = create_dataset(num_media, num_individuals)
-#correlation_matrix_0 = calculate_phi_correlation_matrix(data)
-#st.table(correlation_matrix_0)
 #------------------------------------------#
 #------------------------------------------#
 
@@ -65,9 +56,6 @@ def create_min_audience_matrix(audience_list):
 #------------------------------------------#
 #------------------------------------------#
 #------------------------------------------#
-
-st.title("Correlación Phi entre medios")
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -91,6 +79,9 @@ max_audience = max(A_list)
 min_audience = min(A_list)
 P = st.sidebar.number_input("Población (P)", value=pow(10,5), min_value=max_audience+min_audience)
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
+#----------------------------------------------#
+
+st.title("Correlación Phi entre medios")
 
 data = create_dataset(M, P)
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
@@ -141,12 +132,12 @@ def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
 
     return correlation_matrix
 
-data = create_dataset(M, 150)
-correlation_matrix_0 = calculate_phi_correlation_matrix(data)
-min_audience_matrix = create_min_audience_matrix(A_list)
+#data = create_dataset(M, 150)
+#correlation_matrix_0 = calculate_phi_correlation_matrix(data)
+#min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
-P = 150 # Cambia esto por el valor real de la población
+P = P # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 
 st.table(correlation_matrix_with_Dii)
