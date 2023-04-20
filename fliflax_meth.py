@@ -182,7 +182,7 @@ with st.expander("Duplicaciones"):
             duplication_df.at[j, i] = value
     
     # Redondea los valores de la matriz que sean superiores a 0 y menores que 1 a 1
-    duplication_df = pd.DataFrame(np.where((duplication_df > 0) & (duplication_df < 1), 1, duplication_df))
+    duplication_df = pd.DataFrame(np.where((duplication_df < 1) & (duplication_df > 0), 1, duplication_df))
 
     st.write(duplication_df)
 
