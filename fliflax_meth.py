@@ -90,8 +90,8 @@ correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
-st.table(data.head())
-st.table(correlation_matrix)
+#st.table(data.head())
+#st.table(correlation_matrix)
 #----------------------------------------------#
 
 st.title("BBD - estimación Duplicaciones")
@@ -134,8 +134,8 @@ def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
 
     return correlation_matrix
 
-data = create_dataset(M, P)
-st.table(data.head())
+#data = create_dataset(M, P)
+#st.table(data.head())
 #correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 #min_audience_matrix = create_min_audience_matrix(A_list)
 #correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
@@ -144,7 +144,7 @@ data = data.sample(n=150, random_state=42)
 P = data.shape[0] # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 
-st.table(data.head())
+#st.table(data.head())
 st.table(correlation_matrix_with_Dii)
 
 reach_list = []
@@ -156,7 +156,7 @@ for i in range(data.shape[1]):
     Ai_list.append(Ai)
 
 result_df = pd.DataFrame({'Media': range(1, data.shape[1] + 1), 'Reach': reach_list, 'Ai': Ai_list})
-st.table(result_df)
+#st.table(result_df)
 #----------------------------------------------#
 
 st.title("Duplicaciones propuestas por el usuario")
