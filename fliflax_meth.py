@@ -77,7 +77,7 @@ for i in range(M):
 # Población superior a la mayor de las audiencias, y Precio
 max_audience = max(A_list)
 min_audience = min(A_list)
-P = st.sidebar.number_input("Población (P)", value=pow(10,5), min_value=max_audience+min_audience)
+P = st.sidebar.number_input("Población (P)", value=pow(10,4), min_value=max_audience+min_audience)
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
 
 #----------------------------------------------#
@@ -135,12 +135,12 @@ def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
 
     return correlation_matrix
 
-data = create_dataset(M, 150)
-correlation_matrix_0 = calculate_phi_correlation_matrix(data)
-min_audience_matrix = create_min_audience_matrix(A_list)
-correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
+#data = create_dataset(M, 150)
+#correlation_matrix_0 = calculate_phi_correlation_matrix(data)
+#min_audience_matrix = create_min_audience_matrix(A_list)
+#correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
-P = 150 # Cambia esto por el valor real de la población
+P = 10000 # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 
 st.table(data.head())
