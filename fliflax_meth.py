@@ -135,7 +135,7 @@ def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
     return correlation_matrix
 
 data = create_dataset(M, 150)
-st.table(data)
+st.table(data.head())
 #correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 #min_audience_matrix = create_min_audience_matrix(A_list)
 #correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
