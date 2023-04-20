@@ -128,19 +128,19 @@ def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
 
     for i in range(num_media):
         Dii, reach, Ai = calculate_Dii(data, P, i)
-        st.write(f"Reach para el medio {i + 1}: {reach}")
-        st.write(f"Ai para el medio {i + 1}: {Ai}")
+        #st.write(f"Reach para el medio {i + 1}: {reach}")
+        #st.write(f"Ai para el medio {i + 1}: {Ai}")
 
         correlation_matrix.iat[i, i] = Dii
 
     return correlation_matrix
 
-#data = create_dataset(M, 150)
+data = create_dataset(M, P)
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
-P = P # Cambia esto por el valor real de la población
+#P = P # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 
 st.table(data.head())
