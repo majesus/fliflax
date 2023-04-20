@@ -173,7 +173,8 @@ with st.expander("Duplicaciones"):
             duplication_input.append(st.number_input(f"Duplicación del Medio {i+1} con {j+1}", value=default_value, key=f"{i},{j}"))
 
     duplication_input = iter(duplication_input)
-
+    st.write(duplication_input)
+    
     for i in range(M):
         for j in range(i, M):
             value = next(duplication_input)
