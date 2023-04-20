@@ -312,7 +312,7 @@ st.write("Junto a lo anterior, el valor GRP es igual a", f"**{round(df['Ri'].sum
          "el coste monetario de alcanzar a un 1 % de la población es igual a", f"**{round(Precio * n / (df['Ri'].sum() * 100 / P)):,.0f}**","€. "
          "El valor CPP es el resultado de divir un presupuesto de", f"**{Precio * n:,.0f}**", "€ "
          "y los GRP logrados con la programación de inserciones.")
-st.write('Finalmente, te mostramos los parámetros de forma que obtenemos: alfa: ',f"{alphas:,.3f}",'y beta: ',f"{betas:,.3f}")
+st.write('Finalmente, te mostramos los parámetros de forma que obtenemos: alfa: ',f"{alpha:,.3f}",'y beta: ',f"{beta:,.3f}")
 st.write("A continuación, te ofrecemos un breve resumen de las principales cifras.")
 #----------------------------------------------------#
 st.markdown("""---""")
