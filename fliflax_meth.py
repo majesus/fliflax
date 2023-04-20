@@ -79,11 +79,13 @@ max_audience = max(A_list)
 min_audience = min(A_list)
 P = st.sidebar.number_input("Población (P)", value=pow(10,5), min_value=max_audience+min_audience)
 Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
+
+#----------------------------------------------#
+data = create_dataset(M, P)
 #----------------------------------------------#
 
 st.title("Correlación Phi entre medios")
 
-data = create_dataset(M, P)
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
