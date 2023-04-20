@@ -229,11 +229,11 @@ n = sum(n_list)
 
 st.title("Parámetros y número de inserciones")
 st.write(A1); st.write(A2); st.write(n)
-#----------------------------------------------------#
+
 R1=A1/P;R2=A2/P  
 alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
 beta=(alpha*(1-R1))/(R1)
-st.write(alpha); st.write(beta)
+st.write("alpha = "f"**{alpha:,.0f}**"); st.write("beta = "f"**{beta:,.0f}**"); st.write("n = "f"**{n:,.0f}**")
 #----------------------------------------------------#
 try:
   alpha=((R1)*((R2)-(R1)))/(2*(R1)-(R1)*(R1)-(R2))
