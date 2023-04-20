@@ -58,12 +58,14 @@ st.title("Correlación Phi entre medios")
 #correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 #st.table(correlation_matrix_0)
 #------------------------------------------#
+#------------------------------------------#
+
+#------------------------------------------#
 #M = num_media
 #------------------------------------------#
 #------------------------------------------#
 #------------------------------------------#
 #------------------------------------------#
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -94,7 +96,70 @@ min_audience_matrix = create_min_audience_matrix(A_list)
 correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
 st.table(correlation_matrix)
+#----------------------------------------------#
+import numpy as np
+from scipy import special
+import scipy.stats as stats
 
+def BetaBinom(a, b, n, x):
+    pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
+    return pmf
+
+def calculate_Dii(data, P, i):
+    n = data.shape[0]
+    y = np.sum(data.iloc[:, i] == 1)  # Cambiar esta línea
+
+    p = y / n
+    s2 = p * (1 - p) / n
+    a = p * (p * (1 - p) / s2 - 1)
+    b = (1 - p) * (p * (1 - p) / s2 - 1)
+
+    Ai = y
+    n = 2
+    x = np.array([1, 2])
+    dc = BetaBinom(a, b, n, x)
+    z = dc * P
+    reach = np.sum(z)
+    Dii = 2 * Ai - reach
+
+    return Dii, reach, Ai  # Devolver reach y Ai además de Dii
+
+def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
+    num_media = correlation_matrix.shape[0]
+
+    for i in range(num_media):
+        Dii, reach, Ai = calculate_Dii(data, P, i)
+        st.write(f"Reach para el medio {i + 1}: {reach}")
+        st.write(f"Ai para el medio {i + 1}: {Ai}")
+
+        correlation_matrix.iat[i, i] = Dii
+
+    return correlation_matrix
+
+data = create_dataset(M, 150)
+correlation_matrix_0 = calculate_phi_correlation_matrix(data)
+min_audience_matrix = create_min_audience_matrix(A_list)
+correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
+
+st.table(correlation_matrix)
+
+P = 150 # Cambia esto por el valor real de la población
+correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
+st.table(correlation_matrix)
+
+reach_list = []
+Ai_list = []
+
+for i in range(data.shape[1]):
+    Dii, reach, Ai = calculate_Dii(data, P, i)
+    reach_list.append(reach)
+    Ai_list.append(Ai)
+
+result_df = pd.DataFrame({'Media': range(1, data.shape[1] + 1), 'Reach': reach_list, 'Ai': Ai_list})
+st.table(result_df)
+
+st.table(correlation_matrix)
+#----------------------------------------------#
 # 2) Tabla de duplicaciones del Medio i con i, y el Medio i con j
 
 with st.expander("Duplicaciones"):
