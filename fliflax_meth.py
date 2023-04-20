@@ -140,6 +140,7 @@ st.table(data.head())
 #min_audience_matrix = create_min_audience_matrix(A_list)
 #correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
 
+data = data.sample(n=150, random_state=42)
 P = data.shape[0] # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, P)
 
