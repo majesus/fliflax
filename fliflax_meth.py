@@ -106,30 +106,29 @@ def BetaBinom(a, b, n, x):
 
 def calculate_Dii(data, P, i):
     n = data.shape[0]
-    y = np.sum(data.iloc[:, i] == 1)  # Cambiar esta línea
+    y = np.sum(data.iloc[:, i] == 1)  # Número de 1 en el medio i
 
-    p = y / n
+    p = y / n # Probailidad de exposición en el medio i: número de 1 / número de 1 y 0
     s2 = p * (1 - p) / n
     a = p * (p * (1 - p) / s2 - 1)
     b = (1 - p) * (p * (1 - p) / s2 - 1)
 
-    Ai = y
     n = 2
     x = np.array([1, 2])
     dc = BetaBinom(a, b, n, x)
     z = dc * P
     reach = np.sum(z)
-    Dii = 2 * Ai - reach
+    Dii = 2 * y - reach
 
-    return Dii, reach, Ai  # Devolver reach y Ai además de Dii
+    return Dii, reach, y  # Devolver reach y Ai además de Dii
 
 def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
     num_media = correlation_matrix.shape[0]
 
     for i in range(num_media):
-        Dii, reach, Ai = calculate_Dii(data, P, i)
+        Dii, reach, y = calculate_Dii(data, P, i)
         #st.write(f"Reach para el medio {i + 1}: {reach}")
-        #st.write(f"Ai para el medio {i + 1}: {Ai}")
+        #st.write(f"A1 para el medio {i + 1}: {y}")
 
         correlation_matrix.iat[i, i] = Dii
 
