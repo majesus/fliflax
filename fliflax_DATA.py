@@ -32,34 +32,61 @@ df = df.round(2)
 # Seleccionar los tres soportes con mayor afinidad
 top_3_afinidad = df.nlargest(3, 'Afinidad')
 
-# Función para crear el Radar Chart
-def radar_chart(data, columns, title):
-    num_vars = len(columns)
-    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-    angles += angles[:1]
+# Each attribute we'll plot in the radar chart.
+labels = top_3_afinidad.columns.tolist()
 
-    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+# Number of variables we're plotting.
+num_vars = len(labels)
 
-    for index, row in data.iterrows():
-        values = row[columns].values.flatten().tolist()
-        values += values[:1]
-        ax.plot(angles, values, linewidth=1, linestyle='solid', label=index)
-        ax.fill(angles, values, alpha=0.25)
+# Split the circle into even parts and save the angles
+# so we know where to put each axis.
+angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
 
-    ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(columns)
-    ax.set_yticklabels([])
+# The plot is a circle, so we need to "complete the loop"
+# and append the start value to the end.
+angles += angles[:1]
 
-    ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1), title='Soportes')
-    plt.title(title, size=20, color='blue', y=1.1)
+fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
 
-    return fig
+# Helper function to plot each row on the radar chart.
+def add_to_radar(row, color):
+    values = top_3_afinidad.loc[row].tolist()
+    values += values[:1]
+    ax.plot(angles, values, color=color, linewidth=1, label=row)
+    ax.fill(angles, values, color=color, alpha=0.25)
 
-# Crear el Radar Chart
-variables = ['Afinidad', 'rating', 'GRP', 'Reach_pct', 'CPP']
-chart_title = 'Top 3 Soportes con Mayor Afinidad'
-radar_fig = radar_chart(top_3_afinidad, variables, chart_title)
+# Add each row to the chart using different colors.
+colors = ['#1aaf6c', '#429bf4', '#d42cea']
+for index, color in zip(top_3_afinidad.index, colors):
+    add_to_radar(index, color)
 
-# Mostrar la tabla y el Radar Chart en Streamlit
-st.write(df)
-st.pyplot(radar_fig)
+ax.set_theta_offset(np.pi / 2)
+ax.set_theta_direction(-1)
+
+# Draw axis lines for each angle and label.
+ax.set_thetagrids(np.degrees(angles), labels)
+
+for label, angle in zip(ax.get_xticklabels(), angles):
+    if angle in (0, np.pi):
+        label.set_horizontalalignment('center')
+    elif 0 < angle < np.pi:
+        label.set_horizontalalignment('left')
+    else:
+        label.set_horizontalalignment('right')
+
+ax.set_ylim(0, 100)
+
+ax.set_rlabel_position(180 / num_vars)
+
+ax.tick_params(colors='#222222')
+ax.tick_params(axis='y', labelsize=8)
+ax.grid(color='#AAAAAA')
+ax.spines['polar'].set_color('#222222')
+ax.set_facecolor('#FAFAFA')
+
+ax.set_title('Comparing Top 3 Support by Affinity Across Dimensions', y=1.08)
+
+ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
+
+plt.show()
+
