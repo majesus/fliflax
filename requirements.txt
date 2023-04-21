@@ -26,6 +26,7 @@ snscrape >= 0.3.4
 datetime
 timedelta
 
+plotly
 plotly.express
 
 requests 
