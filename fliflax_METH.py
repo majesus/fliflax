@@ -214,8 +214,10 @@ if M == 1:
 else:
     upper_triangular_matrix = np.triu(multiplication_df)
     total_sum_multiplication_df = np.sum(upper_triangular_matrix)
+    st.write(total_sum_multiplication_df)
     upper_triangular_matrix = np.triu(options_df)
     total_sum_options_df = np.sum(upper_triangular_matrix)
+    st.write(total_sum_options_df)
     D = total_sum_multiplication_df / total_sum_options_df
 
 # 7) Cálculo de C2
