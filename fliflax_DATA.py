@@ -22,6 +22,7 @@ df['rating_target'] = (df['audiencia_target'] * 100) / df['population']
 df['Afinidad'] = df['rating_target'] / df['rating']
 df['impressions'] = df['audiencia'] * df['spots']
 df['GRP'] = (df['impressions'] / df['population']) * 100
+df['TRP'] = (df['impressions'] / df['population']) * 100
 df['CPP'] = df['Precio'] / df['rating']
 df['CPM'] = (df['Precio'] / df['audiencia']) * 1000
 df['Reach_pct'] = 1 - (1 - (df['rating'] / 100))**df['spots']
@@ -29,13 +30,12 @@ df['Reach_personas'] = df['population'] * df['Reach_pct']
 df['Reach_target_pct'] = 1 - (1 - (df['rating_target'] / 100))**df['spots']
 df['Reach_target_personas'] = df['population'] * df['Reach_target_pct']
 
-
 # Seleccionar los tres soportes con mayor afinidad
 top_3_afinidad = df.nlargest(3, 'Afinidad')
 
 # Redondear los valores a 2 decimales
 top_3_afinidad = top_3_afinidad.round(2)
-top_3_afinidad = top_3_afinidad[["rating_target", "Reach_target_pct", "Reach_pct", "spots", "GRP"]]
+top_3_afinidad = top_3_afinidad[["rating_target", "Reach_target_pct", "Reach_pct", "TRP", "GRP"]]
 
 from sklearn.preprocessing import MinMaxScaler
 
