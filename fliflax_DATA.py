@@ -41,52 +41,36 @@ labels = numeric_columns
 # Number of variables we're plotting.
 num_vars = len(labels)
 
-# Split the circle into even parts and save the angles
-# so we know where to put each axis.
-angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
+import plotly.graph_objects as go
 
-# The plot is a circle, so we need to "complete the loop"
-# and append the start value to the end.
-angles += angles[:1]
+# Asegúrate de que el DataFrame `top_3_afinidad` tenga columnas que coincidan con las etiquetas del gráfico de radar.
+# Elimina las columnas que no sean numéricas en `top_3_afinidad` antes de trazar el gráfico de radar.
 
-fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+# Seleccione solo las columnas numéricas
+numeric_columns = top_3_afinidad.select_dtypes(include=[np.number]).columns.tolist()
 
-def add_to_radar(row, color):
-    values = top_3_afinidad.loc[row, numeric_columns].tolist()
-    values += values[:1]
-    ax.plot(angles, values, color=color, linewidth=1, label=row)
-    ax.fill(angles, values, color=color, alpha=0.25)
+# Crea una figura de plotly
+fig = go.Figure()
 
-colors = ['#1aaf6c', '#429bf4', '#d42cea']
-for index, color in zip(top_3_afinidad.index, colors):
-    add_to_radar(index, color)
+# Agrega cada fila al gráfico de radar
+for index in top_3_afinidad.index:
+    fig.add_trace(go.Scatterpolar(
+        r=top_3_afinidad.loc[index, numeric_columns],
+        theta=numeric_columns,
+        fill='toself',
+        name=index
+    ))
 
-ax.set_theta_offset(np.pi / 2)
-ax.set_theta_direction(-1)
+# Establece el diseño del gráfico
+fig.update_layout(
+    polar=dict(
+        radialaxis=dict(
+            visible=True,
+            range=[0, 100]
+        )),
+    showlegend=True,
+    title="Comparing Top 3 Support by Affinity Across Dimensions"
+)
 
-ax.set_xticks(np.degrees(angles))
-ax.set_xticklabels(labels)
-
-for label, angle in zip(ax.get_xticklabels(), angles):
-    if angle in (0, np.pi):
-        label.set_horizontalalignment('center')
-    elif 0 < angle < np.pi:
-        label.set_horizontalalignment('left')
-    else:
-        label.set_horizontalalignment('right')
-
-ax.set_ylim(0, 100)
-
-ax.set_rlabel_position(180 / num_vars)
-
-ax.tick_params(colors='#222222')
-ax.tick_params(axis='y', labelsize=8)
-ax.grid(color='#AAAAAA')
-ax.spines['polar'].set_color('#222222')
-ax.set_facecolor('#FAFAFA')
-
-ax.set_title('Comparing Top 3 Support by Affinity Across Dimensions', y=1.08)
-
-ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
-
-plt.show()
+# Muestra el gráfico en Streamlit
+st.plotly_chart(fig)
