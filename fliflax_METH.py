@@ -410,24 +410,28 @@ st.pyplot(plt.gcf())
 
 
 #----------------------------------------------------#
-# Calcular la intersección entre los medios (filas)
-intersection = df.dot(df.T)
+def jaccard_index(a, b):
+    intersection = (a * b).sum()
+    union = (a + b).clip(upper=1).sum()
+    return intersection / union
 
-# Calcular la audiencia total de cada medio
-audiencia_total = df.sum(axis=1).values
+# Calcular la duplicación en porcentaje usando el índice de Jaccard
+duplicacion = np.zeros((len(df), len(df)))
 
-# Calcular la duplicación en porcentaje
-duplicacion = (intersection / np.minimum(audiencia_total[:, None], audiencia_total[None, :])) * 100
+for i in range(len(df)):
+    for j in range(len(df)):
+        duplicacion[i, j] = jaccard_index(df.iloc[i], df.iloc[j]) * 100
 
 # Crear un DataFrame con la matriz de duplicación
 duplicacion_df = pd.DataFrame(duplicacion, index=df.index, columns=df.index)
 
-st.header("Duplicación entre Medios (Porcentaje)")
+st.header("Duplicación entre Medios (Porcentaje - Índice de Jaccard)")
 st.write(duplicacion_df)
 
 plt.figure(figsize=(12, 8))
 sns.heatmap(duplicacion_df, annot=True, cmap="coolwarm", fmt=".2f")
 st.pyplot(plt.gcf())
+
 
 
 
