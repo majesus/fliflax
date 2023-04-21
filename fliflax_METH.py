@@ -422,12 +422,13 @@ duplicacion = (intersection / np.minimum(audiencia_total[:, None], audiencia_tot
 # Crear un DataFrame con la matriz de duplicación
 duplicacion_df = pd.DataFrame(duplicacion, index=df.index, columns=df.index)
 
-st.header("Duplicación entre Medios (Intersección)")
+st.header("Duplicación entre Medios (Porcentaje)")
 st.write(duplicacion_df)
 
 plt.figure(figsize=(12, 8))
 sns.heatmap(duplicacion_df, annot=True, cmap="coolwarm", fmt=".2f")
 st.pyplot(plt.gcf())
+
 
 
 
