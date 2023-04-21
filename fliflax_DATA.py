@@ -32,8 +32,11 @@ df = df.round(2)
 # Seleccionar los tres soportes con mayor afinidad
 top_3_afinidad = df.nlargest(3, 'Afinidad')
 
+# Seleccione solo las columnas numéricas
+numeric_columns = top_3_afinidad.select_dtypes(include=[np.number]).columns.tolist()
+
 # Each attribute we'll plot in the radar chart.
-labels = top_3_afinidad.columns.tolist()
+labels = numeric_columns
 
 # Number of variables we're plotting.
 num_vars = len(labels)
