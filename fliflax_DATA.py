@@ -30,7 +30,7 @@ df['Reach_personas'] = df['population'] * df['Reach_pct']
 df = df.round(2)
 
 # Seleccionar los tres soportes con mayor afinidad
-top_3_afinidad = df.nlargest(5, 'Afinidad')
+top_3_afinidad = df.nlargest(3, 'Afinidad')
 
 from sklearn.preprocessing import MinMaxScaler
 
