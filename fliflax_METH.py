@@ -424,6 +424,7 @@ st.write(duplicacion)
 plt.figure(figsize=(12, 8))
 sns.heatmap(duplicacion, annot=True, cmap="coolwarm", fmt=".2f")
 st.pyplot(plt.gcf())
+
 #----------------------------------------------------#
 
 
