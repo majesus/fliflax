@@ -43,6 +43,8 @@ top_3_afinidad_normalized = top_3_afinidad.copy()
 top_3_afinidad_normalized[numeric_columns] = scaler.fit_transform(top_3_afinidad[numeric_columns])
 
 # Crea una figura de plotly
+import plotly.graph_objects as go
+
 fig = go.Figure()
 
 # Agrega cada fila al gráfico de radar
