@@ -410,27 +410,64 @@ st.pyplot(plt.gcf())
 
 
 #----------------------------------------------------#
-def jaccard_index(a, b):
-    intersection = (a * b).sum()
-    union = (a + b).clip(upper=1).sum()
-    return intersection / union
+import pandas as pd
+import numpy as np
+import streamlit as st
+import matplotlib.pyplot as plt
 
-# Calcular la duplicación en porcentaje usando el índice de Jaccard
-duplicacion = np.zeros((len(df), len(df)))
+# Función para calcular la intersección y duplicación entre dos medios
+def calculate_intersection_duplication(df, media1, media2):
+    intersection = df[media1].min(df[media2])
+    universe = df[media1].sum() + df[media2].sum() - intersection
 
-for i in range(len(df)):
-    for j in range(len(df)):
-        duplicacion[i, j] = jaccard_index(df.iloc[i], df.iloc[j]) * 100
+    return intersection.sum(), (intersection / universe) * 100
 
-# Crear un DataFrame con la matriz de duplicación
-duplicacion_df = pd.DataFrame(duplicacion, index=df.index, columns=df.index)
+# Solicitar al usuario el número de medios
+num_medios = st.number_input("Ingrese el número de Medios:", min_value=2, value=3)
 
-st.header("Duplicación entre Medios (Porcentaje - Índice de Jaccard)")
-st.write(duplicacion_df)
+# Crear dataset ficticio de Medios
+np.random.seed(42)
+data = np.random.randint(0, 100, size=(7, num_medios))
+media_labels = [f"Medio {i + 1}" for i in range(num_medios)]
 
-plt.figure(figsize=(12, 8))
-sns.heatmap(duplicacion_df, annot=True, cmap="coolwarm", fmt=".2f")
-st.pyplot(plt.gcf())
+df = pd.DataFrame(data, columns=media_labels)
+st.write("Dataset de Medios:")
+st.write(df)
+
+# Calcular intersección y duplicación entre cada par de medios
+intersections = []
+duplications = []
+media_pairs = []
+
+for i in range(num_medios):
+    for j in range(i + 1, num_medios):
+        media1 = media_labels[i]
+        media2 = media_labels[j]
+
+        intersection, duplication = calculate_intersection_duplication(df, media1, media2)
+
+        intersections.append(intersection)
+        duplications.append(duplication)
+        media_pairs.append((media1, media2))
+
+# Guardar resultados        
+results = pd.DataFrame({
+    'Intersection': intersections,
+    'Duplication': duplications 
+}, index=pd.MultiIndex.from_tuples(media_pairs, names=['Media 1', 'Media 2']))
+
+# Graficar 
+fig, ax = plt.subplots(1, 1, figsize=(8, 4))
+results['Duplication'].plot(kind='bar', ax=ax)
+plt.title("Duplicación entre Medios")
+plt.ylabel("Porcentaje de Duplicación")
+
+st.pyplot(fig)
+
+# Mostrar resultados     
+st.write("Resultados de Intersección y Duplicación:")
+st.write(results)
+
 
 
 
