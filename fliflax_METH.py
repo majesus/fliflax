@@ -410,14 +410,14 @@ st.pyplot(plt.gcf())
 
 from sklearn.metrics import pairwise_distances
 
-# Calcular la similitud del coseno entre los medios
+# Calcular la similitud del coseno entre los medios (filas)
 cosine_sim_matrix = pairwise_distances(df, metric="cosine")
 
 # Convertir la matriz de distancia en una matriz de duplicación en porcentaje
 duplicacion = (1 - cosine_sim_matrix) * 100
 
 # Crear un DataFrame con la matriz de duplicación
-duplicacion_df = pd.DataFrame(duplicacion, index=columnas, columns=columnas)
+duplicacion_df = pd.DataFrame(duplicacion, index=df.index, columns=df.index)
 
 st.header("Duplicación entre Medios (Similitud del Coseno)")
 st.write(duplicacion_df)
