@@ -350,3 +350,73 @@ if st.checkbox("Si deseas ver los valores de Pi y Ri alcanzados, marca la casill
 st.markdown("""---""")
 #----------------------------------------------------#
 #----------------------------------------------------#
+#----------------------------------------------------#
+#----------------------------------------------------#
+#----------------------------------------------------#
+#----------------------------------------------------#
+import streamlit as st
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# TAREA 1: Construir una matriz ficticia que respete estos %.
+
+poblacion = {
+    "EDAD": [13.4, 40.8, 45.8],
+    "TAMAÑO": [34.5, 44.3, 21.2],
+    "NIÑOS": [3.6, 7.6, 22.2, 27.9],
+    "OCUPACIÓN": [22.2, 77.9],
+    "CLASE_SOCIAL": [18.9, 38.4, 42.7],
+}
+
+# Streamlit
+st.title("Matriz Ficticia y Correlaciones")
+num_medios = st.number_input("Ingrese el número de medios (M):", min_value=1, value=4, step=1)
+
+# Generar medios ficticios
+np.random.seed(42)  # Para mantener la consistencia en los ejemplos
+medios = np.random.uniform(0, 100, (num_medios, 15))
+
+# Crear DataFrame de la matriz ficticia
+columnas = ['EDAD_A', 'EDAD_B', 'EDAD_C', 'TAMAÑO_A', 'TAMAÑO_B', 'TAMAÑO_C',
+            'NIÑOS_A', 'NIÑOS_B', 'NIÑOS_C', 'NIÑOS_D', 'OCUPACION_A',
+            'OCUPACION_B', 'CLASE_SOCIAL_A', 'CLASE_SOCIAL_B', 'CLASE_SOCIAL_C']
+
+df = pd.DataFrame(medios, columns=columnas, index=[f"M{i + 1}" for i in range(num_medios)])
+
+st.header("Matriz Ficticia")
+st.write(df)
+
+# TAREA 2: Si deseo calcular las correlaciones entre los Medios (M),
+# ¿qué correlación me recomiendas sabiendo que son % que suman 100 por cada bloque?
+
+# Para este caso, utilizaría la correlación de Pearson porque queremos analizar la relación lineal
+# entre los medios (variables continuas).
+
+# TAREA 3: Construir la matriz de correlaciones de los Medios (M) -con el tipo de correlación recomendada-
+# una vez que propongas los valores ficticios en la matriz.
+
+correlation_matrix = df.corr(method='pearson')
+
+st.header("Matriz de Correlaciones (Pearson)")
+st.write(correlation_matrix)
+
+plt.figure(figsize=(12, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
+st.pyplot(plt.gcf())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
