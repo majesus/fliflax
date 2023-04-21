@@ -51,14 +51,12 @@ angles += angles[:1]
 
 fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
 
-# Helper function to plot each row on the radar chart.
 def add_to_radar(row, color):
     values = top_3_afinidad.loc[row, numeric_columns].tolist()
     values += values[:1]
     ax.plot(angles, values, color=color, linewidth=1, label=row)
     ax.fill(angles, values, color=color, alpha=0.25)
 
-# Add each row to the chart using different colors.
 colors = ['#1aaf6c', '#429bf4', '#d42cea']
 for index, color in zip(top_3_afinidad.index, colors):
     add_to_radar(index, color)
@@ -66,8 +64,8 @@ for index, color in zip(top_3_afinidad.index, colors):
 ax.set_theta_offset(np.pi / 2)
 ax.set_theta_direction(-1)
 
-# Draw axis lines for each angle and label.
-ax.set_thetagrids(np.degrees(angles), labels)
+ax.set_xticks(np.degrees(angles))
+ax.set_xticklabels(labels)
 
 for label, angle in zip(ax.get_xticklabels(), angles):
     if angle in (0, np.pi):
@@ -92,4 +90,3 @@ ax.set_title('Comparing Top 3 Support by Affinity Across Dimensions', y=1.08)
 ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
 
 plt.show()
-
