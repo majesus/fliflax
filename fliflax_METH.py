@@ -410,6 +410,24 @@ st.pyplot(plt.gcf())
 
 
 #----------------------------------------------------#
+# Calcular la intersección entre los medios (filas)
+intersection = df.dot(df.T)
+
+# Calcular la audiencia total de cada medio
+audiencia_total = df.sum(axis=1).values
+
+# Calcular la duplicación en porcentaje
+duplicacion = (intersection / np.minimum(audiencia_total[:, None], audiencia_total[None, :])) * 100
+
+# Crear un DataFrame con la matriz de duplicación
+duplicacion_df = pd.DataFrame(duplicacion, index=df.index, columns=df.index)
+
+st.header("Duplicación entre Medios (Intersección)")
+st.write(duplicacion_df)
+
+plt.figure(figsize=(12, 8))
+sns.heatmap(duplicacion_df, annot=True, cmap="coolwarm", fmt=".2f")
+st.pyplot(plt.gcf())
 
 
 
