@@ -33,8 +33,8 @@ df['Reach_target_personas'] = df['population'] * df['Reach_target_pct']
 top_3_afinidad = df.nlargest(3, 'Afinidad')
 
 # Redondear los valores a 2 decimales
-df = df.round(2)
-df = df[["rating_target", "Reach_target_pct", "Reach_pct", "spots", "GRP"]]
+top_3_afinidad = top_3_afinidad.round(2)
+top_3_afinidad = top_3_afinidad[["rating_target", "Reach_target_pct", "Reach_pct", "spots", "GRP"]]
 
 from sklearn.preprocessing import MinMaxScaler
 
