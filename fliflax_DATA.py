@@ -30,6 +30,25 @@ df['Reach_personas'] = df['population'] * df['Reach_pct']
 df['Reach_target_pct'] = 1 - (1 - (df['rating_target'] / 100))**df['spots']
 df['Reach_target_personas'] = df['population'] * df['Reach_target_pct']
 
+#------------------------------------------------------#
+
+import seaborn as sns
+
+# Calcular la matriz de correlación
+corr_matrix = df.corr()
+
+# Visualizar la matriz de correlación con un mapa de calor
+plt.figure(figsize=(12, 8))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt='.2f')
+
+# Agregar título al gráfico
+plt.title('Correlation Matrix')
+
+# Mostrar el gráfico en Streamlit
+st.pyplot(plt.gcf())
+
+#------------------------------------------------------#
+
 # Seleccionar los tres soportes con mayor afinidad
 top_3_afinidad = df.nlargest(5, 'Afinidad')
 
@@ -46,6 +65,8 @@ numeric_columns = top_3_afinidad.select_dtypes(include=[np.number]).columns.toli
 scaler = MinMaxScaler(feature_range=(0, 100))
 top_3_afinidad_normalized = top_3_afinidad.copy()
 top_3_afinidad_normalized[numeric_columns] = scaler.fit_transform(top_3_afinidad[numeric_columns])
+
+#------------------------------------------------------#
 
 # Crea una figura de plotly
 import plotly.graph_objects as go
