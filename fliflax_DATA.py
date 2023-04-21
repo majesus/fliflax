@@ -31,7 +31,7 @@ df['Reach_target_pct'] = 1 - (1 - (df['rating_target'] / 100))**df['spots']
 df['Reach_target_personas'] = df['population'] * df['Reach_target_pct']
 
 # Seleccionar los tres soportes con mayor afinidad
-top_3_afinidad = df.nlargest(3, 'Afinidad')
+top_3_afinidad = df.nlargest(5, 'Afinidad')
 
 # Redondear los valores a 2 decimales
 top_3_afinidad = top_3_afinidad.round(2)
