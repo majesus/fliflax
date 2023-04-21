@@ -410,7 +410,7 @@ st.pyplot(plt.gcf())
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Calcular la similitud del coseno entre los medios
-cosine_sim_matrix = cosine_similarity(df.T)
+cosine_sim_matrix = cosine_similarity(df)
 
 # Convertir la matriz de similitud del coseno en un DataFrame
 cosine_sim_df = pd.DataFrame(cosine_sim_matrix, index=columnas, columns=columnas)
