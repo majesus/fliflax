@@ -5,11 +5,11 @@ import streamlit as st
 
 # Datos ficticios de ejemplo
 data = {
-    'population': [10000, 20000, 15000, 25000, 12000],
+    'population': [10000, 10000, 10000, 10000, 10000],
     'audiencia': [500, 1500, 1200, 800, 600],
     'indice_utilidad': [0.8, 0.4, 0.7, 0.4, 0.3],
     'spots': [10, 20, 15, 25, 12],
-    'Precio': [2000, 5000, 4000, 6000, 3000]
+    'Precio': [2000, 5000, 4000, 3000, 2200]
 }
 
 # Crear el DataFrame
