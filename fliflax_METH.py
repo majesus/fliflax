@@ -388,24 +388,6 @@ df = pd.DataFrame(medios, columns=columnas, index=[f"M{i + 1}" for i in range(nu
 st.header("Matriz Ficticia")
 st.write(df)
 
-# TAREA 2: Si deseo calcular las correlaciones entre los Medios (M),
-# ¿qué correlación me recomiendas sabiendo que son % que suman 100 por cada bloque?
-
-# Para este caso, utilizaría la correlación de Pearson porque queremos analizar la relación lineal
-# entre los medios (variables continuas).
-
-# TAREA 3: Construir la matriz de correlaciones de los Medios (M) -con el tipo de correlación recomendada-
-# una vez que propongas los valores ficticios en la matriz.
-
-correlation_matrix = df.T.corr(method='pearson')
-
-st.header("Matriz de Correlaciones entre Medios (Pearson)")
-st.write(correlation_matrix)
-
-plt.figure(figsize=(12, 8))
-sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
-st.pyplot(plt.gcf())
-
 #----------------------------------------------------#
 
 from sklearn.metrics import pairwise_distances
