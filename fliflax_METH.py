@@ -212,7 +212,11 @@ C1 = sum(np.array(A_list) * np.array(n_list)) / sum(n_list)
 if M == 1:
     D = duplication_df.at[0, 0]
 else:
-    D = np.triu(multiplication_df).sum() / np.triu(options_df).sum()
+    upper_triangular_matrix = np.triu(multiplication_df)
+    total_sum_multiplication_df = np.sum(upper_triangular_matrix)
+    upper_triangular_matrix = np.triu(options_df)
+    total_sum_options_df = np.sum(upper_triangular_matrix)
+    D = total_sum_multiplication_df / total_sum_options_df
 
 # 7) Cálculo de C2
 C2 = 2 * C1 - D
