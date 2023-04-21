@@ -7,7 +7,7 @@ import streamlit as st
 data = {
     'population': [10000, 20000, 15000, 25000, 12000],
     'audiencia': [500, 1500, 1200, 800, 600],
-    'audiencia_target': [400, 1200, 1000, 700, 500],
+    'indice_utilidad': [0.8, 0.4, 0.7, 0.4, 0.3],
     'spots': [10, 20, 15, 25, 12],
     'Precio': [2000, 5000, 4000, 6000, 3000]
 }
@@ -16,6 +16,7 @@ data = {
 df = pd.DataFrame(data)
 
 # Calcular las columnas adicionales
+df['audiencia_target'] = df['audiencia'] * df['indice_utilidad']
 df['rating'] = (df['audiencia'] * 100) / df['population']
 df['rating_target'] = (df['audiencia_target'] * 100) / df['population']
 df['Afinidad'] = df['rating_target'] / df['rating']
