@@ -71,14 +71,14 @@ A_list = []
 n_list = []
 
 for i in range(M):
-    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 1, 1000, 10))
+    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 1, 10000, 10))
     n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 10, 1))
 
 # Población superior a la mayor de las audiencias, y Precio
 max_audience = max(A_list)
 min_audience = min(A_list)
 P = st.sidebar.number_input("Población (P)", value=pow(10,4), min_value=max_audience+min_audience)
-Precio = st.sidebar.number_input("Precio", value=5000, min_value=1000, max_value = 10000)
+Precio = st.sidebar.number_input("Precio", value=20000, min_value=1000, max_value = 100000)
 
 #----------------------------------------------#
 data = create_dataset(M, P)
