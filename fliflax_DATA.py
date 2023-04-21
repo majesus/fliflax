@@ -53,7 +53,7 @@ fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
 
 # Helper function to plot each row on the radar chart.
 def add_to_radar(row, color):
-    values = top_3_afinidad.loc[row].tolist()
+    values = top_3_afinidad.loc[row, numeric_columns].tolist()
     values += values[:1]
     ax.plot(angles, values, color=color, linewidth=1, label=row)
     ax.fill(angles, values, color=color, alpha=0.25)
