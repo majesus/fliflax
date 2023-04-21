@@ -397,15 +397,14 @@ st.write(df)
 # TAREA 3: Construir la matriz de correlaciones de los Medios (M) -con el tipo de correlación recomendada-
 # una vez que propongas los valores ficticios en la matriz.
 
-correlation_matrix = df.corr(method='pearson')
+correlation_matrix = df.T.corr(method='pearson')
 
-st.header("Matriz de Correlaciones (Pearson)")
+st.header("Matriz de Correlaciones entre Medios (Pearson)")
 st.write(correlation_matrix)
 
 plt.figure(figsize=(12, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
 st.pyplot(plt.gcf())
-
 
 
 
