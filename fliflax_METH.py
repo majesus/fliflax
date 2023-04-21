@@ -411,41 +411,63 @@ st.pyplot(plt.gcf())
 
 #----------------------------------------------------#
 import pandas as pd
+import numpy as np
+import streamlit as st
 import matplotlib.pyplot as plt
 
-# Crear dataset ficticio
-df = pd.DataFrame({
-    'TV': [50, 70, 40, 50, 90, 60, 30], 
-    'Radio': [30, 50, 20, 40, 70, 80, 20],
-    'Prensa': [20, 40, 30, 30, 50, 60, 10]
-})
+# Función para calcular la intersección y duplicación entre dos medios
+def calculate_intersection_duplication(df, media1, media2):
+    intersection = np.minimum(df[media1], df[media2])
+    universe = df[media1].sum() + df[media2].sum() - intersection.sum()
+
+    return intersection.sum(), (intersection.sum() / universe) * 100
+
+# Solicitar al usuario el número de medios
+num_medios = st.number_input("Ingrese el número de Medios:", min_value=2, value=3)
+
+# Crear dataset ficticio de Medios
+np.random.seed(42)
+data = np.random.randint(0, 100, size=(7, num_medios))
+media_labels = [f"Medio {i + 1}" for i in range(num_medios)]
+
+df = pd.DataFrame(data, columns=media_labels)
+st.write("Dataset de Medios:")
+st.write(df)
 
 # Calcular intersección y duplicación entre cada par de medios
 intersections = []
 duplications = []
+media_pairs = []
 
-for i in df.columns:
-    for j in df.columns:
-        if i != j:
-            intersection = df[i].min(df[j])
-            intersections.append(intersection.sum())
-            
-            universe = df[i].sum() + df[j].sum() - intersection
-            duplications.append((intersection/universe) * 100)
+for i in range(num_medios):
+    for j in range(i + 1, num_medios):
+        media1 = media_labels[i]
+        media2 = media_labels[j]
+
+        intersection, duplication = calculate_intersection_duplication(df, media1, media2)
+
+        intersections.append(intersection)
+        duplications.append(duplication)
+        media_pairs.append((media1, media2))
 
 # Guardar resultados        
 results = pd.DataFrame({
     'Intersection': intersections,
     'Duplication': duplications 
-}, index=[['TV', 'Radio'], ['TV', 'Prensa'], ['Radio', 'Prensa']])
+}, index=pd.MultiIndex.from_tuples(media_pairs, names=['Media 1', 'Media 2']))
 
 # Graficar 
 fig, ax = plt.subplots(1, 1, figsize=(8, 4))
 results['Duplication'].plot(kind='bar', ax=ax)
+plt.title("Duplicación entre Medios")
+plt.ylabel("Porcentaje de Duplicación")
+
+st.pyplot(fig)
 
 # Mostrar resultados     
-plt.show()
-print(results)
+st.write("Resultados de Intersección y Duplicación:")
+st.write(results)
+
 
 
 
