@@ -407,26 +407,25 @@ sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
 st.pyplot(plt.gcf())
 
 #----------------------------------------------------#
-import numpy as np
 
-# Calcular la audiencia compartida entre cada par de medios
-audiencia_compartida = np.minimum(df.values[:, :, None], df.values[:, None, :]).sum(axis=0)
+from sklearn.metrics import pairwise_distances
 
-# Calcular la audiencia total de cada medio
-audiencia_total = df.sum(axis=1).values
+# Calcular la similitud del coseno entre los medios
+cosine_sim_matrix = pairwise_distances(df.T, metric="cosine")
 
-# Calcular la duplicación en porcentaje
-duplicacion = (audiencia_compartida / np.minimum(audiencia_total[:, None], audiencia_total[None, :])) * 100
+# Convertir la matriz de distancia en una matriz de duplicación en porcentaje
+duplicacion = (1 - cosine_sim_matrix) * 100
 
 # Crear un DataFrame con la matriz de duplicación
-duplicacion_df = pd.DataFrame(duplicacion, index=df.index, columns=df.index)
+duplicacion_df = pd.DataFrame(duplicacion, index=columnas, columns=columnas)
 
-st.header("Duplicación entre Medios")
+st.header("Duplicación entre Medios (Similitud del Coseno)")
 st.write(duplicacion_df)
 
 plt.figure(figsize=(12, 8))
 sns.heatmap(duplicacion_df, annot=True, cmap="coolwarm", fmt=".2f")
 st.pyplot(plt.gcf())
+
 
 #----------------------------------------------------#
 
