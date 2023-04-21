@@ -30,32 +30,25 @@ df['Reach_personas'] = df['population'] * df['Reach_pct']
 df = df.round(2)
 
 # Seleccionar los tres soportes con mayor afinidad
-top_3_afinidad = df.nlargest(3, 'Afinidad')
+top_3_afinidad = df.nlargest(5, 'Afinidad')
 
-# Seleccione solo las columnas numéricas
+from sklearn.preprocessing import MinMaxScaler
+
+# Selecciona solo las columnas numéricas
 numeric_columns = top_3_afinidad.select_dtypes(include=[np.number]).columns.tolist()
 
-# Each attribute we'll plot in the radar chart.
-labels = numeric_columns
-
-# Number of variables we're plotting.
-num_vars = len(labels)
-
-import plotly.graph_objects as go
-
-# Asegúrate de que el DataFrame `top_3_afinidad` tenga columnas que coincidan con las etiquetas del gráfico de radar.
-# Elimina las columnas que no sean numéricas en `top_3_afinidad` antes de trazar el gráfico de radar.
-
-# Seleccione solo las columnas numéricas
-numeric_columns = top_3_afinidad.select_dtypes(include=[np.number]).columns.tolist()
+# Normaliza las columnas numéricas a un rango de 0 a 100
+scaler = MinMaxScaler(feature_range=(0, 100))
+top_3_afinidad_normalized = top_3_afinidad.copy()
+top_3_afinidad_normalized[numeric_columns] = scaler.fit_transform(top_3_afinidad[numeric_columns])
 
 # Crea una figura de plotly
 fig = go.Figure()
 
 # Agrega cada fila al gráfico de radar
-for index in top_3_afinidad.index:
+for index in top_3_afinidad_normalized.index:
     fig.add_trace(go.Scatterpolar(
-        r=top_3_afinidad.loc[index, numeric_columns],
+        r=top_3_afinidad_normalized.loc[index, numeric_columns],
         theta=numeric_columns,
         fill='toself',
         name=index
