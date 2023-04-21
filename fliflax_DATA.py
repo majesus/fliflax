@@ -28,12 +28,13 @@ df['Reach_personas'] = df['population'] * df['Reach_pct']
 df['Reach_target_pct'] = 1 - (1 - (df['rating_target'] / 100))**df['spots']
 df['Reach_target_personas'] = df['population'] * df['Reach_target_pct']
 
-# Redondear los valores a 2 decimales
-df = df.round(2)
-df = df[["rating_target", "Reach_target_pct", "Reach_pct", "spots", "GRP"]]
 
 # Seleccionar los tres soportes con mayor afinidad
 top_3_afinidad = df.nlargest(3, 'Afinidad')
+
+# Redondear los valores a 2 decimales
+df = df.round(2)
+df = df[["rating_target", "Reach_target_pct", "Reach_pct", "spots", "GRP"]]
 
 from sklearn.preprocessing import MinMaxScaler
 
