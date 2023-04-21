@@ -413,7 +413,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 cosine_sim_matrix = cosine_similarity(df.T)
 
 # Convertir la matriz de similitud del coseno en un DataFrame
-cosine_sim_df = pd.DataFrame(cosine_sim_matrix, index=df.index, columns=df.index)
+cosine_sim_df = pd.DataFrame(cosine_sim_matrix, index=columnas, columns=columnas)
 
 # Calcular la duplicación en porcentaje
 duplicacion = cosine_sim_df * 100
@@ -424,7 +424,6 @@ st.write(duplicacion)
 plt.figure(figsize=(12, 8))
 sns.heatmap(duplicacion, annot=True, cmap="coolwarm", fmt=".2f")
 st.pyplot(plt.gcf())
-
 #----------------------------------------------------#
 
 
