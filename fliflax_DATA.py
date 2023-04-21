@@ -58,7 +58,8 @@ for index in top_3_afinidad_normalized.index:
         r=top_3_afinidad_normalized.loc[index, numeric_columns],
         theta=numeric_columns,
         fill='toself',
-        name=index
+        name=index,
+        opacity=0.4
     ))
 
 # Establece el diseño del gráfico
@@ -69,7 +70,7 @@ fig.update_layout(
             range=[0, 100]
         )),
     showlegend=True,
-    title="Comparing Top 3 Support by Affinity Across Dimensions"
+    title="Comparing Top Support by Affinity Across Dimensions"
 )
 
 # Muestra el gráfico en Streamlit
