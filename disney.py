@@ -2,7 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-import streamlit
+import streamlit as st
+
 base_url = "https://www.tripadvisor.es/Attraction_Review-g226865-d189258-Reviews"
 suffix = "Disneyland_Paris-Marne_la_Vallee_Seine_et_Marne_Ile_de_France.html"
 pages = ["", "-or10-"]
@@ -15,11 +16,8 @@ for page in pages:
     st.write('suffix:', suffix)
     st.write('Full URL:', base_url + page + suffix)
 
-    headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-    }
-    response = requests.get(base_url + page + suffix, headers=headers)
-
+    response = requests.get(base_url + page + suffix)
+    st.write('Response status code:', response.status_code)
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
