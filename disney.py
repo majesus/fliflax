@@ -10,7 +10,7 @@ pages = ["", "or10"]
 all_reviews = []
 
 for page in pages:
-    print(f'Scraping page: {base_url + page + suffix}')
+    st.write(f'Scraping page: {base_url + page + suffix}')
     response = requests.get(base_url + page + suffix)
 
     if response.status_code == 200:
