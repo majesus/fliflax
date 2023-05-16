@@ -32,4 +32,4 @@ df = pd.DataFrame(all_reviews, columns=['name', 'contributions', 'rating', 'revi
 # Save to Google Drive
 df.to_csv('/content/drive/MyDrive/Colab Notebooks/ACIEK_2023/DISNEY.csv', index=False)
 
-st.write(df.head()))
+st.write(df.head())
