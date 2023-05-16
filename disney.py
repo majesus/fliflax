@@ -3,9 +3,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 import streamlit
-base_url = "https://www.tripadvisor.es/Attraction_Review-g226865-d189258-Reviews-"
-suffix = "-Disneyland_Paris-Marne_la_Vallee_Seine_et_Marne_Ile_de_France.html"
-pages = ["", "or10"]
+base_url = "https://www.tripadvisor.es/Attraction_Review-g226865-d189258-Reviews"
+suffix = "Disneyland_Paris-Marne_la_Vallee_Seine_et_Marne_Ile_de_France.html"
+pages = ["", "-or10-"]
 
 all_reviews = []
 
