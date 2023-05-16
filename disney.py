@@ -10,7 +10,11 @@ pages = ["", "-or10-"]
 all_reviews = []
 
 for page in pages:
-    st.write(f'Scraping page: {base_url + page + suffix}')
+    st.write('base_url:', base_url)
+    st.write('page:', page)
+    st.write('suffix:', suffix)
+    st.write('Full URL:', base_url + page + suffix)
+
     headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
