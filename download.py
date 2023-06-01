@@ -7,7 +7,7 @@ GITHUB_BRANCH = 'master'
 DIR_NAME = 'csv'
 
 # Lista de archivos PDF
-pdf_files = ['zhu_.pdf','zervas.pdf','vermeulen_seegers.pdf']  # Actualizar con los nombres reales de los archivos
+pdf_files = ['zhu_.pdf','zervas.pdf','vemeulen_seegers.pdf']  # Actualizar con los nombres reales de los archivos
 
 # Crear una lista de enlaces para descargar los archivos PDF
 for file in pdf_files:
