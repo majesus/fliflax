@@ -229,7 +229,7 @@ A2 = C2_rounded
 n = sum(n_list)
 
 st.title("Parámetros y número de inserciones")
-st.write("P = "f"**{P:,.3f}**"); st.write("A1 = "f"**{A1:,.3f}**"); st.write("A2 = "f"**{A2:,.3f}**")
+st.write("P = "f"**{P:,.3f}**"); st.write("A1 = "f"**{A1:,.3f}**"); st.write("A2 = "f"**{A2:,.3f}**"); st.write("D = "f"**{D:,.3f}**")
 
 R1=A1/P;R2=A2/P  
 st.write("R1 = "f"**{R1:,.3f}**"); st.write("R2 = "f"**{R2:,.3f}**")
