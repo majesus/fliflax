@@ -64,15 +64,15 @@ from scipy import special
 
 # 1) Sliders para Ai, ni y P
 st.sidebar.header("Configuración de parámetros")
-M = st.sidebar.number_input("Número de medios (M)", 1, 5, 3)
+M = st.sidebar.slider("Número de medios (M)", 1, 5, 3)
 
 # Inicializar listas para almacenar Ai y ni
 A_list = []
 n_list = []
 
 for i in range(M):
-    A_list.append(st.sidebar.slider(f"Audiencia del Medio {i+1} (A{i+1})", 1, 10000, 10))
-    n_list.append(st.sidebar.slider(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 10, 1))
+    A_list.append(st.sidebar.number_input(f"Audiencia del Medio {i+1} (A{i+1})", 1, 10000, 10))
+    n_list.append(st.sidebar.number_input(f"Inserciones en el Medio {i+1} (n{i+1})", 0, 10, 1))
 
 # Población superior a la mayor de las audiencias, y Precio
 max_audience = max(A_list)
