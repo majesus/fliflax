@@ -64,7 +64,7 @@ from scipy import special
 
 # 1) Sliders para Ai, ni y P
 st.sidebar.header("Configuración de parámetros")
-M = st.sidebar.slider("Número de medios (M)", 1, 5, 3)
+M = st.sidebar.number_input("Número de medios (M)", 1, 5, 3)
 
 # Inicializar listas para almacenar Ai y ni
 A_list = []
