@@ -94,69 +94,6 @@ correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audienc
 #st.table(correlation_matrix)
 #----------------------------------------------#
 
-st.title("BBD - estimación Duplicaciones")
-
-import numpy as np
-from scipy import special
-import scipy.stats as stats
-
-def BetaBinom(a, b, n, x):
-    pmf = special.binom(n, x) * (special.beta(x+a, n-x+b) / special.beta(a, b))
-    return pmf
-
-def calculate_Dii(data, P, i):
-    n = data.shape[0]
-    y = np.sum(data.iloc[:, i] == 1)  # Número de 1 en el medio i
-
-    p = y / n # Probailidad de exposición en el medio i: número de 1 / número de 1 y 0
-    s2 = p * (1 - p) / n
-    a = p * (p * (1 - p) / s2 - 1)
-    b = (1 - p) * (p * (1 - p) / s2 - 1)
-
-    n = 2
-    x = np.array([1, 2])
-    dc = BetaBinom(a, b, n, x)
-    z = dc * P
-    reach = np.sum(z)
-    Dii = 2 * y - reach
-
-    return Dii, reach, y  # Devolver reach y Ai además de Dii
-
-def update_correlation_matrix_with_Dii(correlation_matrix, data, P):
-    num_media = correlation_matrix.shape[0]
-
-    for i in range(num_media):
-        Dii, reach, y = calculate_Dii(data, P, i)
-        #st.write(f"Reach para el medio {i + 1}: {reach}")
-        #st.write(f"A1 para el medio {i + 1}: {y}")
-
-        correlation_matrix.iat[i, i] = Dii
-
-    return correlation_matrix
-
-#data = create_dataset(M, P)
-#st.table(data.head())
-#correlation_matrix_0 = calculate_phi_correlation_matrix(data)
-#min_audience_matrix = create_min_audience_matrix(A_list)
-#correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audience_matrix)
-
-data = data.sample(n=150, random_state=42)
-POB = data.shape[0] # Cambia esto por el valor real de la población
-correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, POB)
-
-#st.table(data.head())
-st.table(correlation_matrix_with_Dii)
-
-reach_list = []
-Ai_list = []
-
-for i in range(data.shape[1]):
-    Dii, reach, Ai = calculate_Dii(data, POB, i)
-    reach_list.append(reach)
-    Ai_list.append(Ai)
-
-result_df = pd.DataFrame({'Media': range(1, data.shape[1] + 1), 'Reach': reach_list, 'Ai': Ai_list})
-#st.table(result_df)
 #----------------------------------------------#
 
 st.title("Duplicaciones propuestas por el usuario")
