@@ -144,7 +144,10 @@ POB = data.shape[0] # Cambia esto por el valor real de la población
 correlation_matrix_with_Dii = update_correlation_matrix_with_Dii(correlation_matrix, data, POB)
 
 #st.table(data.head())
-st.table(correlation_matrix_with_Dii)
+
+#*******************
+#st.table(correlation_matrix_with_Dii)
+#*******************
 
 reach_list = []
 Ai_list = []
