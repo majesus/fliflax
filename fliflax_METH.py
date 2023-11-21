@@ -83,7 +83,7 @@ Precio = st.sidebar.number_input("Precio", value=20000, min_value=1000, max_valu
 data = create_dataset(M, P)
 #----------------------------------------------#
 
-st.title("Correlación Phi entre medios")
+#st.title("Correlación Phi entre medios")
 
 correlation_matrix_0 = calculate_phi_correlation_matrix(data)
 min_audience_matrix = create_min_audience_matrix(A_list)
@@ -93,7 +93,7 @@ correlation_matrix = adjust_correlation_matrix(correlation_matrix_0, min_audienc
 #st.table(correlation_matrix)
 #----------------------------------------------#
 
-st.title("BBD - estimación Duplicaciones")
+#st.title("BBD - estimación Duplicaciones")
 
 import numpy as np
 from scipy import special
